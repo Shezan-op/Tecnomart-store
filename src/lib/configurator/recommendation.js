@@ -74,13 +74,17 @@ export const stepsOrder = [
   'cpu', 'gpu', 'motherboard', 'memory', 'storage', 'psu', 'cooling', 'cabinet', 'monitor'
 ];
 
+export function getTargetSteps(buildType) {
+  return buildType === 'complete-setup' 
+    ? stepsOrder 
+    : stepsOrder.filter(s => s !== 'monitor');
+}
+
 export function generateRecommendedBuild(buildState) {
   const newState = { ...buildState, selections: { ...buildState.selections } };
   
   // We only run through the steps relevant to the build type
-  const targetSteps = buildState.buildType === 'complete-setup' 
-    ? stepsOrder 
-    : stepsOrder.filter(s => s !== 'monitor');
+  const targetSteps = getTargetSteps(buildState.buildType);
 
   for (const step of targetSteps) {
     // Re-resolve state dynamically so upstream choices affect downstream choices

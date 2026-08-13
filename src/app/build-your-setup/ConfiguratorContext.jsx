@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect, useMemo } from 'react';
 import { initialBuildState, saveBuildState, loadBuildState, clearBuildState } from '../../lib/configurator/state';
 import { generateRecommendedBuild } from '../../lib/configurator/recommendation';
 import { calculateTotal } from '../../lib/configurator/whatsapp';
@@ -84,21 +84,23 @@ export function ConfiguratorProvider({ children }) {
 
   const totalINR = calculateTotal(buildState.selections);
 
+  const contextValue = useMemo(() => ({
+    buildState,
+    isLoaded,
+    totalINR,
+    updateBuildType,
+    updatePriority,
+    updateGoal,
+    updateSelection,
+    setMode,
+    nextStep,
+    prevStep,
+    jumpToStep,
+    resetBuild
+  }), [buildState, isLoaded, totalINR]);
+
   return (
-    <ConfiguratorContext.Provider value={{
-      buildState,
-      isLoaded,
-      totalINR,
-      updateBuildType,
-      updatePriority,
-      updateGoal,
-      updateSelection,
-      setMode,
-      nextStep,
-      prevStep,
-      jumpToStep,
-      resetBuild
-    }}>
+    <ConfiguratorContext.Provider value={contextValue}>
       {children}
     </ConfiguratorContext.Provider>
   );

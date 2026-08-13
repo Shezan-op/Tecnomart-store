@@ -314,3 +314,28 @@
   outline: none;
   border-color: #475bff;
 }
+
+/* Header & Back Button */
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 1rem;
+}
+
+.backToStoreBtn {
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  border: 1px solid rgba(255,255,255,0.1);
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.backToStoreBtn:hover {
+  background: rgba(71, 91, 255, 0.2);
+  border-color: #475bff;
+}

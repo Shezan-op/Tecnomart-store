@@ -1,9 +1,10 @@
 "use client";
 import React, { useState } from 'react';
 import { useConfigurator } from './ConfiguratorContext';
-import { stepsOrder } from '../../lib/configurator/recommendation';
+import { stepsOrder, getTargetSteps } from '../../lib/configurator/recommendation';
 import { getOptionsForCategory } from '../../lib/configurator/compatibility';
 import { generateNormalizedPayload, generateWhatsAppLink } from '../../lib/configurator/whatsapp';
+import Link from 'next/link';
 import styles from './ConfiguratorUI.module.css';
 
 export default function ConfiguratorUI() {
@@ -23,30 +24,36 @@ export default function ConfiguratorUI() {
   // Step N+1: Final Form
 
   const currentStep = buildState.stepIndex;
+  
+  // Calculate dynamically how many steps we actually have based on buildType
+  const targetSteps = buildState.buildType ? getTargetSteps(buildState.buildType) : stepsOrder;
 
   return (
     <div className={styles.container}>
+      <div className={styles.header}>
+        <Link href="/" className={styles.backToStoreBtn}>&larr; Back to Store</Link>
+      </div>
       <div className={styles.mainArea}>
         {currentStep === 0 && <StepBuildType onSelect={updateBuildType} />}
         {currentStep === 1 && <StepPriority onSelect={updatePriority} onBack={prevStep} />}
         {currentStep === 2 && <StepGoal buildType={buildState.buildType} onSelect={updateGoal} onBack={prevStep} />}
         
-        {currentStep >= 3 && currentStep < 3 + stepsOrder.length && (
+        {currentStep >= 3 && currentStep < 3 + targetSteps.length && (
           <ComponentStep 
-            stepName={stepsOrder[currentStep - 3]} 
+            stepName={targetSteps[currentStep - 3]} 
             onNext={nextStep} 
             onBack={prevStep}
           />
         )}
 
-        {currentStep === 3 + stepsOrder.length && (
+        {currentStep === 3 + targetSteps.length && (
           <FinalForm onBack={prevStep} />
         )}
       </div>
 
-      {currentStep > 2 && currentStep <= 3 + stepsOrder.length && (
+      {currentStep > 2 && currentStep <= 3 + targetSteps.length && (
         <div className={styles.sidebar}>
-          <BuildSummary />
+          <BuildSummary targetSteps={targetSteps} />
         </div>
       )}
     </div>
@@ -136,13 +143,6 @@ function StepGoal({ buildType, onSelect, onBack }) {
 
 function ComponentStep({ stepName, onNext, onBack }) {
   const { buildState, updateSelection, setMode } = useConfigurator();
-  
-  // If complete-setup, show monitor. Otherwise, skip monitor step automatically
-  if (stepName === 'monitor' && buildState.buildType !== 'complete-setup') {
-    // React trick to auto-skip in render cycle if not needed
-    setTimeout(onNext, 0); 
-    return null;
-  }
 
   // Find the valid options for this category
   // Convert state selections back to items for compatibility check
@@ -187,17 +187,17 @@ function ComponentStep({ stepName, onNext, onBack }) {
           {displayOptions.map(item => {
             const isSelected = selectedItem?.id === item.id;
             return (
-              <div 
+              <button 
                 key={item.id} 
                 className={`${styles.compCard} ${isSelected ? styles.compSelected : ''}`}
                 onClick={() => handleSelect(item)}
+                type="button"
               >
                 <div className={styles.compBadge}>{item.performanceTier}</div>
                 <h4>{item.brand} {item.name}</h4>
                 <p className={styles.compLabel}>{item.customerLabel}</p>
                 <p className={styles.compDesc}>{item.shortDescription}</p>
-                {/* Price hidden per requirement until summary, but maybe show +$ difference? For now hidden. */}
-              </div>
+              </button>
             );
           })}
         </div>
@@ -217,7 +217,7 @@ function ComponentStep({ stepName, onNext, onBack }) {
   );
 }
 
-function BuildSummary() {
+function BuildSummary({ targetSteps }) {
   const { buildState, totalINR } = useConfigurator();
   const { selections } = buildState;
 
@@ -225,9 +225,8 @@ function BuildSummary() {
     <div className={styles.summaryBox}>
       <h3>Your Build</h3>
       <div className={styles.summaryList}>
-        {stepsOrder.map(cat => {
+        {targetSteps.map(cat => {
           const item = selections[cat];
-          if (!item && cat === 'monitor' && buildState.buildType !== 'complete-setup') return null;
           return (
             <div key={cat} className={styles.summaryItem}>
               <span className={styles.summaryCat}>{cat.toUpperCase()}</span>
@@ -259,7 +258,7 @@ function FinalForm({ onBack }) {
     
     // Redirect to WhatsApp
     const waLink = generateWhatsAppLink(payload);
-    window.open(waLink, '_blank');
+    window.open(waLink, '_blank', 'noopener,noreferrer');
     
     // Reset for next
     resetBuild();
@@ -272,24 +271,24 @@ function FinalForm({ onBack }) {
       
       <form onSubmit={handleSubmit} className={styles.form}>
         <div className={styles.inputGroup}>
-          <label>Full Name</label>
-          <input required type="text" name="fullName" value={formData.fullName} onChange={handleChange} />
+          <label htmlFor="fullName">Full Name</label>
+          <input required id="fullName" type="text" name="fullName" value={formData.fullName} onChange={handleChange} />
         </div>
         <div className={styles.inputGroup}>
-          <label>WhatsApp Number</label>
-          <input required type="tel" name="phone" value={formData.phone} onChange={handleChange} />
+          <label htmlFor="phone">WhatsApp Number</label>
+          <input required id="phone" type="tel" name="phone" value={formData.phone} onChange={handleChange} />
         </div>
         <div className={styles.inputGroup}>
-          <label>Email</label>
-          <input required type="email" name="email" value={formData.email} onChange={handleChange} />
+          <label htmlFor="email">Email</label>
+          <input required id="email" type="email" name="email" value={formData.email} onChange={handleChange} />
         </div>
         <div className={styles.inputGroup}>
-          <label>City</label>
-          <input required type="text" name="city" value={formData.city} onChange={handleChange} />
+          <label htmlFor="city">City</label>
+          <input required id="city" type="text" name="city" value={formData.city} onChange={handleChange} />
         </div>
         <div className={styles.inputGroup}>
-          <label>Additional Notes (Optional)</label>
-          <textarea name="notes" value={formData.notes} onChange={handleChange} rows="3" />
+          <label htmlFor="notes">Additional Notes (Optional)</label>
+          <textarea id="notes" name="notes" value={formData.notes} onChange={handleChange} rows="3" />
         </div>
 
         <div className={styles.stepFooter}>
