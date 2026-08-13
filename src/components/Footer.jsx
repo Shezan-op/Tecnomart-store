@@ -34,14 +34,14 @@ export default function Footer() {
           </div>
 
           <div className={styles.linkCol}>
-            <a href="#" className={styles.link}>
+            <a href="#location" className={styles.link}>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M12 22s-8-4.5-8-11.8A8 8 0 0112 2a8 8 0 018 8.2c0 7.3-8 11.8-8 11.8z"/>
                 <circle cx="12" cy="10" r="3"/>
               </svg>
               Visit Us
             </a>
-            <a href="tel:+919010667726" className={styles.link}>
+            <a href="#location" className={styles.link}>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.02 1.22.67.67 0 01.6.07A2 2 0 013 2v3a2 2 0 001.44 1.93 13 13 0 004 .7 2 2 0 001.56-1.2l1-2.4a2 2 0 01.93-.93l2.4-1a2 2 0 001.2-1.56 13 13 0 00.7-4 2 2 0 011.93-1.44H21a2 2 0 012 1.44z"/>
               </svg>

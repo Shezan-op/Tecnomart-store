@@ -26,7 +26,7 @@ export default function Navigation() {
           <li><a href="#laptops">Laptops</a></li>
           <li><a href="#mobiles">Mobiles</a></li>
           <li><a href="#accessories">Accessories</a></li>
-          <li><a href="#contact">Contact Us</a></li>
+          <li><a href="#location">Contact Us</a></li>
         </ul>
       </div>
     </nav>
