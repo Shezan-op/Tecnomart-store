@@ -9,29 +9,24 @@ gsap.registerPlugin(ScrollTrigger);
 
 const MILESTONES = [
   {
-    year: '2015',
-    title: 'The Beginning',
-    desc: 'Founded in Towlichowki. First store opens with mobile sales and repairs — a vision of trusted technology starts here.',
+    year: '2009',
+    title: 'The Spectrum Foundation',
+    desc: 'It all began with Spectrum. Founded on a commitment to quality technology and unmatched customer service, Spectrum set the benchmark for operational excellence and deep industry expertise.',
   },
   {
-    year: '2017',
-    title: 'Full Service Centre',
-    desc: 'Expanded to a full laptop service centre. Added a certified technician team. Hardware expertise meets customer care.',
+    year: '2016',
+    title: 'Spectrum Goes Digital',
+    desc: 'Spectrum took its massive inventory online, triggering explosive growth. This strategic leap multiplied sales tenfold, pushing monthly turnover to the 5–7 crore mark and proving the power of digital commerce.',
   },
   {
-    year: '2019',
-    title: '10,000 Customers',
-    desc: 'Launched the premium accessories department. Crossed 10,000 happy customers — a milestone we wear with pride.',
+    year: '2025',
+    title: 'The Birth of TecnoMart',
+    desc: 'TecnoMart launched as a standalone venture with a singular focus — premium hardware and expert service. Backed by Spectrum’s veteran operational guidance and extensive inventory network, a new standard was born.',
   },
   {
-    year: '2022',
-    title: 'Expanded Showroom',
-    desc: "New, larger showroom opens. Hyderabad's most trusted tech destination — now with room to match the reputation.",
-  },
-  {
-    year: '2024',
-    title: 'Going Digital',
-    desc: 'Launched our online presence, reaching customers across all of Telangana. The future of TecnoMart goes beyond four walls.',
+    year: '2026',
+    title: 'August: The Digital Frontier',
+    desc: 'We brought the TecnoMart experience online. Guided by the exact same minds that scaled Spectrum, we now offer our curated tech ecosystem directly to your doorstep, combining standalone agility with legacy expertise.',
   },
 ];
 

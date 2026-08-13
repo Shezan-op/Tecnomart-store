@@ -18,7 +18,7 @@ const LAYOUT = [
   { t:'alpha', x:12,    y:0,    w:1,    l:[{text:'F10',      pos:'tl'}] },
   { t:'alpha', x:13,    y:0,    w:1,    l:[{text:'F11',      pos:'tl'}] },
   { t:'alpha', x:14,    y:0,    w:1,    l:[{text:'F12',      pos:'tl'}] },
-  { t:'knob',  x:15.25, y:0,    w:1,    l:[] },
+  { t:'knob',  x:15,    y:0,    w:1,    l:[] },
 
   // Row 1: Numbers
   { t:'mod',   x:0,     y:1.25, w:1,    l:[{text:'~',  pos:'tr'},{text:'`',pos:'bl'}] },
@@ -35,7 +35,7 @@ const LAYOUT = [
   { t:'alpha', x:11,    y:1.25, w:1,    l:[{text:'_',  pos:'tr'},{text:'-',pos:'bl'}] },
   { t:'alpha', x:12,    y:1.25, w:1,    l:[{text:'+',  pos:'tr'},{text:'=',pos:'bl'}] },
   { t:'mod',   x:13,    y:1.25, w:2,    l:[{text:'← Backspace', pos:'ml'}] },
-  { t:'mod',   x:15.25, y:1.25, w:1,    l:[{text:'Delete',      pos:'ml'}] },
+  { t:'mod',   x:15,    y:1.25, w:1,    l:[{text:'Delete',      pos:'ml'}] },
 
   // Row 2: QWERTY
   { t:'mod',   x:0,     y:2.25, w:1.5,  l:[{text:'↹ Tab',       pos:'ml'}] },
@@ -52,7 +52,7 @@ const LAYOUT = [
   { t:'alpha', x:11.5,  y:2.25, w:1,    l:[{text:'{', pos:'tr'},{text:'[',pos:'bl'}] },
   { t:'alpha', x:12.5,  y:2.25, w:1,    l:[{text:'}', pos:'tr'},{text:']',pos:'bl'}] },
   { t:'alpha', x:13.5,  y:2.25, w:1.5,  l:[{text:'|', pos:'tr'},{text:'\\',pos:'bl'}] },
-  { t:'mod',   x:15.25, y:2.25, w:1,    l:[{text:'PgUp',         pos:'ml'}] },
+  { t:'mod',   x:15,    y:2.25, w:1,    l:[{text:'PgUp',         pos:'ml'}] },
 
   // Row 3: Home row
   { t:'mod',   x:0,     y:3.25, w:1.75, l:[{text:'Caps Lock',    pos:'ml'}] },
@@ -68,7 +68,7 @@ const LAYOUT = [
   { t:'alpha', x:10.75, y:3.25, w:1,    l:[{text:':', pos:'tr'},{text:';',pos:'bl'}] },
   { t:'alpha', x:11.75, y:3.25, w:1,    l:[{text:'"', pos:'tr'},{text:"'",pos:'bl'}] },
   { t:'acc',   x:12.75, y:3.25, w:2.25, l:[{text:'← Enter',      pos:'ml'}] },
-  { t:'mod',   x:15.25, y:3.25, w:1,    l:[{text:'PgDn',         pos:'ml'}] },
+  { t:'mod',   x:15,    y:3.25, w:1,    l:[{text:'PgDn',         pos:'ml'}] },
 
   // Row 4: Shift row
   { t:'mod',   x:0,     y:4.25, w:2.25, l:[{text:'⇧ Shift',      pos:'ml'}] },
@@ -84,7 +84,7 @@ const LAYOUT = [
   { t:'alpha', x:11.25, y:4.25, w:1,    l:[{text:'?', pos:'tr'},{text:'/',pos:'bl'}] },
   { t:'mod',   x:12.25, y:4.25, w:1.75, l:[{text:'⇧ Shift',      pos:'ml'}] },
   { t:'acc',   x:14,    y:4.25, w:1,    l:[{text:'↑',            pos:'c'}] },
-  { t:'mod',   x:15.25, y:4.25, w:1,    l:[{text:'End',          pos:'ml'}] },
+  { t:'mod',   x:15,    y:4.25, w:1,    l:[{text:'Home',         pos:'ml'}] },
 
   // Row 5: Bottom row
   { t:'mod',   x:0,     y:5.25, w:1.25, l:[{text:'Ctrl',         pos:'ml'}] },
@@ -96,7 +96,7 @@ const LAYOUT = [
   { t:'mod',   x:12,    y:5.25, w:1,    l:[{text:'Ctrl',         pos:'ml'}] },
   { t:'acc',   x:13,    y:5.25, w:1,    l:[{text:'←',            pos:'c'}] },
   { t:'acc',   x:14,    y:5.25, w:1,    l:[{text:'↓',            pos:'c'}] },
-  { t:'acc',   x:15.25, y:5.25, w:1,    l:[{text:'→',            pos:'c'}] },
+  { t:'acc',   x:15,    y:5.25, w:1,    l:[{text:'→',            pos:'c'}] },
 ];
 
 export default function Keyboard({ isPowered }) {
@@ -154,7 +154,7 @@ export default function Keyboard({ isPowered }) {
         {/* Case blockers — precision machined separators */}
         <div className={styles.blockersLayer}>
           {/* Horizontal separator between fn row and number row */}
-          <div className={styles.blocker} style={{left:0, top:'calc(1 * var(--u))', width:'calc(16.5 * var(--u))', height:'calc(0.25 * var(--u))'}} />
+          <div className={styles.blocker} style={{left:0, top:'calc(1 * var(--u))', width:'calc(16.25 * var(--u))', height:'calc(0.25 * var(--u))'}} />
           {/* Gap between Esc and F1 */}
           <div className={styles.blocker} style={{left:'calc(1 * var(--u))', top:0, width:'calc(1 * var(--u))', height:'calc(1 * var(--u))'}}>
             <div className={styles.pillCutout} />
@@ -163,12 +163,10 @@ export default function Keyboard({ isPowered }) {
           <div className={styles.blocker} style={{left:'calc(6 * var(--u))', top:0, width:'calc(0.5 * var(--u))', height:'calc(1 * var(--u))'}} />
           {/* Gap between F8 and F9 */}
           <div className={styles.blocker} style={{left:'calc(10.5 * var(--u))', top:0, width:'calc(0.5 * var(--u))', height:'calc(1 * var(--u))'}} />
-          {/* Main / Nav separator vertical */}
-          <div className={styles.blocker} style={{left:'calc(15 * var(--u))', top:0, width:'calc(0.25 * var(--u))', height:'calc(6.25 * var(--u))'}} />
           {/* Right edge gap */}
-          <div className={styles.blocker} style={{left:'calc(16.25 * var(--u))', top:0, width:'calc(0.25 * var(--u))', height:'calc(6.25 * var(--u))'}} />
+          <div className={styles.blocker} style={{left:'calc(16 * var(--u))', top:0, width:'calc(0.25 * var(--u))', height:'calc(6.25 * var(--u))'}} />
           {/* Knob cutout */}
-          <div className={styles.knobFill} style={{position:'absolute', left:'calc(15.25 * var(--u))', top:0, width:'calc(1 * var(--u))', height:'calc(1 * var(--u))'}}>
+          <div className={styles.knobFill} style={{position:'absolute', left:'calc(15 * var(--u))', top:0, width:'calc(1 * var(--u))', height:'calc(1 * var(--u))'}}>
             <div className={styles.knobInner} />
           </div>
         </div>
