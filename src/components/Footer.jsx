@@ -41,7 +41,7 @@ export default function Footer() {
               </svg>
               Visit Us
             </a>
-            <a href="tel:+919876543210" className={styles.link}>
+            <a href="tel:+919010667726" className={styles.link}>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.02 1.22.67.67 0 01.6.07A2 2 0 013 2v3a2 2 0 001.44 1.93 13 13 0 004 .7 2 2 0 001.56-1.2l1-2.4a2 2 0 01.93-.93l2.4-1a2 2 0 001.2-1.56 13 13 0 00.7-4 2 2 0 011.93-1.44H21a2 2 0 012 1.44z"/>
               </svg>

@@ -3,7 +3,14 @@ import styles from './BrandLoop.module.css';
 
 export default function BrandLoop() {
   const logos = [
-    'Apple', 'Samsung', 'Dell', 'Asus', 'HP', 'Lenovo', 'Sony', 'Microsoft', 'Google', 'OnePlus'
+    { name: 'Apple', src: '/svg/apple.svg' },
+    { name: 'Samsung', src: '/svg/samsung.svg' },
+    { name: 'Dell', src: '/svg/dell-mono.svg' },
+    { name: 'Asus', src: '/svg/asus.svg' },
+    { name: 'HP', src: '/svg/hp.svg' },
+    { name: 'Lenovo', src: '/svg/lenovo-mono.svg' },
+    { name: 'MSI', src: '/svg/msi.svg' },
+    { name: 'Acer', src: '/svg/acer.svg' }
   ];
 
   return (
@@ -13,12 +20,16 @@ export default function BrandLoop() {
         <div className={styles.marqueeTrack}>
           <div className={styles.marqueeSet}>
             {logos.map((logo, index) => (
-              <span key={`orig-${index}`} className={styles.logoItem}>{logo}</span>
+              <span key={`orig-${index}`} className={styles.logoItem}>
+                <img src={logo.src} alt={logo.name} className={styles.brandIcon} />
+              </span>
             ))}
           </div>
           <div className={styles.marqueeSet}>
             {logos.map((logo, index) => (
-              <span key={`dup-${index}`} className={styles.logoItem}>{logo}</span>
+              <span key={`dup-${index}`} className={styles.logoItem}>
+                <img src={logo.src} alt={logo.name} className={styles.brandIcon} />
+              </span>
             ))}
           </div>
         </div>

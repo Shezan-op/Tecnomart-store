@@ -64,8 +64,8 @@ export default function WhereToFindUs() {
 
             <div className={styles.infoGroup}>
               <div className={styles.infoLabel}>Phone</div>
-              <a href="tel:+919876543210" className={styles.infoValue}>
-                +91 98765 43210
+              <a href="tel:+919010667726" className={styles.infoValue}>
+                +91 90106 67726
               </a>
             </div>
 
@@ -83,7 +83,7 @@ export default function WhereToFindUs() {
 
             <div className={styles.ctaRow}>
               <a
-                href="https://maps.google.com/?q=HITEC+City+Hyderabad"
+                href="https://maps.app.goo.gl/Y8cpwK4urKPk5j1U9"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.dirBtn}
@@ -93,7 +93,7 @@ export default function WhereToFindUs() {
                 </svg>
                 Get Directions
               </a>
-              <a href="tel:+919876543210" className={styles.callBtn}>
+              <a href="tel:+919010667726" className={styles.callBtn}>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.02 1.22C.02.67.22.15.6.07A2 2 0 013 2v3a2 2 0 001.44 1.93 13 13 0 004 .7 2 2 0 001.56-1.2l1-2.4a2 2 0 01.93-.93l2.4-1a2 2 0 001.2-1.56 13 13 0 00.7-4 2 2 0 011.93-1.44H21a2 2 0 012 1.44z"/>
                 </svg>

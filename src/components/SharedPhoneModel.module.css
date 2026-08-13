@@ -92,9 +92,9 @@
 }
 .lens:last-child { align-self: flex-end; }
 
-.appleLogo {
+.samsungLogo {
   color: #D8D9DA;
-  width: 48px; height: 48px;
+  width: 90px; height: 30px;
 }
 
 .glareContainer {
@@ -162,3 +162,133 @@
 }
 .pointerLeft { right: -10vw; }
 .pointerRight { left: -10vw; }
+
+/* Mobile App Mockup UI */
+.mobileAppMockup {
+  width: 100%;
+  height: 100%;
+  background: #121212;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.appHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 20px 10px;
+  background: rgba(18, 18, 18, 0.8);
+  backdrop-filter: blur(10px);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.appHeader span {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+.appHeader svg {
+  width: 20px;
+  height: 20px;
+  color: #fff;
+}
+
+.appProductImage {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  background: radial-gradient(circle at center, #2a2a2a 0%, #121212 70%);
+}
+
+.appProductPlaceholder {
+  width: 80%;
+  height: auto;
+  filter: brightness(0) invert(1);
+  opacity: 0.8;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.phone3d:hover .appProductPlaceholder {
+  transform: scale(1.05) translateY(-20px);
+}
+
+.appProductDetails {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, #1a1a1a 80%, transparent);
+  padding: 20px;
+  padding-bottom: 40px;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.phone3d:hover .appProductDetails {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.appProductHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.appProductName {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+}
+
+.appProductPrice {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #4CAF50;
+}
+
+.appProductSpecs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.appProductSpecs span {
+  font-size: 0.75rem;
+  padding: 4px 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.appBuyButton {
+  margin-top: 8px;
+  padding: 12px;
+  background: #fff;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.appBuyButton:hover {
+  background: #f0f0f0;
+}

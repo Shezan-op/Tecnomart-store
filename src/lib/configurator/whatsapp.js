@@ -47,7 +47,7 @@ export function generateNormalizedPayload(buildState, customerData) {
 }
 
 export function generateWhatsAppLink(payload) {
-  const storePhone = "919876543210"; // Replace with actual WhatsApp Business number
+  const storePhone = "919010667726"; // Actual WhatsApp Business number
 
   let msg = `*New Custom PC Build Request*\n\n`;
   msg += `*Customer:* ${payload.customer.fullName}\n`;

@@ -31,7 +31,7 @@ export default function ConfiguratorUI() {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
-        <Link href="/" className={styles.backToStoreBtn}>&larr; Back to Store</Link>
+        <a href="/" className={styles.backToStoreBtn}>&larr; Back to Store</a>
       </div>
       <div className={styles.mainArea}>
         {currentStep === 0 && <StepBuildType onSelect={updateBuildType} />}
