@@ -71,18 +71,18 @@
 
 .cameraBump {
   position: absolute;
-  top: 36px; left: 32px;
-  width: 48px; height: 130px;
+  top: 24px; left: 24px;
+  width: 36px; height: 100px;
   background: #121212;
   border-radius: 999px;
   border: 1px solid rgba(255,255,255,0.05);
   box-shadow: 4px 8px 16px rgba(0,0,0,0.15), inset 1px 1px 1px rgba(255,255,255,0.1);
   display: flex; flex-direction: column; justify-content: space-between; align-items: center;
-  padding: 12px 0;
+  padding: 10px 0;
 }
 
 .lens {
-  width: 24px; height: 24px;
+  width: 18px; height: 18px;
   border-radius: 50%;
   background: #050505;
   border: 1px solid #2a2a2c;
@@ -91,9 +91,9 @@
 
 .flash {
   position: absolute;
-  top: 56px;
-  left: 92px;
-  width: 12px; height: 12px;
+  top: 40px;
+  left: 72px;
+  width: 10px; height: 10px;
   background: #fdfdfd;
   border-radius: 50%;
   box-shadow: 0 0 4px rgba(255,255,255,0.8), inset 0 0 3px rgba(0,0,0,0.2);
