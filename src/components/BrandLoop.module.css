@@ -7,12 +7,13 @@
 
 .heading {
   font-family: 'Rajdhani', sans-serif;
-  font-size: 1.1rem;
-  color: rgba(255,255,255,0.5);
+  font-size: 2.5rem;
+  color: rgba(255,255,255,0.9);
   text-align: center;
   margin-bottom: 60px;
-  font-weight: 400;
-  letter-spacing: 0.05em;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
 .marquee {
@@ -72,7 +73,7 @@
   height: 48px;
   width: auto;
   object-fit: contain;
-  filter: grayscale(100%) brightness(200%);
+  filter: brightness(0) invert(1);
 }
 
 @keyframes scroll {

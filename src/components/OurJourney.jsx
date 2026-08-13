@@ -11,7 +11,7 @@ const MILESTONES = [
   {
     year: '2015',
     title: 'The Beginning',
-    desc: 'Founded in HITEC City. First store opens with mobile sales and repairs — a vision of trusted technology starts here.',
+    desc: 'Founded in Towlichowki. First store opens with mobile sales and repairs — a vision of trusted technology starts here.',
   },
   {
     year: '2017',

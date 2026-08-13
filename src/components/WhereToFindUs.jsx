@@ -55,8 +55,8 @@ export default function WhereToFindUs() {
             <div className={styles.infoGroup}>
               <div className={styles.infoLabel}>Address</div>
               <div className={styles.infoValue}>
-                123 Tech Park Road, HITEC City,<br />
-                Hyderabad, Telangana 500081
+                7 Tombs Road, Opposite Toyota Showroom, Towlichowki,<br />
+                Hyderabad, Telangana 500008
               </div>
             </div>
 
@@ -120,7 +120,7 @@ export default function WhereToFindUs() {
                     <circle cx="14" cy="14" r="5" fill="#000"/>
                   </svg>
                 </div>
-                <span className={styles.mapPinLabel}>TecnoMart HITEC City</span>
+                <span className={styles.mapPinLabel}>TecnoMart Towlichowki</span>
               </div>
             </div>
           </div>

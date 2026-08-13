@@ -88,7 +88,7 @@ export default function Page() {
       {/* Info Belt 3 (contact belt) */}
       <InfoBelt
         direction="left"
-        text="Want better personalised deals? Call us: +91 98765 43210 • Visit us at HITEC City, Hyderabad • Mon-Sun: 10AM - 9PM •"
+        text="Want better personalised deals? Call us: +91 90106 67726 • Visit us at 7 Tombs Road, Opposite Toyota Showroom, Towlichowki, Hyderabad • Mon-Sun: 10AM - 9PM •"
       />
 
       {/* Section 9 — Testimonials */}
