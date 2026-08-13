@@ -4,15 +4,15 @@ import gsap from 'gsap';
 import styles from './PopularModels.module.css';
 
 const products = [
-  { id: 1, name: 'Pro Laptop M3', desc: 'The ultimate professional machine with extreme performance.', color: '#475BFF' },
-  { id: 2, name: 'Ultra Phone 15', desc: 'Titanium design with revolutionary camera system.', color: '#25272B' },
-  { id: 3, name: 'Studio Display', desc: '27-inch 5K Retina display with True Tone.', color: '#E3E4E5' },
-  { id: 4, name: 'Quiet Headphones', desc: 'Industry-leading noise cancellation.', color: '#1C1C1E' },
-  { id: 5, name: 'Smart Watch Series X', desc: 'Advanced health monitoring on your wrist.', color: '#B4B2A6' },
-  { id: 6, name: 'Gaming Rig Elite', desc: 'Uncompromised desktop gaming performance.', color: '#00e5ff' },
-  { id: 7, name: 'Pro Tablet 12', desc: 'Liquid Retina XDR display with M-class chip.', color: '#8B9098' },
-  { id: 8, name: 'Creator Pad', desc: 'Digital canvas for professional illustrators.', color: '#DADBDC' },
-  { id: 9, name: 'Home Hub', desc: 'Smart speaker with high-fidelity audio.', color: '#0A0A0A' }
+  { id: 1, name: 'MacBook Pro (M3)', desc: 'Crush compile times and render 4K without dropping a frame.', color: '#475BFF' },
+  { id: 2, name: 'Galaxy S24 Ultra', desc: 'A literal supercomputer in your pocket.', color: '#25272B' },
+  { id: 3, name: 'Dell UltraSharp 4K', desc: 'Stop squinting. True color accuracy for creatives who care.', color: '#E3E4E5' },
+  { id: 4, name: 'Sony WH-1000XM5', desc: 'Turn off the office. Industry-best noise cancellation.', color: '#1C1C1E' },
+  { id: 5, name: 'Apple Watch Ultra 2', desc: 'Leave your phone at home. Track every metric.', color: '#B4B2A6' },
+  { id: 6, name: 'Custom ASUS ROG', desc: 'Max out your framerates. Zero thermal throttling.', color: '#00e5ff' },
+  { id: 7, name: 'iPad Pro (M4)', desc: 'Lighter than a laptop, faster than your desktop.', color: '#8B9098' },
+  { id: 8, name: 'Wacom Cintiq Pro', desc: 'Zero latency drawing. The industry standard.', color: '#DADBDC' },
+  { id: 9, name: 'Google Nest Audio', desc: 'Room-filling sound that actually hears your commands.', color: '#0A0A0A' }
 ];
 
 export default function PopularModels() {
@@ -65,7 +65,7 @@ export default function PopularModels() {
         onClick={() => setIsOpen(!isOpen)}
         aria-expanded={isOpen}
       >
-        <span className={styles.headerText}>Browse Our Popular Models</span>
+        <span className={styles.headerText}>The Gear Everyone's Buying</span>
         <span className={`${styles.icon} ${isOpen ? styles.iconOpen : ''}`}>+</span>
       </button>
 

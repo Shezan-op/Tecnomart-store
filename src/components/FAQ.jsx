@@ -5,20 +5,20 @@ import styles from './FAQ.module.css';
 
 const FAQS = [
   {
-    q: "What does 'Certified Refurbished' mean?",
-    a: "Every device undergoes a strict 90-point inspection by our certified technicians. We check everything from battery health and screen clarity to internal components and connectivity. Only devices that pass 100% of these tests are sold as Certified Refurbished."
+    q: "Are the refurbished phones actually reliable?",
+    a: "Yes. Every device is tested by our technicians before it ever hits the shelf. We check the battery cycles, screen clarity, and internal board health. If it doesn't pass our 90-point checklist, we don't sell it."
   },
   {
-    q: "Do you offer a warranty?",
-    a: "Yes, all our refurbished devices come with a standard 12-month hardware warranty. This covers any manufacturing defects or hardware failures that occur during normal use."
+    q: "What if it breaks after I buy it?",
+    a: "We back our hardware. Every refurbished device comes with a 12-month hardware warranty. If it fails under normal use, bring it in and we'll fix it."
   },
   {
-    q: "Can I return a device if I don't like it?",
-    a: "Absolutely. We offer a 7-day no-questions-asked return policy. If you're not completely satisfied with your purchase, you can return it for a full refund or exchange."
+    q: "Can I return it if I change my mind?",
+    a: "Absolutely. You have 7 days to test drive your new device. If it's not the right fit, bring it back for a full refund or exchange, no questions asked."
   },
   {
-    q: "Do you offer EMI or financing options?",
-    a: "Yes, we partner with major banks to offer flexible EMI options, including No-Cost EMI on select models. You can see available options at checkout."
+    q: "Do you offer EMI or financing?",
+    a: "We do. We partner with all major banks to offer flexible EMI, including No-Cost options on most flagship models. We'll set it up for you at the counter."
   }
 ];
 
@@ -30,7 +30,7 @@ export default function FAQ() {
   return (
     <section className={styles.section}>
       <div className="container">
-        <h2 className="section-heading text-center">Frequently Asked Questions</h2>
+        <h2 className="section-heading text-center">Common Questions</h2>
         <div className={styles.faqList}>
           {FAQS.map((faq, i) => (
             <div 

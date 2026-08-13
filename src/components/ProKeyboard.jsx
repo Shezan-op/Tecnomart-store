@@ -50,8 +50,8 @@ export default function ProKeyboard() {
   return (
     <section id="pro-keyboard" className={styles.keyboardSection} ref={sectionRef}>
       <div className={styles.accessoriesText} ref={textRef}>
-        <h2>Get Your Accessories Sorted</h2>
-        <p>Premium mechanical keyboards built for productivity and performance.</p>
+        <h2>Stop Typing On Mushy Keys.</h2>
+        <p>Upgrade to tactile, responsive mechanical boards. Your fingers will thank you.</p>
       </div>
 
       <div className={styles.keyboardContainer} ref={keyboardRef}>

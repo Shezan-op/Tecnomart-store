@@ -9,15 +9,14 @@ export default function CustomSetupPromo() {
       
       <div className={styles.contentContainer}>
         <div className={styles.textWrapper}>
-          <h2 className={styles.title}>Build Your Custom Setup</h2>
+          <h2 className={styles.title}>Stop Settling For Pre-Builts.</h2>
           <p className={styles.subtitle}>
-            From gaming beasts to ultimate workstations, tailor every component 
-            to match your exact performance needs.
+            Whether you need a high-FPS gaming rig or a quiet editing workstation, handpick the parts that matter. We'll handle the build.
           </p>
         </div>
         
         <Link href="/build-your-setup" className={styles.ctaButton}>
-          <span className={styles.btnText}>Build My Dream Setup</span>
+          <span className={styles.btnText}>Start Your Custom Build</span>
           <svg className={styles.arrowIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>

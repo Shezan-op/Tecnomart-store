@@ -18,9 +18,9 @@ export default function ProDisplay() {
 
   const [textIndex, setTextIndex] = useState(0);
   const screenTexts = [
-    "Is your laptop becoming noisy?",
-    "Experiencing unexpected lag?",
-    "Overheating during heavy tasks?"
+    "Laptop sounding like a jet engine?",
+    "Files taking forever to load?",
+    "Battery dying before noon?"
   ];
 
   useEffect(() => {
@@ -136,8 +136,8 @@ export default function ProDisplay() {
               <div className={styles.cardIcon}>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
               </div>
-              <h4>Latest Collection</h4>
-              <p>New arrivals from Apple, Dell, Asus &amp; more.</p>
+              <h4>Curated Inventory</h4>
+              <p>Only the hardware actually worth your money.</p>
               <svg viewBox="0 0 100 100" preserveAspectRatio="none" className={styles.pointerSvg}>
                  <path d="M 0,50 C 50,50 50,10 100,10" vectorEffect="non-scaling-stroke" fill="none" stroke="rgba(255,255,255,1)" strokeWidth="1"/>
                  <circle cx="100" cy="10" r="2.5" fill="#ffffff" />
@@ -147,8 +147,8 @@ export default function ProDisplay() {
               <div className={styles.cardIcon}>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
               </div>
-              <h4>Hardware Repairs</h4>
-              <p>Expert component-level service, fast turnaround.</p>
+              <h4>Board-Level Repairs</h4>
+              <p>We fix motherboards. We don't just replace them.</p>
               <svg viewBox="0 0 100 100" preserveAspectRatio="none" className={styles.pointerSvg}>
                  <path d="M 0,50 C 50,50 50,90 100,90" vectorEffect="non-scaling-stroke" fill="none" stroke="rgba(255,255,255,1)" strokeWidth="1"/>
                  <circle cx="100" cy="90" r="2.5" fill="#ffffff" />
@@ -201,8 +201,8 @@ export default function ProDisplay() {
               <div className={styles.cardIcon}>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
               </div>
-              <h4>Student Deals</h4>
-              <p>Special pricing for academic needs.</p>
+              <h4>Student Pricing</h4>
+              <p>Get the gear you need, without the markup.</p>
               <svg viewBox="0 0 100 100" preserveAspectRatio="none" className={styles.pointerSvg}>
                  <path d="M 100,50 C 50,50 50,20 0,20" vectorEffect="non-scaling-stroke" fill="none" stroke="rgba(255,255,255,1)" strokeWidth="1"/>
                  <circle cx="0" cy="20" r="2.5" fill="#ffffff" />
@@ -212,8 +212,8 @@ export default function ProDisplay() {
               <div className={styles.cardIcon}>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
               </div>
-              <h4>Performance Upgrades</h4>
-              <p>Boost speed, storage &amp; lifespan.</p>
+              <h4>Speed Upgrades</h4>
+              <p>Make your old machine run like brand new.</p>
               <svg viewBox="0 0 100 100" preserveAspectRatio="none" className={styles.pointerSvg}>
                  <path d="M 100,50 C 50,50 50,80 0,80" vectorEffect="non-scaling-stroke" fill="none" stroke="rgba(255,255,255,1)" strokeWidth="1"/>
                  <circle cx="0" cy="80" r="2.5" fill="#ffffff" />
@@ -229,25 +229,25 @@ export default function ProDisplay() {
              <div className={styles.cardIcon}>
                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
              </div>
-             <h4>Latest Collection</h4>
+             <h4>Curated Inventory</h4>
           </div>
           <div className={styles.mobileGridItem}>
              <div className={styles.cardIcon}>
                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
              </div>
-             <h4>Hardware Repairs</h4>
+             <h4>Board-Level Repairs</h4>
           </div>
           <div className={styles.mobileGridItem}>
              <div className={styles.cardIcon}>
                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
              </div>
-             <h4>Student Deals</h4>
+             <h4>Student Pricing</h4>
           </div>
           <div className={styles.mobileGridItem}>
              <div className={styles.cardIcon}>
                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
              </div>
-             <h4>Performance Upgrades</h4>
+             <h4>Speed Upgrades</h4>
           </div>
         </div>
 

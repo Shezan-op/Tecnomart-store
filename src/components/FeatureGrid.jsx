@@ -4,52 +4,52 @@ import { Shield, Smartphone, PenTool, CheckCircle, Battery, Camera, Code, Laptop
 
 const CONTENT = {
   'mobile-top': {
-    heading: 'Discover the Future',
-    body: 'Premium smartphones engineered for your lifestyle. Every model tested, every deal verified.',
+    heading: 'Phones You Can Trust',
+    body: "No hidden defects. No bloated prices. We test every device so you don't have to.",
     cards: [
-      { icon: <Shield size={32} />, title: 'Affordable Pricing', text: 'Unbeatable deals on top models.' },
-      { icon: <Smartphone size={32} />, title: 'Latest Smartphones', text: 'Cutting-edge tech arrivals, daily.' }
+      { icon: <Shield size={32} />, title: 'Honest Pricing', text: 'Stop overpaying for flagships.' },
+      { icon: <Smartphone size={32} />, title: 'Fresh Inventory', text: 'New arrivals hitting the shelves daily.' }
     ]
   },
   'mobile-bottom': {
     sections: [
       {
         cards: [
-          { icon: <CheckCircle size={32} />, title: 'Refurbished Mobiles', text: 'Certified pre-owned perfection.' },
-          { icon: <Shield size={32} />, title: 'Up To 2 Years Warranty', text: 'Peace of mind, guaranteed.' }
+          { icon: <CheckCircle size={32} />, title: 'Certified Renewed', text: 'Looks new, acts new. Backed by strict quality checks.' },
+          { icon: <Shield size={32} />, title: 'Up To 2 Years Warranty', text: 'We stand behind what we sell. Period.' }
         ]
       },
       {
-        heading: 'Precision Repair',
-        body: 'Expert technicians restoring your device to factory perfection. Fast turnaround. Real warranties.',
+        heading: 'We Fix It Right. The First Time.',
+        body: 'A broken phone stops your day. Our technicians get you back online fast, using genuine parts and real warranties.',
         cards: [
-          { icon: <Smartphone size={32} />, title: 'Display Replacement', text: 'Flawless OLED and LCD fixes.' },
-          { icon: <Battery size={32} />, title: 'Battery Replacement', text: 'Restore full-day power.' },
-          { icon: <Camera size={32} />, title: 'Camera Repairs', text: 'Crystal-clear lens restoration.' },
-          { icon: <Code size={32} />, title: 'Software Solutions', text: 'Data recovery and OS updates.' }
+          { icon: <Smartphone size={32} />, title: 'Flawless Screens', text: 'Zero dead pixels. Crystal clear OLED and LCDs.' },
+          { icon: <Battery size={32} />, title: 'New Battery Life', text: 'Stop living wall-to-wall. Get your full day back.' },
+          { icon: <Camera size={32} />, title: 'Lens Restoration', text: 'Focus restored. No more blurry photos.' },
+          { icon: <Code size={32} />, title: 'Software Rescue', text: 'Lost files and OS crashes? We handle the digital disasters.' }
         ]
       }
     ]
   },
   'display-top': {
-    heading: 'Power Meets Productivity',
-    body: "Whether you're a student, creator, gamer, or business professional — TecnoMart helps you choose the right laptop and keeps it performing at its best.",
+    heading: "Laptops That Don't Quit",
+    body: "A slow laptop costs you time and money. Whether you’re rendering video or running spreadsheets, we match you with machines built to handle your exact workload.",
     cards: [
-      { icon: <Laptop size={32} />, title: 'Latest Laptop Collection', text: 'Explore new arrivals.' },
-      { icon: <PenTool size={32} />, title: 'Hardware Repairs', text: 'Expert component fixes.' }
+      { icon: <Laptop size={32} />, title: 'Curated Hardware', text: 'Only the models actually worth buying.' },
+      { icon: <PenTool size={32} />, title: 'Board-Level Repair', text: 'We fix motherboards, not just screens.' }
     ]
   },
   'display-bottom': {
     sections: [
       {
         cards: [
-          { icon: <Briefcase size={32} />, title: 'Student & Business Deals', text: 'Special pricing available.' },
-          { icon: <Zap size={32} />, title: 'Performance Upgrades', text: 'Boost speed and storage.' }
+          { icon: <Briefcase size={32} />, title: 'Student & Office Pricing', text: 'Equip your work without breaking the bank.' },
+          { icon: <Zap size={32} />, title: 'Speed Upgrades', text: 'Max out your current machine’s lifespan.' }
         ]
       },
       {
-        heading: 'Complete Your Setup',
-        body: 'Every great device deserves the right accessories. Discover premium mechanical keyboards, gaming mice, headphones, chargers, adapters, and cables that enhance your everyday experience.',
+        heading: 'The Gear That Ties It Together',
+        body: "Your setup isn't finished until the accessories feel right. From tactile mechanical keyboards and precision mice to cables that actually last, we stock the essentials that make working better.",
         cards: []
       }
     ]

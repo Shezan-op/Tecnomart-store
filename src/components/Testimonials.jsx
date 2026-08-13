@@ -72,13 +72,13 @@ export default function Testimonials() {
       {/* Section Header */}
       <div className={styles.header}>
         <div>
-          <p className={styles.eyebrow}>Customer Stories</p>
-          <h2 className={styles.heading}>Real People. Real Savings.</h2>
+          <p className={styles.eyebrow}>Don't Just Take Our Word For It</p>
+          <h2 className={styles.heading}>The Best Tech Community In Hyderabad.</h2>
           <div className={styles.ratingBadge}>
             <span className={styles.star}>★</span>
             <span className={styles.ratingText}>4.5 out of 5 · 500+ reviews</span>
           </div>
-          <p className={styles.sub}>Thousands of happy customers across Hyderabad trust TecnoMart.</p>
+          <p className={styles.sub}>We don't just sell hardware. We build relationships.</p>
         </div>
       </div>
 
