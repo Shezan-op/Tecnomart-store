@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Charcoal Blue Mechanical Keyboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --unit: 44px;
+    
+    /* Charcoal Case */
+    --case-bg: #181818;
+    
+    /* Charcoal Keys */
+    --key-base: #101010;
+    --key-top: #151515;
+    
+    /* Sharp Blue Legends */
+    --key-text: #00e5ff;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background: #000000;
+    font-family: 'Rajdhani', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .scale-wrapper {
+    transform: scale(var(--scale, 1));
+    transform-origin: center;
+  }
+
+  .case {
+    background: var(--case-bg);
+    padding: 16px;
+    border-radius: 16px;
+    position: relative;
+    box-shadow: 
+      inset 0 2px 4px rgba(255,255,255,0.05),
+      inset 0 -2px 6px rgba(0,0,0,0.8),
+      0 0 0 1px #00e5ff,
+      0 0 15px rgba(0, 229, 255, 0.4),
+      0 10px 40px rgba(0,0,0,0.9);
+  }
+
+  .usb-port {
+    position: absolute;
+    top: -6px;
+    left: calc(3.5 * var(--unit));
+    width: 32px;
+    height: 6px;
+    background: var(--case-bg);
+    border-radius: 4px 4px 0 0;
+    box-shadow: inset 0 2px 2px rgba(255,255,255,0.1);
+  }
+
+  .indicator-led {
+    position: absolute;
+    left: 8px;
+    top: calc(3.25 * var(--unit) + 24px);
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #000;
+    box-shadow: 
+      inset 0 1px 2px rgba(0,0,0,1), 
+      0 1px 1px rgba(255,255,255,0.1);
+  }
+
+  .plate {
+    position: relative;
+    width: calc(16.5 * var(--unit));
+    height: calc(6.25 * var(--unit));
+    background: #050505;
+    border-radius: 8px;
+    box-shadow: 
+      inset 0 4px 8px rgba(0,0,0,1),
+      0 1px 0 rgba(255,255,255,0.05);
+    overflow: hidden;
+  }
+
+  .mouse-glow {
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    background: radial-gradient(circle, rgba(0, 229, 255, 0.4) 0%, transparent 60%);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    left: var(--mouse-x, -200px);
+    top: var(--mouse-y, -200px);
+    transition: left 0.05s linear, top 0.05s linear;
+  }
+
+  .blockers-layer {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.9));
+  }
+
+  .blocker {
+    position: absolute;
+    background: var(--case-bg);
+  }
+
+  .pill-cutout {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 4px;
+    height: 18px;
+    border-radius: 2px;
+    background: #000;
+    box-shadow: 
+      inset 0 1px 3px rgba(0,0,0,1), 
+      0 1px 1px rgba(255,255,255,0.1);
+  }
+
+  .key {
+    position: absolute;
+    padding: 2px;
+    box-sizing: border-box;
+    z-index: 2;
+    --base-color: var(--key-base);
+    --top-color: var(--key-top);
+    --text-color: var(--key-text);
+  }
+
+  .keycap {
+    width: 100%;
+    height: 100%;
+    border-radius: 6px;
+    background: var(--base-color);
+    box-shadow: 
+      inset 0 4px 6px rgba(255,255,255,0.05),
+      inset 0 -4px 6px rgba(0,0,0,0.8),
+      0 4px 6px rgba(0,0,0,0.8);
+    padding: 3px 6px 7px 6px;
+    box-sizing: border-box;
+    transition: transform 0.1s, box-shadow 0.1s;
+    cursor: pointer;
+  }
+
+  .keycap:active {
+    transform: translateY(2px);
+    box-shadow: 
+      inset 0 4px 6px rgba(255,255,255,0.05),
+      inset 0 -4px 6px rgba(0,0,0,0.8),
+      0 2px 3px rgba(0,0,0,1);
+  }
+
+  .keycap-top {
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    background: var(--top-color);
+    box-shadow: 
+      inset 0 1px 2px rgba(255,255,255,0.05),
+      inset 0 -1px 3px rgba(0,0,0,0.5),
+      0 1px 2px rgba(0,0,0,0.8);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .legend {
+    position: absolute;
+    color: var(--text-color);
+    font-weight: 700;
+    text-shadow: 0 0 2px rgba(0, 229, 255, 0.3);
+    transition: color 0.2s, text-shadow 0.2s;
+  }
+  
+  .keycap:hover .legend {
+    color: #ffffff;
+    text-shadow: 0 0 6px #00e5ff, 0 0 12px #00e5ff, 0 0 20px #00e5ff;
+  }
+
+  .legend-tl { top: 4px; left: 6px; font-size: 13px; }
+  .legend-tr { top: 4px; right: 8px; font-size: 11px; }
+  .legend-bl { bottom: 4px; left: 8px; font-size: 11px; }
+  .legend-ml { top: 50%; transform: translateY(-50%); left: 6px; font-size: 10px; letter-spacing: 0px; }
+  .legend-c { top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 14px; }
+
+  /* Knob */
+  .key.knob {
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .knob-body {
+    width: calc(100% - 8px);
+    height: calc(100% - 8px);
+    border-radius: 50%;
+    background: conic-gradient(from 45deg, #222, #111, #333, #111, #222);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.9), inset 0 0 0 1px #333;
+    position: relative;
+  }
+  .knob-body::after {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    border-radius: 50%;
+    background: conic-gradient(from 135deg, #444, #111, #444, #111, #444);
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.8), 0 1px 3px rgba(0,0,0,0.9);
+  }
+
+</style>
+</head>
+<body>
+
+<div class="scale-wrapper">
+  <div class="case">
+    <div class="usb-port"></div>
+    <div class="indicator-led"></div>
+    <div class="plate" id="plate">
+      <div class="mouse-glow"></div>
+      
+      <!-- Precision Machined Case Blockers -->
+      <div class="blockers-layer">
+        <div class="blocker" style="left: 0; top: calc(1 * var(--unit)); width: calc(16.5 * var(--unit)); height: calc(0.25 * var(--unit));"></div>
+        
+        <div class="blocker" style="left: calc(1 * var(--unit)); top: 0; width: calc(1 * var(--unit)); height: calc(1 * var(--unit));">
+          <div class="pill-cutout" style="top: 50%; height: 14px;"></div>
+        </div>
+        <div class="blocker" style="left: calc(6 * var(--unit)); top: 0; width: calc(0.5 * var(--unit)); height: calc(1 * var(--unit));"></div>
+        <div class="blocker" style="left: calc(10.5 * var(--unit)); top: 0; width: calc(0.5 * var(--unit)); height: calc(1 * var(--unit));"></div>
+        
+        <!-- Main/Nav Separator (Continuous from top to bottom) -->
+        <div class="blocker" style="left: calc(15 * var(--unit)); top: 0; width: calc(0.25 * var(--unit)); height: calc(6.25 * var(--unit));"></div>
+        
+        <!-- Right Edge Gap -->
+        <div class="blocker" style="left: calc(16.25 * var(--unit)); top: 0; width: calc(0.25 * var(--unit)); height: calc(6.25 * var(--unit));"></div>
+        
+        <!-- Circular Knob Cutout -->
+        <div class="knob-fill" style="position: absolute; left: calc(15.25 * var(--unit)); top: 0; width: calc(1 * var(--unit)); height: calc(1 * var(--unit)); background: var(--case-bg);">
+          <div style="position: absolute; left: 2px; top: 2px; width: calc(100% - 4px); height: calc(100% - 4px); background: #111; border-radius: 50%; box-shadow: inset 0 4px 8px rgba(0,0,0,0.8);"></div>
+        </div>
+      </div>
+
+      <!-- Keys will be injected here -->
+    </div>
+  </div>
+</div>
+
+<script>
+  const layout = [
+    { t: 'acc', x: 0, y: 0, w: 1, h: 1, l: [{text: 'Esc', pos: 'tl'}] },
+    { t: 'alpha', x: 2, y: 0, w: 1, h: 1, l: [{text: 'F1', pos: 'tl'}] },
+    { t: 'alpha', x: 3, y: 0, w: 1, h: 1, l: [{text: 'F2', pos: 'tl'}] },
+    { t: 'alpha', x: 4, y: 0, w: 1, h: 1, l: [{text: 'F3', pos: 'tl'}] },
+    { t: 'alpha', x: 5, y: 0, w: 1, h: 1, l: [{text: 'F4', pos: 'tl'}] },
+    { t: 'mod', x: 6.5, y: 0, w: 1, h: 1, l: [{text: 'F5', pos: 'tl'}] },
+    { t: 'mod', x: 7.5, y: 0, w: 1, h: 1, l: [{text: 'F6', pos: 'tl'}] },
+    { t: 'mod', x: 8.5, y: 0, w: 1, h: 1, l: [{text: 'F7', pos: 'tl'}] },
+    { t: 'mod', x: 9.5, y: 0, w: 1, h: 1, l: [{text: 'F8', pos: 'tl'}] },
+    { t: 'alpha', x: 11, y: 0, w: 1, h: 1, l: [{text: 'F9', pos: 'tl'}] },
+    { t: 'alpha', x: 12, y: 0, w: 1, h: 1, l: [{text: 'F10', pos: 'tl'}] },
+    { t: 'alpha', x: 13, y: 0, w: 1, h: 1, l: [{text: 'F11', pos: 'tl'}] },
+    { t: 'alpha', x: 14, y: 0, w: 1, h: 1, l: [{text: 'F12', pos: 'tl'}] },
+    { t: 'knob', x: 15.25, y: 0, w: 1, h: 1 },
+    
+    { t: 'mod', x: 0, y: 1.25, w: 1, h: 1, l: [{text: '~', pos: 'tr'}, {text: '`', pos: 'bl'}] },
+    { t: 'alpha', x: 1, y: 1.25, w: 1, h: 1, l: [{text: '!', pos: 'tr'}, {text: '1', pos: 'bl'}] },
+    { t: 'alpha', x: 2, y: 1.25, w: 1, h: 1, l: [{text: '@', pos: 'tr'}, {text: '2', pos: 'bl'}] },
+    { t: 'alpha', x: 3, y: 1.25, w: 1, h: 1, l: [{text: '#', pos: 'tr'}, {text: '3', pos: 'bl'}] },
+    { t: 'alpha', x: 4, y: 1.25, w: 1, h: 1, l: [{text: '$', pos: 'tr'}, {text: '4', pos: 'bl'}] },
+    { t: 'alpha', x: 5, y: 1.25, w: 1, h: 1, l: [{text: '%', pos: 'tr'}, {text: '5', pos: 'bl'}] },
+    { t: 'alpha', x: 6, y: 1.25, w: 1, h: 1, l: [{text: '^', pos: 'tr'}, {text: '6', pos: 'bl'}] },
+    { t: 'alpha', x: 7, y: 1.25, w: 1, h: 1, l: [{text: '&', pos: 'tr'}, {text: '7', pos: 'bl'}] },
+    { t: 'alpha', x: 8, y: 1.25, w: 1, h: 1, l: [{text: '*', pos: 'tr'}, {text: '8', pos: 'bl'}] },
+    { t: 'alpha', x: 9, y: 1.25, w: 1, h: 1, l: [{text: '(', pos: 'tr'}, {text: '9', pos: 'bl'}] },
+    { t: 'alpha', x: 10, y: 1.25, w: 1, h: 1, l: [{text: ')', pos: 'tr'}, {text: '0', pos: 'bl'}] },
+    { t: 'alpha', x: 11, y: 1.25, w: 1, h: 1, l: [{text: '_', pos: 'tr'}, {text: '-', pos: 'bl'}] },
+    { t: 'alpha', x: 12, y: 1.25, w: 1, h: 1, l: [{text: '+', pos: 'tr'}, {text: '=', pos: 'bl'}] },
+    { t: 'mod', x: 13, y: 1.25, w: 2, h: 1, l: [{text: '← Backspace', pos: 'ml'}] },
+    { t: 'mod', x: 15.25, y: 1.25, w: 1, h: 1, l: [{text: 'Delete', pos: 'ml'}] },
+    
+    { t: 'mod', x: 0, y: 2.25, w: 1.5, h: 1, l: [{text: '↹ Tab', pos: 'ml'}] },
+    { t: 'alpha', x: 1.5, y: 2.25, w: 1, h: 1, l: [{text: 'Q', pos: 'tl'}] },
+    { t: 'alpha', x: 2.5, y: 2.25, w: 1, h: 1, l: [{text: 'W', pos: 'tl'}] },
+    { t: 'alpha', x: 3.5, y: 2.25, w: 1, h: 1, l: [{text: 'E', pos: 'tl'}] },
+    { t: 'alpha', x: 4.5, y: 2.25, w: 1, h: 1, l: [{text: 'R', pos: 'tl'}] },
+    { t: 'alpha', x: 5.5, y: 2.25, w: 1, h: 1, l: [{text: 'T', pos: 'tl'}] },
+    { t: 'alpha', x: 6.5, y: 2.25, w: 1, h: 1, l: [{text: 'Y', pos: 'tl'}] },
+    { t: 'alpha', x: 7.5, y: 2.25, w: 1, h: 1, l: [{text: 'U', pos: 'tl'}] },
+    { t: 'alpha', x: 8.5, y: 2.25, w: 1, h: 1, l: [{text: 'I', pos: 'tl'}] },
+    { t: 'alpha', x: 9.5, y: 2.25, w: 1, h: 1, l: [{text: 'O', pos: 'tl'}] },
+    { t: 'alpha', x: 10.5, y: 2.25, w: 1, h: 1, l: [{text: 'P', pos: 'tl'}] },
+    { t: 'alpha', x: 11.5, y: 2.25, w: 1, h: 1, l: [{text: '{', pos: 'tr'}, {text: '[', pos: 'bl'}] },
+    { t: 'alpha', x: 12.5, y: 2.25, w: 1, h: 1, l: [{text: '}', pos: 'tr'}, {text: ']', pos: 'bl'}] },
+    { t: 'alpha', x: 13.5, y: 2.25, w: 1.5, h: 1, l: [{text: '|', pos: 'tr'}, {text: '\\', pos: 'bl'}] },
+    { t: 'mod', x: 15.25, y: 2.25, w: 1, h: 1, l: [{text: 'PgUp', pos: 'ml'}] },
+    
+    { t: 'mod', x: 0, y: 3.25, w: 1.75, h: 1, l: [{text: 'Caps Lock', pos: 'ml'}] },
+    { t: 'alpha', x: 1.75, y: 3.25, w: 1, h: 1, l: [{text: 'A', pos: 'tl'}] },
+    { t: 'alpha', x: 2.75, y: 3.25, w: 1, h: 1, l: [{text: 'S', pos: 'tl'}] },
+    { t: 'alpha', x: 3.75, y: 3.25, w: 1, h: 1, l: [{text: 'D', pos: 'tl'}] },
+    { t: 'alpha', x: 4.75, y: 3.25, w: 1, h: 1, l: [{text: 'F', pos: 'tl'}] },
+    { t: 'alpha', x: 5.75, y: 3.25, w: 1, h: 1, l: [{text: 'G', pos: 'tl'}] },
+    { t: 'alpha', x: 6.75, y: 3.25, w: 1, h: 1, l: [{text: 'H', pos: 'tl'}] },
+    { t: 'alpha', x: 7.75, y: 3.25, w: 1, h: 1, l: [{text: 'J', pos: 'tl'}] },
+    { t: 'alpha', x: 8.75, y: 3.25, w: 1, h: 1, l: [{text: 'K', pos: 'tl'}] },
+    { t: 'alpha', x: 9.75, y: 3.25, w: 1, h: 1, l: [{text: 'L', pos: 'tl'}] },
+    { t: 'alpha', x: 10.75, y: 3.25, w: 1, h: 1, l: [{text: ':', pos: 'tr'}, {text: ';', pos: 'bl'}] },
+    { t: 'alpha', x: 11.75, y: 3.25, w: 1, h: 1, l: [{text: '"', pos: 'tr'}, {text: "'", pos: 'bl'}] },
+    { t: 'acc', x: 12.75, y: 3.25, w: 2.25, h: 1, l: [{text: '← Enter', pos: 'ml'}] },
+    { t: 'mod', x: 15.25, y: 3.25, w: 1, h: 1, l: [{text: 'PgDn', pos: 'ml'}] },
+    
+    { t: 'mod', x: 0, y: 4.25, w: 2.25, h: 1, l: [{text: '⇧ Shift', pos: 'ml'}] },
+    { t: 'alpha', x: 2.25, y: 4.25, w: 1, h: 1, l: [{text: 'Z', pos: 'tl'}] },
+    { t: 'alpha', x: 3.25, y: 4.25, w: 1, h: 1, l: [{text: 'X', pos: 'tl'}] },
+    { t: 'alpha', x: 4.25, y: 4.25, w: 1, h: 1, l: [{text: 'C', pos: 'tl'}] },
+    { t: 'alpha', x: 5.25, y: 4.25, w: 1, h: 1, l: [{text: 'V', pos: 'tl'}] },
+    { t: 'alpha', x: 6.25, y: 4.25, w: 1, h: 1, l: [{text: 'B', pos: 'tl'}] },
+    { t: 'alpha', x: 7.25, y: 4.25, w: 1, h: 1, l: [{text: 'N', pos: 'tl'}] },
+    { t: 'alpha', x: 8.25, y: 4.25, w: 1, h: 1, l: [{text: 'M', pos: 'tl'}] },
+    { t: 'alpha', x: 9.25, y: 4.25, w: 1, h: 1, l: [{text: '<', pos: 'tr'}, {text: ',', pos: 'bl'}] },
+    { t: 'alpha', x: 10.25, y: 4.25, w: 1, h: 1, l: [{text: '>', pos: 'tr'}, {text: '.', pos: 'bl'}] },
+    { t: 'alpha', x: 11.25, y: 4.25, w: 1, h: 1, l: [{text: '?', pos: 'tr'}, {text: '/', pos: 'bl'}] },
+    { t: 'mod', x: 12.25, y: 4.25, w: 1.75, h: 1, l: [{text: '⇧ Shift', pos: 'ml'}] },
+    { t: 'acc', x: 14, y: 4.25, w: 1, h: 1, l: [{text: '↑', pos: 'c'}] },
+    { t: 'mod', x: 15.25, y: 4.25, w: 1, h: 1, l: [{text: 'End', pos: 'ml'}] },
+    
+    { t: 'mod', x: 0, y: 5.25, w: 1.25, h: 1, l: [{text: 'Ctrl', pos: 'ml'}] },
+    { t: 'mod', x: 1.25, y: 5.25, w: 1.25, h: 1, l: [{text: 'Win', pos: 'ml'}] },
+    { t: 'mod', x: 2.5, y: 5.25, w: 1.25, h: 1, l: [{text: 'Alt', pos: 'ml'}] },
+    { t: 'acc', x: 3.75, y: 5.25, w: 6.25, h: 1, l: [] },
+    { t: 'acc', x: 10, y: 5.25, w: 1, h: 1, l: [{text: 'Alt', pos: 'ml'}] },
+    { t: 'mod', x: 11, y: 5.25, w: 1, h: 1, l: [{text: 'Fn', pos: 'ml'}] },
+    { t: 'mod', x: 12, y: 5.25, w: 1, h: 1, l: [{text: 'Ctrl', pos: 'ml'}] },
+    { t: 'acc', x: 13, y: 5.25, w: 1, h: 1, l: [{text: '←', pos: 'c'}] },
+    { t: 'acc', x: 14, y: 5.25, w: 1, h: 1, l: [{text: '↓', pos: 'c'}] },
+    { t: 'acc', x: 15.25, y: 5.25, w: 1, h: 1, l: [{text: '→', pos: 'c'}] }
+  ];
+
+  const U = 44;
+  const plate = document.getElementById('plate');
+
+  layout.forEach(k => {
+    const key = document.createElement('div');
+    key.className = `key ${k.t}`;
+    key.style.left = `${k.x * U}px`;
+    key.style.top = `${k.y * U}px`;
+    key.style.width = `${k.w * U}px`;
+    key.style.height = `${k.h * U}px`;
+
+    if (k.t === 'knob') {
+      key.innerHTML = `<div class="knob-body"></div>`;
+    } else {
+      let legendsHTML = '';
+      k.l.forEach(leg => {
+        legendsHTML += `<span class="legend legend-${leg.pos}">${leg.text}</span>`;
+      });
+      key.innerHTML = `
+        <div class="keycap">
+          <div class="keycap-top">
+            ${legendsHTML}
+          </div>
+        </div>
+      `;
+    }
+    plate.appendChild(key);
+  });
+
+  // Mouse Glow tracking
+  plate.addEventListener('mousemove', (e) => {
+    const rect = plate.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    plate.style.setProperty('--mouse-x', `${x}px`);
+    plate.style.setProperty('--mouse-y', `${y}px`);
+  });
+  
+  plate.addEventListener('mouseleave', () => {
+    plate.style.setProperty('--mouse-x', `-200px`);
+    plate.style.setProperty('--mouse-y', `-200px`);
+  });
+
+  function resize() {
+    const ww = window.innerWidth;
+    const wh = window.innerHeight;
+    const scale = Math.min(ww / 800, wh / 400, 1.2);
+    document.querySelector('.scale-wrapper').style.setProperty('--scale', scale);
+  }
+  window.addEventListener('resize', resize);
+  resize();
+</script>
+
+</body>
+</html>

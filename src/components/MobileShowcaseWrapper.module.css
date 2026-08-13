@@ -1,0 +1,60 @@
+.masterWrapper {
+  width: 100%;
+  position: relative;
+  background: transparent;
+}
+
+.desktopScrollTrack {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.stickyContainer {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Base phone layout */
+.phoneCentralizer {
+  position: absolute;
+  top: 56%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1800px;
+  transform-style: preserve-3d;
+  z-index: 20;
+}
+
+/* Sections that fade in and out */
+.sectionContent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  pointer-events: none; /* Let clicks pass through if needed */
+}
+
+.sectionContent > * {
+  pointer-events: auto; /* Re-enable pointer events for actual content */
+}
+
+/* Desktop only utilities */
+.desktopOnly { display: block; }
+.mobileOnly { display: none; }
+
+@media (max-width: 1024px) {
+  .desktopOnly { display: none; }
+  .mobileOnly { display: block; }
+}

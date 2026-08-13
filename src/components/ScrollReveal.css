@@ -1,0 +1,15 @@
+.scroll-reveal {
+  margin: 20px 0;
+}
+
+.scroll-reveal-text {
+  font-size: clamp(1.4rem, 3.5vw, 2.8rem);
+  line-height: 1.55;
+  font-weight: 600;
+  font-family: 'Rajdhani', sans-serif;
+  color: rgba(255,255,255,0.92);
+}
+
+.word {
+  display: inline-block;
+}

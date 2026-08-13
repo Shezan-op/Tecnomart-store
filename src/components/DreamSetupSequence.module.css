@@ -1,0 +1,180 @@
+.pinContainer {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background-color: #000; /* Dark cinematic background */
+  overflow: hidden;
+}
+
+.stickyWrapper {
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10vw;
+  box-sizing: border-box;
+}
+
+/* Panel Layouts */
+.panel1, .panel2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 4rem;
+}
+
+.panel3 {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Text and Content Areas */
+.contentLeft, .contentRight {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contentTop {
+  text-align: center;
+  margin-bottom: 3rem;
+  z-index: 2;
+}
+
+.contentCenter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.heading {
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  line-height: 1.1;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.02em;
+  margin: 0;
+  text-transform: capitalize;
+}
+
+.headingCenter {
+  font-size: clamp(3rem, 5vw, 5rem);
+  line-height: 1.1;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+/* Image Wrappers */
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+}
+
+.crossfadeContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  max-height: 80vh;
+}
+
+.setupCrossfadeContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: 60vh;
+  margin-bottom: 2rem;
+}
+
+/* Crossfade Base/Top Images */
+.baseImage, .topImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.topImage {
+  z-index: 1;
+}
+
+/* CSS Animation for smooth, continuous crossfade */
+@keyframes infiniteFade {
+  0% { opacity: 0; }
+  30% { opacity: 0; }
+  50% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.animateFade {
+  animation: infiniteFade 8s infinite ease-in-out;
+}
+
+/* CTA Button */
+.ctaButton {
+  margin-top: 2rem;
+  padding: 1rem 3rem;
+  background-color: #fff;
+  color: #000;
+  font-size: 1.25rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 2;
+}
+
+.ctaButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .panel1 {
+    flex-direction: column;
+    text-align: center;
+    padding-top: 15vh;
+  }
+  .panel2 {
+    flex-direction: column-reverse;
+    text-align: center;
+    padding-top: 15vh;
+  }
+  .contentLeft, .contentRight {
+    flex: none;
+    width: 100%;
+  }
+  .heading {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  .headingCenter {
+    font-size: 2.5rem;
+  }
+  .crossfadeContainer {
+    aspect-ratio: 1;
+  }
+}

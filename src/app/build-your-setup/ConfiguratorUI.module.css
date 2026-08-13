@@ -1,0 +1,316 @@
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+@media (min-width: 1024px) {
+  .container {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+.mainArea {
+  flex: 1;
+  width: 100%;
+}
+
+.sidebar {
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .sidebar {
+    width: 350px;
+    position: sticky;
+    top: 100px;
+  }
+}
+
+.loading {
+  text-align: center;
+  padding: 4rem;
+  font-family: 'Orbitron', sans-serif;
+  color: #aab2ff;
+}
+
+.stepBox {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.stepBox h2 {
+  font-family: 'Orbitron', sans-serif;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  color: #fff;
+}
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+  .cardGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: #fff;
+}
+
+.card:hover {
+  background: rgba(71, 91, 255, 0.1);
+  border-color: #475bff;
+  transform: translateY(-2px);
+}
+
+.card h3 {
+  font-family: 'Orbitron', sans-serif;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.card p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.stepHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.modeToggle {
+  display: flex;
+  background: rgba(0,0,0,0.5);
+  border-radius: 50px;
+  padding: 0.25rem;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.modeToggle button {
+  background: transparent;
+  border: none;
+  color: rgba(255,255,255,0.6);
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.modeToggle button.activeMode {
+  background: rgba(71, 91, 255, 0.3);
+  color: #fff;
+}
+
+.componentGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.compCard {
+  position: relative;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.compCard:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.compSelected {
+  border-color: #475bff;
+  background: rgba(71, 91, 255, 0.05);
+}
+
+.compSelected::after {
+  content: '✓ Selected';
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: #475bff;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.compBadge {
+  display: inline-block;
+  background: rgba(255,255,255,0.1);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  color: #ccc;
+}
+
+.compCard h4 {
+  font-size: 1.2rem;
+  margin-bottom: 0.25rem;
+  color: #fff;
+}
+
+.compLabel {
+  font-size: 0.9rem;
+  color: #aab2ff;
+  margin-bottom: 0.5rem;
+}
+
+.compDesc {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.6);
+}
+
+.stepFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.textBtn {
+  background: transparent;
+  border: none;
+  color: rgba(255,255,255,0.6);
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+}
+
+.textBtn:hover {
+  color: #fff;
+}
+
+.primaryBtn {
+  background: #475bff;
+  color: #fff;
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.primaryBtn:hover:not(:disabled) {
+  background: #5a6dff;
+}
+
+.primaryBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Summary Sidebar */
+.summaryBox {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.summaryBox h3 {
+  font-family: 'Orbitron', sans-serif;
+  margin-bottom: 1.5rem;
+  color: #fff;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding-bottom: 0.5rem;
+}
+
+.summaryList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.summaryItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.summaryCat {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.5);
+}
+
+.summaryName {
+  font-size: 0.95rem;
+  color: #fff;
+}
+
+.summaryTotal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #aab2ff;
+}
+
+/* Form */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.inputGroup label {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.8);
+}
+
+.inputGroup input, .inputGroup textarea {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 6px;
+  padding: 0.8rem;
+  color: #fff;
+  font-family: inherit;
+}
+
+.inputGroup input:focus, .inputGroup textarea:focus {
+  outline: none;
+  border-color: #475bff;
+}

@@ -1,0 +1,338 @@
+- main [ref=f12e3]:
+  - heading "TECNOMART" [level=1] [ref=f12e5]
+  - generic [ref=f12e10]:
+    - heading "Technology That Works As Hard As You Do." [level=2] [ref=f12e11]
+    - paragraph [ref=f12e12]: Engineered for precision. Designed for performance. Your ultimate tech destination in Hyderabad.
+  - generic [ref=f12e14]:
+    - generic [ref=f12e15]: PREMIUM DEVICES • PREMIUM DEVICES • PREMIUM DEVICES • PREMIUM DEVICES • PREMIUM DEVICES • PREMIUM DEVICES • PREMIUM DEVICES • PREMIUM DEVICES • PREMIUM DEVICES • PREMIUM DEVICES •
+    - generic [ref=f12e16]: PREMIUM DEVICES • PREMIUM DEVICES • PREMIUM DEVICES • PREMIUM DEVICES • PREMIUM DEVICES • PREMIUM DEVICES • PREMIUM DEVICES • PREMIUM DEVICES • PREMIUM DEVICES • PREMIUM DEVICES •
+  - generic [ref=f12e18]:
+    - generic:
+      - generic:
+        - heading "Discover the Future" [level=3]
+        - paragraph: Premium smartphones engineered for your lifestyle.
+      - generic:
+        - heading "Precision Repair" [level=3]
+        - paragraph: Expert technicians restoring your device to factory perfection.
+    - generic:
+      - generic:
+        - generic:
+          - generic:
+            - generic:
+              - heading "Affordable Pricing" [level=4]
+              - paragraph: Unbeatable deals on top models.
+          - generic:
+            - generic:
+              - heading "Refurbished Mobiles" [level=4]
+              - paragraph: Certified pre-owned perfection.
+        - generic:
+          - generic:
+            - generic:
+              - heading "Expert Mechanics" [level=4]
+              - paragraph: Over 10+ years of hardware mastery.
+          - generic:
+            - generic:
+              - heading "Genuine Parts" [level=4]
+              - paragraph: 100% authentic OEM replacements.
+      - generic:
+        - generic:
+          - generic:
+            - generic:
+              - generic:
+                - heading "TecnoMart Mobile" [level=3]
+                - paragraph: Experience premium quality.
+      - generic:
+        - generic:
+          - generic:
+            - generic:
+              - heading "Latest Smartphones" [level=4]
+              - paragraph: Cutting-edge tech arrivals, daily.
+          - generic:
+            - generic:
+              - heading "Up To 2 Years Warranty" [level=4]
+              - paragraph: Peace of mind, guaranteed.
+        - generic:
+          - generic:
+            - generic:
+              - heading "Same Day Service" [level=4]
+              - paragraph: Repairs completed in hours, not days.
+          - generic:
+            - generic:
+              - heading "Free Diagnostics" [level=4]
+              - paragraph: No fee to identify hardware issues.
+  - generic [ref=f12e20]:
+    - generic [ref=f12e21]: ENGINEERED FOR PRECISION • ENGINEERED FOR PRECISION • ENGINEERED FOR PRECISION • ENGINEERED FOR PRECISION • ENGINEERED FOR PRECISION • ENGINEERED FOR PRECISION • ENGINEERED FOR PRECISION • ENGINEERED FOR PRECISION • ENGINEERED FOR PRECISION • ENGINEERED FOR PRECISION •
+    - generic [ref=f12e22]: ENGINEERED FOR PRECISION • ENGINEERED FOR PRECISION • ENGINEERED FOR PRECISION • ENGINEERED FOR PRECISION • ENGINEERED FOR PRECISION • ENGINEERED FOR PRECISION • ENGINEERED FOR PRECISION • ENGINEERED FOR PRECISION • ENGINEERED FOR PRECISION • ENGINEERED FOR PRECISION •
+  - generic [ref=f12e25]:
+    - generic [ref=f12e99]:
+      - generic [ref=f12e100]: TecnoMart
+      - generic [ref=f12e101]: Professional Display
+    - generic [ref=f12e102]:
+      - heading "Get Your Accessories Sorted" [level=2] [ref=f12e103]
+      - paragraph [ref=f12e104]: Click any key to go to the brand/series page & get your tech sorted
+    - generic [ref=f12e109]:
+      - generic [ref=f12e110]: Esc
+      - generic [ref=f12e114]: F1
+      - generic [ref=f12e118]: F2
+      - generic [ref=f12e122]: F3
+      - generic [ref=f12e126]: F4
+      - generic [ref=f12e130]: F5
+      - generic [ref=f12e134]: F6
+      - generic [ref=f12e138]: F7
+      - generic [ref=f12e142]: F8
+      - generic [ref=f12e146]: F9
+      - generic [ref=f12e150]: F10
+      - generic [ref=f12e154]: F11
+      - generic [ref=f12e158]: F12
+      - generic [ref=f12e167] [cursor=pointer]:
+        - generic [ref=f12e168]: ~
+        - generic [ref=f12e169]: "`"
+      - generic [ref=f12e172] [cursor=pointer]:
+        - generic [ref=f12e173]: "!"
+        - generic [ref=f12e174]: "1"
+      - generic [ref=f12e177] [cursor=pointer]:
+        - generic [ref=f12e178]: "@"
+        - generic [ref=f12e179]: "2"
+      - generic [ref=f12e182] [cursor=pointer]:
+        - generic [ref=f12e183]: "#"
+        - generic [ref=f12e184]: "3"
+      - generic [ref=f12e187] [cursor=pointer]:
+        - generic [ref=f12e188]: $
+        - generic [ref=f12e189]: "4"
+      - generic [ref=f12e192] [cursor=pointer]:
+        - generic [ref=f12e193]: "%"
+        - generic [ref=f12e194]: "5"
+      - generic [ref=f12e197] [cursor=pointer]:
+        - generic [ref=f12e198]: ^
+        - generic [ref=f12e199]: "6"
+      - generic [ref=f12e202] [cursor=pointer]:
+        - generic [ref=f12e203]: "&"
+        - generic [ref=f12e204]: "7"
+      - generic [ref=f12e207] [cursor=pointer]:
+        - generic [ref=f12e208]: "*"
+        - generic [ref=f12e209]: "8"
+      - generic [ref=f12e212] [cursor=pointer]:
+        - generic [ref=f12e213]: (
+        - generic [ref=f12e214]: "9"
+      - generic [ref=f12e217] [cursor=pointer]:
+        - generic [ref=f12e218]: )
+        - generic [ref=f12e219]: "0"
+      - generic [ref=f12e222] [cursor=pointer]:
+        - generic [ref=f12e223]: _
+        - generic [ref=f12e224]: "-"
+      - generic [ref=f12e227] [cursor=pointer]:
+        - generic [ref=f12e228]: +
+        - generic [ref=f12e229]: =
+      - generic [ref=f12e230]: ← Backspace
+      - generic [ref=f12e234]: Delete
+      - generic [ref=f12e238]: ↹ Tab
+      - generic [ref=f12e242]: Q
+      - generic [ref=f12e246]: W
+      - generic [ref=f12e250]: E
+      - generic [ref=f12e254]: R
+      - generic [ref=f12e258]: T
+      - generic [ref=f12e262]: "Y"
+      - generic [ref=f12e266]: U
+      - generic [ref=f12e270]: I
+      - generic [ref=f12e274]: O
+      - generic [ref=f12e278]: P
+      - generic [ref=f12e284] [cursor=pointer]:
+        - generic [ref=f12e285]: "{"
+        - generic [ref=f12e286]: "["
+      - generic [ref=f12e289] [cursor=pointer]:
+        - generic [ref=f12e290]: "}"
+        - generic [ref=f12e291]: "]"
+      - generic [ref=f12e294] [cursor=pointer]:
+        - generic [ref=f12e295]: "|"
+        - generic [ref=f12e296]: \
+      - generic [ref=f12e297]: PgUp
+      - generic [ref=f12e301]: Caps Lock
+      - generic [ref=f12e305]: A
+      - generic [ref=f12e309]: S
+      - generic [ref=f12e313]: D
+      - generic [ref=f12e317]: F
+      - generic [ref=f12e321]: G
+      - generic [ref=f12e325]: H
+      - generic [ref=f12e329]: J
+      - generic [ref=f12e333]: K
+      - generic [ref=f12e337]: L
+      - generic [ref=f12e343] [cursor=pointer]:
+        - generic [ref=f12e344]: ":"
+        - generic [ref=f12e345]: ;
+      - generic [ref=f12e348] [cursor=pointer]:
+        - generic [ref=f12e349]: "\""
+        - generic [ref=f12e350]: "'"
+      - generic [ref=f12e351]: ← Enter
+      - generic [ref=f12e355]: PgDn
+      - generic [ref=f12e359]: ⇧ Shift
+      - generic [ref=f12e363]: Z
+      - generic [ref=f12e367]: X
+      - generic [ref=f12e371]: C
+      - generic [ref=f12e375]: V
+      - generic [ref=f12e379]: B
+      - generic [ref=f12e383]: "N"
+      - generic [ref=f12e387]: M
+      - generic [ref=f12e393] [cursor=pointer]:
+        - generic [ref=f12e394]: <
+        - generic [ref=f12e395]: ","
+      - generic [ref=f12e398] [cursor=pointer]:
+        - generic [ref=f12e399]: ">"
+        - generic [ref=f12e400]: .
+      - generic [ref=f12e403] [cursor=pointer]:
+        - generic [ref=f12e404]: "?"
+        - generic [ref=f12e405]: /
+      - generic [ref=f12e406]: ⇧ Shift
+      - generic [ref=f12e410]: ↑
+      - generic [ref=f12e414]: End
+      - generic [ref=f12e418]: Ctrl
+      - generic [ref=f12e422]: Win
+      - generic [ref=f12e426]: Alt
+      - generic [ref=f12e431] [cursor=pointer]
+      - generic [ref=f12e433]: Alt
+      - generic [ref=f12e437]: Fn
+      - generic [ref=f12e441]: Ctrl
+      - generic [ref=f12e445]: ←
+      - generic [ref=f12e449]: ↓
+      - generic [ref=f12e453]: →
+  - generic [ref=f12e458]:
+    - generic [ref=f12e459]: "Want better personalised deals? Call us: +91 98765 43210 • Visit us at HITEC City, Hyderabad • Mon-Sun: 10AM - 9PM • Want better personalised deals? Call us: +91 98765 43210 • Visit us at HITEC City, Hyderabad • Mon-Sun: 10AM - 9PM • Want better personalised deals? Call us: +91 98765 43210 • Visit us at HITEC City, Hyderabad • Mon-Sun: 10AM - 9PM • Want better personalised deals? Call us: +91 98765 43210 • Visit us at HITEC City, Hyderabad • Mon-Sun: 10AM - 9PM • Want better personalised deals? Call us: +91 98765 43210 • Visit us at HITEC City, Hyderabad • Mon-Sun: 10AM - 9PM • Want better personalised deals? Call us: +91 98765 43210 • Visit us at HITEC City, Hyderabad • Mon-Sun: 10AM - 9PM • Want better personalised deals? Call us: +91 98765 43210 • Visit us at HITEC City, Hyderabad • Mon-Sun: 10AM - 9PM • Want better personalised deals? Call us: +91 98765 43210 • Visit us at HITEC City, Hyderabad • Mon-Sun: 10AM - 9PM • Want better personalised deals? Call us: +91 98765 43210 • Visit us at HITEC City, Hyderabad • Mon-Sun: 10AM - 9PM • Want better personalised deals? Call us: +91 98765 43210 • Visit us at HITEC City, Hyderabad • Mon-Sun: 10AM - 9PM •"
+    - generic [ref=f12e460]: "Want better personalised deals? Call us: +91 98765 43210 • Visit us at HITEC City, Hyderabad • Mon-Sun: 10AM - 9PM • Want better personalised deals? Call us: +91 98765 43210 • Visit us at HITEC City, Hyderabad • Mon-Sun: 10AM - 9PM • Want better personalised deals? Call us: +91 98765 43210 • Visit us at HITEC City, Hyderabad • Mon-Sun: 10AM - 9PM • Want better personalised deals? Call us: +91 98765 43210 • Visit us at HITEC City, Hyderabad • Mon-Sun: 10AM - 9PM • Want better personalised deals? Call us: +91 98765 43210 • Visit us at HITEC City, Hyderabad • Mon-Sun: 10AM - 9PM • Want better personalised deals? Call us: +91 98765 43210 • Visit us at HITEC City, Hyderabad • Mon-Sun: 10AM - 9PM • Want better personalised deals? Call us: +91 98765 43210 • Visit us at HITEC City, Hyderabad • Mon-Sun: 10AM - 9PM • Want better personalised deals? Call us: +91 98765 43210 • Visit us at HITEC City, Hyderabad • Mon-Sun: 10AM - 9PM • Want better personalised deals? Call us: +91 98765 43210 • Visit us at HITEC City, Hyderabad • Mon-Sun: 10AM - 9PM • Want better personalised deals? Call us: +91 98765 43210 • Visit us at HITEC City, Hyderabad • Mon-Sun: 10AM - 9PM •"
+  - generic [ref=f12e461]:
+    - generic [ref=f12e463]:
+      - paragraph [ref=f12e464]: Customer Stories
+      - heading "Real People. Real Savings." [level=2] [ref=f12e465]
+      - paragraph [ref=f12e466]: Thousands of happy customers across Hyderabad trust TecnoMart.
+    - generic [ref=f12e467]:
+      - button "Previous" [ref=f12e468] [cursor=pointer]
+      - generic [ref=f12e471]:
+        - generic:
+          - iframe [ref=f12e472] [cursor=pointer]:
+            - generic "YouTube Video Player" [ref=f13e3]
+          - generic:
+            - paragraph: "\"Saved ₹30K on my MacBook Pro!\""
+            - generic:
+              - strong: Rahul S.
+              - generic: Software Developer, Hyderabad
+        - generic [ref=f12e473] [cursor=pointer]:
+          - iframe [ref=f12e475]:
+            
+          - generic [ref=f12e476]:
+            - paragraph [ref=f12e477]: "\"Flawless iPhone 14 Pro Max, genuine warranty.\""
+            - generic [ref=f12e478]:
+              - strong [ref=f12e479]: Priya M.
+              - generic [ref=f12e480]: Content Creator
+        - generic [ref=f12e481] [cursor=pointer]:
+          - iframe [ref=f12e483]:
+            - generic "YouTube Video Player" [ref=f15e3]
+          - generic [ref=f12e484]:
+            - paragraph [ref=f12e485]: "\"Best laptop for college — Asus got serviced in 2 days!\""
+            - generic [ref=f12e486]:
+              - strong [ref=f12e487]: Arjun K.
+              - generic [ref=f12e488]: Student, BITS Hyderabad
+        - generic [ref=f12e489] [cursor=pointer]:
+          - iframe [ref=f12e491]:
+            
+          - generic [ref=f12e492]:
+            - paragraph [ref=f12e493]: "\"The 90-point inspection is legit — refurb iPhone looks brand new.\""
+            - generic [ref=f12e494]:
+              - strong [ref=f12e495]: Neha R.
+              - generic [ref=f12e496]: Graphic Designer
+        - generic:
+          - iframe [ref=f12e497] [cursor=pointer]:
+            
+          - generic:
+            - paragraph: "\"Set up 8 laptops for my office in one day from TecnoMart.\""
+            - generic:
+              - strong: Vikram P.
+              - generic: Entrepreneur
+      - button "Next" [ref=f12e498] [cursor=pointer]
+  - generic [ref=f12e502]:
+    - generic [ref=f12e503]: Find Us
+    - paragraph [ref=f12e505]:
+      - generic [ref=f12e506]: Visit
+      - generic [ref=f12e507]: Our
+      - generic [ref=f12e508]: Store
+    - generic [ref=f12e509]:
+      - generic [ref=f12e510]:
+        - generic [ref=f12e511]:
+          - generic [ref=f12e512]: Address
+          - generic [ref=f12e513]: 123 Tech Park Road, HITEC City,Hyderabad, Telangana 500081
+        - generic [ref=f12e515]:
+          - generic [ref=f12e516]: Phone
+          - link "+91 98765 43210" [ref=f12e517] [cursor=pointer]:
+            - /url: tel:+919876543210
+        - generic [ref=f12e519]:
+          - generic [ref=f12e520]: Hours
+          - generic [ref=f12e521]: Monday – Sunday10:00 AM – 9:00 PM
+        - generic [ref=f12e523]:
+          - link "Get Directions" [ref=f12e524] [cursor=pointer]:
+            - /url: https://maps.google.com/?q=HITEC+City+Hyderabad
+          - link "Call Now" [ref=f12e527] [cursor=pointer]:
+            - /url: tel:+919876543210
+      - generic [ref=f12e531]:
+        - iframe [ref=f12e532]:
+          
+        - generic: TecnoMart HITEC City
+  - generic [ref=f12e534]:
+    - generic [ref=f12e535]: Our Story
+    - paragraph [ref=f12e537]:
+      - generic [ref=f12e538]: Our
+      - generic [ref=f12e539]: Journey
+    - paragraph [ref=f12e540]: Every milestone reflects our commitment to delivering trusted technology solutions.
+    - generic [ref=f12e541]:
+      - generic [ref=f12e544]:
+        - generic [ref=f12e545]: "2015"
+        - generic [ref=f12e546]: The Beginning
+        - generic [ref=f12e547]: Founded in HITEC City. First store opens with mobile sales and repairs — a vision of trusted technology starts here.
+      - generic [ref=f12e551]:
+        - generic [ref=f12e552]: "2017"
+        - generic [ref=f12e553]: Full Service Centre
+        - generic [ref=f12e554]: Expanded to a full laptop service centre. Added a certified technician team. Hardware expertise meets customer care.
+      - generic [ref=f12e558]:
+        - generic [ref=f12e559]: "2019"
+        - generic [ref=f12e560]: 10,000 Customers
+        - generic [ref=f12e561]: Launched the premium accessories department. Crossed 10,000 happy customers — a milestone we wear with pride.
+      - generic [ref=f12e565]:
+        - generic [ref=f12e566]: "2022"
+        - generic [ref=f12e567]: Expanded Showroom
+        - generic [ref=f12e568]: New, larger showroom opens. Hyderabad's most trusted tech destination — now with room to match the reputation.
+      - generic [ref=f12e572]:
+        - generic [ref=f12e573]: "2024"
+        - generic [ref=f12e574]: Going Digital
+        - generic [ref=f12e575]: Launched our online presence, reaching customers across all of Telangana. The future of TecnoMart goes beyond four walls.
+  - generic [ref=f12e579]:
+    - heading "Frequently Asked Questions" [level=2] [ref=f12e580]
+    - generic [ref=f12e581]:
+      - generic [ref=f12e582]:
+        - button "What does 'Certified Refurbished' mean?" [ref=f12e583] [cursor=pointer]
+        - paragraph [ref=f12e588]: Every device undergoes a strict 90-point inspection by our certified technicians. We check everything from battery health and screen clarity to internal components and connectivity. Only devices that pass 100% of these tests are sold as Certified Refurbished.
+      - generic [ref=f12e589]:
+        - button "Do you offer a warranty?" [ref=f12e590] [cursor=pointer]
+        - paragraph [ref=f12e595]: Yes, all our refurbished devices come with a standard 12-month hardware warranty. This covers any manufacturing defects or hardware failures that occur during normal use.
+      - generic [ref=f12e596]:
+        - button "Can I return a device if I don't like it?" [ref=f12e597] [cursor=pointer]
+        - paragraph [ref=f12e602]: Absolutely. We offer a 7-day no-questions-asked return policy. If you're not completely satisfied with your purchase, you can return it for a full refund or exchange.
+      - generic [ref=f12e603]:
+        - button "Do you offer EMI or financing options?" [ref=f12e604] [cursor=pointer]
+        - paragraph [ref=f12e609]: Yes, we partner with major banks to offer flexible EMI options, including No-Cost EMI on select models. You can see available options at checkout.
+  - generic [ref=f12e613]:
+    - heading "TecnoMart" [level=2] [ref=f12e615]
+    - generic [ref=f12e616]:
+      - generic [ref=f12e617]:
+        - link "X (Twitter)" [ref=f12e618] [cursor=pointer]:
+          - /url: https://x.com
+        - link "Instagram" [ref=f12e621] [cursor=pointer]:
+          - /url: https://instagram.com
+      - generic [ref=f12e626]:
+        - link "Visit Us" [ref=f12e627] [cursor=pointer]:
+          - /url: "#"
+        - link "Contact Us" [ref=f12e631] [cursor=pointer]:
+          - /url: tel:+919876543210
+      - generic [ref=f12e634]:
+        - link "Privacy Policy" [ref=f12e635] [cursor=pointer]:
+          - /url: "#"
+        - link "Terms & Conditions" [ref=f12e638] [cursor=pointer]:
+          - /url: "#"
+    - generic [ref=f12e642]:
+      - generic [ref=f12e643]: © 2026 TecnoMart. Engineered for Precision.
+      - generic [ref=f12e644]: Hyderabad, Telangana

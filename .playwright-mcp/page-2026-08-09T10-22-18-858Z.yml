@@ -1,0 +1,426 @@
+- generic [active] [ref=f60e1]:
+  - main [ref=f60e2]:
+    - navigation [ref=f60e4]:
+      - heading "TECNOMART" [level=1] [ref=f60e6] [cursor=pointer]
+    - generic [ref=f60e8]:
+      - generic [ref=f60e11]:
+        - heading "Technology That Works As Hard As You Do." [level=1] [ref=f60e12]: Technology That WorksAs Hard As You Do.
+        - paragraph [ref=f60e13]: Engineered for precision. Designed for performance.Your ultimate tech destination in Hyderabad.
+      - generic [ref=f60e14]: Scroll to explore
+    - generic [ref=f60e18]:
+      - generic [ref=f60e19]: PREMIUM DEVICES • PREMIUM DEVICES • PREMIUM DEVICES • PREMIUM DEVICES • PREMIUM DEVICES • PREMIUM DEVICES • PREMIUM DEVICES • PREMIUM DEVICES • PREMIUM DEVICES • PREMIUM DEVICES •
+      - generic [ref=f60e20]: PREMIUM DEVICES • PREMIUM DEVICES • PREMIUM DEVICES • PREMIUM DEVICES • PREMIUM DEVICES • PREMIUM DEVICES • PREMIUM DEVICES • PREMIUM DEVICES • PREMIUM DEVICES • PREMIUM DEVICES •
+    - generic [ref=f60e23]:
+      - generic:
+        - generic:
+          - heading "Discover the Future" [level=2]
+          - paragraph: Premium smartphones engineered for your lifestyle.
+        - generic:
+          - heading "Precision Repair" [level=2]
+          - paragraph: Expert technicians restoring your device to factory perfection.
+      - generic:
+        - generic:
+          - generic:
+            - generic:
+              - generic:
+                - heading "Affordable Pricing" [level=4]
+                - paragraph: Unbeatable deals on top models.
+            - generic:
+              - generic:
+                - heading "Refurbished Mobiles" [level=4]
+                - paragraph: Certified pre-owned perfection.
+        - generic:
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - heading "TecnoMart" [level=3]
+                    - paragraph: Premium devices
+        - generic:
+          - generic:
+            - generic:
+              - generic:
+                - heading "Latest Smartphones" [level=4]
+                - paragraph: Cutting-edge tech arrivals, daily.
+            - generic:
+              - generic:
+                - heading "Up To 2 Years Warranty" [level=4]
+                - paragraph: Peace of mind, guaranteed.
+          - generic:
+            - generic:
+              - generic:
+                - heading "Same Day Service" [level=4]
+                - paragraph: Repairs completed in hours, not days.
+            - generic:
+              - generic:
+                - heading "Free Diagnostics" [level=4]
+                - paragraph: No fee to identify hardware issues.
+    - generic [ref=f60e25]:
+      - generic [ref=f60e26]: ENGINEERED FOR PRECISION • ENGINEERED FOR PRECISION • ENGINEERED FOR PRECISION • ENGINEERED FOR PRECISION • ENGINEERED FOR PRECISION • ENGINEERED FOR PRECISION • ENGINEERED FOR PRECISION • ENGINEERED FOR PRECISION • ENGINEERED FOR PRECISION • ENGINEERED FOR PRECISION •
+      - generic [ref=f60e27]: ENGINEERED FOR PRECISION • ENGINEERED FOR PRECISION • ENGINEERED FOR PRECISION • ENGINEERED FOR PRECISION • ENGINEERED FOR PRECISION • ENGINEERED FOR PRECISION • ENGINEERED FOR PRECISION • ENGINEERED FOR PRECISION • ENGINEERED FOR PRECISION • ENGINEERED FOR PRECISION •
+    - generic [ref=f60e29]:
+      - generic [ref=f60e104]:
+        - generic [ref=f60e105]: TecnoMart
+        - generic [ref=f60e106]: HITEC City · Hyderabad
+      - generic [ref=f60e114]:
+        - heading "Get Your Accessories Sorted" [level=2] [ref=f60e115]
+        - paragraph [ref=f60e116]: Click any key to explore the brand or series page and get your tech sorted
+      - generic [ref=f60e121]:
+        - generic [ref=f60e122]: Esc
+        - generic [ref=f60e126]: F1
+        - generic [ref=f60e130]: F2
+        - generic [ref=f60e134]: F3
+        - generic [ref=f60e138]: F4
+        - generic [ref=f60e142]: F5
+        - generic [ref=f60e146]: F6
+        - generic [ref=f60e150]: F7
+        - generic [ref=f60e154]: F8
+        - generic [ref=f60e158]: F9
+        - generic [ref=f60e162]: F10
+        - generic [ref=f60e166]: F11
+        - generic [ref=f60e170]: F12
+        - generic [ref=f60e179] [cursor=pointer]:
+          - generic [ref=f60e180]: ~
+          - generic [ref=f60e181]: "`"
+        - generic [ref=f60e184] [cursor=pointer]:
+          - generic [ref=f60e185]: "!"
+          - generic [ref=f60e186]: "1"
+        - generic [ref=f60e189] [cursor=pointer]:
+          - generic [ref=f60e190]: "@"
+          - generic [ref=f60e191]: "2"
+        - generic [ref=f60e194] [cursor=pointer]:
+          - generic [ref=f60e195]: "#"
+          - generic [ref=f60e196]: "3"
+        - generic [ref=f60e199] [cursor=pointer]:
+          - generic [ref=f60e200]: $
+          - generic [ref=f60e201]: "4"
+        - generic [ref=f60e204] [cursor=pointer]:
+          - generic [ref=f60e205]: "%"
+          - generic [ref=f60e206]: "5"
+        - generic [ref=f60e209] [cursor=pointer]:
+          - generic [ref=f60e210]: ^
+          - generic [ref=f60e211]: "6"
+        - generic [ref=f60e214] [cursor=pointer]:
+          - generic [ref=f60e215]: "&"
+          - generic [ref=f60e216]: "7"
+        - generic [ref=f60e219] [cursor=pointer]:
+          - generic [ref=f60e220]: "*"
+          - generic [ref=f60e221]: "8"
+        - generic [ref=f60e224] [cursor=pointer]:
+          - generic [ref=f60e225]: (
+          - generic [ref=f60e226]: "9"
+        - generic [ref=f60e229] [cursor=pointer]:
+          - generic [ref=f60e230]: )
+          - generic [ref=f60e231]: "0"
+        - generic [ref=f60e234] [cursor=pointer]:
+          - generic [ref=f60e235]: _
+          - generic [ref=f60e236]: "-"
+        - generic [ref=f60e239] [cursor=pointer]:
+          - generic [ref=f60e240]: +
+          - generic [ref=f60e241]: =
+        - generic [ref=f60e242]: ← Backspace
+        - generic [ref=f60e246]: Delete
+        - generic [ref=f60e250]: ↹ Tab
+        - generic [ref=f60e254]: Q
+        - generic [ref=f60e258]: W
+        - generic [ref=f60e262]: E
+        - generic [ref=f60e266]: R
+        - generic [ref=f60e270]: T
+        - generic [ref=f60e274]: "Y"
+        - generic [ref=f60e278]: U
+        - generic [ref=f60e282]: I
+        - generic [ref=f60e286]: O
+        - generic [ref=f60e290]: P
+        - generic [ref=f60e296] [cursor=pointer]:
+          - generic [ref=f60e297]: "{"
+          - generic [ref=f60e298]: "["
+        - generic [ref=f60e301] [cursor=pointer]:
+          - generic [ref=f60e302]: "}"
+          - generic [ref=f60e303]: "]"
+        - generic [ref=f60e306] [cursor=pointer]:
+          - generic [ref=f60e307]: "|"
+          - generic [ref=f60e308]: \
+        - generic [ref=f60e309]: PgUp
+        - generic [ref=f60e313]: Caps Lock
+        - generic [ref=f60e317]: A
+        - generic [ref=f60e321]: S
+        - generic [ref=f60e325]: D
+        - generic [ref=f60e329]: F
+        - generic [ref=f60e333]: G
+        - generic [ref=f60e337]: H
+        - generic [ref=f60e341]: J
+        - generic [ref=f60e345]: K
+        - generic [ref=f60e349]: L
+        - generic [ref=f60e355] [cursor=pointer]:
+          - generic [ref=f60e356]: ":"
+          - generic [ref=f60e357]: ;
+        - generic [ref=f60e360] [cursor=pointer]:
+          - generic [ref=f60e361]: "\""
+          - generic [ref=f60e362]: "'"
+        - generic [ref=f60e363]: ← Enter
+        - generic [ref=f60e367]: PgDn
+        - generic [ref=f60e371]: ⇧ Shift
+        - generic [ref=f60e375]: Z
+        - generic [ref=f60e379]: X
+        - generic [ref=f60e383]: C
+        - generic [ref=f60e387]: V
+        - generic [ref=f60e391]: B
+        - generic [ref=f60e395]: "N"
+        - generic [ref=f60e399]: M
+        - generic [ref=f60e405] [cursor=pointer]:
+          - generic [ref=f60e406]: <
+          - generic [ref=f60e407]: ","
+        - generic [ref=f60e410] [cursor=pointer]:
+          - generic [ref=f60e411]: ">"
+          - generic [ref=f60e412]: .
+        - generic [ref=f60e415] [cursor=pointer]:
+          - generic [ref=f60e416]: "?"
+          - generic [ref=f60e417]: /
+        - generic [ref=f60e418]: ⇧ Shift
+        - generic [ref=f60e422]: ↑
+        - generic [ref=f60e426]: End
+        - generic [ref=f60e430]: Ctrl
+        - generic [ref=f60e434]: Win
+        - generic [ref=f60e438]: Alt
+        - generic [ref=f60e443] [cursor=pointer]
+        - generic [ref=f60e445]: Alt
+        - generic [ref=f60e449]: Fn
+        - generic [ref=f60e453]: Ctrl
+        - generic [ref=f60e457]: ←
+        - generic [ref=f60e461]: ↓
+        - generic [ref=f60e465]: →
+    - generic [ref=f60e470]:
+      - generic [ref=f60e471]: "Want better personalised deals? Call us: +91 98765 43210 • Visit us at HITEC City, Hyderabad • Mon-Sun: 10AM - 9PM • Want better personalised deals? Call us: +91 98765 43210 • Visit us at HITEC City, Hyderabad • Mon-Sun: 10AM - 9PM • Want better personalised deals? Call us: +91 98765 43210 • Visit us at HITEC City, Hyderabad • Mon-Sun: 10AM - 9PM • Want better personalised deals? Call us: +91 98765 43210 • Visit us at HITEC City, Hyderabad • Mon-Sun: 10AM - 9PM • Want better personalised deals? Call us: +91 98765 43210 • Visit us at HITEC City, Hyderabad • Mon-Sun: 10AM - 9PM • Want better personalised deals? Call us: +91 98765 43210 • Visit us at HITEC City, Hyderabad • Mon-Sun: 10AM - 9PM • Want better personalised deals? Call us: +91 98765 43210 • Visit us at HITEC City, Hyderabad • Mon-Sun: 10AM - 9PM • Want better personalised deals? Call us: +91 98765 43210 • Visit us at HITEC City, Hyderabad • Mon-Sun: 10AM - 9PM • Want better personalised deals? Call us: +91 98765 43210 • Visit us at HITEC City, Hyderabad • Mon-Sun: 10AM - 9PM • Want better personalised deals? Call us: +91 98765 43210 • Visit us at HITEC City, Hyderabad • Mon-Sun: 10AM - 9PM •"
+      - generic [ref=f60e472]: "Want better personalised deals? Call us: +91 98765 43210 • Visit us at HITEC City, Hyderabad • Mon-Sun: 10AM - 9PM • Want better personalised deals? Call us: +91 98765 43210 • Visit us at HITEC City, Hyderabad • Mon-Sun: 10AM - 9PM • Want better personalised deals? Call us: +91 98765 43210 • Visit us at HITEC City, Hyderabad • Mon-Sun: 10AM - 9PM • Want better personalised deals? Call us: +91 98765 43210 • Visit us at HITEC City, Hyderabad • Mon-Sun: 10AM - 9PM • Want better personalised deals? Call us: +91 98765 43210 • Visit us at HITEC City, Hyderabad • Mon-Sun: 10AM - 9PM • Want better personalised deals? Call us: +91 98765 43210 • Visit us at HITEC City, Hyderabad • Mon-Sun: 10AM - 9PM • Want better personalised deals? Call us: +91 98765 43210 • Visit us at HITEC City, Hyderabad • Mon-Sun: 10AM - 9PM • Want better personalised deals? Call us: +91 98765 43210 • Visit us at HITEC City, Hyderabad • Mon-Sun: 10AM - 9PM • Want better personalised deals? Call us: +91 98765 43210 • Visit us at HITEC City, Hyderabad • Mon-Sun: 10AM - 9PM • Want better personalised deals? Call us: +91 98765 43210 • Visit us at HITEC City, Hyderabad • Mon-Sun: 10AM - 9PM •"
+    - generic [ref=f60e473]:
+      - generic [ref=f60e475]:
+        - paragraph [ref=f60e476]: Customer Stories
+        - heading "Real People. Real Savings." [level=2] [ref=f60e477]
+        - paragraph [ref=f60e478]: Thousands of happy customers across Hyderabad trust TecnoMart.
+      - generic [ref=f60e479]:
+        - button "Previous" [ref=f60e480] [cursor=pointer]
+        - generic [ref=f60e483]:
+          - generic:
+            - iframe [ref=f60e484] [cursor=pointer]:
+              - generic [ref=f61e1]:
+                - generic "YouTube Video Player" [ref=f61e3]
+                - generic [ref=f61e5]:
+                  - generic:
+                    - generic:
+                      - generic [ref=f61e6] [cursor=pointer]
+                      - button "Play video" [ref=f61e10] [cursor=pointer]
+                      - button "Hide player controls" [ref=f61e12] [cursor=pointer]
+                      - generic [ref=f61e19]:
+                        - generic [ref=f61e20]:
+                          - link "Rick Astley - Never Gonna Give You Up (Official Video) (4K Remaster)" [ref=f61e21] [cursor=pointer]:
+                            - /url: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+                          - link "Rick Astley" [ref=f61e22] [cursor=pointer]:
+                            - /url: /channel/UCuAXFkgsw1L7xaCfnd5JJOw
+                        - generic [ref=f61e24]:
+                          - button [ref=f61e25] [cursor=pointer]
+                          - generic [ref=f61e27]:
+                            - generic: Rick Astley
+                            - generic: 4.53M subscribers
+            - generic:
+              - paragraph: "\"Saved ₹30K on my MacBook Pro!\""
+              - generic:
+                - strong: Rahul S.
+                - generic: Software Developer, Hyderabad
+          - generic [ref=f60e485] [cursor=pointer]:
+            - iframe [ref=f60e487]:
+              - generic [ref=f62e1]:
+                - generic "YouTube Video Player" [ref=f62e3]
+                - generic [ref=f62e5]:
+                  - generic:
+                    - generic:
+                      - generic [ref=f62e6] [cursor=pointer]
+                      - button "Play video" [ref=f62e10] [cursor=pointer]
+                      - button "Hide player controls" [ref=f62e12] [cursor=pointer]
+                      - generic [ref=f62e19]:
+                        - generic [ref=f62e20]:
+                          - link "Rick Astley - Never Gonna Give You Up (Official Video) (4K Remaster)" [ref=f62e21] [cursor=pointer]:
+                            - /url: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+                          - link "Rick Astley" [ref=f62e22] [cursor=pointer]:
+                            - /url: /channel/UCuAXFkgsw1L7xaCfnd5JJOw
+                        - generic [ref=f62e24]:
+                          - button [ref=f62e25] [cursor=pointer]
+                          - generic [ref=f62e27]:
+                            - generic: Rick Astley
+                            - generic: 4.53M subscribers
+            - generic [ref=f60e488]:
+              - paragraph [ref=f60e489]: "\"Flawless iPhone 14 Pro Max, genuine warranty.\""
+              - generic [ref=f60e490]:
+                - strong [ref=f60e491]: Priya M.
+                - generic [ref=f60e492]: Content Creator
+          - generic [ref=f60e493] [cursor=pointer]:
+            - iframe [ref=f60e495]:
+              - generic [ref=f63e1]:
+                - generic "YouTube Video Player" [ref=f63e3]
+                - generic [ref=f63e5]:
+                  - generic:
+                    - generic:
+                      - generic [ref=f63e6] [cursor=pointer]
+                      - button "Play video" [ref=f63e10] [cursor=pointer]
+                      - button "Hide player controls" [ref=f63e12] [cursor=pointer]
+                      - generic [ref=f63e19]:
+                        - generic [ref=f63e20]:
+                          - link "Rick Astley - Never Gonna Give You Up (Official Video) (4K Remaster)" [ref=f63e21] [cursor=pointer]:
+                            - /url: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+                          - link "Rick Astley" [ref=f63e22] [cursor=pointer]:
+                            - /url: /channel/UCuAXFkgsw1L7xaCfnd5JJOw
+                        - generic [ref=f63e24]:
+                          - button [ref=f63e25] [cursor=pointer]
+                          - generic [ref=f63e27]:
+                            - generic: Rick Astley
+                            - generic: 4.53M subscribers
+            - generic [ref=f60e496]:
+              - paragraph [ref=f60e497]: "\"Best laptop for college — Asus got serviced in 2 days!\""
+              - generic [ref=f60e498]:
+                - strong [ref=f60e499]: Arjun K.
+                - generic [ref=f60e500]: Student, BITS Hyderabad
+          - generic [ref=f60e501] [cursor=pointer]:
+            - iframe [ref=f60e503]:
+              - generic [ref=f64e1]:
+                - generic "YouTube Video Player" [ref=f64e3]
+                - generic [ref=f64e5]:
+                  - generic:
+                    - generic:
+                      - generic [ref=f64e6] [cursor=pointer]
+                      - button "Play video" [ref=f64e10] [cursor=pointer]
+                      - button "Hide player controls" [ref=f64e12] [cursor=pointer]
+                      - generic [ref=f64e19]:
+                        - generic [ref=f64e20]:
+                          - link "Rick Astley - Never Gonna Give You Up (Official Video) (4K Remaster)" [ref=f64e21] [cursor=pointer]:
+                            - /url: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+                          - link "Rick Astley" [ref=f64e22] [cursor=pointer]:
+                            - /url: /channel/UCuAXFkgsw1L7xaCfnd5JJOw
+                        - generic [ref=f64e24]:
+                          - button [ref=f64e25] [cursor=pointer]
+                          - generic [ref=f64e27]:
+                            - generic: Rick Astley
+                            - generic: 4.53M subscribers
+            - generic [ref=f60e504]:
+              - paragraph [ref=f60e505]: "\"The 90-point inspection is legit — refurb iPhone looks brand new.\""
+              - generic [ref=f60e506]:
+                - strong [ref=f60e507]: Neha R.
+                - generic [ref=f60e508]: Graphic Designer
+          - generic:
+            - iframe [ref=f60e509] [cursor=pointer]:
+              - generic [ref=f65e1]:
+                - generic "YouTube Video Player" [ref=f65e3]
+                - generic [ref=f65e5]:
+                  - generic:
+                    - generic:
+                      - generic [ref=f65e6] [cursor=pointer]
+                      - button "Play video" [ref=f65e10] [cursor=pointer]
+                      - button "Hide player controls" [ref=f65e12] [cursor=pointer]
+                      - generic [ref=f65e19]:
+                        - generic [ref=f65e20]:
+                          - link "Rick Astley - Never Gonna Give You Up (Official Video) (4K Remaster)" [ref=f65e21] [cursor=pointer]:
+                            - /url: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+                          - link "Rick Astley" [ref=f65e22] [cursor=pointer]:
+                            - /url: /channel/UCuAXFkgsw1L7xaCfnd5JJOw
+                        - generic [ref=f65e24]:
+                          - button [ref=f65e25] [cursor=pointer]
+                          - generic [ref=f65e27]:
+                            - generic: Rick Astley
+                            - generic: 4.53M subscribers
+            - generic:
+              - paragraph: "\"Set up 8 laptops for my office in one day from TecnoMart.\""
+              - generic:
+                - strong: Vikram P.
+                - generic: Entrepreneur
+        - button "Next" [ref=f60e510] [cursor=pointer]
+    - generic [ref=f60e514]:
+      - generic [ref=f60e515]: Find Us
+      - paragraph [ref=f60e517]:
+        - generic [ref=f60e518]: Visit
+        - generic [ref=f60e519]: Our
+        - generic [ref=f60e520]: Store
+      - generic [ref=f60e521]:
+        - generic [ref=f60e522]:
+          - generic [ref=f60e523]:
+            - generic [ref=f60e524]: Address
+            - generic [ref=f60e525]: 123 Tech Park Road, HITEC City,Hyderabad, Telangana 500081
+          - generic [ref=f60e527]:
+            - generic [ref=f60e528]: Phone
+            - link "+91 98765 43210" [ref=f60e529] [cursor=pointer]:
+              - /url: tel:+919876543210
+          - generic [ref=f60e531]:
+            - generic [ref=f60e532]: Hours
+            - generic [ref=f60e533]: Monday – Sunday10:00 AM – 9:00 PM
+          - generic [ref=f60e535]:
+            - link "Get Directions" [ref=f60e536] [cursor=pointer]:
+              - /url: https://maps.google.com/?q=HITEC+City+Hyderabad
+            - link "Call Now" [ref=f60e539] [cursor=pointer]:
+              - /url: tel:+919876543210
+        - generic [ref=f60e543]:
+          - iframe [ref=f60e544]:
+            
+          - generic: TecnoMart HITEC City
+    - generic [ref=f60e546]:
+      - generic [ref=f60e547]: Our Story
+      - paragraph [ref=f60e549]:
+        - generic [ref=f60e550]: Our
+        - generic [ref=f60e551]: Journey
+      - paragraph [ref=f60e552]: Every milestone reflects our commitment to delivering trusted technology solutions.
+      - generic [ref=f60e553]:
+        - generic [ref=f60e556]:
+          - generic [ref=f60e557]: "2015"
+          - generic [ref=f60e558]: The Beginning
+          - generic [ref=f60e559]: Founded in HITEC City. First store opens with mobile sales and repairs — a vision of trusted technology starts here.
+        - generic [ref=f60e563]:
+          - generic [ref=f60e564]: "2017"
+          - generic [ref=f60e565]: Full Service Centre
+          - generic [ref=f60e566]: Expanded to a full laptop service centre. Added a certified technician team. Hardware expertise meets customer care.
+        - generic [ref=f60e570]:
+          - generic [ref=f60e571]: "2019"
+          - generic [ref=f60e572]: 10,000 Customers
+          - generic [ref=f60e573]: Launched the premium accessories department. Crossed 10,000 happy customers — a milestone we wear with pride.
+        - generic [ref=f60e577]:
+          - generic [ref=f60e578]: "2022"
+          - generic [ref=f60e579]: Expanded Showroom
+          - generic [ref=f60e580]: New, larger showroom opens. Hyderabad's most trusted tech destination — now with room to match the reputation.
+        - generic [ref=f60e584]:
+          - generic [ref=f60e585]: "2024"
+          - generic [ref=f60e586]: Going Digital
+          - generic [ref=f60e587]: Launched our online presence, reaching customers across all of Telangana. The future of TecnoMart goes beyond four walls.
+    - generic [ref=f60e591]:
+      - heading "Frequently Asked Questions" [level=2] [ref=f60e592]
+      - generic [ref=f60e593]:
+        - generic [ref=f60e594]:
+          - button "What does 'Certified Refurbished' mean?" [ref=f60e595] [cursor=pointer]
+          - paragraph [ref=f60e600]: Every device undergoes a strict 90-point inspection by our certified technicians. We check everything from battery health and screen clarity to internal components and connectivity. Only devices that pass 100% of these tests are sold as Certified Refurbished.
+        - generic [ref=f60e601]:
+          - button "Do you offer a warranty?" [ref=f60e602] [cursor=pointer]
+          - paragraph [ref=f60e607]: Yes, all our refurbished devices come with a standard 12-month hardware warranty. This covers any manufacturing defects or hardware failures that occur during normal use.
+        - generic [ref=f60e608]:
+          - button "Can I return a device if I don't like it?" [ref=f60e609] [cursor=pointer]
+          - paragraph [ref=f60e614]: Absolutely. We offer a 7-day no-questions-asked return policy. If you're not completely satisfied with your purchase, you can return it for a full refund or exchange.
+        - generic [ref=f60e615]:
+          - button "Do you offer EMI or financing options?" [ref=f60e616] [cursor=pointer]
+          - paragraph [ref=f60e621]: Yes, we partner with major banks to offer flexible EMI options, including No-Cost EMI on select models. You can see available options at checkout.
+    - generic [ref=f60e625]:
+      - heading "TecnoMart" [level=2] [ref=f60e627]
+      - generic [ref=f60e628]:
+        - generic [ref=f60e629]:
+          - link "X (Twitter)" [ref=f60e630] [cursor=pointer]:
+            - /url: https://x.com
+          - link "Instagram" [ref=f60e633] [cursor=pointer]:
+            - /url: https://instagram.com
+        - generic [ref=f60e638]:
+          - link "Visit Us" [ref=f60e639] [cursor=pointer]:
+            - /url: "#"
+          - link "Contact Us" [ref=f60e643] [cursor=pointer]:
+            - /url: tel:+919876543210
+        - generic [ref=f60e646]:
+          - link "Privacy Policy" [ref=f60e647] [cursor=pointer]:
+            - /url: "#"
+          - link "Terms & Conditions" [ref=f60e650] [cursor=pointer]:
+            - /url: "#"
+      - generic [ref=f60e654]:
+        - generic [ref=f60e655]: © 2026 TecnoMart. Engineered for Precision.
+        - generic [ref=f60e656]: Hyderabad, Telangana
+  - button "Open Next.js Dev Tools" [ref=f60e662] [cursor=pointer]
+  - alert [ref=f60e666]

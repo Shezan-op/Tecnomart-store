@@ -1,0 +1,54 @@
+.keyboardSection {
+  min-height: 100vh;
+  padding: 120px 24px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  overflow: hidden;
+}
+
+.accessoriesText {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 60px;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.accessoriesText h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  background: linear-gradient(to right, #fff, #9ca3af);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.accessoriesText p {
+  color: #86868b;
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  max-width: 600px;
+}
+
+.keyboardContainer {
+  opacity: 0;
+  transform: translateY(50px);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .keyboardSection {
+    padding: 80px 16px;
+    min-height: 70vh;
+  }
+  .accessoriesText {
+    margin-bottom: 40px;
+  }
+}

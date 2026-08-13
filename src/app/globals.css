@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg-color: #000000; /* Pure black — deep space */
+  --text-primary: #F9F9F9;
+  --text-secondary: #9ca3af;
+  --border-color: #1f2937;
+  --accent: #475BFF;
+  --accent-60: #6C7BFF;
+  --accent-70: #8490FF;
+  --surface: #0a0a0a;
+  --glass-bg: rgba(255, 255, 255, 0.04);
+  --glass-border: rgba(255, 255, 255, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  font-family: 'Rajdhani', sans-serif;
+  color: var(--text-primary);
+  background: #000;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip;
+}
+
+/* Typography & Layout */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.text-center { text-align: center; }
+.section-padding { padding: 120px 0; }
+.text-safe { position: relative; z-index: 20; } 
+
+.section-heading {
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+  background: linear-gradient(135deg, #fff 30%, #888);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.section-body {
+  font-size: clamp(1.125rem, 2vw, 1.25rem);
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto 48px;
+  line-height: 1.6;
+}
+
+.site-header {
+  position: absolute;
+  top: 0; left: 0; width: 100%;
+  padding: 24px;
+  text-align: center;
+  z-index: 50;
+}
+
+.site-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* Premium Visit Store Button */
+.premiumStoreBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 32px;
+  background: #475BFF;
+  border: none;
+  border-radius: 30px;
+  color: #ffffff;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  box-shadow: 0 4px 15px rgba(71, 91, 255, 0.4);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.premiumStoreBtn:hover {
+  background: #3648d6;
+  box-shadow: 0 6px 20px rgba(71, 91, 255, 0.6);
+  transform: translateY(-2px);
+}
+
+@keyframes borderGlowPulse {
+  0% {
+    box-shadow: 0 0 10px rgba(71, 91, 255, 0.4), inset 0 0 10px rgba(71, 91, 255, 0.2);
+    border-color: rgba(71, 91, 255, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(71, 91, 255, 0.6), inset 0 0 15px rgba(71, 91, 255, 0.3);
+    border-color: rgba(71, 91, 255, 0.9);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(71, 91, 255, 0.4), inset 0 0 10px rgba(71, 91, 255, 0.2);
+    border-color: rgba(71, 91, 255, 0.6);
+  }
+}

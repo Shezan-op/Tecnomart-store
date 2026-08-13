@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TecnoMart - Technology That Works As Hard As You Do.</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error": "#ffb4ab",
+                        "surface-dim": "#12131b",
+                        "on-surface-variant": "#c4c5d8",
+                        "secondary-fixed": "#dee0ff",
+                        "on-tertiary-fixed": "#380d00",
+                        "tertiary-fixed-dim": "#ffb59b",
+                        "on-tertiary": "#5b1a00",
+                        "surface-container-high": "#282932",
+                        "on-tertiary-container": "#ffccbb",
+                        "secondary-container": "#0137de",
+                        "primary-container": "#2a4ce0",
+                        "on-primary-fixed-variant": "#0031c5",
+                        "tertiary-fixed": "#ffdbcf",
+                        "on-secondary-fixed": "#00105a",
+                        "inverse-primary": "#2b4de1",
+                        "primary-fixed-dim": "#bac3ff",
+                        "inverse-on-surface": "#2f3039",
+                        "on-error": "#690005",
+                        "surface-variant": "#33343d",
+                        "secondary-fixed-dim": "#bac3ff",
+                        "on-primary": "#00218d",
+                        "outline": "#8e8fa1",
+                        "primary": "#bac3ff",
+                        "on-secondary-container": "#b5bfff",
+                        "on-background": "#e2e1ee",
+                        "surface-container-low": "#1a1b24",
+                        "on-surface": "#e2e1ee",
+                        "surface-container": "#1e1f28",
+                        "on-error-container": "#ffdad6",
+                        "surface-container-highest": "#33343d",
+                        "tertiary-container": "#a83700",
+                        "tertiary": "#ffb59b",
+                        "surface": "#12131b",
+                        "on-tertiary-fixed-variant": "#812800",
+                        "primary-fixed": "#dee1ff",
+                        "on-secondary-fixed-variant": "#0030c7",
+                        "background": "#12131b",
+                        "surface-bright": "#383942",
+                        "surface-container-lowest": "#0c0e16",
+                        "on-secondary": "#00208f",
+                        "inverse-surface": "#e2e1ee",
+                        "secondary": "#bac3ff",
+                        "on-primary-fixed": "#001159",
+                        "surface-tint": "#bac3ff",
+                        "on-primary-container": "#cfd5ff",
+                        "outline-variant": "#444655",
+                        "error-container": "#93000a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "20px",
+                        "margin-desktop": "64px",
+                        "stack-lg": "32px",
+                        "section-v-desktop": "140px",
+                        "gutter": "24px",
+                        "section-v-mobile": "80px",
+                        "stack-sm": "8px",
+                        "stack-md": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["spaceGrotesk"],
+                        "body-lg": ["spaceGrotesk"],
+                        "label-sm": ["spaceGrotesk"],
+                        "headline-xl-mobile": ["spaceGrotesk"],
+                        "headline-md": ["spaceGrotesk"],
+                        "headline-xl": ["spaceGrotesk"],
+                        "body-md": ["spaceGrotesk"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["40px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "label-sm": ["13px", { "lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "headline-xl-mobile": ["40px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "headline-xl": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #05070C;
+            color: #F5F6FA;
+            font-family: 'Space Grotesk', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Glassmorphism Classes */
+        .glass-panel {
+            background: rgba(13, 17, 28, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(42, 76, 224, 0.25);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .glass-panel:hover {
+            border-color: rgba(42, 76, 224, 0.5);
+            box-shadow: 0 0 20px rgba(62, 95, 255, 0.15);
+        }
+
+        .primary-btn {
+            background-color: #2A4CE0;
+            color: #ffffff;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .primary-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(62, 95, 255, 0.3);
+        }
+
+        /* Marquee Animation */
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 20s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Subtle Glow */
+        .glow-overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(62, 95, 255, 0.15) 0%, transparent 60%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Connecting Lines */
+        .connector-line {
+            position: absolute;
+            background: rgba(42, 76, 224, 0.3);
+            z-index: -1;
+        }
+        .connector-line::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(62, 95, 255, 0.8), transparent);
+            animation: flow 3s infinite linear;
+        }
+        @keyframes flow {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        /* Cable Animation SVG */
+        #connection-cable path {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            transition: stroke-dashoffset 1.5s ease-out;
+        }
+        #connection-cable.draw-in path {
+            stroke-dashoffset: 0;
+        }
+        
+        /* Ecosystem Arc */
+        .ecosystem-arc {
+            position: absolute;
+            top: 15%; /* Starts below hero */
+            left: -10%;
+            width: 120%;
+            height: 70%;
+            border: 2px solid #2A4CE0;
+            border-radius: 50%;
+            opacity: 0.15;
+            z-index: 0;
+            pointer-events: none;
+            transform: rotate(-15deg);
+        }
+    </style>
+</head>
+<body class="antialiased relative">
+<!-- Background Ecosystem Arc -->
+<div class="ecosystem-arc"></div>
+<div class="w-full flex justify-center pt-8 pb-4 absolute top-0 z-50">
+<div class="font-headline-lg text-headline-lg font-bold tracking-tighter text-primary">TecnoMart</div>
+</div>
+<!-- SECTION 1: HERO -->
+<section class="relative min-h-screen flex flex-col justify-center items-center pt-32 pb-section-v-desktop overflow-hidden">
+<div class="glow-overlay"></div>
+<div class="relative z-10 text-center max-w-4xl mx-auto px-margin-mobile md:px-margin-desktop">
+<h1 class="font-headline-xl text-headline-xl mb-8 leading-tight">Technology That Works As Hard As You Do.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-12 max-w-2xl mx-auto">Engineered for precision. Designed for performance. Your ultimate tech destination in Hyderabad.</p>
+<button class="primary-btn px-8 py-4 rounded-full font-label-sm text-label-sm tracking-widest uppercase">Explore Collections</button>
+</div>
+<div class="w-full mt-24 border-y border-primary/25 bg-surface-container/50 py-4 backdrop-blur-md">
+<div class="marquee-container">
+<div class="marquee-content font-label-sm text-label-sm text-primary tracking-widest uppercase">
+                    Best Laptops • Best Mobiles • Trusted Repairs • Premium Accessories • Hyderabad • Best Laptops • Best Mobiles • Trusted Repairs • Premium Accessories • Hyderabad • 
+                </div>
+</div>
+</div>
+</section>
+<!-- SECTION 2: MOBILES (Sales) -->
+<section class="relative py-section-v-desktop px-margin-desktop max-w-7xl mx-auto" id="mobiles">
+<div class="text-center mb-16 relative z-10">
+<h2 class="font-headline-lg text-headline-lg mb-4 text-primary">Discover the Future</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Premium smartphones engineered for your lifestyle.</p>
+</div>
+<div class="relative flex justify-center items-center min-h-[600px]">
+<!-- Center Image -->
+<div class="relative z-10 w-[300px]">
+<img alt="Front smartphone showing a futuristic blue screen" class="w-full h-auto drop-shadow-[0_0_40px_rgba(42,76,224,0.3)]" data-alt="A sleek, modern smartphone shown from the front with an edge-to-edge display illuminated by a deep royal blue tech interface. The device is isolated against a pitch black void, creating a highly premium, cinematic mood. The lighting is dramatic, catching the polished metal edges, emphasizing a high-end, futuristic industrial design aesthetic perfectly suited for a minimalist dark-mode website." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB54XbaKapU9QSdU-TheqJwn9xpwIzU68Nq0qsYHGRot6brN_ikTkbFz5JdQk5JdsfGpbPG9EL0PGdDhdxCP0SIZbRdql3QJ9KdwtesZtMS7-CvthEqXlErlDliVOZcPLiTEvcw85SphH6J3_LPkMRqQ1p3XiSFByAvN7oDLp8hdNZerT1-KpAQWRZNmVLrtE6Z83KrHS4z8FdkIJUqE6Rxx_BqmH2y_9KASaI2GDsHvFCOsmXuSa3M"/>
+</div>
+<!-- Callouts -->
+<div class="absolute inset-0 flex items-center justify-between pointer-events-none w-full max-w-[800px] mx-auto">
+<div class="flex flex-col gap-32">
+<div class="glass-panel p-6 rounded-xl w-64 relative transform -translate-x-12 pointer-events-auto">
+<h4 class="font-headline-md text-headline-md text-primary mb-2 text-sm">Affordable Pricing</h4>
+<p class="font-body-md text-body-md text-xs text-on-surface-variant">Unbeatable deals on top models.</p>
+</div>
+<div class="glass-panel p-6 rounded-xl w-64 relative transform -translate-x-12 pointer-events-auto">
+<h4 class="font-headline-md text-headline-md text-primary mb-2 text-sm">Refurbished Mobiles</h4>
+<p class="font-body-md text-body-md text-xs text-on-surface-variant">Certified pre-owned perfection.</p>
+</div>
+</div>
+<div class="flex flex-col gap-32">
+<div class="glass-panel p-6 rounded-xl w-64 relative transform translate-x-12 pointer-events-auto text-right">
+<h4 class="font-headline-md text-headline-md text-primary mb-2 text-sm">Latest Smartphones</h4>
+<p class="font-body-md text-body-md text-xs text-on-surface-variant">Cutting-edge tech arrivals.</p>
+</div>
+<div class="glass-panel p-6 rounded-xl w-64 relative transform translate-x-12 pointer-events-auto text-right">
+<h4 class="font-headline-md text-headline-md text-primary mb-2 text-sm">Up To 2 Years Warranty</h4>
+<p class="font-body-md text-body-md text-xs text-on-surface-variant">Peace of mind guaranteed.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 3: MOBILE REPAIR -->
+<section class="relative py-section-v-desktop px-margin-desktop max-w-7xl mx-auto bg-surface-container-low/30 rounded-3xl border border-primary/10" id="repair">
+<div class="text-center mb-16 relative z-10">
+<h2 class="font-headline-lg text-headline-lg mb-4 text-primary">Precision Repair</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Expert technicians restoring your device to factory perfection.</p>
+</div>
+<div class="relative flex justify-center items-center min-h-[600px]">
+<div class="relative z-10 w-[350px]">
+<img alt="Rear smartphone showing camera lenses" class="w-full h-auto drop-shadow-[0_0_40px_rgba(42,76,224,0.2)]" data-alt="The rear profile of a high-end smartphone hovering in a dark void. The focus is on the sophisticated camera lens cluster, which catches sharp, cool blue light reflections. The matte black finish of the phone contrasts with the polished metal rings around the lenses. The mood is clinical, engineered, and deeply cinematic, aligning with a high-end tech repair aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvjSyOKgcVcXRHbjncZYNfn6lK3Fs3TVSPr8f6ZQkVPIK2IHSGzsY6TaRg2jH-D2g-71b-Ij8yY_RVkycYpFN1QBT08i6m_oMoCM-C1KjAv-LgYbWckYhOqRj7uoy_cGy_yuoX2N-4sEgPLGCqMNWfHqQgFb2O7r4YtmSiA04b8PuBEiQmgQQfiuKd32sy5a4bsnfVZYCV40dTNSnAvH4d09lowjahSIOKL4CoEnUSb5_muR5Jjd3J"/>
+</div>
+<!-- Callouts -->
+<div class="absolute inset-0 flex items-center justify-between pointer-events-none w-full max-w-[800px] mx-auto">
+<div class="flex flex-col gap-32">
+<div class="glass-panel p-6 rounded-xl w-64 relative transform -translate-x-12 pointer-events-auto">
+<h4 class="font-headline-md text-headline-md text-primary mb-2 text-sm">Display Replacement</h4>
+<p class="font-body-md text-body-md text-xs text-on-surface-variant">Flawless OLED &amp; LCD fixes.</p>
+</div>
+<div class="glass-panel p-6 rounded-xl w-64 relative transform -translate-x-12 pointer-events-auto">
+<h4 class="font-headline-md text-headline-md text-primary mb-2 text-sm">Battery Replacement</h4>
+<p class="font-body-md text-body-md text-xs text-on-surface-variant">Restore full day power.</p>
+</div>
+</div>
+<div class="flex flex-col gap-32">
+<div class="glass-panel p-6 rounded-xl w-64 relative transform translate-x-12 pointer-events-auto text-right">
+<h4 class="font-headline-md text-headline-md text-primary mb-2 text-sm">Camera Repairs</h4>
+<p class="font-body-md text-body-md text-xs text-on-surface-variant">Crystal clear lens restoration.</p>
+</div>
+<div class="glass-panel p-6 rounded-xl w-64 relative transform translate-x-12 pointer-events-auto text-right">
+<h4 class="font-headline-md text-headline-md text-primary mb-2 text-sm">Software Solutions</h4>
+<p class="font-body-md text-body-md text-xs text-on-surface-variant">Data recovery &amp; OS updates.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 4: LAPTOPS -->
+<section class="relative py-section-v-desktop px-margin-desktop max-w-7xl mx-auto" id="laptops">
+<div class="text-center mb-16 relative z-10">
+<h2 class="font-headline-lg text-headline-lg mb-4 text-primary">Power Meets Productivity</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Whether you're a student, creator, gamer or business professional, TecnoMart helps you choose the right laptop and keeps it performing at its best.</p>
+</div>
+<div class="relative flex justify-center items-center min-h-[600px]">
+<div class="relative z-10 w-[450px]">
+<img alt="High-performance laptop" class="w-full h-auto drop-shadow-[0_0_40px_rgba(42,76,224,0.3)]" data-alt="High-performance laptop" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVc0VCJneMPRw2ztkaYhwztr4hbuWExBTKjlx7sAKzMynACR_yHB0cv-SWWJ1qThKQGkGw4hxJi3zFKbe3ZejF9_0FcdcvkKcYCAa7omEoRMpKgu6mPiAG5hzB9qtwbCZnHMYviT1iZ82UznlzbbWMZBIYWJwtxyRHyIcUX0Ak9pc8ZIvS73Y6KzWgUZ2RrG0MHy5Usl3kB1010O9_zew2sjUXLTVhFnlZeyp3knvhtGVDfGszWKgA"/>
+</div>
+<!-- Callouts -->
+<div class="absolute inset-0 flex items-center justify-between pointer-events-none w-full max-w-[800px] mx-auto">
+<div class="flex flex-col gap-32">
+<div class="glass-panel p-6 rounded-xl w-64 relative transform -translate-x-12 pointer-events-auto">
+<h4 class="font-headline-md text-headline-md text-primary mb-2 text-sm">Latest Laptop Collection</h4>
+<p class="font-body-md text-body-md text-xs text-on-surface-variant">Explore new arrivals.</p>
+</div>
+<div class="glass-panel p-6 rounded-xl w-64 relative transform -translate-x-12 pointer-events-auto">
+<h4 class="font-headline-md text-headline-md text-primary mb-2 text-sm">Student &amp; Business Deals</h4>
+<p class="font-body-md text-body-md text-xs text-on-surface-variant">Special pricing available.</p>
+</div>
+</div>
+<div class="flex flex-col gap-32">
+<div class="glass-panel p-6 rounded-xl w-64 relative transform translate-x-12 pointer-events-auto text-right">
+<h4 class="font-headline-md text-headline-md text-primary mb-2 text-sm">Hardware Repairs</h4>
+<p class="font-body-md text-body-md text-xs text-on-surface-variant">Expert component fixes.</p>
+</div>
+<div class="glass-panel p-6 rounded-xl w-64 relative transform translate-x-12 pointer-events-auto text-right">
+<h4 class="font-headline-md text-headline-md text-primary mb-2 text-sm">Performance Upgrades</h4>
+<p class="font-body-md text-body-md text-xs text-on-surface-variant">Boost speed &amp; storage.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 5: ACCESSORIES -->
+<section class="relative py-section-v-desktop px-margin-desktop max-w-7xl mx-auto bg-surface-container-low/30 rounded-3xl border border-primary/10" id="accessories">
+<div class="text-center mb-16 relative z-10">
+<h2 class="font-headline-lg text-headline-lg mb-4 text-primary">Complete Your Setup</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Every great device deserves the right accessories. Discover premium mechanical keyboards, gaming mice, headphones, chargers, adapters, cables and essential accessories that enhance your everyday experience.</p>
+</div>
+<div class="relative flex justify-center items-center min-h-[500px]">
+<div class="relative z-10 w-[600px]">
+<img alt="Premium mechanical keyboard" class="w-full h-auto drop-shadow-[0_0_40px_rgba(42,76,224,0.2)]" data-alt="Premium mechanical keyboard" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvBFypSbZIjaxjOcvBZg9nD-K29-GoGQYiu7gGadWYMjv7Fm3C0ftT4RnbKeRnMYhQXsYWg-BTy4UTNQyIrqaTB9o_UU0TkL5RhCVMspz9hpt9lM2mq6FvV-9A-AlDB7YtX1mWMxHFH8qzMaBL-NSHxQgYVcpNlK-tD4HgmQrAxVFmbQcAOVNbwPJIz_pVBRpECoSbNMD_LKvgWDlWxGuTa_otzGHH4TMfhsN65W6uoN1lbZifD3iA"/>
+</div>
+<svg class="absolute w-full h-full pointer-events-none z-0" id="connection-cable" viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+<path d="M 50 10 Q 90 50 50 90" fill="none" stroke="rgba(42,76,224,0.5)" stroke-width="2"></path>
+</svg>
+</div>
+<div class="w-full mt-16 border-y border-primary/25 bg-surface-container/50 py-4 backdrop-blur-md">
+<div class="marquee-container">
+<div class="marquee-content font-label-sm text-label-sm text-primary tracking-widest uppercase">
+                    Want the perfect tech setup? Visit TecnoMart or contact us today for personalised recommendations and exclusive deals. • Want the perfect tech setup? Visit TecnoMart or contact us today for personalised recommendations and exclusive deals. •
+                </div>
+</div>
+</div>
+</section>
+<!-- SECTION 6: TESTIMONIALS -->
+<section class="relative py-section-v-desktop px-margin-desktop max-w-7xl mx-auto">
+<div class="text-center mb-16 relative z-10">
+<h2 class="font-headline-lg text-headline-lg mb-4 text-primary">Trusted By Thousands Across Hyderabad</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Real customers. Real experiences. Real reasons to choose TecnoMart.</p>
+</div>
+<div class="flex gap-8 overflow-x-auto pb-8 snap-x snap-mandatory">
+<div class="glass-panel p-8 rounded-2xl min-w-[300px] md:min-w-[400px] snap-center">
+<p class="font-body-md text-body-md text-on-surface mb-4">"Exceptional service! Fixed my laptop screen in under an hour."</p>
+<p class="font-label-sm text-label-sm text-primary">- Rahul S.</p>
+</div>
+<div class="glass-panel p-8 rounded-2xl min-w-[300px] md:min-w-[400px] snap-center">
+<p class="font-body-md text-body-md text-on-surface mb-4">"Best deals on smartphones in the city. Highly recommend."</p>
+<p class="font-label-sm text-label-sm text-primary">- Priya M.</p>
+</div>
+<div class="glass-panel p-8 rounded-2xl min-w-[300px] md:min-w-[400px] snap-center">
+<p class="font-body-md text-body-md text-on-surface mb-4">"Great selection of premium accessories. Found exactly what I needed."</p>
+<p class="font-label-sm text-label-sm text-primary">- Vikram K.</p>
+</div>
+</div>
+</section>
+<!-- SECTION 7: ABOUT / TIMELINE -->
+<section class="relative py-section-v-desktop px-margin-desktop max-w-7xl mx-auto bg-surface-container-low/30 rounded-3xl border border-primary/10" id="about">
+<div class="text-center mb-16 relative z-10">
+<h2 class="font-headline-lg text-headline-lg mb-4 text-primary">Our Journey</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto">Every milestone reflects our commitment to delivering trusted technology solutions and exceptional customer service.</p>
+</div>
+<div class="relative flex flex-col md:flex-row justify-between items-center max-w-4xl mx-auto mt-16 gap-12 md:gap-0">
+<div class="absolute top-1/2 left-0 w-full h-[1px] bg-primary/30 hidden md:block z-0 -translate-y-1/2"></div>
+<div class="relative z-10 flex flex-col items-center gap-4 bg-surface p-4 rounded-xl">
+<div class="w-4 h-4 rounded-full bg-primary shadow-[0_0_15px_rgba(42,76,224,0.8)]"></div>
+<p class="font-headline-md text-headline-md text-on-surface text-sm">2015</p>
+<p class="font-body-md text-body-md text-on-surface-variant text-xs text-center">First store opens</p>
+</div>
+<div class="relative z-10 flex flex-col items-center gap-4 bg-surface p-4 rounded-xl">
+<div class="w-4 h-4 rounded-full bg-primary shadow-[0_0_15px_rgba(42,76,224,0.8)]"></div>
+<p class="font-headline-md text-headline-md text-on-surface text-sm">2019</p>
+<p class="font-body-md text-body-md text-on-surface-variant text-xs text-center">Expanded repair center</p>
+</div>
+<div class="relative z-10 flex flex-col items-center gap-4 bg-surface p-4 rounded-xl">
+<div class="w-4 h-4 rounded-full bg-primary shadow-[0_0_15px_rgba(42,76,224,0.8)]"></div>
+<p class="font-headline-md text-headline-md text-on-surface text-sm">2023</p>
+<p class="font-body-md text-body-md text-on-surface-variant text-xs text-center">Launched premium accessories line</p>
+</div>
+</div>
+<div class="text-center mt-16">
+<button class="glass-panel px-6 py-2 rounded-full font-label-sm text-label-sm text-primary hover:bg-primary/10 transition-colors">View Full Story</button>
+</div>
+</section>
+<!-- SECTION 8: STORE LOCATION -->
+<section class="relative py-section-v-desktop px-margin-desktop max-w-7xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+<div class="flex flex-col gap-6">
+<h2 class="font-headline-lg text-headline-lg text-primary">Visit Our Store</h2>
+<div class="glass-panel p-6 rounded-xl flex flex-col gap-4">
+<div>
+<h4 class="font-headline-md text-headline-md text-on-surface text-sm mb-1">Address</h4>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">123 Tech Park Road, HITEC City,<br/>Hyderabad, Telangana 500081</p>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-on-surface text-sm mb-1">Phone</h4>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">+91 98765 43210</p>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-on-surface text-sm mb-1">Hours</h4>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Mon - Sun: 10:00 AM - 9:00 PM</p>
+</div>
+</div>
+</div>
+<div class="glass-panel rounded-xl h-[400px] flex items-center justify-center bg-surface-container-high">
+<p class="font-body-md text-body-md text-on-surface-variant">[ Embedded Map Placeholder ]</p>
+</div>
+</div>
+</section>
+<!-- SECTION 9: FAQ -->
+<section class="relative py-section-v-desktop px-margin-desktop max-w-4xl mx-auto">
+<h2 class="font-headline-lg text-headline-lg mb-12 text-primary text-center">Frequently Asked Questions</h2>
+<div class="flex flex-col gap-4">
+<div class="glass-panel p-6 rounded-xl cursor-pointer hover:border-primary/50 transition-colors border-l-4 border-l-primary">
+<h4 class="font-headline-md text-headline-md text-on-surface text-base">Do you offer warranty on repairs?</h4>
+</div>
+<div class="glass-panel p-6 rounded-xl cursor-pointer hover:border-primary/50 transition-colors border-l-4 border-l-primary">
+<h4 class="font-headline-md text-headline-md text-on-surface text-base">Can I trade in my old smartphone?</h4>
+</div>
+<div class="glass-panel p-6 rounded-xl cursor-pointer hover:border-primary/50 transition-colors border-l-4 border-l-primary">
+<h4 class="font-headline-md text-headline-md text-on-surface text-base">How long does a screen replacement take?</h4>
+</div>
+<div class="glass-panel p-6 rounded-xl cursor-pointer hover:border-primary/50 transition-colors border-l-4 border-l-primary">
+<h4 class="font-headline-md text-headline-md text-on-surface text-base">Are your accessories genuine?</h4>
+</div>
+<div class="glass-panel p-6 rounded-xl cursor-pointer hover:border-primary/50 transition-colors border-l-4 border-l-primary">
+<h4 class="font-headline-md text-headline-md text-on-surface text-base">Do you provide bulk discounts for corporate orders?</h4>
+</div>
+</div>
+</section>
+<!-- SECTION 10: FOOTER -->
+<footer class="w-full py-section-v-mobile md:py-section-v-desktop bg-surface-container-lowest border-t border-primary/10">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter px-margin-desktop max-w-7xl mx-auto">
+<div class="md:col-span-4 flex flex-col gap-6">
+<div class="font-headline-md text-headline-md text-primary">TecnoMart</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xs">Engineered for Precision. Your trusted tech partner in Hyderabad.</p>
+</div>
+<div class="md:col-span-8 flex justify-end gap-16">
+<div class="flex flex-col gap-4">
+<h5 class="font-label-sm text-label-sm text-primary tracking-widest uppercase">Links</h5>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Privacy Policy</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Terms of Service</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Shipping</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Returns</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Contact</a>
+</div>
+</div>
+<div class="col-span-full mt-12 pt-8 border-t border-primary/10 text-center">
+<p class="font-body-md text-body-md text-on-surface-variant/50">© 2024 TecnoMart. Engineered for Precision.</p>
+</div>
+</div>
+</footer>
+<script>
+    // Simple script to trigger the cable drawing animation when scrolling to section 5
+    document.addEventListener('DOMContentLoaded', () => {
+        const section5 = document.getElementById('accessories');
+        const cable = document.getElementById('connection-cable');
+        
+        if (section5 && cable) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        cable.classList.add('draw-in');
+                    }
+                });
+            }, { threshold: 0.5 });
+            observer.observe(section5);
+        }
+    });
+</script>
+</body></html>
