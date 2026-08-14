@@ -1,7 +1,11 @@
-.container {
+.wrapper {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+}
+
+.container {
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -43,16 +47,28 @@
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
-  padding: 2rem;
+  padding: 1.25rem;
   display: flex;
   flex-direction: column;
 }
 
+@media (min-width: 768px) {
+  .stepBox {
+    padding: 2rem;
+  }
+}
+
 .stepBox h2 {
   font-family: 'Orbitron', sans-serif;
-  margin-bottom: 2rem;
-  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  font-size: clamp(1.5rem, 5vw, 2rem);
   color: #fff;
+}
+
+@media (min-width: 768px) {
+  .stepBox h2 {
+    margin-bottom: 2rem;
+  }
 }
 
 .cardGrid {
@@ -211,6 +227,8 @@
   justify-content: space-between;
   align-items: center;
   margin-top: 1rem;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .textBtn {
@@ -333,6 +351,8 @@
   display: flex;
   justify-content: flex-start;
   margin-bottom: 1rem;
+  position: relative;
+  z-index: 60;
 }
 
 .backToStoreBtn {

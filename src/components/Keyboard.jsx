@@ -52,7 +52,7 @@ const LAYOUT = [
   { t:'alpha', x:11.5,  y:2.25, w:1,    l:[{text:'{', pos:'tr'},{text:'[',pos:'bl'}] },
   { t:'alpha', x:12.5,  y:2.25, w:1,    l:[{text:'}', pos:'tr'},{text:']',pos:'bl'}] },
   { t:'alpha', x:13.5,  y:2.25, w:1.5,  l:[{text:'|', pos:'tr'},{text:'\\',pos:'bl'}] },
-  { t:'mod',   x:15,    y:2.25, w:1,    l:[{text:'PgUp',         pos:'ml'}] },
+  { t:'mod',   x:15,    y:2.25, w:1,    l:[{text:'Home',         pos:'ml'}] },
 
   // Row 3: Home row
   { t:'mod',   x:0,     y:3.25, w:1.75, l:[{text:'Caps Lock',    pos:'ml'}] },
@@ -68,7 +68,7 @@ const LAYOUT = [
   { t:'alpha', x:10.75, y:3.25, w:1,    l:[{text:':', pos:'tr'},{text:';',pos:'bl'}] },
   { t:'alpha', x:11.75, y:3.25, w:1,    l:[{text:'"', pos:'tr'},{text:"'",pos:'bl'}] },
   { t:'acc',   x:12.75, y:3.25, w:2.25, l:[{text:'← Enter',      pos:'ml'}] },
-  { t:'mod',   x:15,    y:3.25, w:1,    l:[{text:'PgDn',         pos:'ml'}] },
+  { t:'mod',   x:15,    y:3.25, w:1,    l:[{text:'PgUp',         pos:'ml'}] },
 
   // Row 4: Shift row
   { t:'mod',   x:0,     y:4.25, w:2.25, l:[{text:'⇧ Shift',      pos:'ml'}] },
@@ -84,7 +84,7 @@ const LAYOUT = [
   { t:'alpha', x:11.25, y:4.25, w:1,    l:[{text:'?', pos:'tr'},{text:'/',pos:'bl'}] },
   { t:'mod',   x:12.25, y:4.25, w:1.75, l:[{text:'⇧ Shift',      pos:'ml'}] },
   { t:'acc',   x:14,    y:4.25, w:1,    l:[{text:'↑',            pos:'c'}] },
-  { t:'mod',   x:15,    y:4.25, w:1,    l:[{text:'Home',         pos:'ml'}] },
+  { t:'mod',   x:15,    y:4.25, w:1,    l:[{text:'PgDn',         pos:'ml'}] },
 
   // Row 5: Bottom row
   { t:'mod',   x:0,     y:5.25, w:1.25, l:[{text:'Ctrl',         pos:'ml'}] },

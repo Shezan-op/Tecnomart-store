@@ -1,7 +1,7 @@
-const STORAGE_KEY = 'pcMart.customBuild.v1';
+const STORAGE_KEY = 'pcMart.customBuild.v2';
 
 export const initialBuildState = {
-  version: 1,
+  version: 2,
   buildId: null,
   buildType: null, // gaming-pc, workstation-pc, complete-setup
   priority: null, // value, balanced, performance
@@ -37,7 +37,12 @@ export function loadBuildState() {
   const saved = localStorage.getItem(STORAGE_KEY);
   if (!saved) return null;
   try {
-    return JSON.parse(saved);
+    const parsed = JSON.parse(saved);
+    if (parsed.version !== 2) {
+      clearBuildState();
+      return null;
+    }
+    return parsed;
   } catch (e) {
     return null;
   }

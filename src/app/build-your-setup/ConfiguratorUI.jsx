@@ -29,33 +29,35 @@ export default function ConfiguratorUI() {
   const targetSteps = buildState.buildType ? getTargetSteps(buildState.buildType) : stepsOrder;
 
   return (
-    <div className={styles.container}>
+    <div className={styles.wrapper}>
       <div className={styles.header}>
-        <a href="/" className={styles.backToStoreBtn}>&larr; Back to Store</a>
+        <Link href="/" className={styles.backToStoreBtn}>&larr; Back to Store</Link>
       </div>
-      <div className={styles.mainArea}>
-        {currentStep === 0 && <StepBuildType onSelect={updateBuildType} />}
-        {currentStep === 1 && <StepPriority onSelect={updatePriority} onBack={prevStep} />}
-        {currentStep === 2 && <StepGoal buildType={buildState.buildType} onSelect={updateGoal} onBack={prevStep} />}
-        
-        {currentStep >= 3 && currentStep < 3 + targetSteps.length && (
-          <ComponentStep 
-            stepName={targetSteps[currentStep - 3]} 
-            onNext={nextStep} 
-            onBack={prevStep}
-          />
-        )}
+      <div className={styles.container}>
+        <div className={styles.mainArea}>
+          {currentStep === 0 && <StepBuildType onSelect={updateBuildType} />}
+          {currentStep === 1 && <StepPriority onSelect={updatePriority} onBack={prevStep} />}
+          {currentStep === 2 && <StepGoal buildType={buildState.buildType} onSelect={updateGoal} onBack={prevStep} />}
+          
+          {currentStep >= 3 && currentStep < 3 + targetSteps.length && (
+            <ComponentStep 
+              stepName={targetSteps[currentStep - 3]} 
+              onNext={nextStep} 
+              onBack={prevStep}
+            />
+          )}
 
-        {currentStep === 3 + targetSteps.length && (
-          <FinalForm onBack={prevStep} />
-        )}
-      </div>
-
-      {currentStep > 2 && currentStep <= 3 + targetSteps.length && (
-        <div className={styles.sidebar}>
-          <BuildSummary targetSteps={targetSteps} />
+          {currentStep === 3 + targetSteps.length && (
+            <FinalForm onBack={prevStep} />
+          )}
         </div>
-      )}
+
+        {currentStep > 2 && currentStep <= 3 + targetSteps.length && (
+          <div className={styles.sidebar}>
+            <BuildSummary targetSteps={targetSteps} />
+          </div>
+        )}
+      </div>
     </div>
   );
 }

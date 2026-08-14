@@ -1,11 +1,6 @@
 "use client";
-import { useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import styles from './OurJourney.module.css';
-import BlurText from './BlurText';
-
-gsap.registerPlugin(ScrollTrigger);
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 const MILESTONES = [
   {
@@ -31,86 +26,84 @@ const MILESTONES = [
 ];
 
 export default function OurJourney() {
-  const sectionRef = useRef(null);
-  const lineRef = useRef(null);
+  const containerRef = useRef(null);
+  
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start center", "end center"]
+  });
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Animate the vertical timeline line filling up
-      gsap.fromTo(lineRef.current,
-        { scaleY: 0 },
-        {
-          scaleY: 1,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: 'top center',
-            end: 'bottom 80%',
-            scrub: 1
-          }
-        }
-      );
-
-      // Animate each milestone card
-      gsap.utils.toArray(`.${styles.item}`).forEach((item, i) => {
-        gsap.fromTo(item,
-          { opacity: 0, x: i % 2 === 0 ? -50 : 50 },
-          {
-            opacity: 1, x: 0, duration: 0.9, ease: 'power3.out',
-            scrollTrigger: { trigger: item, start: 'top 82%' }
-          }
-        );
-      });
-    }, sectionRef);
-    return () => ctx.revert();
-  }, []);
+  const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   return (
-    <section ref={sectionRef} className={styles.section} id="journey">
-      <div className="container">
-        {/* Eyebrow */}
-        <div className={styles.eyebrow}>
-          <span className={styles.eyebrowDot} />
-          Our Story
+    <section className="relative py-32 bg-[#050608] overflow-hidden" id="journey">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(71,91,255,0.05),transparent_70%)] pointer-events-none" />
+      
+      <div className="container mx-auto px-6 max-w-4xl relative z-10" ref={containerRef}>
+        
+        <div className="text-center mb-24">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <p className="text-[#475BFF] uppercase tracking-[0.2em] text-sm font-semibold mb-3">Our Story</p>
+            <h2 className="text-4xl md:text-5xl font-bold text-white font-orbitron mb-6">
+              Our Journey.
+            </h2>
+            <p className="text-gray-400 font-light max-w-xl mx-auto">
+              Every milestone reflects our commitment to delivering trusted technology solutions.
+            </p>
+          </motion.div>
         </div>
 
-        <BlurText
-          text="Our Journey"
-          className={styles.heading}
-          delay={80}
-          direction="top"
-          stepDuration={0.4}
-        />
+        <div className="relative">
+          {/* Vertical Line Background */}
+          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-white/10 md:-translate-x-1/2" />
+          
+          {/* Glowing Animated Line */}
+          <motion.div 
+            className="absolute left-4 md:left-1/2 top-0 w-[3px] bg-gradient-to-b from-transparent via-[#475BFF] to-[#475BFF] shadow-[0_0_15px_#475BFF] md:-translate-x-[1.5px] rounded-full"
+            style={{ height: lineHeight }}
+          />
 
-        <p className={styles.sub}>
-          Every milestone reflects our commitment to delivering trusted technology solutions.
-        </p>
+          <div className="space-y-16 md:space-y-32">
+            {MILESTONES.map((m, i) => {
+              const isEven = i % 2 === 0;
+              return (
+                <div key={m.year} className="relative flex items-center md:justify-between flex-col md:flex-row gap-8 md:gap-0">
+                  
+                  {/* Timeline Dot */}
+                  <div className="absolute left-4 md:left-1/2 w-4 h-4 rounded-full bg-[#050608] border-2 border-[#475BFF] md:-translate-x-1/2 z-10" />
 
-        {/* ─── Timeline ─── */}
-        <div className={styles.timeline}>
-          {/* Vertical track */}
-          <div className={styles.track}>
-            <div ref={lineRef} className={styles.trackLine} />
+                  {/* Desktop Layout - Left Side */}
+                  <motion.div 
+                    className={`w-full md:w-[45%] pl-12 md:pl-0 ${isEven ? 'md:text-right md:pr-12' : 'md:order-2 md:pl-12'}`}
+                    initial={{ opacity: 0, x: isEven ? -50 : 50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                  >
+                    <div className="inline-block px-4 py-1 rounded-full bg-[#475BFF]/10 text-[#475BFF] text-sm font-bold tracking-widest mb-4 border border-[#475BFF]/20">
+                      {m.year}
+                    </div>
+                    <h3 className="text-2xl font-bold text-white font-orbitron mb-4">
+                      {m.title}
+                    </h3>
+                    <p className="text-gray-400 font-light leading-relaxed">
+                      {m.desc}
+                    </p>
+                  </motion.div>
+                  
+                  {/* Empty space for alternating layout on desktop */}
+                  <div className="hidden md:block w-[45%]" />
+                </div>
+              );
+            })}
           </div>
-
-          {/* Items */}
-          {MILESTONES.map((m, i) => (
-            <div
-              key={m.year}
-              className={`${styles.item} ${i % 2 === 0 ? styles.left : styles.right}`}
-            >
-              <div className={styles.card}>
-                <div className={styles.yearBadge}>{m.year}</div>
-                <div className={styles.cardTitle}>{m.title}</div>
-                <div className={styles.cardDesc}>{m.desc}</div>
-              </div>
-              {/* Connector dot */}
-              <div className={styles.dot}>
-                <div className={styles.dotInner} />
-              </div>
-            </div>
-          ))}
         </div>
+
       </div>
     </section>
   );

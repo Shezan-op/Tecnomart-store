@@ -1,129 +1,108 @@
 "use client";
-import { useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import styles from './WhereToFindUs.module.css';
-import BlurText from './BlurText';
-
-gsap.registerPlugin(ScrollTrigger);
+import React from "react";
+import { motion } from "framer-motion";
+import { MapPin, Phone, Clock, Navigation } from "lucide-react";
 
 export default function WhereToFindUs() {
-  const sectionRef = useRef(null);
-  const leftRef = useRef(null);
-  const rightRef = useRef(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.fromTo(leftRef.current,
-        { opacity: 0, x: -60 },
-        {
-          opacity: 1, x: 0, duration: 1, ease: 'power3.out',
-          scrollTrigger: { trigger: leftRef.current, start: 'top 80%' }
-        }
-      );
-      gsap.fromTo(rightRef.current,
-        { opacity: 0, x: 60 },
-        {
-          opacity: 1, x: 0, duration: 1, ease: 'power3.out',
-          scrollTrigger: { trigger: rightRef.current, start: 'top 80%' }
-        }
-      );
-    }, sectionRef);
-    return () => ctx.revert();
-  }, []);
-
   return (
-    <section ref={sectionRef} className={styles.section} id="location">
-      <div className="container">
-        {/* Eyebrow */}
-        <div className={styles.eyebrow}>
-          <span className={styles.eyebrowDot} />
-          Find Us
+    <section className="relative py-32 bg-[#050608] overflow-hidden" id="location">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.02),transparent_70%)] pointer-events-none" />
+      
+      <div className="container mx-auto px-6 max-w-6xl relative z-10">
+        
+        <div className="text-center mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <p className="text-[#475BFF] uppercase tracking-[0.2em] text-sm font-semibold mb-3">Visit Our Store</p>
+            <h2 className="text-4xl md:text-5xl font-bold text-white font-orbitron">
+              Where To Find Us.
+            </h2>
+          </motion.div>
         </div>
 
-        <BlurText
-          text="Visit Our Store"
-          className={styles.heading}
-          delay={80}
-          direction="top"
-          stepDuration={0.4}
-        />
-
-        <div className={styles.grid}>
-          {/* ─── Left: Info ─── */}
-          <div ref={leftRef} className={styles.infoCard}>
-            <div className={styles.infoGroup}>
-              <div className={styles.infoLabel}>Address</div>
-              <div className={styles.infoValue}>
-                7 Tombs Road, Opposite Toyota Showroom, Towlichowki,<br />
-                Hyderabad, Telangana 500008
-              </div>
-            </div>
-
-            <div className={styles.divider} />
-
-            <div className={styles.infoGroup}>
-              <div className={styles.infoLabel}>Phone</div>
-              <a href="tel:+919010667726" className={styles.infoValue}>
-                +91 90106 67726
-              </a>
-            </div>
-
-            <div className={styles.divider} />
-
-            <div className={styles.infoGroup}>
-              <div className={styles.infoLabel}>Hours</div>
-              <div className={styles.infoValue}>
-                Monday – Sunday<br />
-                <span className={styles.hoursHighlight}>10:00 AM – 9:00 PM</span>
-              </div>
-            </div>
-
-            <div className={styles.divider} />
-
-            <div className={styles.ctaRow}>
-              <a
-                href="https://maps.app.goo.gl/Y8cpwK4urKPk5j1U9"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.dirBtn}
-              >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M3 12l9-9 9 9M5 10v9h14v-9"/>
-                </svg>
-                Get Directions
-              </a>
-              <a href="tel:+919010667726" className={styles.callBtn}>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.02 1.22C.02.67.22.15.6.07A2 2 0 013 2v3a2 2 0 001.44 1.93 13 13 0 004 .7 2 2 0 001.56-1.2l1-2.4a2 2 0 01.93-.93l2.4-1a2 2 0 001.2-1.56 13 13 0 00.7-4 2 2 0 011.93-1.44H21a2 2 0 012 1.44z"/>
-                </svg>
-                Call Now
-              </a>
-            </div>
-          </div>
-
-          {/* ─── Right: Map placeholder ─── */}
-          <div ref={rightRef} className={styles.mapCard}>
-            <div className={styles.mapPlaceholder}>
-              <iframe
-                title="TecnoMart Location"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.4827064!2d78.3766!3d17.4474!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb93e2a07f6b7f%3A0x1b2c64b04ba52a42!2sHITEC%20City%2C%20Hyderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1600000000000!5m2!1sen!2sin"
-                className={styles.mapIframe}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                allowFullScreen
-              />
-              <div className={styles.mapOverlayPin}>
-                <div className={styles.mapPin}>
-                  <svg width="28" height="36" viewBox="0 0 28 36">
-                    <path d="M14 0C6.268 0 0 6.268 0 14c0 10.5 14 22 14 22S28 24.5 28 14C28 6.268 21.732 0 14 0z" fill="#ffffff"/>
-                    <circle cx="14" cy="14" r="5" fill="#000"/>
-                  </svg>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+          
+          <motion.div 
+            className="flex flex-col gap-6"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            {/* Info Cards */}
+            <div className="bg-white/5 border border-white/10 p-8 rounded-3xl backdrop-blur-md flex-1">
+              <div className="flex items-start gap-4 mb-8">
+                <div className="w-12 h-12 rounded-full bg-[#475BFF]/20 flex items-center justify-center text-[#475BFF] shrink-0">
+                  <MapPin size={24} />
                 </div>
-                <span className={styles.mapPinLabel}>TecnoMart Towlichowki</span>
+                <div>
+                  <h4 className="text-white font-medium text-lg mb-2">Flagship Store</h4>
+                  <p className="text-gray-400 font-light leading-relaxed">
+                    7 Tombs Road, Opposite Toyota Showroom, <br/>Towlichowki, Hyderabad, Telangana 500008
+                  </p>
+                </div>
+              </div>
+              
+              <div className="h-px w-full bg-white/10 mb-8" />
+              
+              <div className="flex items-start gap-4 mb-8">
+                <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-white shrink-0">
+                  <Clock size={24} />
+                </div>
+                <div>
+                  <h4 className="text-white font-medium text-lg mb-2">Store Hours</h4>
+                  <p className="text-gray-400 font-light">Monday – Sunday</p>
+                  <p className="text-[#475BFF] font-medium mt-1">10:00 AM – 9:00 PM</p>
+                </div>
+              </div>
+              
+              <div className="h-px w-full bg-white/10 mb-8" />
+              
+              <div className="flex flex-col sm:flex-row gap-4">
+                <a href="https://maps.app.goo.gl/Y8cpwK4urKPk5j1U9" target="_blank" rel="noreferrer" className="flex-1">
+                  <button className="w-full flex items-center justify-center gap-2 bg-[#475BFF] hover:bg-[#5a6dff] text-white px-6 py-4 rounded-xl font-medium transition-colors">
+                    <Navigation size={18} /> Get Directions
+                  </button>
+                </a>
+                <a href="tel:+919010667726" className="flex-1">
+                  <button className="w-full flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white px-6 py-4 rounded-xl font-medium transition-colors">
+                    <Phone size={18} /> Call Now
+                  </button>
+                </a>
               </div>
             </div>
-          </div>
+          </motion.div>
+
+          <motion.div 
+            className="rounded-3xl overflow-hidden border border-white/10 bg-white/5 relative min-h-[400px]"
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            <iframe
+              title="TecnoMart Location"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.4827064!2d78.3766!3d17.4474!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb93e2a07f6b7f%3A0x1b2c64b04ba52a42!2sHITEC%20City%2C%20Hyderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1600000000000!5m2!1sen!2sin"
+              className="absolute inset-0 w-full h-full filter invert-[90%] hue-rotate-180 contrast-80 opacity-60 mix-blend-screen transition-all hover:opacity-100 hover:filter-none"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+            
+            {/* Elegant Map Overlay Pin */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none flex flex-col items-center">
+              <div className="w-16 h-16 rounded-full bg-[#475BFF]/20 flex items-center justify-center animate-pulse">
+                <div className="w-4 h-4 bg-[#475BFF] rounded-full shadow-[0_0_20px_#475BFF]" />
+              </div>
+              <div className="mt-2 px-4 py-2 bg-black/80 backdrop-blur-md rounded-full border border-white/10 text-white text-sm font-medium">
+                TecnoMart
+              </div>
+            </div>
+          </motion.div>
+
         </div>
       </div>
     </section>

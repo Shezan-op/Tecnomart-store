@@ -67,25 +67,25 @@ export function getCompatibleCabinets(motherboard, gpu, cooler) {
   return cabinets.filter(cab => {
     // 1. Motherboard Form Factor (Simplified: check if any of the board's form factors are supported)
     let mbFits = true;
-    if (motherboard) {
+    if (motherboard && motherboard.compatibility?.formFactors) {
       mbFits = motherboard.compatibility.formFactors.some(ff => 
-        cab.compatibility.supportedFormFactors.includes(ff)
+        cab.compatibility?.supportedFormFactors?.includes(ff)
       );
     }
 
     // 2. GPU Length
     let gpuFits = true;
-    if (gpu) {
-      gpuFits = gpu.compatibility.lengthMm <= cab.compatibility.maxGpuLengthMm;
+    if (gpu && gpu.compatibility) {
+      gpuFits = gpu.compatibility.lengthMm <= (cab.compatibility?.maxGpuLengthMm || Infinity);
     }
 
     // 3. Cooler height or radiator size
     let coolerFits = true;
-    if (cooler) {
+    if (cooler && cooler.compatibility) {
       if (cooler.compatibility.type === 'air') {
-        coolerFits = cooler.compatibility.heightMm <= cab.compatibility.maxCoolerHeightMm;
+        coolerFits = cooler.compatibility.heightMm <= (cab.compatibility?.maxCoolerHeightMm || Infinity);
       } else if (cooler.compatibility.type === 'aio') {
-        coolerFits = cab.compatibility.supportedRadiators.includes(cooler.compatibility.radiatorSize);
+        coolerFits = !!cab.compatibility?.supportedRadiators?.includes(cooler.compatibility.radiatorSize);
       }
     }
 

@@ -55,9 +55,7 @@ export default function Page() {
   return (
     <main>
       <ParticlesBackground />
-      <header className="site-header">
-        <Navigation />
-      </header>
+      <Navigation />
 
       <HeroSequence />
 
