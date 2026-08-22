@@ -10,6 +10,15 @@ const nextConfig = {
       },
     ],
   },
+  experimental: {
+    optimizePackageImports: [
+      'lucide-react',
+      'framer-motion',
+      'gsap',
+      '@headlessui/react',
+      '@heroicons/react'
+    ],
+  },
   turbopack: {
     root: path.resolve('.'),
   },

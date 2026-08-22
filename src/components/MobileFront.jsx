@@ -1,11 +1,6 @@
-"use client";
-import { useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useRef } from 'react';
 import styles from './MobileFront.module.css';
 import { PhoneModel } from './SharedPhoneModel';
-
-gsap.registerPlugin(ScrollTrigger);
 
 export default function MobileFront({ isDesktopMode = false }) {
   const sectionRef = useRef(null);

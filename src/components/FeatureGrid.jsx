@@ -1,6 +1,6 @@
 "use client";
 import styles from './FeatureGrid.module.css';
-import { Shield, Smartphone, PenTool, CheckCircle, Battery, Camera, Code, Laptop, Settings, Briefcase, Zap } from 'lucide-react';
+import { Shield, Smartphone, PenTool, CheckCircle, Battery, Camera, Code, Laptop, Briefcase, Zap } from 'lucide-react';
 
 const CONTENT = {
   'mobile-top': {

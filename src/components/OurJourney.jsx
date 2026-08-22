@@ -1,7 +1,7 @@
 "use client";
 import React, { useRef } from 'react';
 import Image from 'next/image';
-import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 const MILESTONES = [
   {
@@ -42,6 +42,28 @@ const MILESTONES = [
   },
 ];
 
+function MilestoneDot({ scrollYProgress, index, total }) {
+  const opacity = useTransform(
+    scrollYProgress,
+    [
+      Math.max(0, (index / total) - 0.05),
+      index / total,
+      Math.min(1, (index + 1) / total),
+    ],
+    [0.2, 1, 0.5]
+  );
+
+  return (
+    <motion.div
+      className="w-1.5 h-1.5 rounded-full transition-all duration-300"
+      style={{
+        backgroundColor: '#FDE047',
+        opacity
+      }}
+    />
+  );
+}
+
 export default function OurJourney() {
   const containerRef = useRef(null);
 
@@ -55,13 +77,6 @@ export default function OurJourney() {
 
   // Progress bar width
   const progressWidth = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
-
-  // Active milestone index derived from scroll
-  const activeIndex = useTransform(
-    scrollYProgress,
-    [0, 1],
-    [0, MILESTONES.length - 1]
-  );
 
   return (
     <section className="relative text-white overflow-visible" id="journey">
@@ -109,17 +124,11 @@ export default function OurJourney() {
               {/* Milestone dot indicators */}
               <div className="flex items-center gap-2">
                 {MILESTONES.map((m, i) => (
-                  <motion.div
+                  <MilestoneDot
                     key={m.year}
-                    className="w-1.5 h-1.5 rounded-full transition-all duration-300"
-                    style={{
-                      backgroundColor: '#FDE047',
-                      opacity: useTransform(scrollYProgress, [
-                        Math.max(0, (i / MILESTONES.length) - 0.05),
-                        i / MILESTONES.length,
-                        Math.min(1, (i + 1) / MILESTONES.length),
-                      ], [0.2, 1, 0.5])
-                    }}
+                    scrollYProgress={scrollYProgress}
+                    index={i}
+                    total={MILESTONES.length}
                   />
                 ))}
               </div>

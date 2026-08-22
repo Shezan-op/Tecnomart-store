@@ -1,31 +1,28 @@
 "use client";
 
-import { useEffect, Suspense } from 'react';
-import dynamic from 'next/dynamic';
+import { useEffect } from 'react';
 import Lenis from 'lenis';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-import HeroSequence from '../components/HeroSequence';
+import ParticlesBackground from '../components/ParticlesBackground';
 import Navigation from '../components/Navigation';
+import HeroSequence from '../components/HeroSequence';
 import InfoBelt from '../components/InfoBelt';
-
-// Below-the-fold dynamic imports for instant initial page load
-const ParticlesBackground = dynamic(() => import('../components/ParticlesBackground'), { ssr: false });
-const MobileShowcaseWrapper = dynamic(() => import('../components/MobileShowcaseWrapper'), { ssr: false });
-const ScrollStackSection = dynamic(() => import('../components/ScrollStackSection'), { ssr: false });
-const ProDisplay = dynamic(() => import('../components/ProDisplay'), { ssr: false });
-const PopularModels = dynamic(() => import('../components/PopularModels'), { ssr: false });
-const ProKeyboard = dynamic(() => import('../components/ProKeyboard'), { ssr: false });
-const BrandLoop = dynamic(() => import('../components/BrandLoop'), { ssr: false });
-const Testimonials = dynamic(() => import('../components/Testimonials'), { ssr: false });
-const CustomSetupPromo = dynamic(() => import('../components/CustomSetupPromo'), { ssr: false });
-const WhereToFindUs = dynamic(() => import('../components/WhereToFindUs'), { ssr: false });
-const OurJourney = dynamic(() => import('../components/OurJourney'), { ssr: false });
-const FAQ = dynamic(() => import('../components/FAQ'), { ssr: false });
-const Footer = dynamic(() => import('../components/Footer'), { ssr: false });
+import MobileShowcaseWrapper from '../components/MobileShowcaseWrapper';
+import ScrollStackSection from '../components/ScrollStackSection';
+import ProDisplay from '../components/ProDisplay';
+import PopularModels from '../components/PopularModels';
+import ProKeyboard from '../components/ProKeyboard';
+import BrandLoop from '../components/BrandLoop';
+import Testimonials from '../components/Testimonials';
+import CustomSetupPromo from '../components/CustomSetupPromo';
+import WhereToFindUs from '../components/WhereToFindUs';
+import OurJourney from '../components/OurJourney';
+import FAQ from '../components/FAQ';
+import Footer from '../components/Footer';
 
 export default function Page() {
   useEffect(() => {

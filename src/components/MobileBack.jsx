@@ -1,11 +1,5 @@
-"use client";
-import { useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import styles from './MobileBack.module.css';
 import { PhoneModel } from './SharedPhoneModel';
-
-gsap.registerPlugin(ScrollTrigger);
 
 export default function MobileBack({ isDesktopMode = false }) {
   if (isDesktopMode) {
