@@ -22,17 +22,22 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-.originkit/
 
 # Next.js
 .next/
 out/
 
-# Hero Frames Section (per user request)
-src/components/HeroSequence.jsx
-src/components/HeroSequence.module.css
-src/components/ParticleText.jsx
-src/components/originkit/
+# Frames & Heavy Image Sequences
 public/frames/
 public/frames
+frames/
 
+# Non-essential docs, agent files & temporary artifacts
+AGENTS.md
+CLAUDE.md
+issues.md
+docs/
+scratch/
+bento-grid-images/
+.originkit/
+.playwright-mcp/

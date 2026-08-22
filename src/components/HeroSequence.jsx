@@ -1,0 +1,190 @@
+"use client";
+import { useEffect, useRef, useState } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import styles from './HeroSequence.module.css';
+
+gsap.registerPlugin(ScrollTrigger);
+
+export default function HeroSequence() {
+  const canvasRef = useRef(null);
+  const containerRef = useRef(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    const container = containerRef.current;
+    if (!canvas || !container) return;
+
+    const context = canvas.getContext('2d');
+
+    // Set native frame resolution (1920x1080) for instant zero-overhead GPU texture blitting
+    canvas.width = 1920;
+    canvas.height = 1080;
+
+    const frameCount = 820;
+    const fps = 10; // 10 frames per second
+    const videoDurationSec = frameCount / fps; // 82.0 seconds of animation
+    const vhPerSecond = 14; // ~14vh of scroll per second of 10fps animation
+    const totalTrackVh = Math.round(videoDurationSec * vhPerSecond) + 100; // ~1248vh
+
+    // Apply calculated scroll distance to container
+    container.style.setProperty('--hero-track-height', `${totalTrackVh}vh`);
+
+    const currentFrame = (index) =>
+      `/frames/${(index + 1).toString().padStart(3, '0')}.jpg`;
+
+    // High-performance bounded frame cache (caps RAM to ~50MB instead of 6GB)
+    const keyframes = new Map(); // Landmark frames every 8 steps
+    const dynamicCache = new Map(); // Recent 40 frames around current scrub
+    const heroFrames = { frame: 0 };
+    let lastDrawnFrame = -1;
+    let gsapCtx = null;
+    let rafScheduled = false;
+
+    const getImage = (targetIndex) => {
+      // 1. Check exact dynamic cache
+      if (dynamicCache.has(targetIndex)) return dynamicCache.get(targetIndex);
+      // 2. Check exact keyframes
+      if (keyframes.has(targetIndex)) return keyframes.get(targetIndex);
+
+      // 3. Fallback to nearest landmark
+      const nearestKey = Math.round(targetIndex / 8) * 8;
+      if (keyframes.has(nearestKey)) return keyframes.get(nearestKey);
+
+      // 4. Fallback to first frame
+      return keyframes.get(0) || null;
+    };
+
+    // Demand-loader for current viewport range
+    const requestFramesAround = (centerIndex) => {
+      const start = Math.max(0, centerIndex - 2);
+      const end = Math.min(frameCount - 1, centerIndex + 4);
+
+      for (let i = start; i <= end; i++) {
+        if (!dynamicCache.has(i) && !keyframes.has(i)) {
+          const img = new Image();
+          img.src = currentFrame(i);
+          dynamicCache.set(i, img);
+
+          // Bounded dynamic cache size
+          if (dynamicCache.size > 45) {
+            const firstKey = dynamicCache.keys().next().value;
+            dynamicCache.delete(firstKey);
+          }
+        }
+      }
+    };
+
+    // GPU direct draw
+    const drawCanvas = () => {
+      rafScheduled = false;
+      const targetIndex = Math.min(frameCount - 1, Math.max(0, Math.round(heroFrames.frame)));
+      if (targetIndex === lastDrawnFrame && lastDrawnFrame !== -1) return;
+
+      requestFramesAround(targetIndex);
+      const img = getImage(targetIndex);
+      if (!img || !img.complete || img.naturalWidth === 0) return;
+
+      context.drawImage(img, 0, 0, 1920, 1080);
+      lastDrawnFrame = targetIndex;
+    };
+
+    const render = () => {
+      if (!rafScheduled) {
+        rafScheduled = true;
+        requestAnimationFrame(drawCanvas);
+      }
+    };
+
+    const initScrollTrigger = () => {
+      drawCanvas();
+      setIsLoading(false);
+      ScrollTrigger.refresh();
+
+      gsapCtx = gsap.context(() => {
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: container,
+            start: 'top top',
+            end: 'bottom bottom',
+            scrub: true,
+            invalidateOnRefresh: true,
+          }
+        });
+
+        tl.to(heroFrames, {
+          frame: frameCount - 1,
+          ease: 'none',
+          onUpdate: render,
+          duration: 1
+        }, 0);
+
+      }, container);
+    };
+
+    // Preload frame 0 immediately
+    const firstImg = new Image();
+    firstImg.src = currentFrame(0);
+    firstImg.onload = () => {
+      keyframes.set(0, firstImg);
+      initScrollTrigger();
+    };
+
+    // Idle-preload landmark checkpoints every 8th frame (~100 lightweight frames)
+    const preloadCheckpoints = () => {
+      let idx = 8;
+      const loadNext = () => {
+        if (idx >= frameCount) return;
+        const img = new Image();
+        img.src = currentFrame(idx);
+        img.onload = () => {
+          keyframes.set(idx, img);
+        };
+        idx += 8;
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(loadNext);
+        } else {
+          setTimeout(loadNext, 30);
+        }
+      };
+      loadNext();
+    };
+
+    setTimeout(preloadCheckpoints, 100);
+
+    const handleResize = () => {
+      drawCanvas();
+      ScrollTrigger.refresh();
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      if (gsapCtx) gsapCtx.revert();
+    };
+  }, []);
+
+  return (
+    <section className={styles.heroSection} ref={containerRef} id="hero">
+      {/* CSS sticky handles the pin — no GSAP pin needed, no pin-spacer */}
+      <div className={styles.heroSticky}>
+        <div className={styles.canvasContainer}>
+          {isLoading && (
+            <div className={styles.loadingState}>
+              <div className={styles.loadingPulse} />
+            </div>
+          )}
+          <canvas ref={canvasRef} className={styles.canvas} />
+        </div>
+
+        {/* Scroll hint */}
+        <div className={styles.scrollHint}>
+          <div className={styles.scrollChevron} />
+          <span>Scroll to explore</span>
+        </div>
+      </div>
+    </section>
+  );
+}
