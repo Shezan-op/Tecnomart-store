@@ -7,7 +7,9 @@ import Keyboard from './Keyboard';
 import { motion } from 'framer-motion';
 import { Zap, Settings, MessageCircle } from 'lucide-react';
 
-gsap.registerPlugin(ScrollTrigger);
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 const KEYBOARD_SPECS = [
   { icon: Zap, label: 'Hot-Swap Switches', desc: 'Change feel without soldering' },

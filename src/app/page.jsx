@@ -1,13 +1,6 @@
 "use client";
 
-import { useEffect } from 'react';
-import Lenis from 'lenis';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
-
-import ParticlesBackground from '../components/ParticlesBackground';
+import React, { useEffect } from 'react';
 import Navigation from '../components/Navigation';
 import HeroSequence from '../components/HeroSequence';
 import InfoBelt from '../components/InfoBelt';
@@ -26,43 +19,58 @@ import Footer from '../components/Footer';
 
 export default function Page() {
   useEffect(() => {
-    const lenis = new Lenis({
-      duration: 0.9,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      orientation: 'vertical',
-      gestureOrientation: 'vertical',
-      smoothWheel: true,
-      wheelMultiplier: 1.05,
-      touchMultiplier: 1.2,
-      syncTouch: false,
-    });
+    let lenisInstance = null;
+    let updateTicker = null;
+    let timeout = null;
 
-    // Synchronize GSAP ScrollTrigger with Lenis
-    lenis.on('scroll', ScrollTrigger.update);
+    // Dynamically initialize Lenis and GSAP in browser only
+    Promise.all([import('lenis'), import('gsap'), import('gsap/ScrollTrigger')]).then(
+      ([lenisModule, gsapModule, scrollTriggerModule]) => {
+        const Lenis = lenisModule.default || lenisModule;
+        const gsap = gsapModule.default || gsapModule;
+        const ScrollTrigger = scrollTriggerModule.ScrollTrigger || scrollTriggerModule.default;
 
-    const updateTicker = (time) => {
-      lenis.raf(time * 1000);
-    };
+        gsap.registerPlugin(ScrollTrigger);
 
-    gsap.ticker.add(updateTicker);
-    // Use standard lag smoothing so frame drops don't cause violent visual skips
-    gsap.ticker.lagSmoothing(500, 33);
+        lenisInstance = new Lenis({
+          duration: 0.9,
+          easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+          orientation: 'vertical',
+          gestureOrientation: 'vertical',
+          smoothWheel: true,
+          wheelMultiplier: 1.05,
+          touchMultiplier: 1.2,
+          syncTouch: false,
+        });
 
-    // Refresh ScrollTrigger once DOM is stabilized
-    const timeout = setTimeout(() => {
-      ScrollTrigger.refresh();
-    }, 300);
+        lenisInstance.on('scroll', ScrollTrigger.update);
+
+        updateTicker = (time) => {
+          lenisInstance.raf(time * 1000);
+        };
+
+        gsap.ticker.add(updateTicker);
+        gsap.ticker.lagSmoothing(500, 33);
+
+        timeout = setTimeout(() => {
+          ScrollTrigger.refresh();
+        }, 300);
+      }
+    );
 
     return () => {
-      gsap.ticker.remove(updateTicker);
-      lenis.destroy();
-      clearTimeout(timeout);
+      if (updateTicker) {
+        import('gsap').then(({ default: gsap }) => {
+          gsap.ticker.remove(updateTicker);
+        });
+      }
+      if (lenisInstance) lenisInstance.destroy();
+      if (timeout) clearTimeout(timeout);
     };
   }, []);
 
   return (
     <main>
-      <ParticlesBackground />
       <Navigation />
 
       <HeroSequence />
@@ -70,13 +78,13 @@ export default function Page() {
       {/* Info Belt 1 */}
       <InfoBelt direction="left" text="PREMIUM DEVICES •" />
       
-      {/* Mobile Showcases (Unified Wrapper for Desktop 180 Flip, Static on Mobile) */}
+      {/* Mobile Showcases */}
       <MobileShowcaseWrapper />
       
       {/* Info Belt 2 */}
       <InfoBelt direction="right" text="ENGINEERED FOR PRECISION •" />
       
-      {/* Scroll Stack Offerings Section (Laptops & PCs, Mobiles, Accessories, Services) */}
+      {/* Scroll Stack Offerings Section */}
       <ScrollStackSection />
 
       {/* Laptop Showcase */}

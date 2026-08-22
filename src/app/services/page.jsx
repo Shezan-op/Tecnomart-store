@@ -6,7 +6,9 @@ import Footer from '../../components/Footer';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-gsap.registerPlugin(ScrollTrigger);
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 export default function ServicesPage() {
   const containerRef = useRef(null);

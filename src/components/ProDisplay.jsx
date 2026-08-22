@@ -6,7 +6,9 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import styles from './ProDisplay.module.css';
 import BackgroundArc from './BackgroundArc';
 
-gsap.registerPlugin(ScrollTrigger);
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 export default function ProDisplay() {
   const containerRef = useRef(null);    

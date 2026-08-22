@@ -7,7 +7,9 @@ import { PhoneModel } from './SharedPhoneModel';
 import MobileFront from './MobileFront';
 import MobileBack from './MobileBack';
 
-gsap.registerPlugin(ScrollTrigger);
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 export default function MobileShowcaseWrapper() {
   const containerRef = useRef(null);
