@@ -23,7 +23,6 @@ export default function Page() {
     let updateTicker = null;
     let timeout = null;
 
-    // Dynamically initialize Lenis and GSAP in browser only
     Promise.all([import('lenis'), import('gsap'), import('gsap/ScrollTrigger')]).then(
       ([lenisModule, gsapModule, scrollTriggerModule]) => {
         const Lenis = lenisModule.default || lenisModule;
