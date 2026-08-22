@@ -5,7 +5,9 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import styles from './ProKeyboard.module.css';
 import Keyboard from './Keyboard';
 import { motion } from 'framer-motion';
-import { Zap, Settings, MessageCircle } from 'lucide-react';
+import Zap from 'lucide-react/dist/esm/icons/zap';
+import Settings from 'lucide-react/dist/esm/icons/settings';
+import MessageCircle from 'lucide-react/dist/esm/icons/message-circle';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);

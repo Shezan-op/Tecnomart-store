@@ -1,20 +1,18 @@
 "use client";
 import React from "react";
-import { 
-  Laptop, 
-  Smartphone, 
-  Headphones, 
-  Wrench, 
-  ArrowRight, 
-  MessageCircle, 
-  PhoneCall, 
-  ShieldCheck, 
-  CheckCircle2, 
-  Zap, 
-  Cpu, 
-  Flame,
-  Sparkles
-} from "lucide-react";
+import Laptop from 'lucide-react/dist/esm/icons/laptop';
+import Smartphone from 'lucide-react/dist/esm/icons/smartphone';
+import Headphones from 'lucide-react/dist/esm/icons/headphones';
+import Wrench from 'lucide-react/dist/esm/icons/wrench';
+import ArrowRight from 'lucide-react/dist/esm/icons/arrow-right';
+import MessageCircle from 'lucide-react/dist/esm/icons/message-circle';
+import PhoneCall from 'lucide-react/dist/esm/icons/phone-call';
+import ShieldCheck from 'lucide-react/dist/esm/icons/shield-check';
+import CheckCircle2 from 'lucide-react/dist/esm/icons/check-circle-2';
+import Zap from 'lucide-react/dist/esm/icons/zap';
+import Cpu from 'lucide-react/dist/esm/icons/cpu';
+import Flame from 'lucide-react/dist/esm/icons/flame';
+import Sparkles from 'lucide-react/dist/esm/icons/sparkles';
 
 const STACK_CARDS = [
   {

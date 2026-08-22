@@ -2,7 +2,10 @@
 import React from "react";
 import Link from 'next/link';
 import { motion } from "framer-motion";
-import { ArrowRight, Wrench, Shield, Zap } from "lucide-react";
+import ArrowRight from 'lucide-react/dist/esm/icons/arrow-right';
+import Wrench from 'lucide-react/dist/esm/icons/wrench';
+import Shield from 'lucide-react/dist/esm/icons/shield';
+import Zap from 'lucide-react/dist/esm/icons/zap';
 
 export default function CustomSetupPromo() {
   return (

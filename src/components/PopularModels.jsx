@@ -1,7 +1,11 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Laptop, Smartphone, Monitor, Headphones } from "lucide-react";
+import ArrowRight from 'lucide-react/dist/esm/icons/arrow-right';
+import Laptop from 'lucide-react/dist/esm/icons/laptop';
+import Smartphone from 'lucide-react/dist/esm/icons/smartphone';
+import Monitor from 'lucide-react/dist/esm/icons/monitor';
+import Headphones from 'lucide-react/dist/esm/icons/headphones';
 import Link from 'next/link';
 
 const products = [

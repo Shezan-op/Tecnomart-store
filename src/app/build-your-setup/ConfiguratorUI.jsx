@@ -5,21 +5,19 @@ import { getTargetSteps } from '../../lib/configurator/recommendation';
 import { getOptionsForCategory } from '../../lib/configurator/compatibility';
 import { generateNormalizedPayload, generateWhatsAppLink } from '../../lib/configurator/whatsapp';
 import Link from 'next/link';
-import { 
-  Video, 
-  Box, 
-  Brain, 
-  Gamepad2, 
-  Cpu, 
-  Zap, 
-  ShieldCheck, 
-  ArrowRight, 
-  ArrowLeft, 
-  RotateCcw, 
-  Check, 
-  MessageCircle, 
-  RefreshCw 
-} from 'lucide-react';
+import Video from 'lucide-react/dist/esm/icons/video';
+import Box from 'lucide-react/dist/esm/icons/box';
+import Brain from 'lucide-react/dist/esm/icons/brain';
+import Gamepad2 from 'lucide-react/dist/esm/icons/gamepad-2';
+import Cpu from 'lucide-react/dist/esm/icons/cpu';
+import Zap from 'lucide-react/dist/esm/icons/zap';
+import ShieldCheck from 'lucide-react/dist/esm/icons/shield-check';
+import ArrowRight from 'lucide-react/dist/esm/icons/arrow-right';
+import ArrowLeft from 'lucide-react/dist/esm/icons/arrow-left';
+import RotateCcw from 'lucide-react/dist/esm/icons/rotate-ccw';
+import Check from 'lucide-react/dist/esm/icons/check';
+import MessageCircle from 'lucide-react/dist/esm/icons/message-circle';
+import RefreshCw from 'lucide-react/dist/esm/icons/refresh-cw';
 import styles from './ConfiguratorUI.module.css';
 
 export default function ConfiguratorUI() {

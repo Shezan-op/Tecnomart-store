@@ -1,7 +1,10 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import { MapPin, Phone, Clock, Navigation } from "lucide-react";
+import MapPin from 'lucide-react/dist/esm/icons/map-pin';
+import Phone from 'lucide-react/dist/esm/icons/phone';
+import Clock from 'lucide-react/dist/esm/icons/clock';
+import Navigation from 'lucide-react/dist/esm/icons/navigation';
 
 export default function WhereToFindUs() {
   return (

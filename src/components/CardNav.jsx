@@ -1,7 +1,7 @@
 "use client";
 import React, { useLayoutEffect, useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
-import { ArrowUpRight } from 'lucide-react';
+import ArrowUpRight from 'lucide-react/dist/esm/icons/arrow-up-right';
 import Link from 'next/link';
 import { Logo } from './ui/header-02-utils/logo';
 import './CardNav.css';

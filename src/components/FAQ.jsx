@@ -1,7 +1,8 @@
 "use client";
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Plus, MessageCircle } from 'lucide-react';
+import Plus from 'lucide-react/dist/esm/icons/plus';
+import MessageCircle from 'lucide-react/dist/esm/icons/message-circle';
 
 const FAQS = [
   {

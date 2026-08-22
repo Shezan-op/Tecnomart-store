@@ -1,7 +1,8 @@
 "use client";
 import React, { useEffect } from "react";
 import { motion } from "framer-motion";
-import { Star, ExternalLink } from "lucide-react";
+import Star from 'lucide-react/dist/esm/icons/star';
+import ExternalLink from 'lucide-react/dist/esm/icons/external-link';
 
 export default function Testimonials() {
   const sectionRef = React.useRef(null);
