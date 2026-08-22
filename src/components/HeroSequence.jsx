@@ -9,7 +9,7 @@ gsap.registerPlugin(ScrollTrigger);
 export default function HeroSequence() {
   const canvasRef = useRef(null);
   const containerRef = useRef(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -97,39 +97,45 @@ export default function HeroSequence() {
       }
     };
 
-    const initScrollTrigger = () => {
+    // Initialize GSAP scroll timeline immediately
+    gsapCtx = gsap.context(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: container,
+          start: 'top top',
+          end: 'bottom bottom',
+          scrub: true,
+          invalidateOnRefresh: true,
+        }
+      });
+
+      tl.to(heroFrames, {
+        frame: frameCount - 1,
+        ease: 'none',
+        onUpdate: render,
+        duration: 1
+      }, 0);
+
+    }, container);
+
+    // Preload frame 0 immediately and render as soon as available
+    const firstImg = new Image();
+    firstImg.src = currentFrame(0);
+    const handleFirstFrame = () => {
+      keyframes.set(0, firstImg);
       drawCanvas();
       setIsLoading(false);
       ScrollTrigger.refresh();
-
-      gsapCtx = gsap.context(() => {
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: container,
-            start: 'top top',
-            end: 'bottom bottom',
-            scrub: true,
-            invalidateOnRefresh: true,
-          }
-        });
-
-        tl.to(heroFrames, {
-          frame: frameCount - 1,
-          ease: 'none',
-          onUpdate: render,
-          duration: 1
-        }, 0);
-
-      }, container);
     };
 
-    // Preload frame 0 immediately to display initial hero view
-    const firstImg = new Image();
-    firstImg.src = currentFrame(0);
-    firstImg.onload = () => {
-      keyframes.set(0, firstImg);
-      initScrollTrigger();
-    };
+    if (firstImg.complete) {
+      handleFirstFrame();
+    } else {
+      firstImg.onload = handleFirstFrame;
+      firstImg.onerror = () => {
+        setIsLoading(false);
+      };
+    }
 
     const handleResize = () => {
       drawCanvas();
