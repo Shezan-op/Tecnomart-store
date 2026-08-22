@@ -123,35 +123,13 @@ export default function HeroSequence() {
       }, container);
     };
 
-    // Preload frame 0 immediately
+    // Preload frame 0 immediately to display initial hero view
     const firstImg = new Image();
     firstImg.src = currentFrame(0);
     firstImg.onload = () => {
       keyframes.set(0, firstImg);
       initScrollTrigger();
     };
-
-    // Idle-preload landmark checkpoints every 8th frame (~100 lightweight frames)
-    const preloadCheckpoints = () => {
-      let idx = 8;
-      const loadNext = () => {
-        if (idx >= frameCount) return;
-        const img = new Image();
-        img.src = currentFrame(idx);
-        img.onload = () => {
-          keyframes.set(idx, img);
-        };
-        idx += 8;
-        if ('requestIdleCallback' in window) {
-          requestIdleCallback(loadNext);
-        } else {
-          setTimeout(loadNext, 30);
-        }
-      };
-      loadNext();
-    };
-
-    setTimeout(preloadCheckpoints, 100);
 
     const handleResize = () => {
       drawCanvas();

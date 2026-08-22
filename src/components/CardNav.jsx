@@ -3,7 +3,7 @@ import React, { useLayoutEffect, useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ArrowUpRight } from 'lucide-react';
 import Link from 'next/link';
-import { Logo } from '@/components/ui/header-02-utils/logo';
+import { Logo } from './ui/header-02-utils/logo';
 import './CardNav.css';
 
 const CardNav = ({

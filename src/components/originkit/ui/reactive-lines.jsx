@@ -1,23 +1,20 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 
-type Vec = { x: number; y: number };
-const vec = (x: number, y: number): Vec => ({ x, y });
-const vecAdd = (a: Vec, b: Vec): Vec => ({ x: a.x + b.x, y: a.y + b.y });
-const vecSub = (a: Vec, b: Vec): Vec => ({ x: a.x - b.x, y: a.y - b.y });
-const vecMult = (a: Vec, s: number): Vec => ({ x: a.x * s, y: a.y * s });
-const vecLerp = (a: Vec, b: Vec, t: number): Vec => ({
+const vec = (x, y) => ({ x, y });
+const vecAdd = (a, b) => ({ x: a.x + b.x, y: a.y + b.y });
+const vecSub = (a, b) => ({ x: a.x - b.x, y: a.y - b.y });
+const vecMult = (a, s) => ({ x: a.x * s, y: a.y * s });
+const vecLerp = (a, b, t) => ({
   x: a.x + (b.x - a.x) * t,
   y: a.y + (b.y - a.y) * t,
 });
-const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
-const clamp = (v: number, mn: number, mx: number) =>
-  Math.max(mn, Math.min(mx, v));
-const map = (v: number, a: number, b: number, c: number, d: number) =>
-  ((v - a) / (b - a)) * (d - c) + c;
+const lerp = (a, b, t) => a + (b - a) * t;
+const clamp = (v, mn, mx) => Math.max(mn, Math.min(mx, v));
+const map = (v, a, b, c, d) => ((v - a) / (b - a)) * (d - c) + c;
 
-function toRGB(str: string): { r: number; g: number; b: number } {
+function toRGB(str) {
   if (str) {
     const m = str.match(/rgba?\(([^)]+)\)/);
     if (m) {
@@ -25,43 +22,32 @@ function toRGB(str: string): { r: number; g: number; b: number } {
       return { r: p[0] || 0, g: p[1] || 0, b: p[2] || 0 };
     }
     const hex = str.replace("#", "");
-    if (hex.length >= 6)
+    if (hex.length >= 6) {
       return {
         r: parseInt(hex.slice(0, 2), 16),
         g: parseInt(hex.slice(2, 4), 16),
         b: parseInt(hex.slice(4, 6), 16),
       };
-    if (hex.length === 3)
+    }
+    if (hex.length === 3) {
       return {
         r: parseInt(hex[0] + hex[0], 16),
         g: parseInt(hex[1] + hex[1], 16),
         b: parseInt(hex[2] + hex[2], 16),
       };
+    }
   }
   return { r: 10, g: 10, b: 10 };
-}
-
-interface CanvasState {
-  width: number;
-  height: number;
-  dpr: number;
-  isVisible: boolean;
-  isPageVisible: boolean;
-  animationId: number;
 }
 
 function useCanvasAnimation({
   deferStart = false,
   onSetup,
   onDraw,
-}: {
-  deferStart?: boolean;
-  onSetup?: (ctx: CanvasRenderingContext2D, state: CanvasState) => void;
-  onDraw: (ctx: CanvasRenderingContext2D, state: CanvasState) => void;
 }) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const stateRef = useRef<CanvasState>({
+  const containerRef = useRef(null);
+  const canvasRef = useRef(null);
+  const stateRef = useRef({
     width: 0,
     height: 0,
     dpr: 1,
@@ -119,7 +105,7 @@ function useCanvasAnimation({
 
     if (!deferStart) start();
 
-    let debTimer: ReturnType<typeof setTimeout>;
+    let debTimer;
     const onResize = () => {
       clearTimeout(debTimer);
       debTimer = setTimeout(() => {
@@ -131,13 +117,21 @@ function useCanvasAnimation({
 
     const onPageVis = () => {
       st.isPageVisible = document.visibilityState === "visible";
-      st.isPageVisible ? start() : stop();
+      if (st.isPageVisible) {
+        start();
+      } else {
+        stop();
+      }
     };
 
     const io = new IntersectionObserver(
       (entries) => {
         st.isVisible = entries[0]?.isIntersecting ?? true;
-        st.isVisible && st.isPageVisible ? start() : stop();
+        if (st.isVisible && st.isPageVisible) {
+          start();
+        } else {
+          stop();
+        }
       },
       { threshold: 0 }
     );
@@ -146,7 +140,7 @@ function useCanvasAnimation({
     window.addEventListener("resize", onResize, { passive: true });
     document.addEventListener("visibilitychange", onPageVis);
 
-    (canvas as any).__canvasStart = start;
+    canvas.__canvasStart = start;
 
     return () => {
       stop();
@@ -160,17 +154,6 @@ function useCanvasAnimation({
   return { containerRef, canvasRef, stateRef };
 }
 
-interface InteractiveLinesProps {
-  backgroundColor?: string;
-  lineColor?: string;
-  lineWidth?: number;
-  minLines?: number;
-  maxLines?: number;
-  fade?: boolean;
-  fadeIntensity?: number;
-  style?: React.CSSProperties;
-}
-
 export default function InteractiveLines({
   style,
   backgroundColor = "rgb(10, 10, 10)",
@@ -180,7 +163,7 @@ export default function InteractiveLines({
   maxLines = 45,
   fade = false,
   fadeIntensity = 15,
-}: InteractiveLinesProps) {
+}) {
   const mouseRef = useRef({ x: 0, y: 0, targetX: 0, targetY: 0 });
   const cfgRef = useRef({ linesNum: 40, bias: 0.5 });
 
@@ -236,16 +219,15 @@ export default function InteractiveLines({
         );
 
         let l = vecAdd(vecMult(c, 0.5), vecMult(lineEnd, 0.5));
-
         let dispTarget = vecMult(vecAdd(f, l), 0.5);
 
         (function (
-          e: CanvasRenderingContext2D,
-          t: Vec,
-          r: Vec,
-          n: Vec,
-          l: number,
-          a: number
+          e,
+          t,
+          r,
+          n,
+          l,
+          a
         ) {
           let o = vecLerp(t, r, 0.5);
           let s = vecSub(n, o);
@@ -259,7 +241,11 @@ export default function InteractiveLines({
               Math.pow(o, a * (1 - l) * 2) *
               Math.pow(1 - o, a * l * 2);
             let cv = vecAdd(u, vecMult(s, d));
-            n === 0 ? e.moveTo(cv.x, cv.y) : e.lineTo(cv.x, cv.y);
+            if (n === 0) {
+              e.moveTo(cv.x, cv.y);
+            } else {
+              e.lineTo(cv.x, cv.y);
+            }
           }
           e.stroke();
         })(e, c, lineEnd, dispTarget, o.bias, d);
@@ -269,7 +255,7 @@ export default function InteractiveLines({
 
       if (fade) {
         const bg = toRGB(backgroundColor);
-        const rgba = (alpha: number) =>
+        const rgba = (alpha) =>
           `rgba(${bg.r}, ${bg.g}, ${bg.b}, ${alpha})`;
         const inner = clamp(
           map(fadeIntensity, 1, 50, 0.82, 0.25),
@@ -307,23 +293,24 @@ export default function InteractiveLines({
     let t = e.getBoundingClientRect();
 
     let started = false;
-    let r = (ev: MouseEvent) => {
+    let r = (ev) => {
       if (!stateRef.current.isVisible) return;
       mouseRef.current.targetX = ev.clientX - t.left;
       mouseRef.current.targetY = ev.clientY - t.top;
       if (!started) {
         started = true;
-        (canvasRef.current as any)?.__canvasStart?.();
+        canvasRef.current?.__canvasStart?.();
       }
     };
 
     let n = 0;
     let i = () => {
-      n ||
-        (n = requestAnimationFrame(() => {
-          t = e!.getBoundingClientRect();
+      if (!n) {
+        n = requestAnimationFrame(() => {
+          if (e) t = e.getBoundingClientRect();
           n = 0;
-        }));
+        });
+      }
     };
 
     document.addEventListener("mousemove", r, { passive: true });
@@ -332,7 +319,7 @@ export default function InteractiveLines({
     return () => {
       document.removeEventListener("mousemove", r);
       window.removeEventListener("scroll", i);
-      n && cancelAnimationFrame(n);
+      if (n) cancelAnimationFrame(n);
     };
   }, [containerRef, stateRef, canvasRef]);
 

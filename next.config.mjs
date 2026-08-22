@@ -2,6 +2,9 @@ import path from 'path';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  turbopack: {
+    root: path.resolve('.'),
+  },
   images: {
     remotePatterns: [
       {
@@ -9,18 +12,6 @@ const nextConfig = {
         hostname: 'images.unsplash.com',
       },
     ],
-  },
-  experimental: {
-    optimizePackageImports: [
-      'lucide-react',
-      'framer-motion',
-      'gsap',
-      '@headlessui/react',
-      '@heroicons/react'
-    ],
-  },
-  turbopack: {
-    root: path.resolve('.'),
   },
 };
 

@@ -1,6 +1,6 @@
 "use client";
 import React from 'react';
-import TextAnimation from '@/components/ui/scroll-text';
+import TextAnimation from './ui/scroll-text';
 
 export default function ScrollTextAnimation() {
   return (
