@@ -1,6 +1,5 @@
 "use client";
 import React, { useRef } from 'react';
-import Image from 'next/image';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
 const MILESTONES = [
@@ -159,14 +158,11 @@ export default function OurJourney() {
                   <div className="relative w-full h-[240px] sm:h-[270px] md:h-[300px] rounded-2xl overflow-hidden bg-slate-900/80 border border-white/10 shadow-2xl transition-all duration-500 group-hover:border-[#FDE047]/40 group-hover:shadow-[0_0_30px_rgba(253,224,71,0.12)] cursor-pointer">
 
                     {/* Background image */}
-                    <Image
+                    <img
                       src={m.image}
                       alt={m.subtitle}
-                      fill
-                      unoptimized
                       loading="lazy"
-                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                      sizes="(max-width: 768px) 300px, 380px"
+                      className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                     />
 
                     {/* Default vignette */}
