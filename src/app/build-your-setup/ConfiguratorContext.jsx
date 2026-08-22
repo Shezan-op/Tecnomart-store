@@ -2,7 +2,7 @@
 
 import React, { createContext, useContext, useState, useEffect, useMemo } from 'react';
 import { initialBuildState, saveBuildState, loadBuildState, clearBuildState } from '../../lib/configurator/state';
-import { generateRecommendedBuild } from '../../lib/configurator/recommendation';
+import { generateRecommendedBuild, switchPlatform as switchPlatformHelper } from '../../lib/configurator/recommendation';
 import { calculateTotal } from '../../lib/configurator/whatsapp';
 
 const ConfiguratorContext = createContext(null);
@@ -14,8 +14,7 @@ export function ConfiguratorProvider({ children }) {
   // Load state on mount
   useEffect(() => {
     const draft = loadBuildState();
-    if (draft && draft.buildType) {
-      // If we have a valid draft with at least a buildType, ask or auto-resume
+    if (draft && (draft.workload || draft.platform)) {
       setBuildState(draft);
     }
     setIsLoaded(true);
@@ -23,25 +22,55 @@ export function ConfiguratorProvider({ children }) {
 
   // Save state on change
   useEffect(() => {
-    if (isLoaded && buildState.buildType) {
+    if (isLoaded && (buildState.workload || buildState.platform)) {
       saveBuildState(buildState);
     }
   }, [buildState, isLoaded]);
 
-  const updateBuildType = (type) => {
-    setBuildState(prev => ({ ...prev, buildType: type, stepIndex: prev.stepIndex + 1 }));
+  const updateWorkload = (workload) => {
+    setBuildState(prev => ({
+      ...prev,
+      workload,
+      stepIndex: 1 // Next: Intel vs AMD selection
+    }));
+  };
+
+  const updatePlatform = (platform) => {
+    setBuildState(prev => {
+      const tempState = {
+        ...prev,
+        platform,
+        stepIndex: 2 // Next: Priority tier selection
+      };
+      // Pre-generate recommended build
+      const recommended = generateRecommendedBuild(tempState);
+      return recommended;
+    });
   };
 
   const updatePriority = (priority) => {
-    setBuildState(prev => ({ ...prev, priority, stepIndex: prev.stepIndex + 1 }));
-  };
-
-  const updateGoal = (goal) => {
     setBuildState(prev => {
-      // After goal is set, we can auto-generate the recommended build
-      const tempState = { ...prev, goal, stepIndex: prev.stepIndex + 1 };
+      const tempState = {
+        ...prev,
+        priority,
+        stepIndex: 3 // Component walkthrough start
+      };
       const recommended = generateRecommendedBuild(tempState);
       return recommended;
+    });
+  };
+
+  const switchPlatform = (targetPlatform) => {
+    setBuildState(prev => {
+      const switched = switchPlatformHelper(prev, targetPlatform);
+      return switched;
+    });
+  };
+
+  const togglePlatform = () => {
+    setBuildState(prev => {
+      const nextPlatform = prev.platform === 'Intel' ? 'AMD' : 'Intel';
+      return switchPlatformHelper(prev, nextPlatform);
     });
   };
 
@@ -51,16 +80,24 @@ export function ConfiguratorProvider({ children }) {
 
   const updateSelection = (category, item) => {
     setBuildState(prev => {
+      const newSelections = {
+        ...prev.selections,
+        [category]: item
+      };
+
+      let newPlatform = prev.platform;
+      // If user chooses a CPU, keep platform aligned
+      if (category === 'cpu' && item?.brand) {
+        newPlatform = item.brand;
+      }
+
       const newState = {
         ...prev,
-        selections: {
-          ...prev.selections,
-          [category]: item
-        }
+        platform: newPlatform,
+        selections: newSelections,
+        mode: 'customize'
       };
-      // If we're in recommended mode, an upstream change might require re-recommending downstream
-      // But for simplicity in v1, if they manually change something, we switch to 'customize' mode
-      newState.mode = 'customize';
+
       return newState;
     });
   };
@@ -88,9 +125,11 @@ export function ConfiguratorProvider({ children }) {
     buildState,
     isLoaded,
     totalINR,
-    updateBuildType,
+    updateWorkload,
+    updatePlatform,
     updatePriority,
-    updateGoal,
+    switchPlatform,
+    togglePlatform,
     updateSelection,
     setMode,
     nextStep,

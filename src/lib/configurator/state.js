@@ -1,11 +1,11 @@
-const STORAGE_KEY = 'pcMart.customBuild.v2';
+const STORAGE_KEY = 'pcMart.customBuild.v3';
 
 export const initialBuildState = {
-  version: 2,
+  version: 3,
   buildId: null,
-  buildType: null, // gaming-pc, workstation-pc, complete-setup
-  priority: null, // value, balanced, performance
-  goal: null, 
+  workload: null, // video, 3d, ai, gaming
+  platform: null, // 'Intel' | 'AMD'
+  priority: 'balanced', // value, balanced, performance
   mode: 'recommended', // recommended, customize
   selections: {
     cpu: null,
@@ -38,12 +38,12 @@ export function loadBuildState() {
   if (!saved) return null;
   try {
     const parsed = JSON.parse(saved);
-    if (parsed.version !== 2) {
+    if (parsed.version !== 3) {
       clearBuildState();
       return null;
     }
     return parsed;
-  } catch (e) {
+  } catch {
     return null;
   }
 }

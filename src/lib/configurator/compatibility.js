@@ -1,12 +1,26 @@
 import { catalog } from '../../data/catalog';
 
 /**
- * Returns compatible motherboards for a given CPU.
+ * Returns CPUs filtered by platform ('Intel' or 'AMD').
  */
-export function getCompatibleMotherboards(cpu) {
+export function getCPUsByPlatform(platform) {
+  const cpus = catalog.filter(item => item.category === 'cpu');
+  if (!platform) return cpus;
+  return cpus.filter(cpu => cpu.brand.toLowerCase() === platform.toLowerCase());
+}
+
+/**
+ * Returns compatible motherboards for a given CPU or platform.
+ */
+export function getCompatibleMotherboards(cpu, platform) {
   const mbs = catalog.filter(item => item.category === 'motherboard');
-  if (!cpu) return mbs;
-  return mbs.filter(mb => mb.compatibility.socket === cpu.compatibility.socket);
+  if (cpu && cpu.compatibility?.socket) {
+    return mbs.filter(mb => mb.compatibility.socket === cpu.compatibility.socket);
+  }
+  if (platform) {
+    return mbs.filter(mb => mb.compatibility.platform?.toLowerCase() === platform.toLowerCase());
+  }
+  return mbs;
 }
 
 /**
@@ -20,9 +34,8 @@ export function getCompatibleMemory(motherboard) {
 
 /**
  * Returns compatible storage for a given motherboard.
- * Simplified for v1: just return all NVMe drives, as all our modern boards support them.
  */
-export function getCompatibleStorage(motherboard) {
+export function getCompatibleStorage(_motherboard) {
   return catalog.filter(item => item.category === 'storage');
 }
 
@@ -33,9 +46,9 @@ export function getCompatiblePSUs(cpu, gpu) {
   const psus = catalog.filter(item => item.category === 'psu');
   if (!cpu && !gpu) return psus;
 
-  let cpuWatts = cpu ? cpu.compatibility.wattClass : 65;
-  let gpuBoardWatts = gpu ? gpu.compatibility.boardPowerW : 0;
-  let gpuRecSysWatts = gpu ? gpu.compatibility.recommendedSystemPowerW : 0;
+  let cpuWatts = cpu ? (cpu.compatibility.wattClass || 125) : 65;
+  let gpuBoardWatts = gpu ? (gpu.compatibility.boardPowerW || 0) : 0;
+  let gpuRecSysWatts = gpu ? (gpu.compatibility.recommendedSystemPowerW || 0) : 0;
 
   // Add 100W safety allowance
   const computedRequirement = cpuWatts + gpuBoardWatts + 100;
@@ -53,7 +66,7 @@ export function getCompatibleCoolers(cpu) {
 
   return coolers.filter(cooler => {
     const supportsSocket = cooler.compatibility.supportedSockets.includes(cpu.compatibility.socket);
-    const hasCapacity = cooler.compatibility.coolingTier >= cpu.compatibility.wattClass;
+    const hasCapacity = cooler.compatibility.coolingTier >= (cpu.compatibility.wattClass || 65);
     return supportsSocket && hasCapacity;
   });
 }
@@ -65,7 +78,7 @@ export function getCompatibleCabinets(motherboard, gpu, cooler) {
   const cabinets = catalog.filter(item => item.category === 'cabinet');
 
   return cabinets.filter(cab => {
-    // 1. Motherboard Form Factor (Simplified: check if any of the board's form factors are supported)
+    // 1. Motherboard Form Factor
     let mbFits = true;
     if (motherboard && motherboard.compatibility?.formFactors) {
       mbFits = motherboard.compatibility.formFactors.some(ff => 
@@ -94,19 +107,17 @@ export function getCompatibleCabinets(motherboard, gpu, cooler) {
 }
 
 /**
- * Generic filter wrapper for the step UI
+ * Generic filter wrapper for the step UI with platform awareness
  */
-export function getOptionsForCategory(category, selections) {
+export function getOptionsForCategory(category, selections, platform) {
   const catItems = catalog.filter(item => item.category === category);
-  
-  // Safe fallback if logic filters out everything
   const fallback = (filtered) => filtered.length > 0 ? filtered : catItems;
 
   switch(category) {
     case 'cpu':
-      return catItems; // CPUs dictate the build, no upstream hard filters usually
+      return fallback(getCPUsByPlatform(platform || selections.cpu?.brand));
     case 'motherboard':
-      return fallback(getCompatibleMotherboards(selections.cpu));
+      return fallback(getCompatibleMotherboards(selections.cpu, platform));
     case 'memory':
       return fallback(getCompatibleMemory(selections.motherboard));
     case 'storage':

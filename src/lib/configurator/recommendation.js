@@ -1,4 +1,4 @@
-import { getOptionsForCategory } from './compatibility';
+import { getOptionsForCategory, getCompatibleMotherboards, getCPUsByPlatform } from './compatibility';
 
 /**
  * Score a single item based on current build state.
@@ -6,34 +6,46 @@ import { getOptionsForCategory } from './compatibility';
 function scoreItem(item, buildState) {
   let score = 0;
 
-  // 1. Build Type Match (e.g., 'gaming-pc', 'workstation-pc', 'complete-setup')
-  // We infer the build type from workloadTags.
-  const isGamingBuild = buildState.buildType === 'gaming-pc' || buildState.buildType === 'complete-setup';
-  const isWorkstation = buildState.buildType === 'workstation-pc';
-
-  if (isGamingBuild && item.workloadTags.includes('gaming')) score += 30;
-  if (isWorkstation && item.workloadTags.includes('workstation')) score += 30;
-
-  // 2. Goal Match (e.g., 'casual', 'competitive', '1440p-4k', 'heavy-multitasking')
-  if (buildState.goal && item.workloadTags.includes(buildState.goal)) {
-    score += 25;
+  // Platform constraint for CPU and Motherboard
+  if (buildState.platform) {
+    if (item.category === 'cpu' && item.brand.toLowerCase() !== buildState.platform.toLowerCase()) {
+      return -1000;
+    }
+    if (item.category === 'motherboard' && item.compatibility?.platform?.toLowerCase() !== buildState.platform.toLowerCase()) {
+      return -1000;
+    }
   }
 
-  // 3. Priority Tier Match (value, balanced, performance)
+  // Workload Match
+  const workload = buildState.workload;
+  if (workload === 'video') {
+    if (item.workloadTags?.includes('creative')) score += 35;
+    if (item.workloadTags?.includes('workstation')) score += 20;
+  } else if (workload === '3d') {
+    if (item.workloadTags?.includes('workstation')) score += 35;
+    if (item.workloadTags?.includes('creative')) score += 20;
+  } else if (workload === 'ai') {
+    if (item.workloadTags?.includes('heavy-multitasking')) score += 35;
+    if (item.workloadTags?.includes('workstation')) score += 30;
+  } else if (workload === 'gaming') {
+    if (item.workloadTags?.includes('gaming')) score += 35;
+    if (item.workloadTags?.includes('competitive')) score += 20;
+  }
+
+  // Priority Tier Match (value, balanced, performance)
   if (item.performanceTier === buildState.priority) {
-    score += 20;
+    score += 30;
   }
 
-  // 4. Availability
+  // Availability
   if (item.availability === 'in_stock') {
     score += 10;
   }
 
-  // 5. Reasonable balance (e.g., if we chose a performance CPU, prefer performance other parts)
-  // We can just rely on the priority match for now, or bump score if it matches the CPU's tier.
-  if (buildState.selections.cpu) {
+  // Tier balance with selected CPU
+  if (buildState.selections.cpu && item.category !== 'cpu') {
     if (item.performanceTier === buildState.selections.cpu.performanceTier) {
-      score += 15;
+      score += 20;
     }
   }
 
@@ -41,58 +53,77 @@ function scoreItem(item, buildState) {
 }
 
 /**
- * Given a category and current build state, returns the top recommended compatible item.
+ * Returns the top recommended item for a category given current state.
  */
 export function getRecommendedItem(category, buildState) {
-  // 1. Get all valid, compatible options for this category based on current selections
-  // We map selection IDs back to objects for the compatibility checker
-  const resolvedSelections = {};
-  for (const [cat, itemObj] of Object.entries(buildState.selections)) {
-    resolvedSelections[cat] = itemObj; 
-  }
-
-  const validOptions = getOptionsForCategory(category, resolvedSelections);
+  const resolvedSelections = { ...buildState.selections };
+  const validOptions = getOptionsForCategory(category, resolvedSelections, buildState.platform);
   if (!validOptions || validOptions.length === 0) return null;
 
-  // 2. Score them
   const scored = validOptions.map(item => ({
     item,
     score: scoreItem(item, buildState)
   }));
 
-  // 3. Sort by score descending
   scored.sort((a, b) => b.score - a.score);
-
-  // 4. Return the highest scoring item
-  return scored[0].item;
+  return scored[0]?.item || validOptions[0];
 }
 
-/**
- * Auto-fill remaining steps with recommended items
- */
 export const stepsOrder = [
   'cpu', 'gpu', 'motherboard', 'memory', 'storage', 'psu', 'cooling', 'cabinet', 'monitor'
 ];
 
-export function getTargetSteps(buildType) {
-  return buildType === 'complete-setup' 
-    ? stepsOrder 
-    : stepsOrder.filter(s => s !== 'monitor');
+export function getTargetSteps(_workload) {
+  // All desktop PC builds walk through the core hardware sequence
+  return stepsOrder;
 }
 
+/**
+ * Auto-generate full build based on workload, platform, and priority tier.
+ */
 export function generateRecommendedBuild(buildState) {
-  const newState = { ...buildState, selections: { ...buildState.selections } };
-  
-  // We only run through the steps relevant to the build type
-  const targetSteps = getTargetSteps(buildState.buildType);
+  const newState = {
+    ...buildState,
+    selections: { ...buildState.selections }
+  };
+
+  const targetSteps = getTargetSteps(buildState.workload);
 
   for (const step of targetSteps) {
-    // Re-resolve state dynamically so upstream choices affect downstream choices
-    const recommendedItem = getRecommendedItem(step, newState);
-    if (recommendedItem) {
-      newState.selections[step] = recommendedItem;
+    const recommended = getRecommendedItem(step, newState);
+    if (recommended) {
+      newState.selections[step] = recommended;
     }
   }
 
+  return newState;
+}
+
+/**
+ * Seamlessly switch build between Intel and AMD platforms.
+ * Automatically swaps CPU and Motherboard to equivalent tier while preserving other parts.
+ */
+export function switchPlatform(buildState, targetPlatform) {
+  const platform = targetPlatform || (buildState.platform === 'Intel' ? 'AMD' : 'Intel');
+  
+  const newState = {
+    ...buildState,
+    platform,
+    selections: { ...buildState.selections }
+  };
+
+  // 1. Pick equivalent CPU on the target platform
+  const targetCPUs = getCPUsByPlatform(platform);
+  const currentTier = buildState.selections.cpu?.performanceTier || buildState.priority || 'balanced';
+  
+  let newCpu = targetCPUs.find(cpu => cpu.performanceTier === currentTier) || targetCPUs[0];
+  newState.selections.cpu = newCpu;
+
+  // 2. Pick compatible Motherboard for the new CPU
+  const targetMbs = getCompatibleMotherboards(newCpu, platform);
+  let newMb = targetMbs.find(mb => mb.performanceTier === currentTier) || targetMbs[0];
+  newState.selections.motherboard = newMb;
+
+  // 3. Re-evaluate cooler if needed (coolers support both sockets)
   return newState;
 }

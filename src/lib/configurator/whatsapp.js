@@ -2,7 +2,7 @@ export function calculateTotal(selections) {
   let total = 0;
   for (const cat of Object.keys(selections)) {
     if (selections[cat]) {
-      total += selections[cat].priceINR;
+      total += (selections[cat].priceINR || 0);
     }
   }
   return total;
@@ -33,9 +33,9 @@ export function generateNormalizedPayload(buildState, customerData) {
       notes: customerData.notes || ""
     },
     configuration: {
-      buildType: buildState.buildType,
+      workload: buildState.workload,
+      platform: buildState.platform,
       priority: buildState.priority,
-      goal: buildState.goal,
       mode: buildState.mode,
       items
     },
@@ -49,25 +49,30 @@ export function generateNormalizedPayload(buildState, customerData) {
 export function generateWhatsAppLink(payload) {
   const storePhone = "919010667726"; // Actual WhatsApp Business number
 
-  let msg = `*New Custom PC Build Request*\n\n`;
+  const workloadLabels = {
+    video: "Video Editing & Content Creation (4K/8K)",
+    '3d': "3D CAD, Modeling & Rendering",
+    ai: "AI, Machine Learning & Heavy Multitasking",
+    gaming: "Esports & AAA Gaming Rig"
+  };
+
+  let msg = `*New Custom PC Build Configuration*\n\n`;
   msg += `*Customer:* ${payload.customer.fullName}\n`;
   msg += `*Phone:* ${payload.customer.phone}\n`;
   msg += `*City:* ${payload.customer.city}\n\n`;
   
-  msg += `*Build:* ${payload.configuration.buildType}\n`;
-  msg += `*Priority:* ${payload.configuration.priority}\n`;
-  if (payload.configuration.goal) {
-    msg += `*Goal:* ${payload.configuration.goal}\n`;
-  }
-  msg += `\n*Selected Components:*\n`;
+  msg += `*Workload:* ${workloadLabels[payload.configuration.workload] || payload.configuration.workload}\n`;
+  msg += `*Platform:* ${payload.configuration.platform} Architecture\n`;
+  msg += `*Tier:* ${payload.configuration.priority?.toUpperCase()}\n\n`;
+  msg += `*Selected Components:*\n`;
 
   payload.configuration.items.forEach(item => {
-    msg += `- ${item.category.toUpperCase()}: ${item.brand} ${item.name} (₹${item.unitPriceINR.toLocaleString()})\n`;
+    msg += `• *${item.category.toUpperCase()}:* ${item.brand} ${item.name} — ₹${item.unitPriceINR.toLocaleString('en-IN')}\n`;
   });
 
-  msg += `\n*Estimated Total:* ₹${payload.pricing.estimatedTotalINR.toLocaleString()}\n`;
+  msg += `\n*Estimated Total:* ₹${payload.pricing.estimatedTotalINR.toLocaleString('en-IN')}\n`;
   if (payload.customer.notes) {
-    msg += `\n*Notes:* ${payload.customer.notes}\n`;
+    msg += `*Notes:* ${payload.customer.notes}\n`;
   }
 
   const encodedMsg = encodeURIComponent(msg);
