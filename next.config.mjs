@@ -5,11 +5,8 @@ const nextConfig = {
   turbopack: {
     root: path.resolve('.'),
   },
-  modularizeImports: {
-    'lucide-react': {
-      transform: 'lucide-react/dist/esm/icons/{{kebabCase member}}',
-      preventFullImport: true,
-    },
+  experimental: {
+    optimizePackageImports: ['lucide-react', 'framer-motion', 'lenis'],
   },
   images: {
     remotePatterns: [
