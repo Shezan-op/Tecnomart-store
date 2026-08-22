@@ -42,7 +42,7 @@ export default function JourneyCable() {
         preserveAspectRatio="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        {/* The glowing blue outline (rendered behind) */}
+        {/* The glowing yellow outline (rendered behind) */}
         <path
           className={styles.cableOutline}
           d="M 100,0 C 140,0 140,50 100,50 C 60,50 60,100 0,100"

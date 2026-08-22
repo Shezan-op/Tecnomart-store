@@ -1,8 +1,8 @@
-/* Footer.module.css — Webild-inspired premium footer */
+/* Footer.module.css — High-end Enterprise Fat Footer */
 .footer {
   position: relative;
-  background: #000;
-  border-top: 1px solid rgba(255,255,255,0.07);
+  background: #06070c;
+  border-top: 1px solid rgba(255,255,255,0.08);
   padding: 100px 0 48px;
   overflow: hidden;
 }
@@ -12,91 +12,73 @@
   z-index: 10;
 }
 
+.topSection {
+  display: grid;
+  grid-template-columns: 1.5fr 2fr;
+  gap: 64px;
+  padding-bottom: 64px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.brandCol {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+.brandTagline {
+  font-family: 'Mona Sans', sans-serif;
+  font-size: 0.9rem;
+  color: #94a3b8;
+  line-height: 1.65;
+  max-width: 380px;
+}
+
+.linksGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 36px;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.colTitle {
+  font-family: 'Hubot Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #f8fafc;
+  margin-bottom: 4px;
+}
+
+.link {
+  font-family: 'Mona Sans', sans-serif;
+  font-size: 0.88rem;
+  color: #94a3b8;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.link:hover {
+  color: #fde047;
+  transform: translateX(2px);
+}
 
 /* ─── Giant wordmark ─── */
 .wordmarkWrap {
   position: relative;
-  margin-top: 60px;
-  margin-bottom: 40px;
+  margin-top: 50px;
+  margin-bottom: 30px;
   text-align: center;
-  height: clamp(80px, 15vw, 220px); /* Provides defined height for the Particle canvas */
+  height: clamp(80px, 15vw, 200px);
   width: 100%;
 }
-
-.wordmark {
-  font-family: 'Orbitron', sans-serif;
-  font-size: clamp(5rem, 14vw, 13rem);
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 0.9;
-  margin: 0;
-
-  /* Gradient from solid white to transparent — same as Webild blue dot concept */
-  background: linear-gradient(
-    135deg,
-    rgba(255,255,255,0.98) 0%,
-    rgba(255,255,255,0.55) 55%,
-    rgba(255,255,255,0.1) 100%
-  );
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-}
-
-/* Blue dot accent (like Webild's blue dot on "i") */
-.wordmarkDot {
-  position: absolute;
-  bottom: 8px;
-  left: calc(clamp(5rem, 14vw, 13rem) * 5.3); /* roughly above the "M" */
-  width: clamp(10px, 1.4vw, 18px);
-  height: clamp(10px, 1.4vw, 18px);
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, #60a5fa, #2563eb);
-  box-shadow: 0 0 20px rgba(96, 165, 250, 0.5), 0 0 40px rgba(37, 99, 235, 0.3);
-}
-
-/* ─── Link grid ─── */
-.linkGrid {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  padding-bottom: 60px;
-  border-bottom: 1px solid rgba(255,255,255,0.07);
-}
-
-.linkCol {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.linkCol:nth-child(1) { align-items: flex-start; text-align: left; }
-.linkCol:nth-child(2) { align-items: center; text-align: center; }
-.linkCol:nth-child(3) { align-items: flex-end; text-align: right; }
-
-.link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-family: 'Rajdhani', sans-serif;
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: rgba(255,255,255,0.45);
-  text-decoration: none;
-  transition: color 0.22s;
-  letter-spacing: 0.01em;
-}
-
-.link:hover {
-  color: rgba(255,255,255,0.88);
-}
-
-.link svg {
-  opacity: 0.6;
-  flex-shrink: 0;
-  transition: opacity 0.22s;
-}
-.link:hover svg { opacity: 1; }
 
 /* ─── Bottom strip ─── */
 .bottom {
@@ -104,16 +86,19 @@
   align-items: center;
   justify-content: space-between;
   padding-top: 32px;
-  font-family: 'Rajdhani', sans-serif;
-  font-size: 0.78rem;
-  color: rgba(255,255,255,0.25);
+  font-family: 'Mona Sans', sans-serif;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.4);
   letter-spacing: 0.02em;
+  font-weight: 400;
 }
 
 .city {
-  font-size: 0.72rem;
-  letter-spacing: 0.1em;
+  font-family: 'Mona Sans', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
+  font-weight: 500;
 }
 
 /* ─── Responsive ─── */

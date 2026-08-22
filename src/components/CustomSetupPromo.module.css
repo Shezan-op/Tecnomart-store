@@ -30,22 +30,25 @@
 }
 
 .title {
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Hubot Sans', sans-serif;
   font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 700;
   color: #fff;
-  letter-spacing: 0.05em;
+  letter-spacing: -0.02em;
   text-transform: uppercase;
   margin: 0;
   background: linear-gradient(to right, #fff, #aab2ff);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .subtitle {
+  font-family: 'Mona Sans', sans-serif;
   font-size: clamp(1rem, 1.5vw, 1.25rem);
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.7);
   line-height: 1.6;
+  font-weight: 400;
   max-width: 600px;
   margin: 0 auto;
 }
@@ -55,25 +58,26 @@
   align-items: center;
   gap: 1rem;
   padding: 1.2rem 2.5rem;
-  background: rgba(71, 91, 255, 0.1);
-  border: 1px solid rgba(71, 91, 255, 0.4);
+  background: rgba(253, 224, 71, 0.15);
+  border: 1px solid rgba(253, 224, 71, 0.4);
   border-radius: 50px;
-  color: #fff;
+  color: #FDE047;
   text-decoration: none;
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Hubot Sans', sans-serif;
   font-size: 1rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
+  font-weight: 700;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   transition: all 0.3s ease;
   backdrop-filter: blur(10px);
-  box-shadow: 0 0 20px rgba(71, 91, 255, 0.1);
+  box-shadow: 0 0 20px rgba(253, 224, 71, 0.15);
 }
 
 .ctaButton:hover {
-  background: rgba(71, 91, 255, 0.2);
-  border-color: rgba(71, 91, 255, 0.8);
-  box-shadow: 0 0 30px rgba(71, 91, 255, 0.3), inset 0 0 15px rgba(71, 91, 255, 0.2);
+  background: rgba(253, 224, 71, 0.25);
+  border-color: rgba(253, 224, 71, 0.9);
+  color: #fff;
+  box-shadow: 0 0 30px rgba(253, 224, 71, 0.4), inset 0 0 15px rgba(253, 224, 71, 0.25);
   transform: translateY(-2px);
 }
 

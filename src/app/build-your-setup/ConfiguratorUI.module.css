@@ -39,8 +39,9 @@
 .loading {
   text-align: center;
   padding: 4rem;
-  font-family: 'Orbitron', sans-serif;
-  color: #aab2ff;
+  font-family: 'Hubot Sans', sans-serif;
+  font-weight: 600;
+  color: #FDE047;
 }
 
 .stepBox {
@@ -59,9 +60,10 @@
 }
 
 .stepBox h2 {
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Hubot Sans', sans-serif;
   margin-bottom: 1.5rem;
   font-size: clamp(1.5rem, 5vw, 2rem);
+  font-weight: 700;
   color: #fff;
 }
 
@@ -96,21 +98,24 @@
 }
 
 .card:hover {
-  background: rgba(71, 91, 255, 0.1);
-  border-color: #475bff;
+  background: rgba(253, 224, 71, 0.1);
+  border-color: #FDE047;
   transform: translateY(-2px);
 }
 
 .card h3 {
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Hubot Sans', sans-serif;
   margin-bottom: 0.5rem;
   font-size: 1.2rem;
+  font-weight: 600;
 }
 
 .card p {
+  font-family: 'Mona Sans', sans-serif;
   color: rgba(255, 255, 255, 0.7);
   font-size: 0.9rem;
   line-height: 1.4;
+  font-weight: 400;
 }
 
 .stepHeader {
@@ -136,14 +141,17 @@
   color: rgba(255,255,255,0.6);
   padding: 0.5rem 1rem;
   border-radius: 50px;
+  font-family: 'Mona Sans', sans-serif;
   font-size: 0.9rem;
+  font-weight: 500;
   cursor: pointer;
   transition: all 0.2s;
 }
 
 .modeToggle button.activeMode {
-  background: rgba(71, 91, 255, 0.3);
-  color: #fff;
+  background: #FDE047;
+  color: #000;
+  font-weight: 700;
 }
 
 .componentGrid {
@@ -180,8 +188,8 @@
 }
 
 .compSelected {
-  border-color: #475bff;
-  background: rgba(71, 91, 255, 0.05);
+  border-color: #FDE047;
+  background: rgba(253, 224, 71, 0.08);
 }
 
 .compSelected::after {
@@ -189,7 +197,8 @@
   position: absolute;
   top: 1rem;
   right: 1rem;
-  color: #475bff;
+  color: #FDE047;
+  font-family: 'Mona Sans', sans-serif;
   font-size: 0.8rem;
   font-weight: bold;
 }
@@ -199,26 +208,34 @@
   background: rgba(255,255,255,0.1);
   padding: 0.25rem 0.5rem;
   border-radius: 4px;
+  font-family: 'Mona Sans', sans-serif;
   font-size: 0.75rem;
+  font-weight: 600;
   text-transform: uppercase;
   margin-bottom: 0.5rem;
   color: #ccc;
 }
 
 .compCard h4 {
-  font-size: 1.2rem;
+  font-family: 'Hubot Sans', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 600;
   margin-bottom: 0.25rem;
   color: #fff;
 }
 
 .compLabel {
+  font-family: 'Mona Sans', sans-serif;
   font-size: 0.9rem;
-  color: #aab2ff;
+  font-weight: 500;
+  color: #FDE047;
   margin-bottom: 0.5rem;
 }
 
 .compDesc {
+  font-family: 'Mona Sans', sans-serif;
   font-size: 0.85rem;
+  font-weight: 400;
   color: rgba(255,255,255,0.6);
 }
 
@@ -237,6 +254,8 @@
   color: rgba(255,255,255,0.6);
   cursor: pointer;
   padding: 0.5rem 1rem;
+  font-family: 'Mona Sans', sans-serif;
+  font-weight: 600;
 }
 
 .textBtn:hover {
@@ -244,19 +263,19 @@
 }
 
 .primaryBtn {
-  background: #475bff;
-  color: #fff;
+  background: #FDE047;
+  color: #000;
   border: none;
   padding: 0.8rem 2rem;
   border-radius: 50px;
-  font-family: 'Orbitron', sans-serif;
-  font-weight: bold;
+  font-family: 'Hubot Sans', sans-serif;
+  font-weight: 700;
   cursor: pointer;
   transition: background 0.2s;
 }
 
 .primaryBtn:hover:not(:disabled) {
-  background: #5a6dff;
+  background: #FACC15;
 }
 
 .primaryBtn:disabled {
@@ -273,7 +292,8 @@
 }
 
 .summaryBox h3 {
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Hubot Sans', sans-serif;
+  font-weight: 700;
   margin-bottom: 1.5rem;
   color: #fff;
   border-bottom: 1px solid rgba(255,255,255,0.1);
@@ -293,12 +313,16 @@
 }
 
 .summaryCat {
+  font-family: 'Mona Sans', sans-serif;
   font-size: 0.75rem;
+  font-weight: 500;
   color: rgba(255,255,255,0.5);
 }
 
 .summaryName {
+  font-family: 'Mona Sans', sans-serif;
   font-size: 0.95rem;
+  font-weight: 600;
   color: #fff;
 }
 
@@ -308,9 +332,10 @@
   align-items: center;
   border-top: 1px solid rgba(255,255,255,0.1);
   padding-top: 1rem;
+  font-family: 'Hubot Sans', sans-serif;
   font-size: 1.2rem;
-  font-weight: bold;
-  color: #aab2ff;
+  font-weight: 700;
+  color: #FDE047;
 }
 
 /* Form */
@@ -327,7 +352,9 @@
 }
 
 .inputGroup label {
+  font-family: 'Mona Sans', sans-serif;
   font-size: 0.9rem;
+  font-weight: 500;
   color: rgba(255,255,255,0.8);
 }
 
@@ -337,12 +364,12 @@
   border-radius: 6px;
   padding: 0.8rem;
   color: #fff;
-  font-family: inherit;
+  font-family: 'Mona Sans', sans-serif;
 }
 
 .inputGroup input:focus, .inputGroup textarea:focus {
   outline: none;
-  border-color: #475bff;
+  border-color: #FDE047;
 }
 
 /* Header & Back Button */
@@ -362,12 +389,13 @@
   padding: 0.5rem 1rem;
   border-radius: 50px;
   border: 1px solid rgba(255,255,255,0.1);
-  font-family: 'Orbitron', sans-serif;
-  font-size: 0.9rem;
+  font-family: 'Hubot Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
   transition: all 0.2s;
 }
 
 .backToStoreBtn:hover {
-  background: rgba(71, 91, 255, 0.2);
-  border-color: #475bff;
+  background: rgba(253, 224, 71, 0.2);
+  border-color: #FDE047;
 }

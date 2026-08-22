@@ -90,17 +90,20 @@ export default function ServicesPage() {
       }}>
         <div style={{ maxWidth: '800px', margin: '0 auto' }}>
           <h1 className="hero-title" style={{ 
-            fontFamily: 'Orbitron', 
+            fontFamily: "'Hubot Sans', sans-serif", 
+            fontWeight: 800,
             fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', 
             background: 'linear-gradient(to right, #ffffff, #aab2ff)', 
             WebkitBackgroundClip: 'text', 
             WebkitTextFillColor: 'transparent', 
             marginBottom: '1.5rem',
-            lineHeight: 1.1
+            lineHeight: 1.15
           }}>
             We Fix It. You Game.
           </h1>
           <p className="hero-desc" style={{ 
+            fontFamily: "'Mona Sans', sans-serif",
+            fontWeight: 400,
             fontSize: 'clamp(1.1rem, 2vw, 1.3rem)', 
             color: 'rgba(255,255,255,0.7)', 
             lineHeight: 1.6 
@@ -123,7 +126,7 @@ export default function ServicesPage() {
             <div key={idx} className="service-card" style={{
               background: 'rgba(255,255,255,0.03)',
               border: '1px solid rgba(255,255,255,0.05)',
-              borderRadius: '16px',
+              borderRadius: '12px',
               padding: '2.5rem 2rem',
               transition: 'transform 0.3s ease, background 0.3s ease',
               cursor: 'default'
@@ -137,9 +140,9 @@ export default function ServicesPage() {
               e.currentTarget.style.background = 'rgba(255,255,255,0.03)';
             }}
             >
-              <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>{svc.icon}</div>
-              <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem', fontWeight: 600 }}>{svc.title}</h3>
-              <p style={{ color: 'rgba(255,255,255,0.6)', lineHeight: 1.6 }}>{svc.desc}</p>
+              <div style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>{svc.icon}</div>
+              <h3 style={{ fontFamily: "'Hubot Sans', sans-serif", fontSize: '1.25rem', marginBottom: '0.75rem', fontWeight: 600 }}>{svc.title}</h3>
+              <p style={{ fontFamily: "'Mona Sans', sans-serif", color: 'rgba(255,255,255,0.65)', lineHeight: 1.6, fontWeight: 400, fontSize: '0.95rem' }}>{svc.desc}</p>
             </div>
           ))}
         </div>
@@ -151,27 +154,37 @@ export default function ServicesPage() {
           maxWidth: '800px',
           margin: '0 auto',
           background: 'linear-gradient(145deg, rgba(30,35,55,0.6), rgba(15,18,30,0.6))',
-          padding: '4rem 2rem',
-          borderRadius: '24px',
+          padding: '3.5rem 2rem',
+          borderRadius: '16px',
           border: '1px solid rgba(255,255,255,0.1)'
         }}>
-          <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', marginBottom: '1rem', fontFamily: 'Orbitron' }}>Ready to optimize?</h2>
-          <p style={{ fontSize: '1.1rem', color: 'rgba(255,255,255,0.7)', marginBottom: '2.5rem' }}>
+          <h2 style={{ fontSize: 'clamp(2rem, 4vw, 2.75rem)', marginBottom: '1rem', fontFamily: "'Hubot Sans', sans-serif", fontWeight: 700 }}>Ready to optimize?</h2>
+          <p style={{ fontFamily: "'Mona Sans', sans-serif", fontSize: '1.05rem', color: 'rgba(255,255,255,0.7)', marginBottom: '2rem', fontWeight: 400 }}>
             Bring your system to our Hyderabad store or contact us on WhatsApp to schedule a service.
           </p>
           <a href="https://wa.me/919010667726?text=Hi! I need help servicing my PC." target="_blank" rel="noopener noreferrer" style={{
             display: 'inline-block',
-            backgroundColor: '#fff',
+            backgroundColor: '#FDE047',
             color: '#000',
             textDecoration: 'none',
-            padding: '1rem 2.5rem',
-            borderRadius: '50px',
-            fontSize: '1.1rem',
-            fontWeight: '600',
-            transition: 'opacity 0.2s ease'
+            padding: '0.85rem 2.2rem',
+            borderRadius: '8px',
+            fontFamily: "'Hubot Sans', sans-serif",
+            fontSize: '0.95rem',
+            fontWeight: '700',
+            textTransform: 'uppercase',
+            letterSpacing: '0.04em',
+            transition: 'all 0.2s ease',
+            boxShadow: '0 4px 16px rgba(250, 204, 21, 0.25)'
           }}
-          onMouseEnter={(e) => e.currentTarget.style.opacity = 0.9}
-          onMouseLeave={(e) => e.currentTarget.style.opacity = 1}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.backgroundColor = '#fff';
+            e.currentTarget.style.transform = 'translateY(-2px)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.backgroundColor = '#FDE047';
+            e.currentTarget.style.transform = 'translateY(0)';
+          }}
           >
             Chat with an Expert
           </a>

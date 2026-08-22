@@ -24,7 +24,7 @@
   aspect-ratio: 9 / 16;
   border-radius: 20px;
   background: #0a0a0a;
-  border: 1px solid rgba(71, 91, 255, 0.4);
+  border: 1px solid rgba(253, 224, 71, 0.4);
   overflow: hidden;
   transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.6s ease, z-index 0.6s, box-shadow 0.3s, border-color 0.3s;
   box-shadow: 0 10px 40px rgba(0,0,0,0.5);
@@ -34,8 +34,8 @@
 
 .card:hover {
   animation: none;
-  border-color: rgba(71, 91, 255, 1) !important;
-  box-shadow: 0 0 25px rgba(71, 91, 255, 0.7), inset 0 0 15px rgba(71, 91, 255, 0.3) !important;
+  border-color: rgba(253, 224, 71, 1) !important;
+  box-shadow: 0 0 25px rgba(253, 224, 71, 0.55), inset 0 0 15px rgba(253, 224, 71, 0.25) !important;
 }
 
 /* Card States */
@@ -111,14 +111,16 @@
 }
 
 .quote {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: 'Mona Sans', sans-serif;
   font-size: 0.95rem;
   line-height: 1.4;
   color: rgba(255,255,255,0.95);
   margin: 0;
   font-style: italic;
+  font-weight: 400;
   display: -webkit-box;
   -webkit-line-clamp: 3;
+  line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -130,15 +132,17 @@
 }
 
 .author strong {
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Hubot Sans', sans-serif;
   font-size: 0.9rem;
   font-weight: 600;
   color: #fff;
 }
 
 .author span {
+  font-family: 'Mona Sans', sans-serif;
   font-size: 0.75rem;
   color: rgba(255,255,255,0.6);
+  font-weight: 400;
 }
 
 /* Navigation buttons */

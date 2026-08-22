@@ -28,13 +28,13 @@
 }
 
 .cableOutline {
-  stroke: #4d7cff;
+  stroke: #FDE047;
   stroke-width: 8;
   stroke-linecap: round;
   vector-effect: non-scaling-stroke;
   fill: none;
   opacity: 1;
-  filter: drop-shadow(0 0 6px rgba(77, 124, 255, 0.8));
+  filter: drop-shadow(0 0 6px rgba(253, 224, 71, 0.8));
 }
 
 .cableCore {

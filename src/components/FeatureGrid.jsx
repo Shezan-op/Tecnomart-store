@@ -16,7 +16,7 @@ const CONTENT = {
       {
         cards: [
           { icon: <CheckCircle size={32} />, title: 'Certified Renewed', text: 'Looks new, acts new. Backed by strict quality checks.' },
-          { icon: <Shield size={32} />, title: 'Up To 2 Years Warranty', text: 'We stand behind what we sell. Period.' }
+          { icon: <Shield size={32} />, title: '12-Month Warranty', text: 'On refurbished phones. We stand behind what we sell.' }
         ]
       },
       {

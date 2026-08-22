@@ -47,15 +47,15 @@
 .navMenu a {
   color: #fff;
   text-decoration: none;
-  font-family: 'Rajdhani', sans-serif;
+  font-family: 'Mona Sans', sans-serif;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
   transition: color 0.2s ease;
   white-space: nowrap;
 }
 
 .navMenu a:hover {
-  color: #475BFF;
+  color: #FDE047;
 }
 
 /* Desktop hover */

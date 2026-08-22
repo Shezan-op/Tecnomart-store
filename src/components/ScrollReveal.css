@@ -4,10 +4,11 @@
 
 .scroll-reveal-text {
   font-size: clamp(1.4rem, 3.5vw, 2.8rem);
-  line-height: 1.55;
-  font-weight: 600;
-  font-family: 'Rajdhani', sans-serif;
+  line-height: 1.4;
+  font-weight: 700;
+  font-family: 'Hubot Sans', sans-serif;
   color: rgba(255,255,255,0.92);
+  letter-spacing: -0.02em;
 }
 
 .word {

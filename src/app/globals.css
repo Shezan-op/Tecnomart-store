@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+@import 'lenis/dist/lenis.css';
+@import url('https://fonts.googleapis.com/css2?family=Hubot+Sans:ital,wght@0,200..900;1,200..900&family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -38,15 +39,73 @@
 }
 
 :root {
-  --bg-color: #000000; /* Pure black — deep space */
-  --text-primary: #F9F9F9;
-  --text-secondary: #9ca3af;
-  --border-color: #1f2937;
-  --accent: #475BFF;
-  --accent-60: #6C7BFF;
-  --accent-70: #8490FF;
-  --surface: #0a0a0a;
-  --glass-bg: rgba(255, 255, 255, 0.04);
+  /* Architectural Deep Tech Palette — multi-layered depth, never flat black */
+  --bg-base: #06070b;
+  --bg-elevated: #0c0e17;
+  --bg-card: #111111;
+  --bg-card-hover: #1a1a1a;
+  --bg-surface-glass: rgba(255, 255, 255, 0.035);
+  --bg-surface-glass-hover: rgba(255, 255, 255, 0.07);
+
+  /* Primary Accent & Glow Tokens */
+  --accent-gold: #facc15;
+  --accent-gold-glow: rgba(250, 204, 21, 0.25);
+  --accent-yellow: #fde047;
+  --accent-yellow-glow: rgba(253, 224, 71, 0.25);
+
+  /* Borders & Hairlines */
+  --border-subtle: rgba(255, 255, 255, 0.07);
+  --border-glass: rgba(255, 255, 255, 0.12);
+  --border-active: rgba(250, 204, 21, 0.4);
+
+  /* Typography Colors */
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --text-accent: #facc15;
+
+  /* 8pt Baseline Spacing Scale */
+  --space-1: 0.25rem;  /* 4px */
+  --space-2: 0.5rem;   /* 8px */
+  --space-3: 0.75rem;  /* 12px */
+  --space-4: 1rem;     /* 16px */
+  --space-5: 1.25rem;  /* 20px */
+  --space-6: 1.5rem;   /* 24px */
+  --space-8: 2rem;     /* 32px */
+  --space-10: 2.5rem;  /* 40px */
+  --space-12: 3rem;    /* 48px */
+  --space-16: 4rem;    /* 64px */
+  --space-20: 5rem;    /* 80px */
+  --space-24: 6rem;    /* 96px */
+  --space-32: 8rem;    /* 128px */
+
+  /* Fluid Section Spacing */
+  --section-hero: clamp(5rem, 10vw, 8rem);
+  --section-primary: clamp(4rem, 8vw, 7rem);
+  --section-standard: clamp(3.5rem, 6vw, 6rem);
+  --section-compact: clamp(2rem, 4vw, 3.5rem);
+
+  /* Standard Border Radius Tokens */
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+
+  /* Animation System */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --duration-fast: 200ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+
+  /* Legacy aliases for backwards-compatibility */
+  --bg-color: #06070b;
+  --border-color: #1e293b;
+  --accent: #facc15;
+  --accent-60: #fde047;
+  --accent-70: #eab308;
+  --surface: #0c0e17;
+  --glass-bg: rgba(255, 255, 255, 0.035);
   --glass-border: rgba(255, 255, 255, 0.08);
 }
 
@@ -56,42 +115,150 @@
   padding: 0;
 }
 
+html {
+  scroll-behavior: auto !important;
+}
+
 html, body {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: 'Mona Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   color: var(--text-primary);
-  background: #000;
+  background-color: var(--bg-base);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: clip;
 }
 
+/* GPU hardware-accelerated ambient background layer (zero CPU scroll repaints) */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(250, 204, 21, 0.05) 0%, transparent 45%),
+    radial-gradient(circle at 100% 40%, rgba(250, 204, 21, 0.03) 0%, transparent 35%),
+    radial-gradient(circle at 0% 70%, rgba(250, 204, 21, 0.04) 0%, transparent 40%);
+  pointer-events: none;
+  transform: translateZ(0);
+}
+
+/* ============================================================
+   TYPOGRAPHY SYSTEM (Industry Standard Scale)
+   ============================================================ */
+/* H1: 56–64px desktop / 36–42px mobile | Weight 600–700 */
+.type-h1, h1 {
+  font-family: 'Hubot Sans', sans-serif;
+  font-size: clamp(2.25rem, 4.5vw, 4rem); /* 36px → 64px */
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+/* H2: 40–48px desktop / 30–34px mobile | Weight 600–700 */
+.type-h2, h2 {
+  font-family: 'Hubot Sans', sans-serif;
+  font-size: clamp(1.875rem, 3.2vw, 3rem); /* 30px → 48px */
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+/* H3: 28–32px desktop / 24–28px mobile | Weight 600 */
+.type-h3, h3 {
+  font-family: 'Hubot Sans', sans-serif;
+  font-size: clamp(1.5rem, 2.2vw, 2rem); /* 24px → 32px */
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+/* H4: 22–24px desktop / 20–22px mobile | Weight 600 */
+.type-h4, h4 {
+  font-family: 'Hubot Sans', sans-serif;
+  font-size: clamp(1.25rem, 1.6vw, 1.5rem); /* 20px → 24px */
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+/* Subheading / Lead: 20–22px desktop / 18–20px mobile | Weight 400–500 */
+.type-lead {
+  font-family: 'Mona Sans', sans-serif;
+  font-size: clamp(1.125rem, 1.5vw, 1.375rem); /* 18px → 22px */
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  text-wrap: pretty;
+}
+
+/* Body: 16–18px desktop / 16px mobile | Weight 400 */
+.type-body, p {
+  font-family: 'Mona Sans', sans-serif;
+  font-size: clamp(1rem, 1.1vw, 1.125rem); /* 16px → 18px */
+  font-weight: 400;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  text-wrap: pretty;
+}
+
+/* Small text: 14px | Weight 400 */
+.type-small {
+  font-family: 'Mona Sans', sans-serif;
+  font-size: 0.875rem; /* 14px */
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* Caption: 12–13px | Weight 400 */
+.type-caption {
+  font-family: 'Mona Sans', sans-serif;
+  font-size: 0.8125rem; /* 13px */
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.type-eyebrow {
+  font-family: 'Hubot Sans', sans-serif;
+  font-size: 0.75rem; /* 12px */
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 /* Typography & Layout */
 .container {
-  max-width: 1200px;
+  max-width: 1280px;
   margin: 0 auto;
   padding: 0 24px;
 }
 
 .text-center { text-align: center; }
-.section-padding { padding: 120px 0; }
+.section-padding { padding: var(--section-standard) 0; }
 .text-safe { position: relative; z-index: 20; } 
 
 .section-heading {
-  font-family: 'Orbitron', sans-serif;
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-family: 'Hubot Sans', sans-serif;
+  font-size: clamp(1.875rem, 3.2vw, 3rem); /* H2: 30px mobile -> 48px desktop */
   font-weight: 700;
-  letter-spacing: -0.02em;
-  margin-bottom: 24px;
-  background: linear-gradient(135deg, #fff 30%, #888);
+  letter-spacing: -0.025em;
+  margin-bottom: 16px;
+  line-height: 1.2;
+  background: linear-gradient(135deg, #ffffff 30%, #cbd5e1 70%, #94a3b8 100%);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .section-body {
-  font-size: clamp(1.125rem, 2vw, 1.25rem);
+  font-family: 'Mona Sans', sans-serif;
+  font-size: clamp(1.125rem, 1.5vw, 1.375rem); /* Lead: 18px mobile -> 22px desktop */
   color: var(--text-secondary);
-  max-width: 600px;
-  margin: 0 auto 48px;
+  max-width: 620px;
+  margin: 0 auto 40px;
   line-height: 1.6;
 }
 
@@ -104,37 +271,126 @@ html, body {
 }
 
 .site-title {
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Hubot Sans', sans-serif;
   font-size: 1.5rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: -0.02em;
 }
 
-/* Premium Visit Store Button */
+/* ============================================================
+   BUTTON SYSTEM — Two variants only, used site-wide
+   ============================================================ */
+
+/* Primary: Solid gold gradient, black text */
+.btn-primary,
 .premiumStoreBtn {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 14px 32px;
-  background: #475BFF;
+  gap: 8px;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #fde047 0%, #facc15 100%);
   border: none;
-  border-radius: 30px;
-  color: #ffffff;
-  font-family: 'Orbitron', sans-serif;
-  font-size: 1.1rem;
-  font-weight: 600;
+  border-radius: var(--radius-md);
+  color: #000000;
+  font-family: 'Hubot Sans', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 700;
   text-decoration: none;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  box-shadow: 0 4px 15px rgba(71, 91, 255, 0.4);
-  transition: all 0.3s ease;
+  letter-spacing: 0.05em;
+  box-shadow: 0 4px 16px var(--accent-gold-glow);
+  transition: all var(--duration-normal) var(--ease-out-expo);
   cursor: pointer;
 }
 
+.btn-primary:hover,
 .premiumStoreBtn:hover {
-  background: #3648d6;
-  box-shadow: 0 6px 20px rgba(71, 91, 255, 0.6);
+  background: linear-gradient(135deg, #fef08a 0%, #facc15 100%);
+  box-shadow: 0 6px 24px rgba(250, 204, 21, 0.45);
   transform: translateY(-2px);
+}
+
+.btn-primary:active,
+.premiumStoreBtn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Secondary: Ghost/outline, white text */
+.btn-secondary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-family: 'Hubot Sans', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all var(--duration-normal) var(--ease-out-expo);
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-1px);
+}
+
+.btn-secondary:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* ============================================================
+   CARD SYSTEM — One base, reused everywhere
+   ============================================================ */
+.card-base {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-lg);
+  transition: all var(--duration-normal) var(--ease-out-expo);
+}
+
+.card-base:hover {
+  border-color: rgba(250, 204, 21, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 24px rgba(250, 204, 21, 0.08);
+}
+
+/* ============================================================
+   EYEBROW LABEL — Section kickers
+   ============================================================ */
+.eyebrow {
+  font-family: 'Hubot Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-accent);
+}
+
+/* ============================================================
+   FOCUS STATES — Keyboard accessibility
+   ============================================================ */
+.btn-primary:focus-visible,
+.btn-secondary:focus-visible,
+.premiumStoreBtn:focus-visible {
+  outline: 2px solid var(--accent-gold);
+  outline-offset: 2px;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent-gold);
+  outline-offset: 2px;
 }
 
 /* Configurator 3D scene */
@@ -156,15 +412,28 @@ html, body {
 
 @keyframes borderGlowPulse {
   0% {
-    box-shadow: 0 0 10px rgba(71, 91, 255, 0.4), inset 0 0 10px rgba(71, 91, 255, 0.2);
-    border-color: rgba(71, 91, 255, 0.6);
+    box-shadow: 0 0 10px rgba(253, 224, 71, 0.4), inset 0 0 10px rgba(253, 224, 71, 0.2);
+    border-color: rgba(253, 224, 71, 0.6);
   }
   50% {
-    box-shadow: 0 0 20px rgba(71, 91, 255, 0.6), inset 0 0 15px rgba(71, 91, 255, 0.3);
-    border-color: rgba(71, 91, 255, 0.9);
+    box-shadow: 0 0 20px rgba(253, 224, 71, 0.6), inset 0 0 15px rgba(253, 224, 71, 0.3);
+    border-color: rgba(253, 224, 71, 0.9);
   }
   100% {
-    box-shadow: 0 0 10px rgba(71, 91, 255, 0.4), inset 0 0 10px rgba(71, 91, 255, 0.2);
-    border-color: rgba(71, 91, 255, 0.6);
+    box-shadow: 0 0 10px rgba(253, 224, 71, 0.4), inset 0 0 10px rgba(253, 224, 71, 0.2);
+    border-color: rgba(253, 224, 71, 0.6);
   }
 }
+
+/* ============================================================
+   REDUCED MOTION — Accessibility fallback
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+

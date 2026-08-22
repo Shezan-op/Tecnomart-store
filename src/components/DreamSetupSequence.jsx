@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import styles from './DreamSetupSequence.module.css';
@@ -166,9 +167,9 @@ export default function DreamSetupSequence() {
               />
             </div>
             
-            <button className={styles.ctaButton}>
-              Click here to get started
-            </button>
+            <Link href="/build-your-setup" className={styles.ctaButton}>
+              Configure Custom Rig
+            </Link>
           </div>
         </div>
 

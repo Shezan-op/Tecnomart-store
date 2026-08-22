@@ -26,135 +26,153 @@
 .textContainer {
   text-align: center;
   position: absolute;
-  top: 2vh;
+  top: 18px;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
-  opacity: 1; /* Reset for desktop */
-  z-index: 40; /* Above the phone (which is 20) */
+  opacity: 1;
+  z-index: 40;
   text-shadow: 0 4px 32px rgba(0,0,0,0.8);
-  pointer-events: none; /* Let clicks pass through */
+  pointer-events: none;
 }
 
 .textContainer h2 {
-  font-family: 'Orbitron', sans-serif;
-  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-family: 'Hubot Sans', sans-serif;
+  font-size: clamp(1.75rem, 2.8vw, 2.5rem);
   font-weight: 700;
-  margin-bottom: 0.5rem;
-  background: linear-gradient(to right, #fff, #9ca3af);
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  margin-bottom: 0.25rem;
+  background: linear-gradient(to right, #fff, #cbd5e1);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
 }
 
 .textContainer p {
-  color: #9ca3af;
-  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  font-family: 'Mona Sans', sans-serif;
+  color: #94a3b8;
+  font-size: clamp(0.9rem, 1.1vw, 1.1rem);
+  line-height: 1.4;
+  font-weight: 400;
+  margin: 0;
 }
 
-/* Main Display Area */
+/* Main Display Area (Desktop pointers) */
 .displayArea {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Push columns to sides */
+  justify-content: space-between;
   width: 100%;
-  max-width: 1000px; /* Keep them reasonably close to center */
-  margin: 0 auto;
-  position: relative;
+  max-width: clamp(740px, 74vw, 890px);
+  position: absolute;
+  top: 57%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 10;
 }
 
 .featureColumn {
   display: flex;
   flex-direction: column;
-  gap: 32px;
-  width: 280px;
+  gap: 70px;
+  width: clamp(170px, 17vw, 220px);
   flex-shrink: 0;
+  z-index: 20;
 }
 
-/* Cards */
-.glassCard {
-  position: relative;
-  background: #111318;
-  border: 1px solid rgba(71, 91, 255, 0.3);
-  box-shadow: inset 0 0 20px rgba(71, 91, 255, 0.05);
-  border-radius: 16px;
-  padding: 24px;
+.featureColumnLeft .featureItem {
+  align-items: flex-end;
+  text-align: right;
+}
+
+.featureColumnRight .featureItem {
+  align-items: flex-start;
+  text-align: left;
+}
+
+/* Plain Text Feature Items (No Card Box) */
+.featureItem {
   display: flex;
   flex-direction: column;
-  transition: border-color 0.3s, transform 0.3s;
-  opacity: 0; /* GSAP animates this */
-}
-
-.glassCard:hover {
-  transform: translateY(-5px);
-  border-color: rgba(71, 91, 255, 0.6);
+  position: relative;
 }
 
 .cardIcon {
   width: 36px;
   height: 36px;
-  border-radius: 50%;
-  background: rgba(71, 91, 255, 0.1);
-  border: 1px solid rgba(71, 91, 255, 0.3);
+  border-radius: 8px;
+  background: rgba(253, 224, 71, 0.1);
+  border: 1px solid rgba(253, 224, 71, 0.25);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 12px;
-  color: #475bff;
+  margin-bottom: 10px;
+  color: #FDE047;
 }
 
 .cardIcon svg {
   width: 18px;
   height: 18px;
+  filter: drop-shadow(0 0 4px rgba(253, 224, 71, 0.5));
+}
+
+.featureItem h4 {
+  font-family: 'Hubot Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #fff;
+  margin: 0 0 5px;
+}
+
+.featureItem p {
+  font-family: 'Mona Sans', sans-serif;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.4;
+  font-weight: 400;
+  margin: 0;
 }
 
 .pointerSvg {
   position: absolute;
   top: 50%;
-  width: 5vw;
-  height: 3.5vw;
+  width: clamp(75px, 8vw, 120px);
+  height: 40px;
   overflow: visible;
   z-index: -1;
   pointer-events: none;
-  filter: drop-shadow(0 0 6px rgba(71, 91, 255, 0.8));
+  filter: drop-shadow(0 0 6px rgba(253, 224, 71, 0.8));
 }
 
-.featureColumn:first-child .pointerSvg { left: calc(100% + 2px); transform: translateY(-50%); }
-.featureColumn:last-child .pointerSvg { right: calc(100% + 2px); transform: translateY(-50%); }
+.featureColumnLeft .pointerSvg { 
+  left: calc(100% + 10px); 
+  transform: translateY(-50%); 
+}
+
+.featureColumnRight .pointerSvg { 
+  right: calc(100% + 10px); 
+  transform: translateY(-50%); 
+}
 
 @media (max-width: 1200px) {
   .pointerSvg { display: none; }
 }
 
-.cardContent h4 {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 1rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: #fff;
-  margin-bottom: 8px;
-}
-
-.cardContent p {
-  font-size: 0.85rem;
-  color: rgba(255,255,255,0.5);
-  line-height: 1.5;
-}
-
 .phoneContainer {
   position: relative;
   perspective: 1800px;
-  opacity: 1; /* Reset opacity on mobile since GSAP won't animate it */
-  transform: none; /* Remove initial offset */
+  opacity: 1;
+  transform: none;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
 }
 
-/* Responsive */
+/* Responsive Overrides */
 @media (max-width: 1024px) {
   .mobileFrontSection {
     min-height: auto;
@@ -172,36 +190,74 @@
   }
 
   .displayArea {
-    display: none; /* Replaced by accordion on mobile */
+    display: none;
   }
   
-  .mobileGrid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+  /* Accordion styling for mobile */
+  .mobileAccordion {
+    display: flex;
+    flex-direction: column;
     gap: 12px;
     width: 90%;
     max-width: 500px;
-    margin: 40px auto 0;
+    margin: 30px auto 0;
     z-index: 20;
   }
   
-  .mobileGridItem {
+  .mobileStoreBtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #fde047 0%, #facc15 100%);
+    border: none;
+    border-radius: 8px;
+    color: #000000;
+    font-family: 'Hubot Sans', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    margin: 0 auto 12px;
+    width: fit-content;
+    align-self: center;
+    box-shadow: 0 4px 16px rgba(250, 204, 21, 0.25);
+  }
+
+  .accordionItem {
     background: #111318;
-    border: 1px solid rgba(71, 91, 255, 0.3);
+    border: 1px solid rgba(253, 224, 71, 0.3);
     border-radius: 12px;
     padding: 16px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
   }
   
-  .mobileGridItem h4 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 0.85rem;
+  .accordionItem summary {
+    font-family: 'Hubot Sans', sans-serif;
+    font-size: 0.95rem;
     font-weight: 600;
     color: #fff;
+    cursor: pointer;
+    list-style: none;
     text-transform: uppercase;
-    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .accordionItem summary::-webkit-details-marker { display: none; }
+  .accordionItem summary::after { 
+    content: '+'; 
+    color: #FDE047; 
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+  .accordionItem[open] summary::after { content: '−'; }
+  
+  .accordionItem p {
+    font-family: 'Mona Sans', sans-serif;
+    margin-top: 12px;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.7);
+    font-weight: 400;
   }
 }

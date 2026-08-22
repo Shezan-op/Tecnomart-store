@@ -29,22 +29,22 @@
 .pointerSvg {
   position: absolute;
   top: 50%;
-  width: 3vw;
-  height: 2vw;
+  width: clamp(65px, 7.5vw, 120px);
+  height: 40px;
   overflow: visible;
   z-index: -1;
   pointer-events: none;
-  filter: drop-shadow(0 0 6px rgba(71, 91, 255, 0.4));
-  opacity: 0;
+  filter: drop-shadow(0 0 6px rgba(253, 224, 71, 0.8));
+  opacity: 1;
 }
 
 .displayFeatureLeft .pointerSvg {
-  left: calc(100% - 1vw);
+  left: calc(100% + 12px);
   transform: translateY(-50%);
 }
 
 .displayFeatureRight .pointerSvg {
-  right: calc(100% - 1vw);
+  right: calc(100% + 12px);
   transform: translateY(-50%);
 }
 
@@ -56,20 +56,31 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0;
   perspective: 2500px;
   perspective-origin: 50% 50%;
+  pointer-events: none;
 }
 
-/* ─── Pointer Feature Cards ─── */
+/* ─── Pointer Feature Columns ─── */
 .displayFeatureLeft,
 .displayFeatureRight {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   display: flex;
   flex-direction: column;
-  gap: 32px;
-  width: clamp(180px, 18vw, 240px);
-  flex-shrink: 0;
-  z-index: 20;
+  gap: clamp(70px, 10vh, 120px);
+  width: clamp(170px, 17vw, 230px);
+  z-index: 30;
+  pointer-events: auto;
+}
+
+.displayFeatureLeft {
+  left: clamp(24px, 5vw, 90px);
+}
+
+.displayFeatureRight {
+  right: clamp(24px, 5vw, 90px);
 }
 
 @media (max-width: 1200px) {
@@ -80,11 +91,13 @@
 
 .glassCard {
   position: relative;
-  background: #111318;
-  border: 1px solid rgba(71, 91, 255, 0.4);
-  box-shadow: inset 0 0 20px rgba(71, 91, 255, 0.05);
-  border-radius: 16px;
-  padding: 24px;
+  background: rgba(16, 20, 36, 0.92);
+  border: 1px solid rgba(250, 204, 21, 0.35);
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.7), inset 0 0 20px rgba(250, 204, 21, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 12px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
@@ -93,28 +106,28 @@
 }
 
 .glassCard:hover {
-  transform: translateY(-5px);
-  border-color: rgba(71, 91, 255, 1) !important;
-  box-shadow: 0 0 25px rgba(71, 91, 255, 0.7), inset 0 0 15px rgba(71, 91, 255, 0.3) !important;
+  transform: translateY(-4px);
+  border-color: rgba(250, 204, 21, 0.9) !important;
+  box-shadow: 0 0 25px rgba(250, 204, 21, 0.35), inset 0 0 15px rgba(250, 204, 21, 0.15) !important;
 }
 
 .cardIcon {
   width: 36px;
   height: 36px;
-  border-radius: 50%;
-  background: rgba(71, 91, 255, 0.1);
-  border: 1px solid rgba(71, 91, 255, 0.3);
+  border-radius: 8px;
+  background: rgba(253, 224, 71, 0.1);
+  border: 1px solid rgba(253, 224, 71, 0.25);
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 12px;
-  color: #475bff;
+  color: #FDE047;
 }
 
 .cardIcon svg {
   width: 18px;
   height: 18px;
-  filter: drop-shadow(0 0 4px rgba(71, 91, 255, 0.5));
+  filter: drop-shadow(0 0 4px rgba(253, 224, 71, 0.5));
 }
 
 .displayCard {
@@ -134,19 +147,21 @@
 }
 
 .displayCard h4 {
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Hubot Sans', sans-serif;
   font-size: 0.85rem;
   font-weight: 600;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   color: #fff;
   margin: 0 0 5px;
 }
 
 .displayCard p {
+  font-family: 'Mona Sans', sans-serif;
   font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(255, 255, 255, 0.65);
   line-height: 1.4;
+  font-weight: 400;
   margin: 0;
 }
 
@@ -154,8 +169,8 @@
 .preserve3d { transform-style: preserve-3d; }
 
 .device {
-  --device-width:  min(72vw, 1100px);
-  --device-depth:  min(46vw, 700px);
+  --device-width:  min(52vw, 800px);
+  --device-depth:  min(34vw, 520px);
   --panel-thickness: 8px;
   --lid-thickness:   5px;
   --corner-radius:  22px;
@@ -166,6 +181,7 @@
   width: var(--device-width);
   height: var(--device-depth);
   will-change: transform;
+  pointer-events: auto;
 }
 
 @media (max-width: 1024px) {
@@ -316,8 +332,9 @@
 
 .screenText {
   position: absolute;
-  font-family: 'Rajdhani', sans-serif;
+  font-family: 'Hubot Sans', sans-serif;
   font-size: clamp(1.2rem, 2.5vw, 2.5rem);
+  font-weight: 700;
   color: #fff;
   text-align: center;
   margin: 0;
@@ -334,25 +351,29 @@
 
 .screenBtn {
   display: inline-flex;
-  padding: 0.8rem 1.5rem;
-  background: rgba(71, 91, 255, 0.2);
-  border: 1px solid rgba(71, 91, 255, 0.5);
-  border-radius: 50px;
-  color: #fff;
+  align-items: center;
+  justify-content: center;
+  padding: 0.65rem 1.4rem;
+  background: #FDE047;
+  border: 1px solid #FDE047;
+  border-radius: 8px;
+  color: #000;
   text-decoration: none;
-  font-family: 'Orbitron', sans-serif;
-  font-size: 0.9rem;
-  font-weight: 600;
+  font-family: 'Hubot Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  transition: all 0.3s ease;
+  letter-spacing: 0.06em;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 10px rgba(253, 224, 71, 0.3);
 }
 
 .screenBtn:hover {
-  background: rgba(71, 91, 255, 0.4);
-  border-color: rgba(71, 91, 255, 1);
-  box-shadow: 0 0 15px rgba(71, 91, 255, 0.4);
-  transform: scale(1.05);
+  background: #fff;
+  border-color: #fff;
+  color: #000;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+  transform: translateY(-2px);
 }
 
 .screenActiveDisplay {
@@ -364,7 +385,7 @@
   justify-content: center;
   padding: 24px;
   gap: 24px;
-  background: radial-gradient(ellipse at center, rgba(71, 91, 255, 0.08) 0%, transparent 70%);
+  background: radial-gradient(ellipse at center, rgba(253, 224, 71, 0.08) 0%, transparent 70%);
 }
 
 .screenBranding {
@@ -375,20 +396,21 @@
 }
 
 .screenLabel {
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Hubot Sans', sans-serif;
   font-size: clamp(1.2rem, 3vw, 2.5rem);
   font-weight: 700;
-  letter-spacing: 0.12em;
-  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.95);
   text-transform: uppercase;
 }
 
 .screenSub {
-  font-family: 'Rajdhani', sans-serif;
-  font-size: clamp(0.55rem, 1.2vw, 0.75rem);
-  letter-spacing: 0.25em;
+  font-family: 'Mona Sans', sans-serif;
+  font-size: clamp(0.6rem, 1.2vw, 0.8rem);
+  font-weight: 500;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.4);
 }
 
 .screenGrid {
@@ -406,17 +428,16 @@
   border-radius: 4px;
 }
 
-/* ─── Mobile Grid ─── */
-.mobileGrid {
+/* ─── Mobile Accordion ─── */
+.mobileAccordion {
   display: none;
 }
 
 /* ─── Mobile Overrides ─── */
 @media (max-width: 1024px) {
-  
-  .mobileGrid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+  .mobileAccordion {
+    display: flex;
+    flex-direction: column;
     gap: 12px;
     width: 90%;
     max-width: 500px;
@@ -427,24 +448,62 @@
     z-index: 50;
   }
   
-  .mobileGridItem {
-    background: rgba(17, 19, 24, 0.85);
-    border: 1px solid rgba(71, 91, 255, 0.4);
+  .mobileStoreBtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #fde047 0%, #facc15 100%);
+    border: none;
+    border-radius: 8px;
+    color: #000000;
+    font-family: 'Hubot Sans', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    margin: 0 auto 12px;
+    width: fit-content;
+    align-self: center;
+    box-shadow: 0 4px 16px rgba(250, 204, 21, 0.25);
+  }
+
+  .accordionItem {
+    background: rgba(17, 19, 24, 0.9);
+    border: 1px solid rgba(253, 224, 71, 0.3);
     border-radius: 12px;
     padding: 16px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
   }
   
-  .mobileGridItem h4 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 0.85rem;
+  .accordionItem summary {
+    font-family: 'Hubot Sans', sans-serif;
+    font-size: 0.95rem;
     font-weight: 600;
     color: #fff;
+    cursor: pointer;
+    list-style: none;
     text-transform: uppercase;
-    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .accordionItem summary::-webkit-details-marker { display: none; }
+  .accordionItem summary::after { 
+    content: '+'; 
+    color: #FDE047; 
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+  .accordionItem[open] summary::after { content: '−'; }
+  
+  .accordionItem p {
+    font-family: 'Mona Sans', sans-serif;
+    margin-top: 12px;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 400;
   }
 }

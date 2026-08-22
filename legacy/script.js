@@ -21,9 +21,9 @@ const context = canvas.getContext('2d');
 canvas.width = 1920;
 canvas.height = 1080;
 
-const frameCount = 250;
+const frameCount = 820;
 const currentFrame = index => (
-  `frames/ezgif-frame-${(index + 1).toString().padStart(3, '0')}.jpg`
+  `frames/${(index + 1).toString().padStart(3, '0')}.jpg`
 );
 
 const images = [];

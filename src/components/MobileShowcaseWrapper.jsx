@@ -30,8 +30,8 @@ export default function MobileShowcaseWrapper() {
           scrollTrigger: {
             trigger: containerRef.current,
             start: 'top top',
-            end: '+=300%', // 300vh scroll for smoother interaction
-            scrub: 1.0,
+            end: '+=300%',
+            scrub: true,
             pin: true
           }
         });

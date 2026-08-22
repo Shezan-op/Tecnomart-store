@@ -1,36 +1,45 @@
-/* InfoBelt — dark glass strip (preserves global black background) */
+/* InfoBelt — Ultra-sleek luminous cyber ticker ribbon */
 .beltContainer {
-  background: #475BFF;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  color: #fff;
-  padding: 14px 0;
+  background: #000000;
+  border-top: 1px solid rgba(250, 204, 21, 0.3);
+  border-bottom: 1px solid rgba(250, 204, 21, 0.3);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.9), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  padding: 16px 0;
   overflow: hidden;
   position: relative;
   display: flex;
   white-space: nowrap;
-  font-weight: 600;
-  font-size: 0.75rem;
-  letter-spacing: 0.2em;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  font-family: 'Orbitron', sans-serif;
-  /* Ensure it sits in its own layer below content */
-  z-index: 5;
+  font-family: 'Hubot Sans', sans-serif;
+  z-index: 10;
 }
 
 .marquee {
   display: flex;
-  animation: scroll 80s linear infinite;
+  animation: scroll var(--belt-duration, 60s) linear infinite;
   flex-shrink: 0;
+  will-change: transform;
+}
+
+.beltContainer:hover .marquee,
+.beltContainer:hover .marqueeRight {
+  animation-play-state: paused;
 }
 
 .marqueeRight {
-  animation: scrollRight 80s linear infinite;
+  animation: scrollRight var(--belt-duration, 60s) linear infinite;
+  will-change: transform;
 }
 
 .marqueeText {
   padding-right: 2rem;
   flex-shrink: 0;
+  color: #f1f5f9;
+  text-shadow: 0 0 12px rgba(250, 204, 21, 0.25);
 }
 
 @keyframes scroll {

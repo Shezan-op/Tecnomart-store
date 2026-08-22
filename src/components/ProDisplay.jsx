@@ -55,7 +55,7 @@ export default function ProDisplay() {
             trigger: containerRef.current,
             start: 'top top',
             end: 'bottom bottom',
-            scrub: 1.2,
+            scrub: true,
           }
         });
 
@@ -139,8 +139,8 @@ export default function ProDisplay() {
               <h4>Curated Inventory</h4>
               <p>Only the hardware actually worth your money.</p>
               <svg viewBox="0 0 100 100" preserveAspectRatio="none" className={styles.pointerSvg}>
-                 <path d="M 0,50 C 50,50 50,10 100,10" vectorEffect="non-scaling-stroke" fill="none" stroke="rgba(255,255,255,1)" strokeWidth="1"/>
-                 <circle cx="100" cy="10" r="2.5" fill="#ffffff" />
+                 <path d="M 0,50 C 45,50 65,15 100,15" vectorEffect="non-scaling-stroke" fill="none" stroke="rgba(253,224,71,0.85)" strokeWidth="1.5"/>
+                 <circle cx="100" cy="15" r="3.5" fill="#FDE047" />
               </svg>
             </div>
             <div className={styles.displayCard}>
@@ -150,8 +150,8 @@ export default function ProDisplay() {
               <h4>Board-Level Repairs</h4>
               <p>We fix motherboards. We don't just replace them.</p>
               <svg viewBox="0 0 100 100" preserveAspectRatio="none" className={styles.pointerSvg}>
-                 <path d="M 0,50 C 50,50 50,90 100,90" vectorEffect="non-scaling-stroke" fill="none" stroke="rgba(255,255,255,1)" strokeWidth="1"/>
-                 <circle cx="100" cy="90" r="2.5" fill="#ffffff" />
+                 <path d="M 0,50 C 45,50 65,85 100,85" vectorEffect="non-scaling-stroke" fill="none" stroke="rgba(253,224,71,0.85)" strokeWidth="1.5"/>
+                 <circle cx="100" cy="85" r="3.5" fill="#FDE047" />
               </svg>
             </div>
           </div>
@@ -204,8 +204,8 @@ export default function ProDisplay() {
               <h4>Student Pricing</h4>
               <p>Get the gear you need, without the markup.</p>
               <svg viewBox="0 0 100 100" preserveAspectRatio="none" className={styles.pointerSvg}>
-                 <path d="M 100,50 C 50,50 50,20 0,20" vectorEffect="non-scaling-stroke" fill="none" stroke="rgba(255,255,255,1)" strokeWidth="1"/>
-                 <circle cx="0" cy="20" r="2.5" fill="#ffffff" />
+                 <path d="M 100,50 C 55,50 35,15 0,15" vectorEffect="non-scaling-stroke" fill="none" stroke="rgba(253,224,71,0.85)" strokeWidth="1.5"/>
+                 <circle cx="0" cy="15" r="3.5" fill="#FDE047" />
               </svg>
             </div>
             <div className={styles.displayCard}>
@@ -215,40 +215,31 @@ export default function ProDisplay() {
               <h4>Speed Upgrades</h4>
               <p>Make your old machine run like brand new.</p>
               <svg viewBox="0 0 100 100" preserveAspectRatio="none" className={styles.pointerSvg}>
-                 <path d="M 100,50 C 50,50 50,80 0,80" vectorEffect="non-scaling-stroke" fill="none" stroke="rgba(255,255,255,1)" strokeWidth="1"/>
-                 <circle cx="0" cy="80" r="2.5" fill="#ffffff" />
+                 <path d="M 100,50 C 55,50 35,85 0,85" vectorEffect="non-scaling-stroke" fill="none" stroke="rgba(253,224,71,0.85)" strokeWidth="1.5"/>
+                 <circle cx="0" cy="85" r="3.5" fill="#FDE047" />
               </svg>
             </div>
           </div>
         </section>
 
-        {/* Mobile Grid (only visible on mobile) */}
-        <div className={styles.mobileGrid}>
-          <a href="http://localhost:3000" className="premiumStoreBtn" style={{ gridColumn: '1 / -1', margin: '0 auto 12px' }}>Visit Store</a>
-          <div className={styles.mobileGridItem}>
-             <div className={styles.cardIcon}>
-               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
-             </div>
-             <h4>Curated Inventory</h4>
-          </div>
-          <div className={styles.mobileGridItem}>
-             <div className={styles.cardIcon}>
-               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
-             </div>
-             <h4>Board-Level Repairs</h4>
-          </div>
-          <div className={styles.mobileGridItem}>
-             <div className={styles.cardIcon}>
-               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
-             </div>
-             <h4>Student Pricing</h4>
-          </div>
-          <div className={styles.mobileGridItem}>
-             <div className={styles.cardIcon}>
-               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
-             </div>
-             <h4>Speed Upgrades</h4>
-          </div>
+        {/* Mobile Accordion (only visible on mobile) */}
+        <div className={styles.mobileAccordion}>
+          <details className={styles.accordionItem}>
+            <summary>Curated Inventory</summary>
+            <p>Only the hardware actually worth your money.</p>
+          </details>
+          <details className={styles.accordionItem}>
+            <summary>Board-Level Repairs</summary>
+            <p>We fix motherboards. We don't just replace them.</p>
+          </details>
+          <details className={styles.accordionItem}>
+            <summary>Student Pricing</summary>
+            <p>Get the gear you need, without the markup.</p>
+          </details>
+          <details className={styles.accordionItem}>
+            <summary>Speed Upgrades</summary>
+            <p>Make your old machine run like brand new.</p>
+          </details>
         </div>
 
       </div>

@@ -1,5 +1,5 @@
 .phone3d {
-  --phone-h: min(680px, 72vh); /* Slightly reduced from legacy to clear top text */
+  --phone-h: min(680px, 72vh);
   --phone-w: calc(var(--phone-h) * 360 / 740);
   --phone-d: 22px;
   --phone-r: 44px;
@@ -51,6 +51,7 @@
   justify-content: center;
   /* Safari/Chrome fix for clipping iframe with border-radius in 3D space */
   -webkit-mask-image: -webkit-radial-gradient(white, black);
+  mask-image: radial-gradient(white, black);
   backface-visibility: hidden;
 }
 .innerScreen h3,

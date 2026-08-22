@@ -10,12 +10,12 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  font-family: 'Rajdhani', sans-serif;
+  font-family: 'Hubot Sans', sans-serif;
   font-size: 0.75rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.45);
+  color: #FDE047;
   margin-bottom: 20px;
 }
 
@@ -27,7 +27,7 @@
 }
 
 .heading {
-  font-family: 'Orbitron', sans-serif !important;
+  font-family: 'Hubot Sans', sans-serif !important;
   font-size: clamp(2.4rem, 5vw, 4rem) !important;
   font-weight: 700 !important;
   background: linear-gradient(to right, #fff 30%, rgba(255,255,255,0.45)) !important;
@@ -35,7 +35,7 @@
   -webkit-background-clip: text !important;
   color: transparent !important;
   margin: 0 0 56px !important;
-  line-height: 1.1 !important;
+  line-height: 1.15 !important;
   /* Override p tag margin */
   flex-wrap: wrap;
 }
@@ -50,7 +50,7 @@
 /* ─── Info Card ─── */
 .infoCard {
   background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(71, 91, 255, 0.4);
+  border: 1px solid rgba(253, 224, 71, 0.35);
   border-radius: 20px;
   padding: 48px;
   display: flex;
@@ -61,8 +61,8 @@
 }
 .infoCard:hover {
   animation: none;
-  border-color: rgba(71, 91, 255, 1) !important;
-  box-shadow: 0 0 25px rgba(71, 91, 255, 0.7), inset 0 0 15px rgba(71, 91, 255, 0.3) !important;
+  border-color: rgba(253, 224, 71, 1) !important;
+  box-shadow: 0 0 25px rgba(253, 224, 71, 0.55), inset 0 0 15px rgba(253, 224, 71, 0.25) !important;
   transform: translateY(-5px);
 }
 
@@ -78,17 +78,17 @@
 }
 
 .infoLabel {
-  font-family: 'Rajdhani', sans-serif;
-  font-size: 0.7rem;
+  font-family: 'Mona Sans', sans-serif;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.35);
+  color: rgba(255,255,255,0.4);
   margin-bottom: 10px;
 }
 
 .infoValue {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: 'Mona Sans', sans-serif;
   font-size: 1rem;
   font-weight: 400;
   color: rgba(255,255,255,0.85);
@@ -122,7 +122,7 @@ a.infoValue:hover { color: #fff; }
   gap: 8px;
   padding: 12px 24px;
   border-radius: 10px;
-  font-family: 'Rajdhani', sans-serif;
+  font-family: 'Hubot Sans', sans-serif;
   font-size: 0.875rem;
   font-weight: 600;
   cursor: pointer;
@@ -131,11 +131,11 @@ a.infoValue:hover { color: #fff; }
 }
 
 .dirBtn {
-  background: #fff;
+  background: #FDE047;
   color: #000;
   border: 1px solid transparent;
 }
-.dirBtn:hover { background: rgba(255,255,255,0.88); transform: translateY(-1px); }
+.dirBtn:hover { background: #FACC15; transform: translateY(-1px); }
 
 .callBtn {
   background: transparent;
@@ -148,15 +148,15 @@ a.infoValue:hover { color: #fff; }
 .mapCard {
   border-radius: 20px;
   overflow: hidden;
-  border: 1px solid rgba(71, 91, 255, 0.4);
+  border: 1px solid rgba(253, 224, 71, 0.35);
   position: relative;
   min-height: 420px;
   transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s;
 }
 .mapCard:hover {
   animation: none;
-  border-color: rgba(71, 91, 255, 1) !important;
-  box-shadow: 0 0 25px rgba(71, 91, 255, 0.7), inset 0 0 15px rgba(71, 91, 255, 0.3) !important;
+  border-color: rgba(253, 224, 71, 1) !important;
+  box-shadow: 0 0 25px rgba(253, 224, 71, 0.55), inset 0 0 15px rgba(253, 224, 71, 0.25) !important;
   transform: translateY(-5px);
 }
 
@@ -200,7 +200,7 @@ a.infoValue:hover { color: #fff; }
 .mapPinLabel {
   background: rgba(0,0,0,0.85);
   color: #fff;
-  font-family: 'Rajdhani', sans-serif;
+  font-family: 'Hubot Sans', sans-serif;
   font-size: 0.75rem;
   font-weight: 600;
   padding: 5px 12px;
