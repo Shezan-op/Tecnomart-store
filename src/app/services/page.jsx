@@ -86,7 +86,7 @@ export default function ServicesPage() {
       
       {/* Hero Section */}
       <section style={{ 
-        padding: '8rem 2rem 4rem', 
+        padding: 'clamp(6rem, 12vw, 8rem) clamp(1rem, 4vw, 2rem) clamp(2.5rem, 6vw, 4rem)', 
         textAlign: 'center',
         background: 'radial-gradient(circle at 50% 0%, rgba(26,30,50,0.5) 0%, #050608 70%)'
       }}>
@@ -94,7 +94,7 @@ export default function ServicesPage() {
           <h1 className="hero-title" style={{ 
             fontFamily: "'Hubot Sans', sans-serif", 
             fontWeight: 800,
-            fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', 
+            fontSize: 'clamp(2rem, 5vw, 4.5rem)', 
             background: 'linear-gradient(to right, #ffffff, #aab2ff)', 
             WebkitBackgroundClip: 'text', 
             WebkitTextFillColor: 'transparent', 
@@ -106,7 +106,7 @@ export default function ServicesPage() {
           <p className="hero-desc" style={{ 
             fontFamily: "'Mona Sans', sans-serif",
             fontWeight: 400,
-            fontSize: 'clamp(1.1rem, 2vw, 1.3rem)', 
+            fontSize: 'clamp(1rem, 2vw, 1.3rem)', 
             color: 'rgba(255,255,255,0.7)', 
             lineHeight: 1.6 
           }}>
@@ -116,13 +116,13 @@ export default function ServicesPage() {
       </section>
 
       {/* Services Grid */}
-      <section style={{ padding: '4rem 2rem', flex: 1 }}>
+      <section style={{ padding: 'clamp(2rem, 5vw, 4rem) clamp(1rem, 4vw, 2rem)', flex: 1 }}>
         <div className="services-grid" style={{ 
           maxWidth: '1200px', 
           margin: '0 auto', 
           display: 'grid', 
-          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
-          gap: '2rem' 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', 
+          gap: 'clamp(1rem, 3vw, 2rem)' 
         }}>
           {services.map((svc, idx) => (
             <div key={idx} className="service-card" style={{

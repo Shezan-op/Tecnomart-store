@@ -168,18 +168,26 @@ export default function OurJourney() {
                     {/* Default vignette */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/10 transition-opacity duration-300 group-hover:opacity-0 pointer-events-none" />
 
-                    {/* Hover reveal overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/85 to-black/30 backdrop-blur-sm p-6 sm:p-7 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-all duration-400 ease-out">
-
-                      <div className="font-hubot text-xs sm:text-sm font-bold uppercase tracking-wider text-[#FDE047] mb-2 transform translate-y-3 group-hover:translate-y-0 transition-transform duration-300 ease-out">
+                    {/* Mobile always-visible info & Desktop hover overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/85 to-black/30 backdrop-blur-sm p-6 sm:p-7 flex flex-col justify-end opacity-0 sm:group-hover:opacity-100 transition-all duration-400 ease-out">
+                      <div className="font-hubot text-xs sm:text-sm font-bold uppercase tracking-wider text-[#FDE047] mb-2 transform sm:translate-y-3 sm:group-hover:translate-y-0 transition-transform duration-300 ease-out">
                         {m.subtitle}
                       </div>
 
-                      <p className="font-mona text-xs sm:text-sm text-slate-200 leading-relaxed font-normal transform translate-y-3 group-hover:translate-y-0 transition-transform duration-300 ease-out delay-75">
+                      <p className="font-mona text-xs sm:text-sm text-slate-200 leading-relaxed font-normal transform sm:translate-y-3 sm:group-hover:translate-y-0 transition-transform duration-300 ease-out delay-75">
                         {m.desc}
                       </p>
-
                     </div>
+                  </div>
+
+                  {/* Mobile caption (visible on mobile touchscreens) */}
+                  <div className="mt-3 block sm:hidden">
+                    <div className="font-hubot text-[11px] font-bold uppercase tracking-wider text-[#FDE047]">
+                      {m.subtitle}
+                    </div>
+                    <p className="font-mona text-xs text-slate-300 mt-1 leading-snug">
+                      {m.desc}
+                    </p>
                   </div>
                 </motion.div>
               ))}

@@ -96,15 +96,15 @@ export default function WhereToFindUs() {
               </div>
               
               {/* Vertically Stacked CTA Action Buttons */}
-              <div className="flex flex-col gap-2 pt-3 border-t border-white/10">
+              <div className="flex flex-col gap-2.5 pt-3 border-t border-white/10">
                 <a href="https://maps.app.goo.gl/Y8cpwK4urKPk5j1U9" target="_blank" rel="noreferrer" className="w-full">
-                  <button type="button" className="w-full font-hubot flex items-center justify-center gap-2 bg-gradient-to-r from-[#FDE047] to-[#FACC15] text-black py-2 px-3 rounded-lg font-bold text-xs uppercase tracking-wider transition-transform hover:scale-[1.01] active:scale-[0.99] shadow-md shadow-amber-500/15 cursor-pointer">
-                    <Navigation size={14} /> Get Directions
+                  <button type="button" className="w-full min-h-[44px] font-hubot flex items-center justify-center gap-2 bg-gradient-to-r from-[#FDE047] to-[#FACC15] text-black py-3 px-4 rounded-lg font-bold text-xs uppercase tracking-wider transition-transform hover:scale-[1.01] active:scale-[0.99] shadow-md shadow-amber-500/15 cursor-pointer">
+                    <Navigation size={15} /> Get Directions
                   </button>
                 </a>
                 <a href="tel:+919010667726" className="w-full">
-                  <button type="button" className="w-full font-hubot flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 text-white py-2 px-3 rounded-lg font-semibold text-xs uppercase tracking-wider transition-colors cursor-pointer">
-                    <Phone size={14} /> Call Store Desk
+                  <button type="button" className="w-full min-h-[44px] font-hubot flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 text-white py-3 px-4 rounded-lg font-semibold text-xs uppercase tracking-wider transition-colors cursor-pointer">
+                    <Phone size={15} /> Call Store Desk
                   </button>
                 </a>
               </div>

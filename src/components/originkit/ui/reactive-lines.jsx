@@ -313,11 +313,19 @@ export default function InteractiveLines({
       }
     };
 
+    const handleTouch = (ev) => {
+      if (ev.touches && ev.touches[0]) {
+        r(ev.touches[0]);
+      }
+    };
+
     document.addEventListener("mousemove", r, { passive: true });
+    document.addEventListener("touchmove", handleTouch, { passive: true });
     window.addEventListener("scroll", i, { passive: true });
 
     return () => {
       document.removeEventListener("mousemove", r);
+      document.removeEventListener("touchmove", handleTouch);
       window.removeEventListener("scroll", i);
       if (n) cancelAnimationFrame(n);
     };

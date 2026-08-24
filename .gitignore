@@ -27,17 +27,12 @@ dist-ssr
 .next/
 out/
 
-# Frames & Heavy Image Sequences
-public/frames/
-public/frames
-frames/
-
-# Non-essential docs, agent files & temporary artifacts
+# Non-essential agent files & temporary artifacts
 AGENTS.md
 CLAUDE.md
 issues.md
 docs/
 scratch/
-bento-grid-images/
 .originkit/
 .playwright-mcp/
+

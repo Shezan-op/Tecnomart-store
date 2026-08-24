@@ -12,6 +12,13 @@
   will-change: transform;
 }
 
+@media (max-width: 640px) {
+  .phone3d {
+    --phone-h: min(450px, 55vh);
+    --phone-w: calc(var(--phone-h) * 360 / 740);
+  }
+}
+
 .rimLayer {
   position: absolute;
   inset: 0;

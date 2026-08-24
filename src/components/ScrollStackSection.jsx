@@ -138,27 +138,17 @@ export default function ScrollStackSection() {
           return (
             <div
               key={card.num}
+              data-stack-card
               className="sticky w-full mb-10 sm:mb-16 last:mb-0 transition-transform duration-200 ease-out"
               style={{
                 top: `var(--sticky-top, ${stickyTopDesktop})`,
                 zIndex: index + 1,
                 willChange: "transform",
                 transform: "translateZ(0)",
+                ["--sticky-top-desktop"]: stickyTopDesktop,
+                ["--sticky-top-mobile"]: stickyTopMobile,
               }}
             >
-              {/* CSS Custom Property for responsive sticky top */}
-              <style jsx>{`
-                @media (max-width: 640px) {
-                  div[style*="--sticky-top"] {
-                    --sticky-top: ${stickyTopMobile} !important;
-                  }
-                }
-                @media (min-width: 641px) {
-                  div[style*="--sticky-top"] {
-                    --sticky-top: ${stickyTopDesktop} !important;
-                  }
-                }
-              `}</style>
 
               <div
                 className="relative w-full rounded-2xl sm:rounded-3xl border p-6 sm:p-10 md:p-12 lg:p-14 overflow-hidden transition-all duration-300 group hover:border-[#FDE047]/40 shadow-[0_-12px_32px_rgba(0,0,0,0.65),0_20px_50px_rgba(0,0,0,0.8)]"

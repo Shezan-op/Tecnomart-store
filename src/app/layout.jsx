@@ -1,5 +1,12 @@
 import './globals.css';
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: '#000000',
+};
+
 export const metadata = {
   title: 'TecnoMart — Hyderabad\'s Premier Tech Store',
   description: 'Premium smartphones, laptops, accessories & repairs. Trusted by thousands in Towlichowki, Hyderabad.',

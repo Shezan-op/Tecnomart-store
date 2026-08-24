@@ -63,7 +63,7 @@ const CardNav = ({
 
   const calculateHeight = () => {
     if (typeof window !== 'undefined' && window.innerWidth <= 768) {
-      return 320;
+      return 430;
     }
     return 260;
   };

@@ -24,11 +24,11 @@ export default function HeroSequence() {
     canvas.width = 1920;
     canvas.height = 1080;
 
-    const frameCount = 820;
+    const frameCount = 810;
     const fps = 10; // 10 frames per second
-    const videoDurationSec = frameCount / fps; // 82.0 seconds of animation
+    const videoDurationSec = frameCount / fps; // 81.0 seconds of animation
     const vhPerSecond = 14; // ~14vh of scroll per second of 10fps animation
-    const totalTrackVh = Math.round(videoDurationSec * vhPerSecond) + 100; // ~1248vh
+    const totalTrackVh = Math.round(videoDurationSec * vhPerSecond) + 100; // ~1234vh
 
     // Apply calculated scroll distance to container
     container.style.setProperty('--hero-track-height', `${totalTrackVh}vh`);
@@ -46,22 +46,45 @@ export default function HeroSequence() {
 
     const getImage = (targetIndex) => {
       // 1. Check exact dynamic cache
-      if (dynamicCache.has(targetIndex)) return dynamicCache.get(targetIndex);
+      const dynImg = dynamicCache.get(targetIndex);
+      if (dynImg && dynImg.complete && dynImg.naturalWidth > 0) return dynImg;
+      
       // 2. Check exact keyframes
-      if (keyframes.has(targetIndex)) return keyframes.get(targetIndex);
+      const keyImg = keyframes.get(targetIndex);
+      if (keyImg && keyImg.complete && keyImg.naturalWidth > 0) return keyImg;
 
-      // 3. Fallback to nearest landmark
-      const nearestKey = Math.round(targetIndex / 8) * 8;
-      if (keyframes.has(nearestKey)) return keyframes.get(nearestKey);
+      // 3. Fallback to closest available frame
+      let closest = null;
+      let minDiff = Infinity;
+      
+      for (const [idx, img] of dynamicCache.entries()) {
+        if (img.complete && img.naturalWidth > 0) {
+          const diff = Math.abs(idx - targetIndex);
+          if (diff < minDiff) {
+            minDiff = diff;
+            closest = img;
+          }
+        }
+      }
+      
+      for (const [idx, img] of keyframes.entries()) {
+        if (img.complete && img.naturalWidth > 0) {
+          const diff = Math.abs(idx - targetIndex);
+          if (diff < minDiff) {
+            minDiff = diff;
+            closest = img;
+          }
+        }
+      }
 
-      // 4. Fallback to first frame
-      return keyframes.get(0) || null;
+      return closest || keyframes.get(0) || null;
     };
 
     // Demand-loader for current viewport range
     const requestFramesAround = (centerIndex) => {
-      const start = Math.max(0, centerIndex - 2);
-      const end = Math.min(frameCount - 1, centerIndex + 4);
+      // Fetch further ahead for smoother fast-scrolling
+      const start = Math.max(0, centerIndex - 5);
+      const end = Math.min(frameCount - 1, centerIndex + 20);
 
       for (let i = start; i <= end; i++) {
         if (!dynamicCache.has(i) && !keyframes.has(i)) {
@@ -69,14 +92,32 @@ export default function HeroSequence() {
           img.src = currentFrame(i);
           dynamicCache.set(i, img);
 
-          // Bounded dynamic cache size
-          if (dynamicCache.size > 45) {
+          // Bounded dynamic cache size (increased to 150 frames)
+          if (dynamicCache.size > 150) {
             const firstKey = dynamicCache.keys().next().value;
             dynamicCache.delete(firstKey);
           }
         }
       }
     };
+
+    // Background preloader for keyframes (every 8th frame)
+    let preloaderTimer;
+    const preloadKeyframes = () => {
+      let i = 8;
+      const loadNext = () => {
+        if (i >= frameCount) return;
+        if (!keyframes.has(i)) {
+          const img = new Image();
+          img.src = currentFrame(i);
+          keyframes.set(i, img);
+        }
+        i += 8;
+        preloaderTimer = setTimeout(loadNext, 50); // Small delay to prevent network congestion
+      };
+      preloaderTimer = setTimeout(loadNext, 1000);
+    };
+    preloadKeyframes();
 
     // GPU direct draw
     const drawCanvas = () => {
@@ -149,6 +190,7 @@ export default function HeroSequence() {
     return () => {
       window.removeEventListener('resize', handleResize);
       if (gsapCtx) gsapCtx.revert();
+      if (preloaderTimer) clearTimeout(preloaderTimer);
     };
   }, []);
 

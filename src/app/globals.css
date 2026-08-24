@@ -442,3 +442,17 @@ button:focus-visible {
   }
 }
 
+/* ============================================================
+   SCROLL STACK SECTION — Responsive sticky top override
+   Replaces the removed styled-jsx in ScrollStackSection.jsx
+   ============================================================ */
+@media (min-width: 641px) {
+  [data-stack-card] {
+    --sticky-top: var(--sticky-top-desktop);
+  }
+}
+@media (max-width: 640px) {
+  [data-stack-card] {
+    --sticky-top: var(--sticky-top-mobile);
+  }
+}

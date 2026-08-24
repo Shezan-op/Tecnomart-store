@@ -51,6 +51,8 @@
 }
 
 .hamburger-menu {
+  min-width: 44px;
+  min-height: 44px;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -58,7 +60,14 @@
   justify-content: center;
   cursor: pointer;
   gap: 6px;
-  padding: 4px;
+  padding: 8px;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+  touch-action: manipulation;
+}
+
+.hamburger-menu:hover {
+  background-color: rgba(255, 255, 255, 0.06);
 }
 
 .hamburger-menu:hover .hamburger-line {
@@ -95,6 +104,8 @@
   top: 50%;
   transform: translate(-50%, -50%);
   cursor: pointer;
+  min-height: 44px;
+  min-width: 44px;
 }
 
 .logo {
@@ -106,10 +117,11 @@
   color: #000;
   border: none;
   border-radius: 6px;
-  padding: 0 14px;
-  height: 32px;
+  padding: 0 16px;
+  height: 38px;
+  min-height: 38px;
   font-family: 'Hubot Sans', sans-serif;
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -119,6 +131,7 @@
   align-items: center;
   justify-content: center;
   box-shadow: 0 2px 8px rgba(250, 204, 21, 0.2);
+  touch-action: manipulation;
 }
 
 .card-nav-cta-button:hover {
@@ -155,7 +168,7 @@
   display: flex;
   flex-direction: column;
   padding: 16px 18px;
-  gap: 12px;
+  gap: 10px;
   user-select: none;
   border: 1px solid rgba(255, 255, 255, 0.08);
   transition: border-color 0.25s ease, transform 0.25s ease;
@@ -178,7 +191,7 @@
   margin-top: auto;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 4px;
 }
 
 .nav-card-link {
@@ -192,6 +205,9 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  min-height: 38px;
+  padding: 4px 0;
+  touch-action: manipulation;
 }
 
 .nav-card-link:hover {
@@ -212,12 +228,13 @@
 
 @media (max-width: 768px) {
   .card-nav-container {
-    width: 92%;
-    top: 1em;
+    width: 94%;
+    max-width: 94%;
+    top: 0.75rem;
   }
 
   .card-nav-top {
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0.75rem;
     justify-content: space-between;
   }
 
@@ -242,21 +259,26 @@
     padding: 0.5rem;
     bottom: 0;
     justify-content: flex-start;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .nav-card {
     height: auto;
-    min-height: 70px;
+    min-height: auto;
     flex: 1 1 auto;
     max-height: none;
-    padding: 14px 16px;
+    padding: 12px 14px;
+    gap: 6px;
   }
 
   .nav-card-label {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
   }
 
   .nav-card-link {
     font-size: 0.88rem;
+    min-height: 36px;
+    padding: 2px 0;
   }
 }
