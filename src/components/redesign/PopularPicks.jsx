@@ -2,7 +2,9 @@
 
 import React, { useRef } from 'react';
 import { ChevronLeft, ChevronRight, ShoppingBag, Check } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { POPULAR_PRODUCTS } from '@/data/redesignAssets';
+import { BlurRevealText } from './BlurReveal';
 
 export default function PopularPicks({ onAddToCart, addedItems = {} }) {
   const scrollContainerRef = useRef(null);
@@ -33,10 +35,18 @@ export default function PopularPicks({ onAddToCart, addedItems = {} }) {
         {/* Header Row: Title on Left, View All & Arrows on Right */}
         <div className="flex items-center justify-between mb-8 sm:mb-10">
           <div>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-neutral-950 uppercase tracking-tight">
-              POPULAR PICKS
-            </h2>
-            <div className="w-10 h-1 bg-amber-500 mt-2 rounded-full" />
+            <BlurRevealText
+              text="POPULAR PICKS"
+              className="text-2xl sm:text-3xl lg:text-4xl font-black text-neutral-950 uppercase tracking-tight"
+              delay={0.1}
+            />
+            <motion.div
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.25 }}
+              className="w-10 h-1 bg-amber-500 mt-2 rounded-full origin-left"
+            />
           </div>
 
           <div className="flex items-center gap-3 sm:gap-4">
@@ -49,20 +59,24 @@ export default function PopularPicks({ onAddToCart, addedItems = {} }) {
             
             {/* Carousel Control Buttons */}
             <div className="flex items-center gap-1.5">
-              <button
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
                 onClick={() => scroll('left')}
                 aria-label="Previous Products"
-                className="w-9 h-9 rounded-full border border-neutral-300 hover:border-neutral-900 bg-white hover:bg-neutral-50 flex items-center justify-center text-neutral-700 hover:text-neutral-950 transition-colors shadow-sm active:scale-95"
+                className="w-9 h-9 rounded-full border border-neutral-300 hover:border-neutral-900 bg-white hover:bg-neutral-50 flex items-center justify-center text-neutral-700 hover:text-neutral-950 transition-colors shadow-sm cursor-pointer"
               >
                 <ChevronLeft className="w-4 h-4" />
-              </button>
-              <button
+              </motion.button>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
                 onClick={() => scroll('right')}
                 aria-label="Next Products"
-                className="w-9 h-9 rounded-full border border-neutral-300 hover:border-neutral-900 bg-white hover:bg-neutral-50 flex items-center justify-center text-neutral-700 hover:text-neutral-950 transition-colors shadow-sm active:scale-95"
+                className="w-9 h-9 rounded-full border border-neutral-300 hover:border-neutral-900 bg-white hover:bg-neutral-50 flex items-center justify-center text-neutral-700 hover:text-neutral-950 transition-colors shadow-sm cursor-pointer"
               >
                 <ChevronRight className="w-4 h-4" />
-              </button>
+              </motion.button>
             </div>
           </div>
         </div>
@@ -72,13 +86,25 @@ export default function PopularPicks({ onAddToCart, addedItems = {} }) {
           ref={scrollContainerRef}
           className="grid grid-flow-col auto-cols-[minmax(220px,260px)] sm:auto-cols-[minmax(240px,270px)] gap-4 sm:gap-5 overflow-x-auto pb-4 pt-1 no-scrollbar scroll-smooth"
         >
-          {POPULAR_PRODUCTS.map((prod) => {
+          {POPULAR_PRODUCTS.map((prod, idx) => {
             const isAdded = !!addedItems[prod.id];
 
             return (
-              <div
+              <motion.div
                 key={prod.id}
-                className="group relative bg-white rounded-2xl p-4 sm:p-5 border border-neutral-200 hover:border-amber-400/80 shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_30px_rgba(245,158,11,0.12)] transition-all duration-300 flex flex-col justify-between"
+                initial={{ opacity: 0, filter: "blur(12px)", y: 25 }}
+                whileInView={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{
+                  duration: 0.6,
+                  delay: idx * 0.08,
+                  ease: [0.21, 0.47, 0.32, 0.98],
+                }}
+                whileHover={{
+                  y: -6,
+                  transition: { duration: 0.25, ease: "easeOut" },
+                }}
+                className="group relative bg-white rounded-2xl p-4 sm:p-5 border border-neutral-200 hover:border-amber-400/80 shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_30px_rgba(245,158,11,0.14)] transition-all duration-300 flex flex-col justify-between"
               >
                 {/* Top Badge */}
                 <div className="flex items-center justify-between mb-2">
@@ -96,7 +122,7 @@ export default function PopularPicks({ onAddToCart, addedItems = {} }) {
                   <img
                     src={prod.image}
                     alt={prod.name}
-                    className="w-full h-full object-contain filter drop-shadow-sm group-hover:scale-108 transition-transform duration-300"
+                    className="w-full h-full object-contain filter drop-shadow-sm group-hover:scale-110 transition-transform duration-300"
                   />
                 </div>
 
@@ -115,12 +141,13 @@ export default function PopularPicks({ onAddToCart, addedItems = {} }) {
                     </span>
 
                     {/* Add to Cart Button */}
-                    <button
+                    <motion.button
+                      whileTap={{ scale: 0.85 }}
                       onClick={() => onAddToCart && onAddToCart(prod)}
                       aria-label={`Add ${prod.name} to cart`}
-                      className={`w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-200 active:scale-90 ${
+                      className={`w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-200 cursor-pointer ${
                         isAdded
-                          ? 'bg-emerald-500 text-white'
+                          ? 'bg-emerald-500 text-white shadow-sm'
                           : 'bg-amber-50 hover:bg-amber-500 text-amber-700 hover:text-neutral-950 border border-amber-300'
                       }`}
                     >
@@ -129,10 +156,10 @@ export default function PopularPicks({ onAddToCart, addedItems = {} }) {
                       ) : (
                         <ShoppingBag className="w-4 h-4 stroke-[2]" />
                       )}
-                    </button>
+                    </motion.button>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>

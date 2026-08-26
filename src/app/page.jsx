@@ -13,6 +13,8 @@ import PromoBanners from '@/components/redesign/PromoBanners';
 import ReviewsAndLocation from '@/components/redesign/ReviewsAndLocation';
 import Footer from '@/components/redesign/Footer';
 import RepairModal from '@/components/redesign/RepairModal';
+import SmoothScrollProvider from '@/components/redesign/SmoothScrollProvider';
+import ScrollProgress from '@/components/redesign/ScrollProgress';
 
 export default function Page() {
   const [isRepairOpen, setIsRepairOpen] = useState(false);
@@ -42,65 +44,71 @@ export default function Page() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-white text-neutral-900 font-sans">
-      {/* 1. Header Navigation */}
-      <Header
-        onOpenRepairModal={() => setIsRepairOpen(true)}
-        cartCount={cartCount}
-      />
+    <SmoothScrollProvider>
+      <div className="min-h-screen flex flex-col bg-white text-neutral-900 font-sans selection:bg-amber-500 selection:text-neutral-950">
+        
+        {/* Top Scroll Progress Indicator & Back to Top Button */}
+        <ScrollProgress />
 
-      <main className="flex-1">
-        {/* 2. Hero Section */}
-        <HeroSection
+        {/* 1. Header Navigation */}
+        <Header
           onOpenRepairModal={() => setIsRepairOpen(true)}
+          cartCount={cartCount}
         />
 
-        {/* 3. Trust Strip (4 Pillars) */}
-        <TrustStrip />
+        <main className="flex-1">
+          {/* 2. Hero Section with Blur Reveal */}
+          <HeroSection
+            onOpenRepairModal={() => setIsRepairOpen(true)}
+          />
 
-        {/* 4. Category Grid ("WHAT DO YOU NEED?") */}
-        <CategoryGrid
-          onSelectCategory={handleSelectCategory}
+          {/* 3. Trust Strip (4 Pillars) */}
+          <TrustStrip />
+
+          {/* 4. Category Grid ("WHAT DO YOU NEED?") */}
+          <CategoryGrid
+            onSelectCategory={handleSelectCategory}
+          />
+
+          {/* 5. Budget Banner ("BUDGET BATAO. BEST OPTION PAO.") */}
+          <BudgetFinder />
+
+          {/* 6. Why Choose Us (6 Features) */}
+          <WhyChooseUs />
+
+          {/* 7. Gaming PC Banner ("BUILT FOR VICTORY.") */}
+          <GamingBanner
+            onExploreGaming={handleExploreGaming}
+          />
+
+          {/* 8. Popular Picks Carousel */}
+          <PopularPicks
+            onAddToCart={handleAddToCart}
+            addedItems={addedItems}
+          />
+
+          {/* 9. Highlight Cards (Refurbished & Expert Repairs) */}
+          <PromoBanners
+            onOpenRepairModal={() => setIsRepairOpen(true)}
+            onExploreRefurbished={() => {
+              const el = document.getElementById('budget-finder');
+              if (el) el.scrollIntoView({ behavior: 'smooth' });
+            }}
+          />
+
+          {/* 10. Google Reviews & Store Location */}
+          <ReviewsAndLocation />
+        </main>
+
+        {/* 11. Dark Footer */}
+        <Footer />
+
+        {/* Interactive Repair Booking Modal */}
+        <RepairModal
+          isOpen={isRepairOpen}
+          onClose={() => setIsRepairOpen(false)}
         />
-
-        {/* 5. Budget Banner ("BUDGET BATAO. BEST OPTION PAO.") */}
-        <BudgetFinder />
-
-        {/* 6. Why Choose Us (6 Features) */}
-        <WhyChooseUs />
-
-        {/* 7. Gaming PC Banner ("BUILT FOR VICTORY.") */}
-        <GamingBanner
-          onExploreGaming={handleExploreGaming}
-        />
-
-        {/* 8. Popular Picks Carousel */}
-        <PopularPicks
-          onAddToCart={handleAddToCart}
-          addedItems={addedItems}
-        />
-
-        {/* 9. Highlight Cards (Refurbished & Expert Repairs) */}
-        <PromoBanners
-          onOpenRepairModal={() => setIsRepairOpen(true)}
-          onExploreRefurbished={() => {
-            const el = document.getElementById('budget-finder');
-            if (el) el.scrollIntoView({ behavior: 'smooth' });
-          }}
-        />
-
-        {/* 10. Google Reviews & Store Location */}
-        <ReviewsAndLocation />
-      </main>
-
-      {/* 11. Dark Footer */}
-      <Footer />
-
-      {/* Interactive Repair Booking Modal */}
-      <RepairModal
-        isOpen={isRepairOpen}
-        onClose={() => setIsRepairOpen(false)}
-      />
-    </div>
+      </div>
+    </SmoothScrollProvider>
   );
 }

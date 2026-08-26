@@ -2,7 +2,9 @@
 
 import React from 'react';
 import { Wrench, ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { ASSETS } from '@/data/redesignAssets';
+import { BlurRevealText, BlurRevealBox } from './BlurReveal';
 
 export default function HeroSection({ onOpenBudgetFinder, onOpenRepairModal }) {
   const scrollToBudget = () => {
@@ -13,7 +15,7 @@ export default function HeroSection({ onOpenBudgetFinder, onOpenRepairModal }) {
   };
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-white via-neutral-50/50 to-white pt-8 pb-12 sm:pt-12 sm:pb-16 lg:pt-16 lg:pb-20 border-b border-neutral-100">
+    <section className="relative overflow-hidden bg-gradient-to-b from-white via-neutral-50/60 to-white pt-8 pb-12 sm:pt-12 sm:pb-16 lg:pt-16 lg:pb-20 border-b border-neutral-100">
       {/* Subtle Background Glows */}
       <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-amber-400/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute top-1/2 left-10 w-80 h-80 bg-neutral-200/40 rounded-full blur-2xl pointer-events-none" />
@@ -24,53 +26,74 @@ export default function HeroSection({ onOpenBudgetFinder, onOpenRepairModal }) {
           {/* Left Column: Hero Copy & Actions */}
           <div className="lg:col-span-6 flex flex-col justify-center space-y-6 sm:space-y-7 z-10">
             
-            {/* Main Headline */}
+            {/* Main Headline with Text Blur Reveal */}
             <div className="space-y-1 sm:space-y-1.5">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-[64px] font-black tracking-tight text-neutral-950 leading-[1.08] uppercase">
-                YOUR TECH.
-              </h1>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-[64px] font-black tracking-tight text-neutral-950 leading-[1.08] uppercase">
-                YOUR BUDGET.
-              </h1>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-[64px] font-black tracking-tight text-amber-500 leading-[1.08] uppercase">
-                YOUR RIGHT CHOICE.
-              </h1>
+              <div>
+                <BlurRevealText
+                  text="YOUR TECH."
+                  className="text-4xl sm:text-5xl md:text-6xl xl:text-[64px] font-black tracking-tight text-neutral-950 leading-[1.08] uppercase"
+                  delay={0.1}
+                />
+              </div>
+              <div>
+                <BlurRevealText
+                  text="YOUR BUDGET."
+                  className="text-4xl sm:text-5xl md:text-6xl xl:text-[64px] font-black tracking-tight text-neutral-950 leading-[1.08] uppercase"
+                  delay={0.25}
+                />
+              </div>
+              <div>
+                <BlurRevealText
+                  text="YOUR RIGHT CHOICE."
+                  className="text-4xl sm:text-5xl md:text-6xl xl:text-[64px] font-black tracking-tight text-amber-500 leading-[1.08] uppercase"
+                  delay={0.4}
+                />
+              </div>
             </div>
 
-            {/* Subtitle */}
-            <p className="text-base sm:text-lg text-neutral-600 font-normal leading-relaxed max-w-lg">
-              Mobiles, Laptops, Gaming PCs & Expert Repairs – <br className="hidden sm:inline" />
-              All under one roof.
-            </p>
+            {/* Subtitle with Smooth Entrance */}
+            <BlurRevealBox delay={0.55} yOffset={20}>
+              <p className="text-base sm:text-lg text-neutral-600 font-normal leading-relaxed max-w-lg">
+                Mobiles, Laptops, Gaming PCs & Expert Repairs – <br className="hidden sm:inline" />
+                All under one roof.
+              </p>
+            </BlurRevealBox>
 
-            {/* Dual CTAs */}
-            <div className="flex flex-wrap items-center gap-3.5 sm:gap-4 pt-1">
-              {/* Tell Us Your Budget Button */}
-              <button
-                onClick={scrollToBudget}
-                className="inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-600 text-neutral-950 px-6 py-3.5 rounded-lg text-sm font-bold tracking-wide uppercase shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0"
-              >
-                <span>Tell Us Your Budget</span>
-                <ArrowRight className="w-4 h-4" />
-              </button>
+            {/* Dual CTAs with Spring Entrance */}
+            <BlurRevealBox delay={0.7} yOffset={20}>
+              <div className="flex flex-wrap items-center gap-3.5 sm:gap-4 pt-1">
+                {/* Tell Us Your Budget Button */}
+                <button
+                  onClick={scrollToBudget}
+                  className="inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-600 text-neutral-950 px-6 py-3.5 rounded-lg text-sm font-bold tracking-wide uppercase shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+                >
+                  <span>Tell Us Your Budget</span>
+                  <ArrowRight className="w-4 h-4" />
+                </button>
 
-              {/* Book a Repair Button */}
-              <button
-                onClick={onOpenRepairModal}
-                className="inline-flex items-center justify-center gap-2 bg-white hover:bg-neutral-50 text-neutral-900 border border-neutral-800 hover:border-neutral-950 px-6 py-3.5 rounded-lg text-sm font-bold tracking-wide uppercase transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0"
-              >
-                <Wrench className="w-4 h-4 text-neutral-800" />
-                <span>Book a Repair</span>
-              </button>
-            </div>
+                {/* Book a Repair Button */}
+                <button
+                  onClick={onOpenRepairModal}
+                  className="inline-flex items-center justify-center gap-2 bg-white hover:bg-neutral-50 text-neutral-900 border border-neutral-800 hover:border-neutral-950 px-6 py-3.5 rounded-lg text-sm font-bold tracking-wide uppercase transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+                >
+                  <Wrench className="w-4 h-4 text-neutral-800" />
+                  <span>Book a Repair</span>
+                </button>
+              </div>
+            </BlurRevealBox>
           </div>
 
           {/* Right Column: 3D Pedestal Showcase with Products */}
           <div className="lg:col-span-6 relative flex items-center justify-center pt-6 lg:pt-0">
-            <div className="relative w-full max-w-[580px] aspect-[4/3] flex items-center justify-center">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.92, y: 30 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              className="relative w-full max-w-[580px] aspect-[4/3] flex items-center justify-center"
+            >
               
               {/* Ambient radial lighting */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-amber-500/10 via-amber-300/5 to-transparent rounded-full filter blur-2xl" />
+              <div className="absolute inset-0 bg-gradient-to-tr from-amber-500/15 via-amber-300/10 to-transparent rounded-full filter blur-2xl" />
 
               {/* 3D Circular Pedestal Platform */}
               <div className="absolute bottom-4 sm:bottom-6 w-[88%] h-24 sm:h-28 bg-gradient-to-b from-white via-neutral-100 to-neutral-200 rounded-[100%] shadow-[0_24px_50px_-10px_rgba(0,0,0,0.15)] border-t border-white flex items-center justify-center">
@@ -88,8 +111,12 @@ export default function HeroSection({ onOpenBudgetFinder, onOpenRepairModal }) {
               </div>
 
               {/* Product 1: RGB Gaming PC Tower (Left / Center) */}
-              <div className="absolute left-[2%] bottom-16 sm:bottom-20 w-[46%] sm:w-[48%] z-10 transition-transform duration-500 hover:scale-105">
-                <div className="relative filter drop-shadow-[0_15px_25px_rgba(0,0,0,0.25)]">
+              <motion.div
+                animate={{ y: [0, -6, 0] }}
+                transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute left-[2%] bottom-16 sm:bottom-20 w-[46%] sm:w-[48%] z-10"
+              >
+                <div className="relative filter drop-shadow-[0_15px_25px_rgba(0,0,0,0.25)] hover:scale-105 transition-transform duration-300">
                   <img
                     src={ASSETS.heroPc}
                     alt="Custom RGB Gaming PC Cabinet"
@@ -98,31 +125,39 @@ export default function HeroSection({ onOpenBudgetFinder, onOpenRepairModal }) {
                   {/* Amber Internal Fan Glow Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-r from-amber-500/20 to-transparent pointer-events-none rounded-xl mix-blend-screen" />
                 </div>
-              </div>
+              </motion.div>
 
               {/* Product 2: Sleek Open Laptop (Center / Right) */}
-              <div className="absolute right-[4%] top-[10%] sm:top-[8%] w-[52%] sm:w-[54%] z-20 transition-transform duration-500 hover:scale-105">
-                <div className="relative filter drop-shadow-[0_20px_30px_rgba(0,0,0,0.2)]">
+              <motion.div
+                animate={{ y: [0, -8, 0] }}
+                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                className="absolute right-[4%] top-[10%] sm:top-[8%] w-[52%] sm:w-[54%] z-20"
+              >
+                <div className="relative filter drop-shadow-[0_20px_30px_rgba(0,0,0,0.2)] hover:scale-105 transition-transform duration-300">
                   <img
                     src={ASSETS.heroLaptop}
                     alt="Premium Sleek Laptop"
                     className="w-full h-auto object-contain rounded-lg"
                   />
                 </div>
-              </div>
+              </motion.div>
 
               {/* Product 3: White iPhone 15 / Smartphone (Front Right Base) */}
-              <div className="absolute right-[12%] bottom-6 sm:bottom-8 w-[24%] sm:w-[26%] z-30 transition-transform duration-500 hover:scale-110">
-                <div className="relative filter drop-shadow-[0_12px_20px_rgba(0,0,0,0.3)]">
+              <motion.div
+                animate={{ y: [0, -4, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                className="absolute right-[12%] bottom-6 sm:bottom-8 w-[24%] sm:w-[26%] z-30"
+              >
+                <div className="relative filter drop-shadow-[0_12px_20px_rgba(0,0,0,0.3)] hover:scale-110 transition-transform duration-300">
                   <img
                     src={ASSETS.heroPhone}
                     alt="iPhone 15 Flagship Smartphone"
                     className="w-full h-auto object-contain rounded-2xl"
                   />
                 </div>
-              </div>
+              </motion.div>
 
-            </div>
+            </motion.div>
           </div>
 
         </div>
