@@ -10,6 +10,8 @@ import WhyChooseUs from '@/components/redesign/WhyChooseUs';
 import GamingBanner from '@/components/redesign/GamingBanner';
 import PopularPicks from '@/components/redesign/PopularPicks';
 import PromoBanners from '@/components/redesign/PromoBanners';
+import TestimonialsSection from '@/components/redesign/TestimonialsSection';
+import FAQSection from '@/components/redesign/FAQSection';
 import ReviewsAndLocation from '@/components/redesign/ReviewsAndLocation';
 import Footer from '@/components/redesign/Footer';
 import RepairModal from '@/components/redesign/RepairModal';
@@ -96,11 +98,17 @@ export default function Page() {
             }}
           />
 
-          {/* 10. Google Reviews & Store Location */}
+          {/* 10. Customer Testimonials Section */}
+          <TestimonialsSection />
+
+          {/* 11. Frequently Asked Questions (FAQ) */}
+          <FAQSection />
+
+          {/* 12. Google Reviews & Store Location */}
           <ReviewsAndLocation />
         </main>
 
-        {/* 11. Dark Footer */}
+        {/* 13. Dark Footer */}
         <Footer />
 
         {/* Interactive Repair Booking Modal */}

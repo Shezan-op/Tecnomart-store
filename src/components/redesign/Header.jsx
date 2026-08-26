@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { TecnoMartLogo } from './Icons';
 import { Search, ShoppingBag, Wrench, Menu, X } from 'lucide-react';
 
@@ -23,14 +24,14 @@ export default function Header({ onOpenRepairModal, cartCount = 0 }) {
   }, []);
 
   const navLinks = [
-    { label: 'Mobiles', href: '#mobiles' },
-    { label: 'Laptops', href: '#laptops' },
-    { label: 'Gaming', href: '#gaming' },
-    { label: 'PC Builds', href: '#gaming' },
-    { label: 'Refurbished', href: '#refurbished' },
-    { label: 'Repairs', href: '#repairs' },
-    { label: 'Accessories', href: '#accessories' },
-    { label: 'Corporate', href: '#corporate' },
+    { label: 'Mobiles', href: '/mobiles' },
+    { label: 'Laptops', href: '/laptops' },
+    { label: 'Gaming', href: '/gaming' },
+    { label: 'PC Builds', href: '/pc-builds' },
+    { label: 'Refurbished', href: '/refurbished' },
+    { label: 'Repairs', href: '/repairs' },
+    { label: 'Accessories', href: '/accessories' },
+    { label: 'Corporate', href: '/corporate' },
   ];
 
   return (
@@ -45,21 +46,21 @@ export default function Header({ onOpenRepairModal, cartCount = 0 }) {
         <div className="flex items-center justify-between gap-4">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <a href="#" className="inline-block">
+            <Link href="/" className="inline-block">
               <TecnoMartLogo />
-            </a>
+            </Link>
           </div>
 
           {/* Desktop Navigation Links */}
           <nav className="hidden lg:flex items-center space-x-6 xl:space-x-7">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.label}
                 href={link.href}
                 className="text-[13.5px] font-medium text-neutral-700 hover:text-amber-500 transition-colors tracking-tight"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </nav>
 
@@ -79,7 +80,7 @@ export default function Header({ onOpenRepairModal, cartCount = 0 }) {
                   />
                   <button
                     onClick={() => setSearchOpen(false)}
-                    className="text-neutral-500 hover:text-neutral-700 ml-1"
+                    className="text-neutral-500 hover:text-neutral-700 ml-1 cursor-pointer"
                   >
                     <X className="w-3.5 h-3.5" />
                   </button>
@@ -88,7 +89,7 @@ export default function Header({ onOpenRepairModal, cartCount = 0 }) {
                 <button
                   onClick={() => setSearchOpen(true)}
                   aria-label="Search"
-                  className="p-2 text-neutral-700 hover:text-amber-500 transition-colors rounded-full hover:bg-neutral-100"
+                  className="p-2 text-neutral-700 hover:text-amber-500 transition-colors rounded-full hover:bg-neutral-100 cursor-pointer"
                 >
                   <Search className="w-5 h-5" />
                 </button>
@@ -96,10 +97,10 @@ export default function Header({ onOpenRepairModal, cartCount = 0 }) {
             </div>
 
             {/* Shopping Cart Icon with Badge */}
-            <a
-              href="#cart"
+            <Link
+              href="/#popular"
               aria-label="Cart"
-              className="relative p-2 text-neutral-700 hover:text-amber-500 transition-colors rounded-full hover:bg-neutral-100"
+              className="relative p-2 text-neutral-700 hover:text-amber-500 transition-colors rounded-full hover:bg-neutral-100 cursor-pointer"
             >
               <ShoppingBag className="w-5 h-5" />
               {cartCount > 0 && (
@@ -107,12 +108,12 @@ export default function Header({ onOpenRepairModal, cartCount = 0 }) {
                   {cartCount}
                 </span>
               )}
-            </a>
+            </Link>
 
             {/* Book A Repair Button */}
             <button
               onClick={onOpenRepairModal}
-              className="hidden sm:inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-neutral-950 px-4 py-2 rounded-lg text-xs font-bold tracking-wide uppercase shadow-sm transition-all duration-200 hover:shadow active:scale-95"
+              className="hidden sm:inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-neutral-950 px-4 py-2 rounded-lg text-xs font-bold tracking-wide uppercase shadow-sm transition-all duration-200 hover:shadow active:scale-95 cursor-pointer"
             >
               <Wrench className="w-3.5 h-3.5" />
               <span>Book A Repair</span>
@@ -121,7 +122,7 @@ export default function Header({ onOpenRepairModal, cartCount = 0 }) {
             {/* Mobile Hamburger Toggle */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 text-neutral-700 hover:text-amber-500 transition-colors rounded-lg"
+              className="lg:hidden p-2 text-neutral-700 hover:text-amber-500 transition-colors rounded-lg cursor-pointer"
               aria-label="Toggle Menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -134,14 +135,14 @@ export default function Header({ onOpenRepairModal, cartCount = 0 }) {
           <div className="lg:hidden mt-3 pt-3 border-t border-neutral-200 pb-4 animate-in slide-in-from-top duration-200">
             <div className="flex flex-col space-y-2.5">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.label}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
                   className="px-2 py-1.5 text-sm font-medium text-neutral-800 hover:text-amber-500 hover:bg-neutral-50 rounded"
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
               <div className="pt-2">
                 <button
@@ -149,7 +150,7 @@ export default function Header({ onOpenRepairModal, cartCount = 0 }) {
                     setMobileMenuOpen(false);
                     if (onOpenRepairModal) onOpenRepairModal();
                   }}
-                  className="w-full flex items-center justify-center gap-2 bg-amber-500 text-neutral-950 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wide"
+                  className="w-full flex items-center justify-center gap-2 bg-amber-500 text-neutral-950 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wide cursor-pointer"
                 >
                   <Wrench className="w-4 h-4" />
                   <span>Book A Repair</span>

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import {
   TecnoMartLogo,
   PaymentMethodsRow,
@@ -25,30 +26,30 @@ export default function Footer() {
   };
 
   const shopLinks = [
-    { label: 'Mobiles', href: '#mobiles' },
-    { label: 'Laptops', href: '#laptops' },
-    { label: 'Gaming', href: '#gaming' },
-    { label: 'PC Builds', href: '#gaming' },
-    { label: 'Refurbished', href: '#refurbished' },
-    { label: 'Accessories', href: '#accessories' },
+    { label: 'Mobiles', href: '/mobiles' },
+    { label: 'Laptops', href: '/laptops' },
+    { label: 'Gaming', href: '/gaming' },
+    { label: 'PC Builds', href: '/pc-builds' },
+    { label: 'Refurbished', href: '/refurbished' },
+    { label: 'Accessories', href: '/accessories' },
   ];
 
   const helpLinks = [
-    { label: 'Repairs', href: '#repairs' },
-    { label: 'Track Order', href: '#track' },
-    { label: 'Returns & Refund', href: '#returns' },
-    { label: 'Warranty', href: '#warranty' },
-    { label: 'FAQs', href: '#faqs' },
-    { label: 'Contact Us', href: '#contact' },
+    { label: 'Repairs & Services', href: '/repairs' },
+    { label: 'Track Order', href: '/contact' },
+    { label: 'Returns & Refund', href: '/terms' },
+    { label: 'Warranty Policy', href: '/terms' },
+    { label: 'FAQs', href: '/#faqs' },
+    { label: 'Contact Us', href: '/contact' },
   ];
 
   const companyLinks = [
-    { label: 'About Us', href: '#about' },
-    { label: 'Our Stores', href: '#stores' },
-    { label: 'Careers', href: '#careers' },
-    { label: 'Corporate Sales', href: '#corporate' },
-    { label: 'Terms & Conditions', href: '#terms' },
-    { label: 'Privacy Policy', href: '#privacy' },
+    { label: 'About Us', href: '/about' },
+    { label: 'Our Stores', href: '/contact' },
+    { label: 'Careers', href: '/about' },
+    { label: 'Corporate Sales', href: '/corporate' },
+    { label: 'Terms & Conditions', href: '/terms' },
+    { label: 'Privacy Policy', href: '/privacy' },
   ];
 
   return (
@@ -60,10 +61,12 @@ export default function Footer() {
           
           {/* Column 1: Brand & Bio (Col 4) */}
           <div className="lg:col-span-4 space-y-4">
-            <TecnoMartLogo textClass="text-white" subtitleClass="text-neutral-500" />
+            <Link href="/">
+              <TecnoMartLogo textClass="text-white" subtitleClass="text-neutral-500" />
+            </Link>
             
             <p className="text-xs sm:text-sm text-neutral-400 leading-relaxed max-w-sm">
-              Your one-stop destination for the best tech products, expert repairs and unmatched support.
+              Your one-stop destination for the best tech products, expert repairs and unmatched support in Hyderabad.
             </p>
 
             {/* Social Icons */}
@@ -124,12 +127,12 @@ export default function Footer() {
             <ul className="space-y-2 text-xs">
               {shopLinks.map((link) => (
                 <li key={link.label}>
-                  <a
+                  <Link
                     href={link.href}
                     className="hover:text-amber-400 transition-colors"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -143,12 +146,12 @@ export default function Footer() {
             <ul className="space-y-2 text-xs">
               {helpLinks.map((link) => (
                 <li key={link.label}>
-                  <a
+                  <Link
                     href={link.href}
                     className="hover:text-amber-400 transition-colors"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -162,12 +165,12 @@ export default function Footer() {
             <ul className="space-y-2 text-xs">
               {companyLinks.map((link) => (
                 <li key={link.label}>
-                  <a
+                  <Link
                     href={link.href}
                     className="hover:text-amber-400 transition-colors"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -195,7 +198,7 @@ export default function Footer() {
                 <button
                   type="submit"
                   aria-label="Subscribe"
-                  className="absolute right-1 top-1 bottom-1 px-3 bg-amber-500 hover:bg-amber-600 text-neutral-950 rounded-md flex items-center justify-center transition-colors font-bold text-xs"
+                  className="absolute right-1 top-1 bottom-1 px-3 bg-amber-500 hover:bg-amber-600 text-neutral-950 rounded-md flex items-center justify-center transition-colors font-bold text-xs cursor-pointer"
                 >
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>
