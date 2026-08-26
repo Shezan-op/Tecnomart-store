@@ -1,126 +1,106 @@
 "use client";
 
-import React, { useEffect } from 'react';
-import Navigation from '../components/Navigation';
-import HeroSequence from '../components/HeroSequence';
-import InfoBelt from '../components/InfoBelt';
-import MobileShowcaseWrapper from '../components/MobileShowcaseWrapper';
-import ScrollStackSection from '../components/ScrollStackSection';
-import ProDisplay from '../components/ProDisplay';
-import PopularModels from '../components/PopularModels';
-import ProKeyboard from '../components/ProKeyboard';
-import BrandLoop from '../components/BrandLoop';
-import Testimonials from '../components/Testimonials';
-import CustomSetupPromo from '../components/CustomSetupPromo';
-import WhereToFindUs from '../components/WhereToFindUs';
-import OurJourney from '../components/OurJourney';
-import FAQ from '../components/FAQ';
-import Footer from '../components/Footer';
+import React, { useState } from 'react';
+import Header from '@/components/redesign/Header';
+import HeroSection from '@/components/redesign/HeroSection';
+import TrustStrip from '@/components/redesign/TrustStrip';
+import CategoryGrid from '@/components/redesign/CategoryGrid';
+import BudgetFinder from '@/components/redesign/BudgetFinder';
+import WhyChooseUs from '@/components/redesign/WhyChooseUs';
+import GamingBanner from '@/components/redesign/GamingBanner';
+import PopularPicks from '@/components/redesign/PopularPicks';
+import PromoBanners from '@/components/redesign/PromoBanners';
+import ReviewsAndLocation from '@/components/redesign/ReviewsAndLocation';
+import Footer from '@/components/redesign/Footer';
+import RepairModal from '@/components/redesign/RepairModal';
 
 export default function Page() {
-  useEffect(() => {
-    let lenisInstance = null;
-    let updateTicker = null;
-    let timeout = null;
+  const [isRepairOpen, setIsRepairOpen] = useState(false);
+  const [cartCount, setCartCount] = useState(0);
+  const [addedItems, setAddedItems] = useState({});
 
-    Promise.all([import('lenis'), import('gsap'), import('gsap/ScrollTrigger')]).then(
-      ([lenisModule, gsapModule, scrollTriggerModule]) => {
-        const Lenis = lenisModule.default || lenisModule;
-        const gsap = gsapModule.default || gsapModule;
-        const ScrollTrigger = scrollTriggerModule.ScrollTrigger || scrollTriggerModule.default;
+  const handleAddToCart = (product) => {
+    setAddedItems((prev) => ({
+      ...prev,
+      [product.id]: true,
+    }));
+    setCartCount((prev) => prev + 1);
+  };
 
-        gsap.registerPlugin(ScrollTrigger);
+  const handleSelectCategory = (catName) => {
+    const el = document.getElementById('budget-finder');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
-        lenisInstance = new Lenis({
-          duration: 0.9,
-          easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-          orientation: 'vertical',
-          gestureOrientation: 'vertical',
-          smoothWheel: true,
-          wheelMultiplier: 1.05,
-          touchMultiplier: 1.2,
-          syncTouch: false,
-        });
-
-        lenisInstance.on('scroll', ScrollTrigger.update);
-
-        updateTicker = (time) => {
-          lenisInstance.raf(time * 1000);
-        };
-
-        gsap.ticker.add(updateTicker);
-        gsap.ticker.lagSmoothing(500, 33);
-
-        timeout = setTimeout(() => {
-          ScrollTrigger.refresh();
-        }, 300);
-      }
-    );
-
-    return () => {
-      if (updateTicker) {
-        import('gsap').then(({ default: gsap }) => {
-          gsap.ticker.remove(updateTicker);
-        });
-      }
-      if (lenisInstance) lenisInstance.destroy();
-      if (timeout) clearTimeout(timeout);
-    };
-  }, []);
+  const handleExploreGaming = () => {
+    const el = document.getElementById('popular');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
-    <main>
-      <Navigation />
-
-      <HeroSequence />
-
-      {/* Info Belt 1 */}
-      <InfoBelt direction="left" text="PREMIUM DEVICES •" />
-      
-      {/* Mobile Showcases */}
-      <MobileShowcaseWrapper />
-      
-      {/* Info Belt 2 */}
-      <InfoBelt direction="right" text="ENGINEERED FOR PRECISION •" />
-      
-      {/* Scroll Stack Offerings Section */}
-      <ScrollStackSection />
-
-      {/* Laptop Showcase */}
-      <ProDisplay />
-
-      {/* Popular Models Accordion */}
-      <PopularModels />
-
-      {/* Accessories (Keyboard) */}
-      <ProKeyboard />
-
-      {/* Brand Logo Loop */}
-      <BrandLoop />
-
-      {/* Info Belt 3 (contact belt) */}
-      <InfoBelt
-        direction="left"
-        text="Want better personalised deals? Call us: +91 90106 67726 • Visit us at 7 Tombs Road, Opposite Toyota Showroom, Towlichowki, Hyderabad • Mon-Sun: 10AM - 9PM •"
+    <div className="min-h-screen flex flex-col bg-white text-neutral-900 font-sans">
+      {/* 1. Header Navigation */}
+      <Header
+        onOpenRepairModal={() => setIsRepairOpen(true)}
+        cartCount={cartCount}
       />
 
-      {/* Section 9 — Google Reviews & Instagram Widgets */}
-      <Testimonials />
+      <main className="flex-1">
+        {/* 2. Hero Section */}
+        <HeroSection
+          onOpenRepairModal={() => setIsRepairOpen(true)}
+        />
 
-      {/* NEW Section — Build Custom Setup */}
-      <CustomSetupPromo />
+        {/* 3. Trust Strip (4 Pillars) */}
+        <TrustStrip />
 
-      {/* Section 10 — Where to Find Us */}
-      <WhereToFindUs />
+        {/* 4. Category Grid ("WHAT DO YOU NEED?") */}
+        <CategoryGrid
+          onSelectCategory={handleSelectCategory}
+        />
 
-      {/* Section 11 — Our Journey */}
-      <OurJourney />
+        {/* 5. Budget Banner ("BUDGET BATAO. BEST OPTION PAO.") */}
+        <BudgetFinder />
 
-      {/* Section 12 — FAQ */}
-      <FAQ />
+        {/* 6. Why Choose Us (6 Features) */}
+        <WhyChooseUs />
 
-      {/* Section 13 — Footer */}
+        {/* 7. Gaming PC Banner ("BUILT FOR VICTORY.") */}
+        <GamingBanner
+          onExploreGaming={handleExploreGaming}
+        />
+
+        {/* 8. Popular Picks Carousel */}
+        <PopularPicks
+          onAddToCart={handleAddToCart}
+          addedItems={addedItems}
+        />
+
+        {/* 9. Highlight Cards (Refurbished & Expert Repairs) */}
+        <PromoBanners
+          onOpenRepairModal={() => setIsRepairOpen(true)}
+          onExploreRefurbished={() => {
+            const el = document.getElementById('budget-finder');
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+          }}
+        />
+
+        {/* 10. Google Reviews & Store Location */}
+        <ReviewsAndLocation />
+      </main>
+
+      {/* 11. Dark Footer */}
       <Footer />
-    </main>
+
+      {/* Interactive Repair Booking Modal */}
+      <RepairModal
+        isOpen={isRepairOpen}
+        onClose={() => setIsRepairOpen(false)}
+      />
+    </div>
   );
 }
