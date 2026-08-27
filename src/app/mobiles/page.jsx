@@ -8,94 +8,9 @@ import SmoothScrollProvider from '@/components/redesign/SmoothScrollProvider';
 import ScrollProgress from '@/components/redesign/ScrollProgress';
 import MobileBottomBar from '@/components/redesign/MobileBottomBar';
 import { BlurRevealText, BlurRevealBox } from '@/components/redesign/BlurReveal';
-import { ShoppingBag, Check, ShieldCheck, Truck, RotateCcw } from 'lucide-react';
-
-const MOBILES_DATA = [
-  {
-    id: "m1",
-    name: "iPhone 16 Pro Max",
-    brand: "Apple",
-    storage: "256GB / 512GB / 1TB",
-    color: "Desert Titanium",
-    price: "₹1,44,900",
-    rawPrice: 144900,
-    originalPrice: "₹1,49,900",
-    badge: "LATEST FLAGSHIP",
-    badgeColor: "bg-amber-500 text-neutral-950",
-    image: "https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=600&q=80",
-    specs: ["A18 Pro Chip", "48MP Fusion Camera", "6.9\" Super Retina XDR", "Titanium Frame"],
-  },
-  {
-    id: "m2",
-    name: "Samsung Galaxy S24 Ultra",
-    brand: "Samsung",
-    storage: "256GB / 512GB",
-    color: "Titanium Gray",
-    price: "₹1,29,999",
-    rawPrice: 129999,
-    originalPrice: "₹1,34,999",
-    badge: "GALAXY AI",
-    badgeColor: "bg-blue-600 text-white",
-    image: "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&fit=crop&w=600&q=80",
-    specs: ["Snapdragon 8 Gen 3", "200MP Quad Tele", "S-Pen Included", "7 Years OS Updates"],
-  },
-  {
-    id: "m3",
-    name: "OnePlus 12",
-    brand: "OnePlus",
-    storage: "16GB RAM + 512GB",
-    color: "Silky Black",
-    price: "₹64,999",
-    rawPrice: 64999,
-    originalPrice: "₹69,999",
-    badge: "BEST VALUE",
-    badgeColor: "bg-emerald-500 text-white",
-    image: "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=600&q=80",
-    specs: ["Snapdragon 8 Gen 3", "Hasselblad Camera", "100W SUPERVOOC", "5400mAh Battery"],
-  },
-  {
-    id: "m4",
-    name: "Google Pixel 9 Pro",
-    brand: "Google",
-    storage: "128GB / 256GB",
-    color: "Obsidian Black",
-    price: "₹1,06,999",
-    rawPrice: 106999,
-    originalPrice: "₹1,09,999",
-    badge: "AI POWERED",
-    badgeColor: "bg-purple-600 text-white",
-    image: "https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=600&q=80",
-    specs: ["Google Tensor G4", "Pro Triple Camera", "Gemini Advanced AI", "Super Actua Display"],
-  },
-  {
-    id: "m5",
-    name: "iPhone 15",
-    brand: "Apple",
-    storage: "128GB",
-    color: "Black / Blue / Pink",
-    price: "₹69,900",
-    rawPrice: 69900,
-    originalPrice: "₹79,900",
-    badge: "POPULAR",
-    badgeColor: "bg-amber-500 text-neutral-950",
-    image: "https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=600&q=80",
-    specs: ["A16 Bionic Chip", "Dynamic Island", "48MP Main Camera", "USB-C Port"],
-  },
-  {
-    id: "m6",
-    name: "Samsung Galaxy Z Fold 6",
-    brand: "Samsung",
-    storage: "256GB / 512GB",
-    color: "Silver Shadow",
-    price: "₹1,64,999",
-    rawPrice: 164999,
-    originalPrice: "₹1,69,999",
-    badge: "FOLDABLE",
-    badgeColor: "bg-indigo-600 text-white",
-    image: "https://images.unsplash.com/photo-1580910051074-3eb694886505?auto=format&fit=crop&w=600&q=80",
-    specs: ["7.6\" Dynamic AMOLED 2X", "Ultra Slim Hinge", "Snapdragon 8 Gen 3", "Multitasking Pro"],
-  },
-];
+import { MOBILES_DATA } from '@/data/products';
+import { ShoppingBag, Check, ShieldCheck, Truck, RotateCcw, ChevronRight } from 'lucide-react';
+import Link from 'next/link';
 
 export default function MobilesPage() {
   const [selectedBrand, setSelectedBrand] = useState('All');
@@ -109,12 +24,16 @@ export default function MobilesPage() {
     ? MOBILES_DATA
     : MOBILES_DATA.filter((m) => m.brand === selectedBrand);
 
-  const handleAddToCart = (product) => {
+  const handleAddToCart = (product, e) => {
+    e.stopPropagation();
+    e.preventDefault();
     setAddedItems((prev) => ({ ...prev, [product.id]: true }));
     setCartCount((prev) => prev + 1);
   };
 
-  const handleWhatsAppBuy = (product) => {
+  const handleWhatsAppBuy = (product, e) => {
+    e.stopPropagation();
+    e.preventDefault();
     const text = encodeURIComponent(
       `Hello TecnoMart! 📱 I want to purchase the ${product.name} (${product.price}). Please share availability and current offers.`
     );
@@ -148,7 +67,7 @@ export default function MobilesPage() {
               <div className="w-12 h-1 bg-amber-500 mx-auto mt-2.5 sm:mt-3 rounded-full" />
             </div>
 
-            {/* Value Pillars Strip (Mobile Responsive Stack) */}
+            {/* Value Pillars Strip */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-4 mb-8 p-3.5 sm:p-4 bg-neutral-50 rounded-2xl border border-neutral-200 text-xs font-semibold text-neutral-700">
               <div className="flex items-center justify-start sm:justify-center gap-2">
                 <ShieldCheck className="w-4 h-4 text-amber-500 flex-shrink-0" />
@@ -164,7 +83,7 @@ export default function MobilesPage() {
               </div>
             </div>
 
-            {/* Brand Filter Buttons with Horizontal Scroll on Mobile */}
+            {/* Brand Filter Buttons */}
             <div className="flex items-center sm:justify-center gap-2 sm:gap-3 overflow-x-auto pb-2 mb-8 no-scrollbar">
               {brands.map((brand) => (
                 <button
@@ -188,7 +107,10 @@ export default function MobilesPage() {
 
                 return (
                   <BlurRevealBox key={item.id} delay={idx * 0.06} yOffset={20}>
-                    <div className="group h-full bg-white rounded-3xl p-5 sm:p-6 border border-neutral-200 hover:border-amber-400 shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col justify-between">
+                    <Link
+                      href={`/mobiles/${item.slug}`}
+                      className="group h-full bg-white rounded-3xl p-5 sm:p-6 border border-neutral-200 hover:border-amber-400 shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col justify-between block"
+                    >
                       <div>
                         {/* Badge & Brand */}
                         <div className="flex items-center justify-between mb-3">
@@ -203,7 +125,7 @@ export default function MobilesPage() {
                         {/* Image Container */}
                         <div className="w-full aspect-square max-h-[200px] sm:max-h-[220px] bg-neutral-50 rounded-2xl flex items-center justify-center p-3 mb-4 overflow-hidden group-hover:bg-amber-50/40 transition-colors">
                           <img
-                            src={item.image}
+                            src={item.images[0]}
                             alt={item.name}
                             className="w-full h-full object-contain filter drop-shadow-md group-hover:scale-108 transition-transform duration-300"
                           />
@@ -214,33 +136,39 @@ export default function MobilesPage() {
                           {item.name}
                         </h3>
                         <p className="text-xs text-neutral-500 font-medium mb-3">
-                          {item.color} • {item.storage}
+                          {item.tagline || item.brand}
                         </p>
 
-                        {/* Key Specs Pills */}
-                        <div className="flex flex-wrap gap-1.5 mb-4">
-                          {item.specs.map((spec, i) => (
-                            <span key={i} className="text-[10px] font-semibold bg-neutral-100 text-neutral-700 px-2 py-0.5 rounded">
-                              {spec}
-                            </span>
+                        {/* Key Highlights */}
+                        <div className="space-y-1 mb-4">
+                          {item.keyHighlights?.slice(0, 2).map((highlight, i) => (
+                            <p key={i} className="text-[11px] text-neutral-600 font-medium line-clamp-1">
+                              • {highlight}
+                            </p>
                           ))}
                         </div>
                       </div>
 
                       {/* Pricing & Actions */}
                       <div className="pt-3.5 border-t border-neutral-100">
-                        <div className="flex items-baseline gap-2 mb-3">
-                          <span className="text-lg sm:text-xl font-black text-neutral-950">
-                            {item.price}
-                          </span>
-                          <span className="text-xs text-neutral-400 line-through">
-                            {item.originalPrice}
+                        <div className="flex items-baseline justify-between mb-3">
+                          <div className="flex items-baseline gap-2">
+                            <span className="text-lg sm:text-xl font-black text-neutral-950">
+                              {item.price}
+                            </span>
+                            <span className="text-xs text-neutral-400 line-through">
+                              {item.originalPrice}
+                            </span>
+                          </div>
+                          <span className="text-xs font-bold text-amber-600 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                            <span>Details</span>
+                            <ChevronRight className="w-3.5 h-3.5" />
                           </span>
                         </div>
 
                         <div className="grid grid-cols-2 gap-2">
                           <button
-                            onClick={() => handleAddToCart(item)}
+                            onClick={(e) => handleAddToCart(item, e)}
                             className={`min-h-[44px] rounded-xl flex items-center justify-center gap-1.5 text-xs font-bold uppercase tracking-wider transition-all active:scale-95 cursor-pointer ${
                               isAdded
                                 ? 'bg-emerald-500 text-white'
@@ -252,7 +180,7 @@ export default function MobilesPage() {
                           </button>
 
                           <button
-                            onClick={() => handleWhatsAppBuy(item)}
+                            onClick={(e) => handleWhatsAppBuy(item, e)}
                             className="min-h-[44px] rounded-xl bg-amber-500 hover:bg-amber-600 text-neutral-950 flex items-center justify-center text-xs font-black uppercase tracking-wider shadow-sm transition-all active:scale-95 cursor-pointer"
                           >
                             <span>Buy on WA</span>
@@ -260,7 +188,7 @@ export default function MobilesPage() {
                         </div>
                       </div>
 
-                    </div>
+                    </Link>
                   </BlurRevealBox>
                 );
               })}

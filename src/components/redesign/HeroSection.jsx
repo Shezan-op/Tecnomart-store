@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import { Wrench, ArrowRight } from 'lucide-react';
+import { Wrench, ArrowRight, Star, ShieldCheck, CheckCircle2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { ASSETS } from '@/data/redesignAssets';
 import { BlurRevealText, BlurRevealBox } from './BlurReveal';
@@ -15,16 +15,16 @@ export default function HeroSection({ onOpenBudgetFinder, onOpenRepairModal }) {
   };
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-white via-neutral-50/60 to-white pt-6 pb-10 sm:pt-12 sm:pb-16 lg:pt-16 lg:pb-20 border-b border-neutral-100">
-      {/* Subtle Background Glows */}
+    <section className="relative overflow-hidden bg-gradient-to-b from-white via-neutral-50/50 to-white pt-6 pb-8 sm:pt-12 sm:pb-14 lg:pt-16 lg:pb-16 border-b border-neutral-100">
+      {/* Subtle Background Ambient Lighting */}
       <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-amber-400/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute top-1/2 left-10 w-80 h-80 bg-neutral-200/40 rounded-full blur-2xl pointer-events-none" />
+      <div className="absolute top-1/2 left-10 w-80 h-80 bg-neutral-200/30 rounded-full blur-2xl pointer-events-none" />
 
       <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
           {/* Left Column: Hero Copy & Actions */}
-          <div className="lg:col-span-6 flex flex-col justify-center space-y-5 sm:space-y-7 z-10">
+          <div className="lg:col-span-6 flex flex-col justify-center space-y-4 sm:space-y-6 z-10">
             
             {/* Main Headline with Text Blur Reveal */}
             <div className="space-y-1 sm:space-y-1.5">
@@ -59,8 +59,8 @@ export default function HeroSection({ onOpenBudgetFinder, onOpenRepairModal }) {
               </p>
             </BlurRevealBox>
 
-            {/* Dual CTAs with Spring Entrance (Mobile Optimized Full-Width Stack) */}
-            <BlurRevealBox delay={0.7} yOffset={20}>
+            {/* Dual CTAs with Spring Entrance */}
+            <BlurRevealBox delay={0.65} yOffset={20}>
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 pt-1">
                 {/* Tell Us Your Budget Button */}
                 <button
@@ -81,6 +81,39 @@ export default function HeroSection({ onOpenBudgetFinder, onOpenRepairModal }) {
                 </button>
               </div>
             </BlurRevealBox>
+
+            {/* In-Between Social Proof & Ratings Trust Strip */}
+            <BlurRevealBox delay={0.75} yOffset={15}>
+              <div className="pt-2 sm:pt-3">
+                <div className="inline-flex flex-wrap items-center gap-3 sm:gap-4 p-2.5 sm:p-3 bg-neutral-50/80 backdrop-blur-md border border-neutral-200/80 rounded-2xl shadow-2xs">
+                  
+                  {/* Rating Stars & Score */}
+                  <div className="flex items-center gap-1.5">
+                    <div className="flex items-center text-amber-500">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-3.5 h-3.5 fill-current" />
+                      ))}
+                    </div>
+                    <span className="text-xs font-black text-neutral-950">4.9 / 5.0</span>
+                  </div>
+
+                  <div className="hidden sm:block w-px h-3.5 bg-neutral-300" />
+
+                  {/* Review Count & Google Verification */}
+                  <div className="flex items-center gap-1.5 text-xs text-neutral-600 font-medium">
+                    <span className="font-bold text-neutral-900">2,800+ Verified Reviews</span>
+                    <span className="text-neutral-400 hidden md:inline">• Google &amp; Trustpilot</span>
+                  </div>
+
+                  <div className="hidden lg:flex items-center gap-1 text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md">
+                    <CheckCircle2 className="w-3 h-3" />
+                    <span>Hyderabad&apos;s #1 Tech Store</span>
+                  </div>
+
+                </div>
+              </div>
+            </BlurRevealBox>
+
           </div>
 
           {/* Right Column: 3D Pedestal Showcase with Products */}

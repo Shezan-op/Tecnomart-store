@@ -29,6 +29,14 @@ export default function PopularPicks({ onAddToCart, addedItems = {} }) {
     }
   };
 
+  const getProductHref = (prod) => {
+    if (prod.id === 'p1') return '/mobiles/iphone-16-pro-max';
+    if (prod.id === 'p2') return '/laptops/asus-rog-zephyrus-g16-2025';
+    if (prod.id === 'p3') return '/mobiles/samsung-galaxy-s24-ultra';
+    if (prod.id === 'p4') return '/accessories';
+    return '/mobiles';
+  };
+
   return (
     <section id="popular" className="py-10 sm:py-16 bg-white border-b border-neutral-100">
       <div className="max-w-[1380px] mx-auto px-3.5 sm:px-6 lg:px-8">
@@ -58,7 +66,7 @@ export default function PopularPicks({ onAddToCart, addedItems = {} }) {
               View All
             </Link>
             
-            {/* Carousel Control Buttons (min 44x44px for easy mobile touch) */}
+            {/* Carousel Control Buttons */}
             <div className="flex items-center gap-1.5">
               <button
                 onClick={() => scroll('left')}
@@ -85,6 +93,7 @@ export default function PopularPicks({ onAddToCart, addedItems = {} }) {
         >
           {POPULAR_PRODUCTS.map((prod, idx) => {
             const isAdded = !!addedItems[prod.id];
+            const href = getProductHref(prod);
 
             return (
               <motion.div
@@ -99,57 +108,63 @@ export default function PopularPicks({ onAddToCart, addedItems = {} }) {
                 }}
                 className="snap-start group relative bg-white rounded-2xl p-4 sm:p-5 border border-neutral-200 hover:border-amber-400/80 shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_30px_rgba(245,158,11,0.14)] transition-all duration-300 flex flex-col justify-between"
               >
-                {/* Top Badge */}
-                <div className="flex items-center justify-between mb-2">
-                  <span
-                    className={`px-2 py-0.5 rounded text-[10px] sm:text-[11px] font-extrabold tracking-wider uppercase ${getBadgeStyle(
-                      prod.badgeType
-                    )}`}
-                  >
-                    {prod.badge}
-                  </span>
-                </div>
-
-                {/* Product Image */}
-                <div className="w-full aspect-square bg-neutral-50/60 rounded-xl flex items-center justify-center p-3 mb-3.5 overflow-hidden group-hover:bg-amber-50/40 transition-colors">
-                  <img
-                    src={prod.image}
-                    alt={prod.name}
-                    className="w-full h-full object-contain filter drop-shadow-sm group-hover:scale-108 transition-transform duration-300"
-                  />
-                </div>
-
-                {/* Product Details & Price */}
-                <div className="space-y-1">
-                  <h3 className="text-xs sm:text-base font-bold text-neutral-900 line-clamp-1 group-hover:text-amber-600 transition-colors">
-                    {prod.name}
-                  </h3>
-                  <p className="text-[11px] sm:text-xs text-neutral-500 font-medium truncate">
-                    {prod.subtitle}
-                  </p>
-
-                  <div className="flex items-center justify-between pt-2">
-                    <span className="text-sm sm:text-lg font-black text-neutral-950 tracking-tight">
-                      {prod.price}
-                    </span>
-
-                    {/* Add to Cart Button (min 40x40px touch area) */}
-                    <button
-                      onClick={() => onAddToCart && onAddToCart(prod)}
-                      aria-label={`Add ${prod.name} to cart`}
-                      className={`min-w-[38px] min-h-[38px] sm:w-8 sm:h-8 rounded-lg flex items-center justify-center transition-all duration-200 active:scale-90 cursor-pointer ${
-                        isAdded
-                          ? 'bg-emerald-500 text-white shadow-sm'
-                          : 'bg-amber-50 active:bg-amber-500 text-amber-700 active:text-neutral-950 border border-amber-300'
-                      }`}
+                <Link href={href} className="block">
+                  {/* Top Badge */}
+                  <div className="flex items-center justify-between mb-2">
+                    <span
+                      className={`px-2 py-0.5 rounded text-[10px] sm:text-[11px] font-extrabold tracking-wider uppercase ${getBadgeStyle(
+                        prod.badgeType
+                      )}`}
                     >
-                      {isAdded ? (
-                        <Check className="w-4 h-4 stroke-[2.5]" />
-                      ) : (
-                        <ShoppingBag className="w-4 h-4 stroke-[2]" />
-                      )}
-                    </button>
+                      {prod.badge}
+                    </span>
                   </div>
+
+                  {/* Product Image */}
+                  <div className="w-full aspect-square bg-neutral-50/60 rounded-xl flex items-center justify-center p-3 mb-3.5 overflow-hidden group-hover:bg-amber-50/40 transition-colors">
+                    <img
+                      src={prod.image}
+                      alt={prod.name}
+                      className="w-full h-full object-contain filter drop-shadow-sm group-hover:scale-108 transition-transform duration-300"
+                    />
+                  </div>
+
+                  {/* Product Details */}
+                  <div className="space-y-1">
+                    <h3 className="text-xs sm:text-base font-bold text-neutral-900 line-clamp-1 group-hover:text-amber-600 transition-colors">
+                      {prod.name}
+                    </h3>
+                    <p className="text-[11px] sm:text-xs text-neutral-500 font-medium truncate">
+                      {prod.subtitle}
+                    </p>
+                  </div>
+                </Link>
+
+                {/* Price & Add to Cart */}
+                <div className="flex items-center justify-between pt-3 border-t border-neutral-100 mt-2">
+                  <span className="text-sm sm:text-lg font-black text-neutral-950 tracking-tight">
+                    {prod.price}
+                  </span>
+
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      e.preventDefault();
+                      onAddToCart && onAddToCart(prod);
+                    }}
+                    aria-label={`Add ${prod.name} to cart`}
+                    className={`min-w-[38px] min-h-[38px] sm:w-8 sm:h-8 rounded-lg flex items-center justify-center transition-all duration-200 active:scale-90 cursor-pointer ${
+                      isAdded
+                        ? 'bg-emerald-500 text-white shadow-sm'
+                        : 'bg-amber-50 active:bg-amber-500 text-amber-700 active:text-neutral-950 border border-amber-300'
+                    }`}
+                  >
+                    {isAdded ? (
+                      <Check className="w-4 h-4 stroke-[2.5]" />
+                    ) : (
+                      <ShoppingBag className="w-4 h-4 stroke-[2]" />
+                    )}
+                  </button>
                 </div>
               </motion.div>
             );
