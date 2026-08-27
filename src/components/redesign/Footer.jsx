@@ -7,10 +7,10 @@ import {
   PaymentMethodsRow,
   InstagramIcon,
   FacebookIcon,
-  LinkedInIcon,
-  TwitterXIcon,
+  WhatsAppIcon,
+  YouTubeIcon,
 } from './Icons';
-import { ArrowRight, Check, MessageCircle } from 'lucide-react';
+import { Mail, Send, Check } from 'lucide-react';
 
 export default function Footer() {
   const [email, setEmail] = useState('');
@@ -35,10 +35,10 @@ export default function Footer() {
   ];
 
   const helpLinks = [
-    { label: 'Repairs & Services', href: '/repairs' },
+    { label: 'Repairs', href: '/repairs' },
     { label: 'Track Order', href: '/contact' },
-    { label: 'Returns & Refund', href: '/terms' },
-    { label: 'Warranty Policy', href: '/terms' },
+    { label: 'Returns & Refunds', href: '/terms' },
+    { label: 'Warranty', href: '/terms' },
     { label: 'FAQs', href: '/#faqs' },
     { label: 'Contact Us', href: '/contact' },
   ];
@@ -53,139 +53,30 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-[#0A0A0A] text-neutral-400 border-t border-neutral-800/80 pt-14 pb-8">
-      <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
+    <footer className="bg-white text-neutral-600 border-t border-neutral-200 pt-8 pb-8">
+      <div className="max-w-[1380px] mx-auto px-3.5 sm:px-6 lg:px-8 space-y-8">
         
-        {/* Main 5-Column Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10 pb-12 border-b border-neutral-800">
-          
-          {/* Column 1: Brand & Bio (Col 4) */}
-          <div className="lg:col-span-4 space-y-4">
-            <Link href="/">
-              <TecnoMartLogo textClass="text-white" subtitleClass="text-neutral-500" />
-            </Link>
+        {/* STAY UPDATED (Newsletter Card) matching Screenshot */}
+        <div className="bg-[#FAF8F5] rounded-2xl p-5 sm:p-7 border border-amber-200/70 shadow-2xs">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             
-            <p className="text-xs sm:text-sm text-neutral-400 leading-relaxed max-w-sm">
-              Your one-stop destination for the best tech products, expert repairs and unmatched support in Hyderabad.
-            </p>
-
-            {/* Social Icons */}
-            <div className="flex items-center gap-3 pt-2">
-              <a
-                href="https://wa.me/919010667726"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="WhatsApp"
-                className="w-8 h-8 rounded-full bg-neutral-900 hover:bg-amber-500 text-neutral-400 hover:text-neutral-950 flex items-center justify-center transition-colors border border-neutral-800"
-              >
-                <MessageCircle className="w-4 h-4" />
-              </a>
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Instagram"
-                className="w-8 h-8 rounded-full bg-neutral-900 hover:bg-amber-500 text-neutral-400 hover:text-neutral-950 flex items-center justify-center transition-colors border border-neutral-800"
-              >
-                <InstagramIcon className="w-4 h-4" />
-              </a>
-              <a
-                href="https://facebook.com"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Facebook"
-                className="w-8 h-8 rounded-full bg-neutral-900 hover:bg-amber-500 text-neutral-400 hover:text-neutral-950 flex items-center justify-center transition-colors border border-neutral-800"
-              >
-                <FacebookIcon className="w-4 h-4" />
-              </a>
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="LinkedIn"
-                className="w-8 h-8 rounded-full bg-neutral-900 hover:bg-amber-500 text-neutral-400 hover:text-neutral-950 flex items-center justify-center transition-colors border border-neutral-800"
-              >
-                <LinkedInIcon className="w-4 h-4" />
-              </a>
-              <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Twitter"
-                className="w-8 h-8 rounded-full bg-neutral-900 hover:bg-amber-500 text-neutral-400 hover:text-neutral-950 flex items-center justify-center transition-colors border border-neutral-800"
-              >
-                <TwitterXIcon className="w-4 h-4" />
-              </a>
+            {/* Left: Icon & Copy */}
+            <div className="flex items-center gap-3 w-full sm:w-auto text-left">
+              <div className="w-10 h-10 rounded-xl bg-amber-100/70 flex items-center justify-center text-amber-600 flex-shrink-0">
+                <Mail className="w-5 h-5" />
+              </div>
+              <div>
+                <h4 className="text-sm font-black text-neutral-950 uppercase tracking-tight">
+                  STAY UPDATED
+                </h4>
+                <p className="text-xs text-neutral-500 font-medium">
+                  Subscribe to get exclusive offers, new arrivals and tech updates.
+                </p>
+              </div>
             </div>
-          </div>
 
-          {/* Column 2: SHOP (Col 2) */}
-          <div className="lg:col-span-2 space-y-3">
-            <h4 className="text-xs font-black tracking-widest text-white uppercase">
-              SHOP
-            </h4>
-            <ul className="space-y-2 text-xs">
-              {shopLinks.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="hover:text-amber-400 transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Column 3: HELP & SUPPORT (Col 2) */}
-          <div className="lg:col-span-2 space-y-3">
-            <h4 className="text-xs font-black tracking-widest text-white uppercase">
-              HELP & SUPPORT
-            </h4>
-            <ul className="space-y-2 text-xs">
-              {helpLinks.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="hover:text-amber-400 transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Column 4: COMPANY (Col 2) */}
-          <div className="lg:col-span-2 space-y-3">
-            <h4 className="text-xs font-black tracking-widest text-white uppercase">
-              COMPANY
-            </h4>
-            <ul className="space-y-2 text-xs">
-              {companyLinks.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="hover:text-amber-400 transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Column 5: STAY UPDATED (Col 2) */}
-          <div className="lg:col-span-2 space-y-3">
-            <h4 className="text-xs font-black tracking-widest text-white uppercase">
-              STAY UPDATED
-            </h4>
-            <p className="text-xs text-neutral-400 leading-snug">
-              Subscribe to get exclusive offers, new arrivals and tech updates.
-            </p>
-
-            <form onSubmit={handleSubscribe} className="space-y-2 pt-1">
+            {/* Right: Email Input with Gold Paper Airplane Button */}
+            <form onSubmit={handleSubscribe} className="w-full sm:w-80 flex-shrink-0">
               <div className="relative flex items-center">
                 <input
                   type="email"
@@ -193,34 +84,132 @@ export default function Footer() {
                   placeholder="Enter your email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full bg-neutral-900 border border-neutral-800 text-neutral-200 text-xs px-3.5 py-2.5 rounded-lg outline-none focus:border-amber-500 placeholder-neutral-500"
+                  className="w-full bg-white border border-neutral-300 text-neutral-800 text-xs px-3.5 py-2.5 pr-11 rounded-lg outline-none focus:border-amber-500 shadow-2xs placeholder-neutral-400"
                 />
                 <button
                   type="submit"
                   aria-label="Subscribe"
-                  className="absolute right-1 top-1 bottom-1 px-3 bg-amber-500 hover:bg-amber-600 text-neutral-950 rounded-md flex items-center justify-center transition-colors font-bold text-xs cursor-pointer"
+                  className="absolute right-1 top-1 bottom-1 px-3 bg-amber-500 hover:bg-amber-600 active:bg-amber-600 text-neutral-950 rounded-md flex items-center justify-center transition-colors cursor-pointer"
                 >
-                  <ArrowRight className="w-3.5 h-3.5" />
+                  <Send className="w-3.5 h-3.5" />
                 </button>
               </div>
               {subscribed && (
-                <p className="text-[11px] text-emerald-400 flex items-center gap-1 font-medium">
+                <p className="text-[11px] text-emerald-600 flex items-center gap-1 font-semibold mt-1">
                   <Check className="w-3 h-3" /> Subscribed successfully!
                 </p>
               )}
             </form>
+
+          </div>
+        </div>
+
+        {/* Brand & Socials Header Row */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pb-4 border-b border-neutral-100">
+          <Link href="/">
+            <TecnoMartLogo />
+          </Link>
+
+          {/* Social Icons matching Screenshot */}
+          <div className="flex items-center gap-3 text-neutral-700">
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Facebook"
+              className="w-8 h-8 rounded-full hover:bg-neutral-100 flex items-center justify-center transition-colors"
+            >
+              <FacebookIcon className="w-4 h-4" />
+            </a>
+            <a
+              href="https://instagram.com/tecnomart_hyd"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Instagram"
+              className="w-8 h-8 rounded-full hover:bg-neutral-100 flex items-center justify-center transition-colors"
+            >
+              <InstagramIcon className="w-4 h-4" />
+            </a>
+            <a
+              href="https://youtube.com"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="YouTube"
+              className="w-8 h-8 rounded-full hover:bg-neutral-100 flex items-center justify-center transition-colors"
+            >
+              <YouTubeIcon className="w-4 h-4" />
+            </a>
+            <a
+              href="https://wa.me/919010667726"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="WhatsApp"
+              className="w-8 h-8 rounded-full hover:bg-neutral-100 flex items-center justify-center transition-colors"
+            >
+              <WhatsAppIcon className="w-4 h-4 text-emerald-600" />
+            </a>
+          </div>
+        </div>
+
+        {/* 3 Column Links (SHOP, HELP & SUPPORT, COMPANY) */}
+        <div className="grid grid-cols-3 gap-4 sm:gap-8 text-left py-2">
+          
+          {/* Column 1: SHOP */}
+          <div className="space-y-2.5">
+            <h5 className="text-xs font-black tracking-wider text-neutral-950 uppercase">
+              SHOP
+            </h5>
+            <ul className="space-y-1.5 text-xs font-medium">
+              {shopLinks.map((link) => (
+                <li key={link.label}>
+                  <Link href={link.href} className="hover:text-amber-600 transition-colors">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Column 2: HELP & SUPPORT */}
+          <div className="space-y-2.5">
+            <h5 className="text-xs font-black tracking-wider text-neutral-950 uppercase">
+              HELP & SUPPORT
+            </h5>
+            <ul className="space-y-1.5 text-xs font-medium">
+              {helpLinks.map((link) => (
+                <li key={link.label}>
+                  <Link href={link.href} className="hover:text-amber-600 transition-colors">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Column 3: COMPANY */}
+          <div className="space-y-2.5">
+            <h5 className="text-xs font-black tracking-wider text-neutral-950 uppercase">
+              COMPANY
+            </h5>
+            <ul className="space-y-1.5 text-xs font-medium">
+              {companyLinks.map((link) => (
+                <li key={link.label}>
+                  <Link href={link.href} className="hover:text-amber-600 transition-colors">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
 
         </div>
 
         {/* Bottom Bar: Copyright & Payment Badges */}
-        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
-          <p className="text-neutral-500">
-            © 2025 Tecno Mart. All Rights Reserved.
-          </p>
+        <div className="pt-4 border-t border-neutral-100 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-neutral-500">
+          <p>© 2025 Tecno Mart. All Rights Reserved.</p>
 
           <div className="flex items-center gap-2">
-            <span className="text-[11px] text-neutral-500 font-medium">Secure Payments</span>
+            <span className="font-medium">Secure Payments</span>
             <PaymentMethodsRow />
           </div>
         </div>

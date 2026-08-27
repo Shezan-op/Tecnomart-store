@@ -2,8 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { WhatsAppIcon } from './Icons';
-import { ChevronDown } from 'lucide-react';
+import { MessageSquare, ChevronDown } from 'lucide-react';
 import { BlurRevealText, BlurRevealBox } from './BlurReveal';
 
 export default function BudgetFinder() {
@@ -12,72 +11,68 @@ export default function BudgetFinder() {
   const [usage, setUsage] = useState('');
 
   const categories = [
-    'Mobiles',
-    'Laptops',
+    'Mobiles / Smartphones',
+    'Laptops / MacBooks',
     'Gaming PCs',
     'Custom PC Build',
-    'Refurbished Laptops/Mobiles',
-    'Device Repair',
-    'Accessories',
+    'Refurbished Devices',
+    'Device Repairs',
+    'Accessories & Audio',
+  ];
+
+  const budgets = [
+    'Under ₹25,000',
+    '₹25,000 – ₹50,000',
+    '₹50,000 – ₹1,00,000',
+    '₹1,00,000 – ₹2,00,000',
+    'Above ₹2,00,000 (No budget constraint)',
   ];
 
   const usages = [
     'Gaming & Esports',
+    'Coding & Development',
     'Office & Productivity',
-    'Coding & Software Development',
-    'Student & Online Classes',
-    'Video Editing & 3D Rendering',
-    'Daily Casual Use',
-    'Corporate / Bulk Purchase',
+    'Content Creation & 4K Video',
+    'Student & Everyday Use',
   ];
 
   const handleWhatsAppSend = (e) => {
     e.preventDefault();
     const phone = '919010667726';
     const text = encodeURIComponent(
-      `Hello TecnoMart team! 🚀\nI'm looking for the best tech recommendation:\n- Category: ${category || 'Any'}\n- Budget: ₹${budget || 'Flexible'}\n- Usage: ${usage || 'General'}\n\nPlease suggest the best options for me!`
+      `Hello TecnoMart team! 🚀\nI would like a tech recommendation for my budget:\n- Category: ${category || 'Not specified'}\n- Budget: ${budget || 'Flexible'}\n- Usage: ${usage || 'General'}\n\nPlease share the best available models & prices at the Tolichowki store!`
     );
     window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
   };
 
   return (
-    <section id="budget-finder" className="py-10 sm:py-14 bg-white">
-      <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="budget-finder" className="py-8 sm:py-12 bg-white">
+      <div className="max-w-[1380px] mx-auto px-3.5 sm:px-6 lg:px-8">
         
-        {/* Dark Pill Banner Container with Smooth Entrance */}
-        <BlurRevealBox duration={0.8} yOffset={25}>
-          <div className="bg-neutral-950 rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 shadow-2xl border border-neutral-800 relative overflow-hidden">
+        {/* Light Beige Card Container matching Screenshot */}
+        <BlurRevealBox duration={0.6} yOffset={20}>
+          <div className="bg-[#FAF8F5] rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-10 border border-amber-200/70 shadow-xs relative overflow-hidden">
             
-            {/* Subtle Ambient Lighting */}
-            <div className="absolute top-0 right-0 w-80 h-80 bg-amber-500/15 rounded-full blur-3xl pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-80 h-80 bg-emerald-500/15 rounded-full blur-3xl pointer-events-none" />
-
-            {/* Heading with Text Blur Reveal */}
-            <div className="text-center mb-6 sm:mb-8">
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight uppercase inline-flex flex-wrap items-center justify-center gap-2">
-                <BlurRevealText
-                  text="BUDGET BATAO."
-                  className="text-amber-500 font-black tracking-tight uppercase"
-                  delay={0.1}
-                />
-                <BlurRevealText
-                  text="BEST OPTION PAO."
-                  className="text-white font-black tracking-tight uppercase"
-                  delay={0.25}
-                />
+            {/* Heading: BUDGET BATAO. BEST OPTION PAO. */}
+            <div className="text-center mb-5 sm:mb-7">
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-black tracking-tight uppercase inline-flex flex-wrap items-center justify-center gap-1.5">
+                <span className="text-neutral-950">BUDGET BATAO.</span>
+                <span className="text-amber-500">BEST OPTION PAO.</span>
               </h2>
             </div>
 
-            {/* Form Inputs Grid */}
-            <form onSubmit={handleWhatsAppSend} className="space-y-4 sm:space-y-6">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-4">
+            {/* Form Inputs */}
+            <form onSubmit={handleWhatsAppSend} className="space-y-3 sm:space-y-4 max-w-4xl mx-auto">
+              
+              {/* Stacked Dropdowns on Mobile, 3-column on Desktop */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-4">
                 
-                {/* Category Select Dropdown */}
+                {/* 1. Category Select */}
                 <div className="relative">
                   <select
                     value={category}
                     onChange={(e) => setCategory(e.target.value)}
-                    className="w-full h-12 bg-white text-neutral-800 text-sm font-medium px-4 pr-10 rounded-xl outline-none border border-neutral-300 focus:border-amber-500 appearance-none shadow-sm transition-all"
+                    className="w-full h-11 sm:h-12 bg-white text-neutral-800 text-xs sm:text-sm font-medium px-4 pr-9 rounded-xl outline-none border border-neutral-300 focus:border-amber-500 appearance-none shadow-2xs transition-all"
                   >
                     <option value="">Select Category</option>
                     {categories.map((c) => (
@@ -91,23 +86,31 @@ export default function BudgetFinder() {
                   </div>
                 </div>
 
-                {/* Budget Input */}
+                {/* 2. Budget Dropdown */}
                 <div className="relative">
-                  <input
-                    type="text"
-                    placeholder="Your Budget (₹)"
+                  <select
                     value={budget}
                     onChange={(e) => setBudget(e.target.value)}
-                    className="w-full h-12 bg-white text-neutral-800 text-sm font-medium px-4 rounded-xl outline-none border border-neutral-300 focus:border-amber-500 shadow-sm placeholder-neutral-500 transition-all"
-                  />
+                    className="w-full h-11 sm:h-12 bg-white text-neutral-800 text-xs sm:text-sm font-medium px-4 pr-9 rounded-xl outline-none border border-neutral-300 focus:border-amber-500 appearance-none shadow-2xs transition-all"
+                  >
+                    <option value="">Your Budget (₹)</option>
+                    {budgets.map((b) => (
+                      <option key={b} value={b}>
+                        {b}
+                      </option>
+                    ))}
+                  </select>
+                  <div className="absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none text-neutral-500">
+                    <ChevronDown className="w-4 h-4" />
+                  </div>
                 </div>
 
-                {/* Usage Select Dropdown */}
+                {/* 3. Usage Dropdown */}
                 <div className="relative">
                   <select
                     value={usage}
                     onChange={(e) => setUsage(e.target.value)}
-                    className="w-full h-12 bg-white text-neutral-800 text-sm font-medium px-4 pr-10 rounded-xl outline-none border border-neutral-300 focus:border-amber-500 appearance-none shadow-sm transition-all"
+                    className="w-full h-11 sm:h-12 bg-white text-neutral-800 text-xs sm:text-sm font-medium px-4 pr-9 rounded-xl outline-none border border-neutral-300 focus:border-amber-500 appearance-none shadow-2xs transition-all"
                   >
                     <option value="">Usage</option>
                     {usages.map((u) => (
@@ -121,26 +124,27 @@ export default function BudgetFinder() {
                   </div>
                 </div>
 
-                {/* WhatsApp Button */}
-                <div>
-                  <motion.button
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    type="submit"
-                    className="w-full h-12 bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold text-xs sm:text-sm uppercase tracking-wider rounded-xl shadow-lg hover:shadow-emerald-500/25 flex items-center justify-center gap-2.5 transition-all cursor-pointer"
-                  >
-                    <WhatsAppIcon className="w-5 h-5 fill-current" />
-                    <span>TELL US ON WHATSAPP</span>
-                  </motion.button>
-                </div>
-
               </div>
 
-              {/* Microcopy Below */}
-              <div className="flex items-center justify-center gap-2 text-center text-xs sm:text-sm text-neutral-400 font-medium">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+              {/* Full Width Gold WhatsApp Button matching Screenshot */}
+              <div>
+                <motion.button
+                  whileHover={{ scale: 1.01 }}
+                  whileTap={{ scale: 0.98 }}
+                  type="submit"
+                  className="w-full h-11 sm:h-12 bg-amber-500 hover:bg-amber-600 active:bg-amber-600 text-neutral-950 font-black text-xs sm:text-sm uppercase tracking-wider rounded-xl shadow-sm flex items-center justify-center gap-2 transition-all cursor-pointer"
+                >
+                  <MessageSquare className="w-4 h-4 fill-current" />
+                  <span>TELL US ON WHATSAPP</span>
+                </motion.button>
+              </div>
+
+              {/* Footnote matching Screenshot */}
+              <div className="flex items-center justify-center gap-1.5 text-center text-[11px] sm:text-xs text-neutral-600 font-medium pt-1">
+                <span className="text-emerald-600">💬</span>
                 <span>Our experts will suggest the best options within your budget.</span>
               </div>
+
             </form>
 
           </div>
