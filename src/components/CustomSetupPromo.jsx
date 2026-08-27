@@ -6,6 +6,7 @@ import ArrowRight from 'lucide-react/dist/esm/icons/arrow-right';
 import Wrench from 'lucide-react/dist/esm/icons/wrench';
 import Shield from 'lucide-react/dist/esm/icons/shield';
 import Zap from 'lucide-react/dist/esm/icons/zap';
+import { BlurRevealText } from './BlurReveal';
 
 export default function CustomSetupPromo() {
   return (
@@ -29,19 +30,14 @@ export default function CustomSetupPromo() {
           <span className="inline-block w-5 h-px bg-[#FDE047]" />
         </motion.p>
 
-        {/* Giant Headline */}
-        <motion.h2 
-          className="text-4xl sm:text-6xl md:text-7xl font-black text-white font-hubot tracking-tight leading-[1.08] mb-6 max-w-3xl mx-auto"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-        >
-          Dream it. <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FDE047] via-amber-200 to-yellow-400">
-            We engineer it.
-          </span>
-        </motion.h2>
+        {/* Giant Headline with BlurReveal */}
+        <div className="mb-6 max-w-3xl mx-auto">
+          <BlurRevealText
+            text="Dream it. We engineer it."
+            className="text-4xl sm:text-6xl md:text-7xl font-black text-white font-hubot tracking-tight leading-[1.08] justify-center"
+            delay={0.1}
+          />
+        </div>
 
         {/* Description */}
         <motion.p 

@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Plus from 'lucide-react/dist/esm/icons/plus';
 import MessageCircle from 'lucide-react/dist/esm/icons/message-circle';
+import { BlurRevealText } from './BlurReveal';
 
 const FAQS = [
   {
@@ -51,65 +52,79 @@ export default function FAQ() {
               Support & Transparency
               <span className="inline-block w-5 h-px bg-[#FDE047]" />
             </p>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white font-hubot tracking-tight mb-3">
-              Frequently Asked Questions
-            </h2>
+            <div className="mb-3">
+              <BlurRevealText
+                text="Frequently Asked Questions"
+                className="text-3xl sm:text-4xl md:text-5xl font-bold text-white font-hubot tracking-tight justify-center"
+                delay={0.1}
+              />
+            </div>
             <p className="font-mona text-slate-300 font-normal text-sm sm:text-base max-w-md mx-auto leading-relaxed">
               Everything you need to know about certified grading, warranty terms, and store pickups.
             </p>
           </motion.div>
         </div>
 
-        {/* Spring-animated Accordion */}
-        <div className="border-t border-white/10 mb-10">
-          {FAQS.map((faq, i) => {
-            const isOpen = openIndex === i;
+        {/* Accordion Container */}
+        <div className="space-y-3.5">
+          {FAQS.map((faq, idx) => {
+            const isOpen = openIndex === idx;
+
             return (
               <motion.div
-                key={i}
-                className="border-b border-white/10"
-                initial={{ opacity: 0, y: 12 }}
+                key={idx}
+                initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.07 }}
+                transition={{ duration: 0.4, delay: idx * 0.07 }}
+                className="rounded-2xl border transition-all duration-300 overflow-hidden"
+                style={{
+                  borderColor: isOpen ? 'rgba(253, 224, 71, 0.35)' : 'rgba(255, 255, 255, 0.08)',
+                  backgroundColor: isOpen ? 'rgba(255, 255, 255, 0.04)' : 'rgba(255, 255, 255, 0.015)'
+                }}
               >
+                {/* Clickable Header Button */}
                 <button
                   type="button"
-                  onClick={() => setOpenIndex(isOpen ? null : i)}
-                  className="w-full flex items-center justify-between py-5 text-left focus:outline-none focus-visible:ring-1 focus-visible:ring-[#FDE047] cursor-pointer group"
-                  aria-expanded={isOpen}
+                  onClick={() => setOpenIndex(isOpen ? -1 : idx)}
+                  className="w-full text-left p-4 sm:p-5 flex items-center justify-between gap-4 cursor-pointer select-none group"
                 >
-                  <span className={`font-hubot text-sm sm:text-base pr-4 transition-colors duration-200 ${isOpen ? 'text-[#FDE047] font-semibold' : 'text-slate-100 font-medium group-hover:text-white'}`}>
+                  <span
+                    className="font-hubot text-sm sm:text-base font-semibold text-white group-hover:text-[#FDE047] transition-colors leading-snug"
+                    style={{ color: isOpen ? '#FDE047' : '#ffffff' }}
+                  >
                     {faq.q}
                   </span>
-                  <motion.div
-                    animate={{ rotate: isOpen ? 45 : 0 }}
-                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                    className={`flex-shrink-0 p-1.5 rounded-md border transition-colors duration-200 ${
-                      isOpen
-                        ? 'text-[#FDE047] border-[#FDE047]/40 bg-[#FDE047]/10'
-                        : 'text-slate-400 border-white/10 group-hover:text-white group-hover:border-white/25'
-                    }`}
+
+                  {/* Smooth Rotating Indicator */}
+                  <div
+                    className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 border"
+                    style={{
+                      borderColor: isOpen ? 'rgba(253, 224, 71, 0.4)' : 'rgba(255, 255, 255, 0.1)',
+                      backgroundColor: isOpen ? 'rgba(253, 224, 71, 0.12)' : 'rgba(255, 255, 255, 0.03)',
+                      color: isOpen ? '#FDE047' : '#ffffff'
+                    }}
                   >
-                    <Plus size={14} />
-                  </motion.div>
+                    <motion.div
+                      animate={{ rotate: isOpen ? 45 : 0 }}
+                      transition={{ duration: 0.25, ease: "easeInOut" }}
+                    >
+                      <Plus size={16} />
+                    </motion.div>
+                  </div>
                 </button>
 
+                {/* Animated Expandable Body */}
                 <AnimatePresence initial={false}>
                   {isOpen && (
                     <motion.div
+                      key="content"
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{
-                        type: "spring",
-                        stiffness: 300,
-                        damping: 30,
-                        opacity: { duration: 0.2 }
-                      }}
-                      className="overflow-hidden"
+                      transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                     >
-                      <div className="pb-5 text-slate-300 font-mona font-normal leading-relaxed text-xs sm:text-sm pr-8 border-l-2 border-[#FDE047]/30 pl-4 ml-0 mb-1">
+                      <div className="px-5 pb-5 pt-1 text-slate-300 font-mona font-normal text-xs sm:text-sm leading-relaxed border-t border-white/05 mt-1">
                         {faq.a}
                       </div>
                     </motion.div>
@@ -120,30 +135,22 @@ export default function FAQ() {
           })}
         </div>
 
-        {/* Dedicated Support Row */}
+        {/* Still Have Questions? Quick WhatsApp CTA */}
         <motion.div
-          className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 text-center sm:text-left bg-white/[0.03] border border-white/10 rounded-2xl px-6 py-5"
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3 }}
+          className="mt-8 text-center"
         >
-          <div>
-            <h4 className="text-white font-bold font-hubot text-sm mb-1">
-              Have a specific model inquiry or custom build question?
-            </h4>
-            <p className="text-xs font-mona text-slate-400 font-normal">
-              Senior hardware engineers respond in &lt;15 minutes during store hours.
-            </p>
-          </div>
-          <a href="tel:+919010667726" className="shrink-0">
-            <button
-              type="button"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#FDE047] to-[#FACC15] text-black font-hubot font-bold text-xs uppercase tracking-wider transition-all hover:scale-[1.02] active:scale-[0.98] shadow-md shadow-amber-500/15 cursor-pointer"
-            >
-              <MessageCircle size={14} />
-              Talk to Technician
-            </button>
+          <a
+            href="https://wa.me/919010667726?text=Hi%20TecnoMart,%20I%20have%20a%20question%20about%20your%20devices"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-xs font-hubot uppercase tracking-wider text-slate-400 hover:text-[#FDE047] transition-colors py-2 px-4 rounded-xl border border-white/08 hover:border-[#FDE047]/30 bg-white/02"
+          >
+            <MessageCircle size={14} className="text-[#FDE047]" />
+            <span>Have a different question? Chat on WhatsApp</span>
           </a>
         </motion.div>
 

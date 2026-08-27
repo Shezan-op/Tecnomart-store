@@ -16,6 +16,7 @@ import WhereToFindUs from '../components/WhereToFindUs';
 import OurJourney from '../components/OurJourney';
 import FAQ from '../components/FAQ';
 import Footer from '../components/Footer';
+import ScrollProgress from '../components/ScrollProgress';
 
 export default function Page() {
   useEffect(() => {
@@ -70,6 +71,7 @@ export default function Page() {
 
   return (
     <main>
+      <ScrollProgress />
       <Navigation />
 
       <HeroSequence />
