@@ -1,0 +1,297 @@
+.mobileBackSection {
+  width: 100%;
+  position: relative;
+  background: transparent;
+}
+
+/* The wrapper component handles the sticky track now */
+.contentWrapper {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  min-height: 100vh;
+  position: relative;
+  z-index: 10;
+}
+
+@media (max-width: 1024px) {
+  .mobileBackSection { padding-bottom: 60px; }
+  .contentWrapper { min-height: auto; }
+}
+
+/* Feature Text */
+.textContainer {
+  text-align: center;
+  position: absolute;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  opacity: 1;
+  z-index: 40;
+  text-shadow: 0 4px 32px rgba(0,0,0,0.8);
+  pointer-events: none;
+}
+
+.textContainer h2 {
+  font-family: 'Hubot Sans', sans-serif;
+  font-size: clamp(1.75rem, 2.8vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  margin-bottom: 0.25rem;
+  background: linear-gradient(to right, #fff, #cbd5e1);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.textContainer p {
+  font-family: 'Mona Sans', sans-serif;
+  color: #94a3b8;
+  font-size: clamp(0.9rem, 1.1vw, 1.1rem);
+  line-height: 1.4;
+  font-weight: 400;
+  margin: 0;
+}
+
+/* Main Display Area (Desktop pointers) */
+.displayArea {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: clamp(740px, 74vw, 890px);
+  position: absolute;
+  top: 57%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.featureColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 70px;
+  width: clamp(170px, 17vw, 220px);
+  flex-shrink: 0;
+  z-index: 20;
+}
+
+.featureColumnLeft .featureItem {
+  align-items: flex-end;
+  text-align: right;
+}
+
+.featureColumnRight .featureItem {
+  align-items: flex-start;
+  text-align: left;
+}
+
+/* Plain Text Feature Items (No Card Box) */
+.featureItem {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.cardIcon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: rgba(253, 224, 71, 0.1);
+  border: 1px solid rgba(253, 224, 71, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  color: #FDE047;
+}
+
+.cardIcon svg {
+  width: 18px;
+  height: 18px;
+  filter: drop-shadow(0 0 4px rgba(253, 224, 71, 0.5));
+}
+
+.featureItem h4 {
+  font-family: 'Hubot Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #fff;
+  margin: 0 0 5px;
+}
+
+.featureItem p {
+  font-family: 'Mona Sans', sans-serif;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.4;
+  font-weight: 400;
+  margin: 0;
+}
+
+.pointerSvg {
+  position: absolute;
+  top: 50%;
+  width: clamp(75px, 8vw, 120px);
+  height: 40px;
+  overflow: visible;
+  z-index: -1;
+  pointer-events: none;
+  filter: drop-shadow(0 0 6px rgba(253, 224, 71, 0.8));
+}
+
+.featureColumnLeft .pointerSvg { 
+  left: calc(100% + 10px); 
+  transform: translateY(-50%); 
+}
+
+.featureColumnRight .pointerSvg { 
+  right: calc(100% + 10px); 
+  transform: translateY(-50%); 
+}
+
+@media (max-width: 1200px) {
+  .pointerSvg { display: none; }
+}
+
+/* Phone Container */
+.phoneContainer {
+  position: relative;
+  perspective: 1800px;
+  transform-style: preserve-3d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: min(700px, 78vh);
+}
+
+/* Responsive visibility */
+.desktopOnly { display: block; }
+.mobileOnly { display: none; }
+
+@media (max-width: 1024px) {
+  .desktopOnly { display: none; }
+  .mobileOnly { display: block; }
+  
+  .textContainer {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+    margin-bottom: 30px;
+  }
+  
+  .mobileSectionBlock {
+    padding: 60px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .mobileSectionHeader {
+    text-align: center;
+    padding: 0 24px;
+    margin-bottom: 30px;
+  }
+
+  .mobileSectionSub {
+    font-family: 'Mona Sans', sans-serif;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 8px;
+    line-height: 1.5;
+    font-weight: 400;
+  }
+
+  .mobilePhoneWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 45vh;
+    perspective: 1200px;
+    margin-bottom: 30px;
+  }
+  
+  .mobilePhoneWrapper > div {
+    transform-style: preserve-3d;
+    transform: rotateY(180deg);
+  }
+
+  .mobileAccordion {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 90%;
+    max-width: 500px;
+    margin: 20px auto 0;
+    z-index: 20;
+  }
+
+  .mobileStoreBtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #fde047 0%, #facc15 100%);
+    border: none;
+    border-radius: 8px;
+    color: #000000;
+    font-family: 'Hubot Sans', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    margin: 0 auto 12px;
+    width: fit-content;
+    align-self: center;
+    box-shadow: 0 4px 16px rgba(250, 204, 21, 0.25);
+  }
+  
+  .accordionItem {
+    background: #111318;
+    border: 1px solid rgba(253, 224, 71, 0.3);
+    border-radius: 12px;
+    padding: 16px;
+  }
+  
+  .accordionItem summary {
+    font-family: 'Hubot Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    list-style: none;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .accordionItem summary::-webkit-details-marker { display: none; }
+  .accordionItem summary::after { 
+    content: '+'; 
+    color: #FDE047; 
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+  .accordionItem[open] summary::after { content: '−'; }
+  
+  .accordionItem p {
+    font-family: 'Mona Sans', sans-serif;
+    margin-top: 12px;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.7);
+    font-weight: 400;
+  }
+}

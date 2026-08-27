@@ -1,0 +1,325 @@
+.phone3d {
+  --phone-h: min(680px, 72vh);
+  --phone-w: calc(var(--phone-h) * 360 / 740);
+  --phone-d: 22px;
+  --phone-r: 44px;
+
+  width: var(--phone-w);
+  height: var(--phone-h);
+  position: relative;
+  transform-style: preserve-3d;
+  z-index: 10;
+  will-change: transform;
+}
+
+@media (max-width: 640px) {
+  .phone3d {
+    --phone-h: min(450px, 55vh);
+    --phone-w: calc(var(--phone-h) * 360 / 740);
+  }
+}
+
+.rimLayer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: 44px;
+  background-color: #1c1c1e;
+  border: 1px solid #28282b;
+}
+
+.face {
+  position: absolute;
+  border-radius: var(--phone-r);
+}
+
+.faceFront {
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: translateZ(calc(var(--phone-d) / 2));
+  background: #000;
+  padding: 0.375rem; 
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+}
+
+.innerScreen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #050505;
+  border-radius: 36px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Safari/Chrome fix for clipping iframe with border-radius in 3D space */
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+  mask-image: radial-gradient(white, black);
+  backface-visibility: hidden;
+}
+.innerScreen h3,
+.innerScreen h2 { color: #fff; }
+.innerScreen p { color: rgba(255,255,255,0.5); }
+
+.faceBack {
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: rotateY(180deg) translateZ(calc(var(--phone-d) / 2));
+  background-color: #8c8f94; 
+  border: 1px solid rgba(255, 255, 255, 0.05); 
+  box-shadow: inset 0 0 60px rgba(0,0,0,0.15);
+  overflow: hidden;
+  position: relative;
+}
+
+.cameraBump {
+  position: absolute;
+  top: 24px; left: 24px;
+  width: 36px; height: 110px;
+  display: flex; flex-direction: column; justify-content: space-between; align-items: center;
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.lens {
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  background: #050505;
+  border: 1px solid rgba(255,255,255,0.15);
+  box-shadow: 2px 4px 8px rgba(0,0,0,0.2), inset 0 2px 4px rgba(0,0,0,1);
+  position: relative;
+}
+
+.lens::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: #1a1a1c;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,1);
+}
+
+.flash {
+  position: absolute;
+  top: 40px;
+  left: 72px;
+  width: 6px; height: 6px;
+  background: #fdfdfd;
+  border-radius: 50%;
+  box-shadow: inset 0 0 2px rgba(0,0,0,0.3);
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+.samsungLogo {
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(0, 0, 0, 0.25);
+  width: 80px; height: 26px;
+}
+
+.glareContainer {
+  position: absolute;
+  inset: 0;
+  border-radius: 44px;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 50;
+}
+
+.glareFront, .glareBack {
+  position: absolute;
+  top: -50%; bottom: -50%;
+  width: 200%;
+  transform: rotate(30deg);
+  filter: blur(8px);
+}
+
+.glareFront {
+  background: linear-gradient(to right, transparent, rgba(255,255,255,0.2), transparent);
+}
+
+.glareBack {
+  background: linear-gradient(to right, transparent, rgba(255,255,255,0.05), transparent);
+}
+
+.faceEdge {
+  position: absolute;
+  background: #292C2E;
+}
+.faceRight {
+  width: var(--phone-d); height: calc(100% - var(--phone-r) * 2 + 2px);
+  top: calc(var(--phone-r) - 1px); left: 50%;
+  transform: translateX(-50%) rotateY(90deg) translateZ(calc(var(--phone-w) / 2));
+  background: linear-gradient(to bottom, #2C2C2E, #3A3A3C 20%, #1C1C1E 50%, #050505);
+}
+.faceLeft {
+  width: var(--phone-d); height: calc(100% - var(--phone-r) * 2 + 2px);
+  top: calc(var(--phone-r) - 1px); left: 50%;
+  transform: translateX(-50%) rotateY(-90deg) translateZ(calc(var(--phone-w) / 2));
+  background: linear-gradient(to bottom, #2C2C2E, #3A3A3C 20%, #1C1C1E 50%, #050505);
+}
+.faceTop {
+  height: var(--phone-d); width: calc(100% - var(--phone-r) * 2 + 2px);
+  left: calc(var(--phone-r) - 1px); top: 50%;
+  transform: translateY(-50%) rotateX(90deg) translateZ(calc(var(--phone-h) / 2));
+  background: #2C2C2E;
+}
+.faceBottom {
+  height: var(--phone-d); width: calc(100% - var(--phone-r) * 2 + 2px);
+  left: calc(var(--phone-r) - 1px); top: 50%;
+  transform: translateY(-50%) rotateX(-90deg) translateZ(calc(var(--phone-h) / 2));
+  background: #050505;
+}
+
+/* Curved Arrows */
+.curvedArrow {
+  position: absolute;
+  top: var(--top);
+  width: 10vw;
+  height: 80px;
+  pointer-events: none;
+  z-index: 10;
+}
+.pointerLeft { right: -10vw; }
+.pointerRight { left: -10vw; }
+
+/* Mobile App Mockup UI */
+.mobileAppMockup {
+  width: 100%;
+  height: 100%;
+  background: #121212;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.appHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 20px 10px;
+  background: rgba(18, 18, 18, 0.8);
+  backdrop-filter: blur(10px);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.appHeader span {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+.appHeader svg {
+  width: 20px;
+  height: 20px;
+  color: #fff;
+}
+
+.appProductImage {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  background: radial-gradient(circle at center, #2a2a2a 0%, #121212 70%);
+}
+
+.appProductPlaceholder {
+  width: 80%;
+  height: auto;
+  filter: brightness(0) invert(1);
+  opacity: 0.8;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.phone3d:hover .appProductPlaceholder {
+  transform: scale(1.05) translateY(-20px);
+}
+
+.appProductDetails {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, #1a1a1a 80%, transparent);
+  padding: 20px;
+  padding-bottom: 40px;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.phone3d:hover .appProductDetails {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.appProductHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.appProductName {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+}
+
+.appProductPrice {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #4CAF50;
+}
+
+.appProductSpecs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.appProductSpecs span {
+  font-size: 0.75rem;
+  padding: 4px 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.appBuyButton {
+  margin-top: 8px;
+  padding: 12px;
+  background: #fff;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.appBuyButton:hover {
+  background: #f0f0f0;
+}

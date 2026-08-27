@@ -12,6 +12,7 @@ import PopularPicks from '@/components/redesign/PopularPicks';
 import PromoBanners from '@/components/redesign/PromoBanners';
 import TestimonialsSection from '@/components/redesign/TestimonialsSection';
 import FAQSection from '@/components/redesign/FAQSection';
+import LiveSocialProofWidgets from '@/components/redesign/LiveSocialProofWidgets';
 import ReviewsAndLocation from '@/components/redesign/ReviewsAndLocation';
 import Footer from '@/components/redesign/Footer';
 import RepairModal from '@/components/redesign/RepairModal';
@@ -102,14 +103,17 @@ export default function Page() {
           {/* 10. Customer Testimonials Section */}
           <TestimonialsSection />
 
-          {/* 11. Frequently Asked Questions (FAQ) */}
+          {/* 11. Live Google Reviews & Instagram Jotform Widgets */}
+          <LiveSocialProofWidgets />
+
+          {/* 12. Frequently Asked Questions (FAQ) */}
           <FAQSection />
 
-          {/* 12. Google Reviews & Store Location */}
+          {/* 13. Google Reviews & Store Location */}
           <ReviewsAndLocation />
         </main>
 
-        {/* 13. Dark Footer */}
+        {/* 14. Dark Footer */}
         <Footer />
 
         {/* Mobile Bottom Thumb Navigation & Quick Actions */}
