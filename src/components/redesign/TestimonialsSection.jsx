@@ -23,7 +23,7 @@ export const TESTIMONIALS = [
     avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&h=150&q=80",
     rating: 5,
     purchase: "MacBook Pro M3 Max & 4K Monitor",
-    review: "Got an open-box MacBook Pro at an incredible discount with full Apple warranty. Their team in Jubilee Hills explained all specs patiently and transferred all my project files seamlessly.",
+    review: "Got an open-box MacBook Pro at an incredible discount with full Apple warranty. Their team in Tolichowki explained all specs patiently and transferred all my project files seamlessly.",
     date: "January 2025",
   },
   {

@@ -79,7 +79,7 @@ export default function MobilesPage() {
                 />
               </div>
               <p className="text-xs sm:text-base text-neutral-600 mt-2">
-                100% genuine sealed Indian units, official warranty, no-cost EMI, and instant trade-in at our Jubilee Hills store.
+                100% genuine sealed Indian units, official warranty, no-cost EMI, and instant trade-in at our Tolichowki store.
               </p>
               <div className="w-12 h-1 bg-amber-500 mx-auto mt-2.5 sm:mt-3 rounded-full" />
             </div>

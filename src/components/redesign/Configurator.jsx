@@ -808,7 +808,7 @@ export default function Configurator() {
                     Your Custom PC Build Is Ready!
                   </h2>
                   <p className="text-xs sm:text-sm text-neutral-600 mt-2">
-                    Enter your details below to generate an instant official WhatsApp quotation with our technical team in Jubilee Hills.
+                    Enter your details below to generate an instant official WhatsApp quotation with our technical team in Tolichowki, Hyderabad.
                   </p>
                 </div>
 
@@ -846,7 +846,7 @@ export default function Configurator() {
                     </label>
                     <input
                       type="text"
-                      placeholder="Hyderabad (Jubilee Hills / Hitec City...)"
+                      placeholder="Hyderabad (Tolichowki / Gachibowli / Hitec City...)"
                       value={customer.city}
                       onChange={(e) => setCustomer({ ...customer, city: e.target.value })}
                       className="w-full h-11 px-3.5 text-base sm:text-sm bg-white border border-neutral-300 rounded-xl outline-none focus:border-amber-500 font-medium shadow-xs"
@@ -973,7 +973,7 @@ export default function Configurator() {
           <div className="p-5 rounded-2xl bg-neutral-50 border border-neutral-200 text-xs text-neutral-700 space-y-2">
             <div className="flex items-center gap-2 font-bold text-neutral-900">
               <ShieldCheck className="w-4 h-4 text-amber-500" />
-              <span>Jubilee Hills Direct Assembly</span>
+              <span>Tolichowki In-Store Direct Assembly</span>
             </div>
             <p className="text-neutral-500 leading-relaxed">
               Every rig is assembled on live test benches with thermal imaging and delivered same-day in Hyderabad.

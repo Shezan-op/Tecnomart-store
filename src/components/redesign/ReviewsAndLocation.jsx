@@ -9,7 +9,7 @@ import { BlurRevealText, BlurRevealBox } from './BlurReveal';
 
 export default function ReviewsAndLocation() {
   const openGoogleMaps = () => {
-    const query = encodeURIComponent("Tecno Mart Road No 36 Jubilee Hills Hyderabad");
+    const query = encodeURIComponent("Tecno Mart Opposite Fortune Toyota Service Center 7 Tombs Road Tolichowki Hyderabad");
     window.open(`https://www.google.com/maps/search/?api=1&query=${query}`, '_blank');
   };
 
@@ -36,7 +36,7 @@ export default function ReviewsAndLocation() {
                   {/* Rating & Stars */}
                   <div className="flex items-baseline gap-3 mb-2">
                     <span className="text-3xl sm:text-4xl font-black text-neutral-950">
-                      4.8
+                      4.9
                     </span>
                     <div className="flex items-center gap-1">
                       {[...Array(5)].map((_, i) => (
@@ -70,32 +70,38 @@ export default function ReviewsAndLocation() {
                         src={ASSETS.avatar3}
                         alt="Customer avatar"
                       />
-                      <img
-                        className="inline-block h-10 w-10 rounded-full ring-2 ring-white object-cover"
-                        src={ASSETS.avatar4}
-                        alt="Customer avatar"
-                      />
+                      <div className="inline-flex h-10 w-10 rounded-full ring-2 ring-white bg-amber-500 text-neutral-950 font-black text-xs items-center justify-center">
+                        +1.2k
+                      </div>
                     </div>
-                    <span className="text-xs font-bold text-neutral-700">
-                      +1.2k happy tech buyers
-                    </span>
+                  </div>
+
+                  {/* Recent Customer Quote */}
+                  <div className="p-3.5 bg-white rounded-xl border border-neutral-200/80 mb-6">
+                    <div className="flex items-center gap-1 text-amber-500 mb-1">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-3 h-3 fill-current" />
+                      ))}
+                    </div>
+                    <p className="text-xs text-neutral-700 font-medium italic">
+                      &ldquo;Best place in Hyderabad for custom PC builds and fast screen repairs. Honest diagnostics and genuine parts.&rdquo;
+                    </p>
+                    <p className="text-[11px] text-neutral-500 font-bold mt-1.5">
+                      — Mohammed Fahad (Verified Local Guide)
+                    </p>
                   </div>
                 </div>
 
-                {/* Testimonial Quote */}
-                <div className="bg-white p-4 rounded-xl border border-neutral-200/80 shadow-xs">
-                  <p className="text-xs sm:text-sm font-medium text-neutral-700 italic">
-                    "Great products, genuine parts and amazing service! Got my custom gaming PC built and delivered the same day."
-                  </p>
-                  <div className="flex items-center justify-between mt-2 pt-2 border-t border-neutral-100">
-                    <span className="text-[11px] font-bold text-neutral-900">
-                      — Rahul M., Hyderabad
-                    </span>
-                    <span className="text-[10px] text-emerald-600 font-semibold flex items-center gap-1">
-                      ✓ Verified Buyer
-                    </span>
-                  </div>
-                </div>
+                {/* View on Google Link */}
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=Tecno+Mart+Opposite+Fortune+Toyota+Service+Center+7+Tombs+Road+Tolichowki+Hyderabad"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-xs font-bold text-neutral-700 hover:text-amber-600 flex items-center gap-1 transition-colors"
+                >
+                  <span>Read all 1,250+ reviews on Google</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
               </div>
             </BlurRevealBox>
           </div>
@@ -119,9 +125,9 @@ export default function ReviewsAndLocation() {
 
                     <div className="space-y-1 text-xs sm:text-sm text-neutral-700 font-medium">
                       <p className="font-bold text-neutral-950 text-base">Tecno Mart</p>
-                      <p>H.No: 8-2-293/82/A/1287,</p>
-                      <p>Road No. 36, Jubilee Hills,</p>
-                      <p>Hyderabad, Telangana – 500033</p>
+                      <p>Opposite Fortune Toyota Service Center,</p>
+                      <p>7 Tombs Road, Tolichowki,</p>
+                      <p>Hyderabad, Telangana – 500008</p>
                       <p className="text-neutral-500 text-xs pt-1">
                         Open: Mon - Sun (10:00 AM – 9:30 PM)
                       </p>
@@ -148,14 +154,14 @@ export default function ReviewsAndLocation() {
                     >
                       <img
                         src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=600&q=80"
-                        alt="Tecno Mart Store Location Map Jubilee Hills"
+                        alt="Tecno Mart Store Location Map Tolichowki"
                         className="w-full h-full object-cover group-hover/map:scale-105 transition-transform duration-500"
                       />
                       {/* Map Overlay & Marker */}
                       <div className="absolute inset-0 bg-neutral-950/20 group-hover/map:bg-neutral-950/10 transition-colors flex items-center justify-center">
                         <div className="bg-white/95 px-3 py-1.5 rounded-lg shadow-lg border border-neutral-200 flex items-center gap-2 transform group-hover/map:scale-110 transition-transform">
                           <div className="w-3 h-3 rounded-full bg-red-500 animate-ping" />
-                          <span className="text-xs font-black text-neutral-900">Tecno Mart</span>
+                          <span className="text-xs font-black text-neutral-900">Tecno Mart Tolichowki</span>
                           <ExternalLink className="w-3 h-3 text-neutral-500" />
                         </div>
                       </div>

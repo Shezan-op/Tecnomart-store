@@ -70,7 +70,7 @@ export default function PrivacyPolicyPage() {
               <section className="space-y-2">
                 <h2 className="text-base sm:text-lg font-black text-neutral-950 uppercase">5. Contact Our Privacy Officer</h2>
                 <p>
-                  For any privacy inquiries or to request deletion of your account records, please contact us at <a href="mailto:privacy@tecnomart.in" className="text-amber-600 font-bold underline">privacy@tecnomart.in</a> or visit our store in Jubilee Hills, Hyderabad.
+                  For any privacy inquiries or to request deletion of your account records, please contact us at <a href="mailto:privacy@tecnomart.in" className="text-amber-600 font-bold underline">privacy@tecnomart.in</a> or visit our store in Tolichowki, Hyderabad.
                 </p>
               </section>
             </div>

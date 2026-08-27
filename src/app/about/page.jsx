@@ -76,7 +76,7 @@ export default function AboutPage() {
                   TecnoMart began with a simple observation in 2016: finding authentic tech products, fair pricing, and trustworthy repair engineers under one roof was nearly impossible in the local retail market. Customers were forced to choose between overpriced showroom markups and unreliable grey-market repairs.
                 </p>
                 <p>
-                  We established our flagship store on Road No. 36, Jubilee Hills, with an uncompromising commitment: <strong>100% genuine parts, transparent diagnostics with upfront pricing, and personalized advice tailored to every customer's budget.</strong>
+                  We established our flagship store Opposite Fortune Toyota Service Center, 7 Tombs Road, Tolichowki, with an uncompromising commitment: <strong>100% genuine parts, transparent diagnostics with upfront pricing, and personalized advice tailored to every customer's budget.</strong>
                 </p>
                 <p>
                   Today, over 45,000 students, developers, creative professionals, and esports gamers trust TecnoMart for their hardware upgrades and critical repairs.
@@ -92,7 +92,7 @@ export default function AboutPage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-4 sm:p-6">
                     <span className="text-xs font-bold text-white">
-                      📍 Flagship Store &amp; Service Hub — Jubilee Hills, Hyderabad
+                      📍 Flagship Store &amp; Service Hub — 7 Tombs Road, Tolichowki, Hyderabad
                     </span>
                   </div>
                 </div>

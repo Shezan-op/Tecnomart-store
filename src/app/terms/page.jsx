@@ -56,7 +56,7 @@ export default function TermsPage() {
               <section className="space-y-2">
                 <h2 className="text-base sm:text-lg font-black text-neutral-950 uppercase">3. Repair Service SLA &amp; 90-Day Coverage</h2>
                 <p>
-                  Screens, batteries, charging ports, and micro-soldered IC replacements performed at our Jubilee Hills service center include a <strong>90-Day Functional Warranty</strong> on the replaced component. In the rare event a replaced component fails under normal usage within 90 days, we repair or replace the part at zero cost.
+                  Screens, batteries, charging ports, and micro-soldered IC replacements performed at our Tolichowki service center include a <strong>90-Day Functional Warranty</strong> on the replaced component. In the rare event a replaced component fails under normal usage within 90 days, we repair or replace the part at zero cost.
                 </p>
               </section>
 

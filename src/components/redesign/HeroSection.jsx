@@ -55,7 +55,7 @@ export default function HeroSection({ onOpenBudgetFinder, onOpenRepairModal }) {
             <BlurRevealBox delay={0.55} yOffset={20}>
               <p className="text-sm sm:text-lg text-neutral-600 font-normal leading-relaxed max-w-lg">
                 Mobiles, Laptops, Gaming PCs &amp; Expert Repairs – <br className="hidden sm:inline" />
-                All under one roof in Jubilee Hills.
+                All under one roof in Tolichowki, Hyderabad.
               </p>
             </BlurRevealBox>
 
@@ -132,7 +132,6 @@ export default function HeroSection({ onOpenBudgetFinder, onOpenRepairModal }) {
               <div className="absolute bottom-4 sm:bottom-6 w-[88%] h-24 sm:h-28 bg-gradient-to-b from-white via-neutral-100 to-neutral-200 rounded-[100%] shadow-[0_24px_50px_-10px_rgba(0,0,0,0.15)] border-t border-white flex items-center justify-center">
                 {/* Pedestal Rim Layer */}
                 <div className="w-[96%] h-[80%] rounded-[100%] bg-gradient-to-b from-neutral-50 to-neutral-200/90 shadow-inner flex items-center justify-center border-t border-white/80">
-                  {/* Subtle Wing Emblem on Pedestal Front */}
                   <div className="absolute bottom-2 text-amber-500/70">
                     <svg width="40" height="24" viewBox="0 0 40 24" fill="currentColor">
                       <path d="M20 2L24 10H30L25 15L27 22L20 18L13 22L15 15L10 10H16L20 2Z" opacity="0.85" />
@@ -143,7 +142,7 @@ export default function HeroSection({ onOpenBudgetFinder, onOpenRepairModal }) {
                 </div>
               </div>
 
-              {/* Product 1: RGB Gaming PC Tower (Left / Center) */}
+              {/* Product 1: RGB Gaming PC */}
               <motion.div
                 animate={{ y: [0, -6, 0] }}
                 transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
@@ -159,7 +158,7 @@ export default function HeroSection({ onOpenBudgetFinder, onOpenRepairModal }) {
                 </div>
               </motion.div>
 
-              {/* Product 2: Sleek Open Laptop (Center / Right) */}
+              {/* Product 2: Sleek Laptop */}
               <motion.div
                 animate={{ y: [0, -8, 0] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
@@ -174,7 +173,7 @@ export default function HeroSection({ onOpenBudgetFinder, onOpenRepairModal }) {
                 </div>
               </motion.div>
 
-              {/* Product 3: White iPhone 15 / Smartphone (Front Right Base) */}
+              {/* Product 3: Smartphone */}
               <motion.div
                 animate={{ y: [0, -4, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
@@ -183,7 +182,7 @@ export default function HeroSection({ onOpenBudgetFinder, onOpenRepairModal }) {
                 <div className="relative filter drop-shadow-[0_12px_20px_rgba(0,0,0,0.3)] hover:scale-110 transition-transform duration-300">
                   <img
                     src={ASSETS.heroPhone}
-                    alt="iPhone 15 Flagship Smartphone"
+                    alt="Flagship Smartphone"
                     className="w-full h-auto object-contain rounded-2xl"
                   />
                 </div>

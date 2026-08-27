@@ -423,7 +423,7 @@ export default function MobileDetailPage({ params }) {
                 </div>
               ) : (
                 <div className="p-6 bg-white rounded-2xl border border-neutral-200 text-center text-xs text-neutral-500">
-                  Be the first to review this new arrival at TecnoMart Jubilee Hills!
+                  Be the first to review this new arrival at TecnoMart Tolichowki!
                 </div>
               )}
             </div>

@@ -23,7 +23,7 @@ export const FAQS = [
   },
   {
     question: "How fast can you repair my cracked phone or laptop screen?",
-    answer: "Most smartphone screen and battery replacements are completed within 45 to 90 minutes at our Jubilee Hills service center. For complex repairs (motherboard IC repair, liquid damage treatment), we provide a 24 to 48-hour turnaround with detailed diagnostics.",
+    answer: "Most smartphone screen and battery replacements are completed within 45 to 90 minutes at our Tolichowki service center. For complex repairs (motherboard IC repair, liquid damage treatment), we provide a 24 to 48-hour turnaround with detailed diagnostics.",
     category: "Repairs",
   },
   {

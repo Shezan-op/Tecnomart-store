@@ -97,7 +97,7 @@ export default function CorporatePage() {
 
                 <div className="pt-6 sm:pt-8 border-t border-neutral-800 flex items-center justify-between text-xs text-neutral-400 mt-6">
                   <span>Trusted by 150+ IT studios</span>
-                  <span className="font-bold text-amber-400">Jubilee Hills Hub</span>
+                  <span className="font-bold text-amber-400">Tolichowki Hub</span>
                 </div>
               </div>
 

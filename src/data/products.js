@@ -14,7 +14,7 @@ export const MOBILES_DATA = [
     badgeColor: "bg-amber-500 text-neutral-950",
     rating: 4.9,
     reviewCount: 384,
-    stockStatus: "In Stock at Jubilee Hills Store (Ready for pickup or same-day dispatch)",
+    stockStatus: "In Stock at Tolichowki Store (Ready for pickup or same-day dispatch)",
     deliveryTime: "Delivered within 3 to 4 hours in Hyderabad",
     warrantyPeriod: "1 Year Official Apple India Warranty with sealed tax invoice",
     images: [
@@ -62,7 +62,7 @@ export const MOBILES_DATA = [
         rating: 5,
         date: "3 days ago",
         title: "Battery life easily lasts 1.5 days",
-        comment: "Picked it up directly from the Jubilee Hills store. They did the complete data transfer from my old 13 Pro in 15 minutes. 100% genuine Indian unit with proper bill.",
+        comment: "Picked it up directly from the Tolichowki store. They did the complete data transfer from my old 13 Pro in 15 minutes. 100% genuine Indian unit with proper bill.",
       },
       {
         author: "Sneha Nair",
@@ -89,7 +89,7 @@ export const MOBILES_DATA = [
     badgeColor: "bg-blue-600 text-white",
     rating: 4.8,
     reviewCount: 295,
-    stockStatus: "In Stock at Jubilee Hills Store",
+    stockStatus: "In Stock at Tolichowki Store",
     deliveryTime: "Same-Day Doorstep Delivery across Hyderabad",
     warrantyPeriod: "1 Year Official Samsung India Warranty + 7 Years OS Updates",
     images: [
@@ -216,7 +216,7 @@ export const MOBILES_DATA = [
     badgeColor: "bg-purple-600 text-white",
     rating: 4.7,
     reviewCount: 164,
-    stockStatus: "In Stock at Jubilee Hills Store",
+    stockStatus: "In Stock at Tolichowki Store",
     deliveryTime: "Same-Day Dispatch in Hyderabad",
     warrantyPeriod: "1 Year Official Google India Warranty",
     images: [
@@ -361,7 +361,7 @@ export const LAPTOPS_DATA = [
     badgeColor: "bg-neutral-900 text-white",
     rating: 5.0,
     reviewCount: 142,
-    stockStatus: "In Stock at Jubilee Hills Store (Brand New Sealed)",
+    stockStatus: "In Stock at Tolichowki Store (Brand New Sealed)",
     deliveryTime: "Same-Day Delivery in Hyderabad with Free Onsite Setup",
     warrantyPeriod: "1 Year Official Apple India Warranty (Extendable via AppleCare+)",
     images: [
@@ -405,7 +405,7 @@ export const LAPTOPS_DATA = [
         rating: 5,
         date: "4 days ago",
         title: "Exports 8K video timelines silently",
-        comment: "This laptop is on another level for DaVinci Resolve color grading. TecnoMart delivered it same-day to our Jubilee Hills studio with complete GST bill for ITC claim.",
+        comment: "This laptop is on another level for DaVinci Resolve color grading. TecnoMart delivered it same-day to our Tolichowki studio with complete GST bill for ITC claim.",
       }
     ]
   },
@@ -425,7 +425,7 @@ export const LAPTOPS_DATA = [
     badgeColor: "bg-red-600 text-white",
     rating: 4.9,
     reviewCount: 96,
-    stockStatus: "In Stock at Jubilee Hills Store",
+    stockStatus: "In Stock at Tolichowki Store",
     deliveryTime: "Same-Day Delivery in Hyderabad",
     warrantyPeriod: "2 Years Official ASUS Global Warranty + 1 Year Damage Protection",
     images: [
@@ -531,7 +531,7 @@ export const LAPTOPS_DATA = [
     badgeColor: "bg-amber-500 text-neutral-950 font-black",
     rating: 4.8,
     reviewCount: 180,
-    stockStatus: "In Stock at Jubilee Hills",
+    stockStatus: "In Stock at Tolichowki",
     deliveryTime: "Same-Day Delivery in Hyderabad",
     warrantyPeriod: "2 Years Lenovo Legion Ultimate Support",
     images: [
