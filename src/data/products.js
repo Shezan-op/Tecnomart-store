@@ -18,9 +18,9 @@ export const MOBILES_DATA = [
     deliveryTime: "Delivered within 3 to 4 hours in Hyderabad",
     warrantyPeriod: "1 Year Official Apple India Warranty with sealed tax invoice",
     images: [
+      "/bento-grid-images/samsungs24.png",
       "https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=1000&q=80",
       "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=1000&q=80",
-      "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?auto=format&fit=crop&w=1000&q=80",
     ],
     colors: [
       { name: "Desert Titanium", hex: "#C7B39B" },
@@ -93,9 +93,9 @@ export const MOBILES_DATA = [
     deliveryTime: "Same-Day Doorstep Delivery across Hyderabad",
     warrantyPeriod: "1 Year Official Samsung India Warranty + 7 Years OS Updates",
     images: [
+      "/bento-grid-images/samsungs24.png",
       "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&fit=crop&w=1000&q=80",
       "https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=1000&q=80",
-      "https://images.unsplash.com/photo-1580910051074-3eb694886505?auto=format&fit=crop&w=1000&q=80",
     ],
     colors: [
       { name: "Titanium Gray", hex: "#77767B" },
@@ -160,8 +160,8 @@ export const MOBILES_DATA = [
     deliveryTime: "Same-Day Delivery in Hyderabad",
     warrantyPeriod: "1 Year Official OnePlus Warranty",
     images: [
+      "/bento-grid-images/samsungs24.png",
       "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=1000&q=80",
-      "https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=1000&q=80",
     ],
     colors: [
       { name: "Flowy Emerald", hex: "#295A4B" },
@@ -220,6 +220,7 @@ export const MOBILES_DATA = [
     deliveryTime: "Same-Day Dispatch in Hyderabad",
     warrantyPeriod: "1 Year Official Google India Warranty",
     images: [
+      "/bento-grid-images/samsungs24.png",
       "https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=1000&q=80",
     ],
     colors: [
@@ -271,6 +272,7 @@ export const MOBILES_DATA = [
     deliveryTime: "Same-Day Delivery in Hyderabad",
     warrantyPeriod: "1 Year Official Apple India Warranty",
     images: [
+      "/bento-grid-images/samsungs24.png",
       "https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=1000&q=80",
     ],
     colors: [
@@ -317,6 +319,7 @@ export const MOBILES_DATA = [
     deliveryTime: "Same-Day in Hyderabad",
     warrantyPeriod: "1 Year Samsung India Warranty + 1 Year Screen Protection",
     images: [
+      "/bento-grid-images/samsungs24.png",
       "https://images.unsplash.com/photo-1580910051074-3eb694886505?auto=format&fit=crop&w=1000&q=80",
     ],
     colors: [
@@ -365,6 +368,7 @@ export const LAPTOPS_DATA = [
     deliveryTime: "Same-Day Delivery in Hyderabad with Free Onsite Setup",
     warrantyPeriod: "1 Year Official Apple India Warranty (Extendable via AppleCare+)",
     images: [
+      "/bento-grid-images/mackbook.png",
       "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=1000&q=80",
       "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=1000&q=80",
     ],
@@ -429,8 +433,8 @@ export const LAPTOPS_DATA = [
     deliveryTime: "Same-Day Delivery in Hyderabad",
     warrantyPeriod: "2 Years Official ASUS Global Warranty + 1 Year Damage Protection",
     images: [
+      "/bento-grid-images/mackbook.png",
       "https://images.unsplash.com/photo-1603302576837-37561b2e2302?auto=format&fit=crop&w=1000&q=80",
-      "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&w=1000&q=80",
     ],
     colors: [
       { name: "Eclipse Gray", hex: "#3B3D40" },
@@ -490,6 +494,7 @@ export const LAPTOPS_DATA = [
     deliveryTime: "Same-Day Delivery in Hyderabad",
     warrantyPeriod: "1 Year Dell Onsite ProSupport",
     images: [
+      "/bento-grid-images/mackbook.png",
       "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=1000&q=80",
     ],
     colors: [
@@ -535,6 +540,7 @@ export const LAPTOPS_DATA = [
     deliveryTime: "Same-Day Delivery in Hyderabad",
     warrantyPeriod: "2 Years Lenovo Legion Ultimate Support",
     images: [
+      "/bento-grid-images/mackbook.png",
       "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&w=1000&q=80",
     ],
     colors: [{ name: "Onyx Grey", hex: "#3F4145" }],
@@ -577,6 +583,7 @@ export const LAPTOPS_DATA = [
     deliveryTime: "Same-Day in Hyderabad",
     warrantyPeriod: "1 Year Official Apple India Warranty",
     images: [
+      "/bento-grid-images/mackbook.png",
       "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=1000&q=80",
     ],
     colors: [
@@ -624,6 +631,7 @@ export const LAPTOPS_DATA = [
     deliveryTime: "Same-Day Delivery in Hyderabad",
     warrantyPeriod: "1 Year Official HP India Warranty",
     images: [
+      "/bento-grid-images/mackbook.png",
       "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?auto=format&fit=crop&w=1000&q=80",
     ],
     colors: [{ name: "Mica Silver", hex: "#4B4D52" }],

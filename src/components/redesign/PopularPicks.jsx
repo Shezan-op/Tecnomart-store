@@ -31,9 +31,10 @@ export default function PopularPicks({ onAddToCart, addedItems = {} }) {
 
   const getProductHref = (prod) => {
     if (prod.id === 'p1') return '/mobiles/iphone-16-pro-max';
-    if (prod.id === 'p2') return '/laptops/asus-rog-zephyrus-g16-2025';
-    if (prod.id === 'p3') return '/mobiles/samsung-galaxy-s24-ultra';
-    if (prod.id === 'p4') return '/accessories';
+    if (prod.id === 'p2') return '/accessories';
+    if (prod.id === 'p3') return '/laptops/asus-rog-zephyrus-g16-2025';
+    if (prod.id === 'p4') return '/laptops/lenovo-legion-pro-5i';
+    if (prod.id === 'p5') return '/mobiles/iphone-15';
     return '/mobiles';
   };
 

@@ -1,32 +1,32 @@
-// Premium studio-quality tech product assets with transparent / clean seamless backgrounds matching the screenshot
+// Local high-resolution transparent assets & fallback assets for 100% reliable rendering across all preview & production environments
 
 export const ASSETS = {
   // Brand Logo
   logoGold: `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none"><path d="M50 15L62 38H78L65 52L70 75L50 62L30 75L35 52L22 38H38L50 15Z" fill="%23F59E0B"/><path d="M50 25L58 41H70L60 52L64 70L50 60L36 70L40 52L30 41H42L50 25Z" fill="%23D97706"/><path d="M12 28C22 28 32 35 38 45L34 50C29 42 21 36 12 36V28Z" fill="%23F59E0B"/><path d="M88 28C78 28 68 35 62 45L66 50C71 42 79 36 88 36V28Z" fill="%23F59E0B"/><path d="M5 40C18 40 28 48 34 58L30 62C25 54 16 47 5 47V40Z" fill="%23D97706"/><path d="M95 40C82 40 72 48 66 58L70 62C75 54 84 47 95 47V40Z" fill="%23D97706"/></svg>`,
 
-  // Hero Pedestal Products (Studio / Clean transparent & cutout styles)
-  heroPc: "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=700&q=80",
-  heroLaptop: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=700&q=80",
-  heroPhone: "https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=600&q=80",
+  // Hero Pedestal Products (High-res transparent cutouts from public/)
+  heroPc: "/bento-grid-images/pc.png",
+  heroLaptop: "/bento-grid-images/mackbook.png",
+  heroPhone: "/bento-grid-images/samsungs24.png",
 
-  // Category Visuals (Clean transparent / studio-lit)
-  catMobile: "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=400&q=80",
-  catLaptop: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=400&q=80",
-  catGamingPc: "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=400&q=80",
-  catAccessories: "https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=400&q=80",
+  // Category Visuals (Clean transparent PNGs)
+  catMobile: "/bento-grid-images/samsungs24.png",
+  catLaptop: "/bento-grid-images/mackbook.png",
+  catGamingPc: "/bento-grid-images/pc.png",
+  catAccessories: "/bento-grid-images/headsetoverthehead.png",
 
   // Gaming Banner Visual
-  gamingBannerPc: "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=900&q=80",
+  gamingBannerPc: "/white-setup.jpg",
 
   // Popular Picks Products
-  productSmartwatch: "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?auto=format&fit=crop&w=500&q=80",
-  productHeadphones: "https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=500&q=80",
-  productGpu: "https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&fit=crop&w=500&q=80",
-  productGamingLaptop: "https://images.unsplash.com/photo-1603302576837-37561b2e2302?auto=format&fit=crop&w=500&q=80",
-  productIphone15: "https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=500&q=80",
+  productSmartwatch: "/bento-grid-images/headsetoverthehead.png",
+  productHeadphones: "/bento-grid-images/headsetoverthehead.png",
+  productGpu: "/GPU-4050.png",
+  productGamingLaptop: "/bento-grid-images/mackbook.png",
+  productIphone15: "/bento-grid-images/samsungs24.png",
 
   // Highlight Cards
-  refurbishedLaptop: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=700&q=80",
+  refurbishedLaptop: "/bento-grid-images/mackbook.png",
   repairTechnician: "https://images.unsplash.com/photo-1588508065123-287b28e013da?auto=format&fit=crop&w=700&q=80",
 
   // Review Avatars
@@ -174,7 +174,7 @@ export const POPULAR_PRODUCTS = [
   {
     id: "p3",
     name: "Zotac Gaming RTX 4060",
-    subtitle: "8GB",
+    subtitle: "8GB Dedicated GPU",
     price: "₹32,999",
     rawPrice: 32999,
     badge: "BESTSELLER",
