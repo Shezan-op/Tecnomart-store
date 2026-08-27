@@ -24,7 +24,7 @@ export default function RepairModal({ isOpen, onClose }) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-neutral-950/75 backdrop-blur-sm animate-in fade-in duration-200">
-      <div className="relative w-full max-w-md max-h-[90vh] overflow-y-auto bg-white rounded-3xl shadow-2xl border border-neutral-200 p-5 sm:p-8 animate-in zoom-in-95 duration-200">
+      <div data-lenis-prevent className="relative w-full max-w-md max-h-[90vh] overflow-y-auto bg-white rounded-3xl shadow-2xl border border-neutral-200 p-5 sm:p-8 animate-in zoom-in-95 duration-200">
         
         {/* Close Button (min 44x44px touch target) */}
         <button
