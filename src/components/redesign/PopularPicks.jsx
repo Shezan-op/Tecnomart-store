@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useRef } from 'react';
+import Link from 'next/link';
 import { ChevronLeft, ChevronRight, ShoppingBag, Check } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { POPULAR_PRODUCTS } from '@/data/redesignAssets';
@@ -11,7 +12,7 @@ export default function PopularPicks({ onAddToCart, addedItems = {} }) {
 
   const scroll = (direction) => {
     if (scrollContainerRef.current) {
-      const scrollAmount = direction === 'left' ? -320 : 320;
+      const scrollAmount = direction === 'left' ? -280 : 280;
       scrollContainerRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     }
   };
@@ -29,11 +30,11 @@ export default function PopularPicks({ onAddToCart, addedItems = {} }) {
   };
 
   return (
-    <section id="popular" className="py-12 sm:py-16 bg-white border-b border-neutral-100">
-      <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="popular" className="py-10 sm:py-16 bg-white border-b border-neutral-100">
+      <div className="max-w-[1380px] mx-auto px-3.5 sm:px-6 lg:px-8">
         
         {/* Header Row: Title on Left, View All & Arrows on Right */}
-        <div className="flex items-center justify-between mb-8 sm:mb-10">
+        <div className="flex items-center justify-between mb-6 sm:mb-10">
           <div>
             <BlurRevealText
               text="POPULAR PICKS"
@@ -45,46 +46,42 @@ export default function PopularPicks({ onAddToCart, addedItems = {} }) {
               whileInView={{ scaleX: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.25 }}
-              className="w-10 h-1 bg-amber-500 mt-2 rounded-full origin-left"
+              className="w-10 h-1 bg-amber-500 mt-1.5 sm:mt-2 rounded-full origin-left"
             />
           </div>
 
-          <div className="flex items-center gap-3 sm:gap-4">
-            <a
-              href="#all-products"
+          <div className="flex items-center gap-2 sm:gap-4">
+            <Link
+              href="/mobiles"
               className="text-xs sm:text-sm font-bold text-neutral-600 hover:text-amber-600 transition-colors uppercase tracking-wider hidden sm:inline"
             >
               View All
-            </a>
+            </Link>
             
-            {/* Carousel Control Buttons */}
+            {/* Carousel Control Buttons (min 44x44px for easy mobile touch) */}
             <div className="flex items-center gap-1.5">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+              <button
                 onClick={() => scroll('left')}
                 aria-label="Previous Products"
-                className="w-9 h-9 rounded-full border border-neutral-300 hover:border-neutral-900 bg-white hover:bg-neutral-50 flex items-center justify-center text-neutral-700 hover:text-neutral-950 transition-colors shadow-sm cursor-pointer"
+                className="w-10 h-10 sm:w-9 sm:h-9 rounded-full border border-neutral-300 active:border-neutral-900 bg-white active:bg-neutral-100 flex items-center justify-center text-neutral-700 active:scale-95 transition-all shadow-xs cursor-pointer"
               >
                 <ChevronLeft className="w-4 h-4" />
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+              </button>
+              <button
                 onClick={() => scroll('right')}
                 aria-label="Next Products"
-                className="w-9 h-9 rounded-full border border-neutral-300 hover:border-neutral-900 bg-white hover:bg-neutral-50 flex items-center justify-center text-neutral-700 hover:text-neutral-950 transition-colors shadow-sm cursor-pointer"
+                className="w-10 h-10 sm:w-9 sm:h-9 rounded-full border border-neutral-300 active:border-neutral-900 bg-white active:bg-neutral-100 flex items-center justify-center text-neutral-700 active:scale-95 transition-all shadow-xs cursor-pointer"
               >
                 <ChevronRight className="w-4 h-4" />
-              </motion.button>
+              </button>
             </div>
           </div>
         </div>
 
-        {/* Product Cards Row / Horizontal Scroll */}
+        {/* Product Cards Row / Horizontal Snap Scroll on Mobile */}
         <div
           ref={scrollContainerRef}
-          className="grid grid-flow-col auto-cols-[minmax(220px,260px)] sm:auto-cols-[minmax(240px,270px)] gap-4 sm:gap-5 overflow-x-auto pb-4 pt-1 no-scrollbar scroll-smooth"
+          className="grid grid-flow-col auto-cols-[minmax(210px,240px)] sm:auto-cols-[minmax(240px,270px)] gap-3.5 sm:gap-5 overflow-x-auto pb-4 pt-1 no-scrollbar scroll-smooth snap-x snap-mandatory"
         >
           {POPULAR_PRODUCTS.map((prod, idx) => {
             const isAdded = !!addedItems[prod.id];
@@ -92,19 +89,15 @@ export default function PopularPicks({ onAddToCart, addedItems = {} }) {
             return (
               <motion.div
                 key={prod.id}
-                initial={{ opacity: 0, filter: "blur(12px)", y: 25 }}
+                initial={{ opacity: 0, filter: "blur(12px)", y: 20 }}
                 whileInView={{ opacity: 1, filter: "blur(0px)", y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{
-                  duration: 0.6,
-                  delay: idx * 0.08,
+                  duration: 0.5,
+                  delay: idx * 0.06,
                   ease: [0.21, 0.47, 0.32, 0.98],
                 }}
-                whileHover={{
-                  y: -6,
-                  transition: { duration: 0.25, ease: "easeOut" },
-                }}
-                className="group relative bg-white rounded-2xl p-4 sm:p-5 border border-neutral-200 hover:border-amber-400/80 shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_30px_rgba(245,158,11,0.14)] transition-all duration-300 flex flex-col justify-between"
+                className="snap-start group relative bg-white rounded-2xl p-4 sm:p-5 border border-neutral-200 hover:border-amber-400/80 shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_30px_rgba(245,158,11,0.14)] transition-all duration-300 flex flex-col justify-between"
               >
                 {/* Top Badge */}
                 <div className="flex items-center justify-between mb-2">
@@ -118,37 +111,36 @@ export default function PopularPicks({ onAddToCart, addedItems = {} }) {
                 </div>
 
                 {/* Product Image */}
-                <div className="w-full aspect-square bg-neutral-50/60 rounded-xl flex items-center justify-center p-3 mb-4 overflow-hidden group-hover:bg-amber-50/40 transition-colors">
+                <div className="w-full aspect-square bg-neutral-50/60 rounded-xl flex items-center justify-center p-3 mb-3.5 overflow-hidden group-hover:bg-amber-50/40 transition-colors">
                   <img
                     src={prod.image}
                     alt={prod.name}
-                    className="w-full h-full object-contain filter drop-shadow-sm group-hover:scale-110 transition-transform duration-300"
+                    className="w-full h-full object-contain filter drop-shadow-sm group-hover:scale-108 transition-transform duration-300"
                   />
                 </div>
 
                 {/* Product Details & Price */}
                 <div className="space-y-1">
-                  <h3 className="text-sm sm:text-base font-bold text-neutral-900 line-clamp-1 group-hover:text-amber-600 transition-colors">
+                  <h3 className="text-xs sm:text-base font-bold text-neutral-900 line-clamp-1 group-hover:text-amber-600 transition-colors">
                     {prod.name}
                   </h3>
-                  <p className="text-xs text-neutral-500 font-medium">
+                  <p className="text-[11px] sm:text-xs text-neutral-500 font-medium truncate">
                     {prod.subtitle}
                   </p>
 
                   <div className="flex items-center justify-between pt-2">
-                    <span className="text-base sm:text-lg font-black text-neutral-950 tracking-tight">
+                    <span className="text-sm sm:text-lg font-black text-neutral-950 tracking-tight">
                       {prod.price}
                     </span>
 
-                    {/* Add to Cart Button */}
-                    <motion.button
-                      whileTap={{ scale: 0.85 }}
+                    {/* Add to Cart Button (min 40x40px touch area) */}
+                    <button
                       onClick={() => onAddToCart && onAddToCart(prod)}
                       aria-label={`Add ${prod.name} to cart`}
-                      className={`w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-200 cursor-pointer ${
+                      className={`min-w-[38px] min-h-[38px] sm:w-8 sm:h-8 rounded-lg flex items-center justify-center transition-all duration-200 active:scale-90 cursor-pointer ${
                         isAdded
                           ? 'bg-emerald-500 text-white shadow-sm'
-                          : 'bg-amber-50 hover:bg-amber-500 text-amber-700 hover:text-neutral-950 border border-amber-300'
+                          : 'bg-amber-50 active:bg-amber-500 text-amber-700 active:text-neutral-950 border border-amber-300'
                       }`}
                     >
                       {isAdded ? (
@@ -156,7 +148,7 @@ export default function PopularPicks({ onAddToCart, addedItems = {} }) {
                       ) : (
                         <ShoppingBag className="w-4 h-4 stroke-[2]" />
                       )}
-                    </motion.button>
+                    </button>
                   </div>
                 </div>
               </motion.div>

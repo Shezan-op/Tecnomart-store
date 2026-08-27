@@ -17,6 +17,7 @@ import Footer from '@/components/redesign/Footer';
 import RepairModal from '@/components/redesign/RepairModal';
 import SmoothScrollProvider from '@/components/redesign/SmoothScrollProvider';
 import ScrollProgress from '@/components/redesign/ScrollProgress';
+import MobileBottomBar from '@/components/redesign/MobileBottomBar';
 
 export default function Page() {
   const [isRepairOpen, setIsRepairOpen] = useState(false);
@@ -47,7 +48,7 @@ export default function Page() {
 
   return (
     <SmoothScrollProvider>
-      <div className="min-h-screen flex flex-col bg-white text-neutral-900 font-sans selection:bg-amber-500 selection:text-neutral-950">
+      <div className="min-h-screen flex flex-col bg-white text-neutral-900 font-sans selection:bg-amber-500 selection:text-neutral-950 pb-16 lg:pb-0">
         
         {/* Top Scroll Progress Indicator & Back to Top Button */}
         <ScrollProgress />
@@ -110,6 +111,12 @@ export default function Page() {
 
         {/* 13. Dark Footer */}
         <Footer />
+
+        {/* Mobile Bottom Thumb Navigation & Quick Actions */}
+        <MobileBottomBar
+          onOpenRepairModal={() => setIsRepairOpen(true)}
+          cartCount={cartCount}
+        />
 
         {/* Interactive Repair Booking Modal */}
         <RepairModal

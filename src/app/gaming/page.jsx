@@ -6,8 +6,9 @@ import Footer from '@/components/redesign/Footer';
 import RepairModal from '@/components/redesign/RepairModal';
 import SmoothScrollProvider from '@/components/redesign/SmoothScrollProvider';
 import ScrollProgress from '@/components/redesign/ScrollProgress';
+import MobileBottomBar from '@/components/redesign/MobileBottomBar';
 import { BlurRevealText, BlurRevealBox } from '@/components/redesign/BlurReveal';
-import { Flame, Cpu, Gauge, Zap, ShoppingBag, Check, ShieldCheck, ChevronRight } from 'lucide-react';
+import { Gauge, ShoppingBag, Check, ChevronRight } from 'lucide-react';
 import Link from 'next/link';
 
 const GAMING_RIGS = [
@@ -108,15 +109,15 @@ export default function GamingPage() {
 
   return (
     <SmoothScrollProvider>
-      <div className="min-h-screen flex flex-col bg-white text-neutral-900 font-sans selection:bg-amber-500 selection:text-neutral-950">
+      <div className="min-h-screen flex flex-col bg-white text-neutral-900 font-sans selection:bg-amber-500 selection:text-neutral-950 pb-16 lg:pb-0">
         <ScrollProgress />
         <Header onOpenRepairModal={() => setIsRepairOpen(true)} cartCount={cartCount} />
 
-        <main className="flex-1 py-10 sm:py-16">
-          <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
+        <main className="flex-1 py-8 sm:py-16">
+          <div className="max-w-[1380px] mx-auto px-3.5 sm:px-6 lg:px-8">
             
             {/* Gaming Banner Header */}
-            <div className="rounded-3xl bg-neutral-950 text-white p-8 sm:p-14 mb-12 border border-neutral-800 relative overflow-hidden shadow-2xl">
+            <div className="rounded-3xl bg-neutral-950 text-white p-6 sm:p-14 mb-10 sm:mb-12 border border-neutral-800 relative overflow-hidden shadow-2xl">
               <div className="absolute top-0 right-0 w-96 h-96 bg-amber-500/20 rounded-full blur-3xl pointer-events-none" />
               
               <div className="max-w-2xl relative z-10 space-y-4">
@@ -126,17 +127,17 @@ export default function GamingPage() {
                 <div>
                   <BlurRevealText
                     text="BUILT FOR VICTORY"
-                    className="text-4xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-white"
+                    className="text-3xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-white"
                     delay={0.1}
                   />
                 </div>
-                <p className="text-sm sm:text-base text-neutral-300 leading-relaxed">
-                  Every custom gaming rig is handcrafted by veteran engineers in Hyderabad, stress-tested with Cinebench & 3DMark, and comes with a 3-Year Onsite Component Warranty.
+                <p className="text-xs sm:text-base text-neutral-300 leading-relaxed">
+                  Every custom gaming rig is handcrafted by veteran engineers in Hyderabad, stress-tested with Cinebench &amp; 3DMark, and comes with a 3-Year Onsite Component Warranty.
                 </p>
-                <div className="pt-2 flex flex-wrap items-center gap-3">
+                <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
                   <Link
                     href="/pc-builds"
-                    className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-neutral-950 px-6 py-3 rounded-xl text-xs sm:text-sm font-black uppercase tracking-wider transition-all"
+                    className="min-h-[44px] inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-600 active:bg-amber-600 text-neutral-950 px-6 py-3 rounded-xl text-xs sm:text-sm font-black uppercase tracking-wider transition-all active:scale-95"
                   >
                     <span>Open PC Configurator</span>
                     <ChevronRight className="w-4 h-4 stroke-[3]" />
@@ -145,7 +146,7 @@ export default function GamingPage() {
                     href="https://wa.me/919010667726?text=Hi%20TecnoMart!%20I%20want%20a%20custom%20gaming%20PC%20recommendation."
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-xl text-xs sm:text-sm font-bold uppercase tracking-wider transition-all border border-white/20"
+                    className="min-h-[44px] inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 active:bg-white/20 text-white px-6 py-3 rounded-xl text-xs sm:text-sm font-bold uppercase tracking-wider transition-all border border-white/20 active:scale-95"
                   >
                     <span>Talk to PC Specialist</span>
                   </a>
@@ -154,17 +155,17 @@ export default function GamingPage() {
             </div>
 
             {/* Gaming Rigs Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
               {GAMING_RIGS.map((rig, idx) => {
                 const isAdded = !!addedItems[rig.id];
 
                 return (
-                  <BlurRevealBox key={rig.id} delay={idx * 0.1} yOffset={25}>
-                    <div className="group h-full bg-white rounded-3xl p-6 sm:p-8 border border-neutral-200 hover:border-amber-400 shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col justify-between hover:-translate-y-1.5">
+                  <BlurRevealBox key={rig.id} delay={idx * 0.08} yOffset={20}>
+                    <div className="group h-full bg-white rounded-3xl p-5 sm:p-8 border border-neutral-200 hover:border-amber-400 shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col justify-between">
                       <div>
                         {/* Header Badge */}
                         <div className="flex items-center justify-between mb-4">
-                          <span className={`px-3 py-1 rounded-md text-[11px] font-black uppercase tracking-wider ${rig.badgeColor}`}>
+                          <span className={`px-3 py-1 rounded-md text-[10px] sm:text-[11px] font-black uppercase tracking-wider ${rig.badgeColor}`}>
                             {rig.badge}
                           </span>
                           <span className="text-xs font-bold text-amber-600 bg-amber-50 px-2.5 py-0.5 rounded-full flex items-center gap-1">
@@ -174,7 +175,7 @@ export default function GamingPage() {
                         </div>
 
                         {/* Image */}
-                        <div className="w-full aspect-[16/10] bg-neutral-950 rounded-2xl flex items-center justify-center p-4 mb-6 overflow-hidden relative shadow-inner">
+                        <div className="w-full aspect-[16/10] bg-neutral-950 rounded-2xl flex items-center justify-center p-3 sm:p-4 mb-5 overflow-hidden relative shadow-inner">
                           <img
                             src={rig.image}
                             alt={rig.name}
@@ -186,51 +187,51 @@ export default function GamingPage() {
                           </span>
                         </div>
 
-                        <h3 className="text-xl font-black text-neutral-950 group-hover:text-amber-600 transition-colors mb-4">
+                        <h3 className="text-lg sm:text-xl font-black text-neutral-950 group-hover:text-amber-600 transition-colors mb-4">
                           {rig.name}
                         </h3>
 
                         {/* Detailed Specs List */}
-                        <div className="space-y-2 mb-6 bg-neutral-50 p-4 rounded-2xl border border-neutral-100 text-xs">
+                        <div className="space-y-2 mb-5 bg-neutral-50 p-3.5 sm:p-4 rounded-2xl border border-neutral-100 text-xs">
                           <div className="flex items-center justify-between pb-1.5 border-b border-neutral-200/60">
                             <span className="text-neutral-500 font-bold uppercase">Processor:</span>
-                            <span className="font-bold text-neutral-900 text-right">{rig.specs.cpu}</span>
+                            <span className="font-bold text-neutral-900 text-right truncate max-w-[190px]">{rig.specs.cpu}</span>
                           </div>
                           <div className="flex items-center justify-between pb-1.5 border-b border-neutral-200/60">
                             <span className="text-neutral-500 font-bold uppercase">Graphics:</span>
-                            <span className="font-bold text-amber-600 text-right">{rig.specs.gpu}</span>
+                            <span className="font-bold text-amber-600 text-right truncate max-w-[190px]">{rig.specs.gpu}</span>
                           </div>
                           <div className="flex items-center justify-between pb-1.5 border-b border-neutral-200/60">
                             <span className="text-neutral-500 font-bold uppercase">Memory:</span>
-                            <span className="font-bold text-neutral-900 text-right">{rig.specs.ram}</span>
+                            <span className="font-bold text-neutral-900 text-right truncate max-w-[190px]">{rig.specs.ram}</span>
                           </div>
                           <div className="flex items-center justify-between pb-1.5 border-b border-neutral-200/60">
                             <span className="text-neutral-500 font-bold uppercase">Storage:</span>
-                            <span className="font-bold text-neutral-900 text-right">{rig.specs.storage}</span>
+                            <span className="font-bold text-neutral-900 text-right truncate max-w-[190px]">{rig.specs.storage}</span>
                           </div>
                           <div className="flex items-center justify-between">
-                            <span className="text-neutral-500 font-bold uppercase">Power & Case:</span>
-                            <span className="font-bold text-neutral-900 text-right">{rig.specs.psu}</span>
+                            <span className="text-neutral-500 font-bold uppercase">Power &amp; Case:</span>
+                            <span className="font-bold text-neutral-900 text-right truncate max-w-[190px]">{rig.specs.psu}</span>
                           </div>
                         </div>
                       </div>
 
                       {/* Pricing and Action Buttons */}
-                      <div className="pt-4 border-t border-neutral-100">
-                        <div className="flex items-baseline justify-between mb-4">
+                      <div className="pt-3.5 border-t border-neutral-100">
+                        <div className="flex items-baseline justify-between mb-3.5">
                           <div>
-                            <span className="text-xs text-neutral-400 uppercase font-bold block">Complete Rig Price</span>
-                            <span className="text-2xl font-black text-neutral-950">{rig.price}</span>
+                            <span className="text-[11px] text-neutral-400 uppercase font-bold block">Rig Price</span>
+                            <span className="text-xl sm:text-2xl font-black text-neutral-950">{rig.price}</span>
                           </div>
                           <span className="text-xs font-bold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-md">
-                            ✓ Plug & Play Ready
+                            ✓ Plug &amp; Play
                           </span>
                         </div>
 
-                        <div className="grid grid-cols-2 gap-2.5">
+                        <div className="grid grid-cols-2 gap-2">
                           <button
                             onClick={() => handleAddToCart(rig)}
-                            className={`h-12 rounded-xl flex items-center justify-center gap-1.5 text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
+                            className={`min-h-[44px] rounded-xl flex items-center justify-center gap-1.5 text-xs font-bold uppercase tracking-wider transition-all active:scale-95 cursor-pointer ${
                               isAdded
                                 ? 'bg-emerald-500 text-white'
                                 : 'bg-neutral-100 hover:bg-neutral-200 text-neutral-900 border border-neutral-300'
@@ -242,7 +243,7 @@ export default function GamingPage() {
 
                           <button
                             onClick={() => handleCustomQuote(rig)}
-                            className="h-12 rounded-xl bg-amber-500 hover:bg-amber-600 text-neutral-950 flex items-center justify-center text-xs font-black uppercase tracking-wider shadow-sm transition-all cursor-pointer"
+                            className="min-h-[44px] rounded-xl bg-amber-500 hover:bg-amber-600 text-neutral-950 flex items-center justify-center text-xs font-black uppercase tracking-wider shadow-sm transition-all active:scale-95 cursor-pointer"
                           >
                             <span>Customize on WA</span>
                           </button>
@@ -259,6 +260,7 @@ export default function GamingPage() {
         </main>
 
         <Footer />
+        <MobileBottomBar onOpenRepairModal={() => setIsRepairOpen(true)} cartCount={cartCount} />
         <RepairModal isOpen={isRepairOpen} onClose={() => setIsRepairOpen(false)} />
       </div>
     </SmoothScrollProvider>

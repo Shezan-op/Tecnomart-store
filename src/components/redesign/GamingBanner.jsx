@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { ASSETS } from '@/data/redesignAssets';
@@ -8,8 +9,8 @@ import { BlurRevealText, BlurRevealBox } from './BlurReveal';
 
 export default function GamingBanner({ onExploreGaming }) {
   return (
-    <section id="gaming" className="py-12 sm:py-16 bg-white">
-      <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="gaming" className="py-10 sm:py-16 bg-white">
+      <div className="max-w-[1380px] mx-auto px-3.5 sm:px-6 lg:px-8">
         
         {/* Dark Gaming Banner Container with Smooth Scroll Entrance */}
         <BlurRevealBox duration={0.8} yOffset={30}>
@@ -27,19 +28,7 @@ export default function GamingBanner({ onExploreGaming }) {
               className="absolute -bottom-24 -right-24 w-96 h-96 bg-amber-600 rounded-full blur-3xl pointer-events-none"
             />
             
-            {/* Subtle Tech Grid Overlay */}
-            <div className="absolute inset-0 opacity-15 pointer-events-none">
-              <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <pattern id="techGrid2" width="40" height="40" patternUnits="userSpaceOnUse">
-                    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#F59E0B" strokeWidth="0.5" strokeDasharray="2,4" />
-                  </pattern>
-                </defs>
-                <rect width="100%" height="100%" fill="url(#techGrid2)" />
-              </svg>
-            </div>
-
-            <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center p-8 sm:p-12 lg:p-16">
+            <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center p-6 sm:p-12 lg:p-16">
               
               {/* Left Content Column */}
               <div className="lg:col-span-7 flex flex-col justify-center space-y-4 sm:space-y-6 z-10 text-left">
@@ -67,7 +56,7 @@ export default function GamingBanner({ onExploreGaming }) {
                 {/* Description & Features */}
                 <BlurRevealBox delay={0.4} yOffset={15}>
                   <div className="space-y-2">
-                    <p className="text-base sm:text-lg text-neutral-300 font-medium">
+                    <p className="text-sm sm:text-lg text-neutral-300 font-medium">
                       High Performance. Ultimate Experience.
                     </p>
                     <p className="text-xs sm:text-sm text-neutral-400 font-normal">
@@ -76,18 +65,22 @@ export default function GamingBanner({ onExploreGaming }) {
                   </div>
                 </BlurRevealBox>
 
-                {/* CTA Button */}
+                {/* CTA Buttons */}
                 <BlurRevealBox delay={0.55} yOffset={15}>
-                  <div className="pt-2">
-                    <motion.button
-                      whileHover={{ scale: 1.03, y: -2 }}
-                      whileTap={{ scale: 0.98 }}
-                      onClick={() => onExploreGaming && onExploreGaming()}
-                      className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-neutral-950 px-7 py-3.5 rounded-lg text-xs sm:text-sm font-extrabold tracking-wider uppercase shadow-lg shadow-amber-500/20 hover:shadow-amber-500/35 transition-all duration-200 cursor-pointer"
+                  <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+                    <Link
+                      href="/gaming"
+                      className="w-full sm:w-auto min-h-[48px] inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-600 active:bg-amber-600 text-neutral-950 px-7 py-3.5 rounded-xl sm:rounded-lg text-xs sm:text-sm font-extrabold tracking-wider uppercase shadow-lg shadow-amber-500/20 active:scale-98 transition-all cursor-pointer"
                     >
                       <span>EXPLORE GAMING PCS</span>
                       <ChevronRight className="w-4 h-4 stroke-[3]" />
-                    </motion.button>
+                    </Link>
+                    <Link
+                      href="/pc-builds"
+                      className="w-full sm:w-auto min-h-[48px] inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 active:bg-white/20 text-white border border-white/20 px-6 py-3.5 rounded-xl sm:rounded-lg text-xs sm:text-sm font-bold tracking-wider uppercase active:scale-98 transition-all cursor-pointer"
+                    >
+                      <span>Custom PC Configurator</span>
+                    </Link>
                   </div>
                 </BlurRevealBox>
 
@@ -98,9 +91,8 @@ export default function GamingBanner({ onExploreGaming }) {
                 <motion.div
                   animate={{ y: [0, -6, 0] }}
                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  className="relative w-full max-w-[420px] aspect-[4/3] flex items-center justify-center"
+                  className="relative w-full max-w-[380px] sm:max-w-[420px] aspect-[4/3] flex items-center justify-center"
                 >
-                  
                   {/* Gold Glow Behind Cabinet */}
                   <div className="absolute inset-0 bg-gradient-to-t from-amber-500/25 via-amber-400/10 to-transparent rounded-full filter blur-2xl" />
 
@@ -111,8 +103,7 @@ export default function GamingBanner({ onExploreGaming }) {
                       alt="Ultimate Liquid-Cooled Gaming PC Build"
                       className="w-full h-auto object-contain rounded-2xl"
                     />
-                    {/* Subtle Tech Emblem Badge on Chassis */}
-                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 px-3 py-1 bg-neutral-900/90 border border-amber-500/50 rounded-md backdrop-blur-sm flex items-center gap-1.5 shadow-md">
+                    <div className="absolute bottom-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-neutral-900/90 border border-amber-500/50 rounded-md backdrop-blur-sm flex items-center gap-1.5 shadow-md">
                       <span className="w-2 h-2 rounded-full bg-amber-500 animate-ping" />
                       <span className="text-[10px] font-bold tracking-widest text-amber-400 uppercase">
                         RTX 40-SERIES READY

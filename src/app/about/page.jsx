@@ -6,9 +6,9 @@ import Footer from '@/components/redesign/Footer';
 import RepairModal from '@/components/redesign/RepairModal';
 import SmoothScrollProvider from '@/components/redesign/SmoothScrollProvider';
 import ScrollProgress from '@/components/redesign/ScrollProgress';
+import MobileBottomBar from '@/components/redesign/MobileBottomBar';
 import { BlurRevealText, BlurRevealBox } from '@/components/redesign/BlurReveal';
-import { ShieldCheck, Award, Users, HeartHandshake, MapPin, Sparkles } from 'lucide-react';
-import Link from 'next/link';
+import { ShieldCheck, Award, HeartHandshake, Sparkles } from 'lucide-react';
 
 export default function AboutPage() {
   const [isRepairOpen, setIsRepairOpen] = useState(false);
@@ -22,40 +22,40 @@ export default function AboutPage() {
 
   return (
     <SmoothScrollProvider>
-      <div className="min-h-screen flex flex-col bg-white text-neutral-900 font-sans selection:bg-amber-500 selection:text-neutral-950">
+      <div className="min-h-screen flex flex-col bg-white text-neutral-900 font-sans selection:bg-amber-500 selection:text-neutral-950 pb-16 lg:pb-0">
         <ScrollProgress />
         <Header onOpenRepairModal={() => setIsRepairOpen(true)} cartCount={0} />
 
-        <main className="flex-1 py-10 sm:py-16">
-          <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
+        <main className="flex-1 py-8 sm:py-16">
+          <div className="max-w-[1380px] mx-auto px-3.5 sm:px-6 lg:px-8">
             
             {/* Header */}
-            <div className="mb-14 text-center max-w-3xl mx-auto">
+            <div className="mb-10 sm:mb-14 text-center max-w-3xl mx-auto">
               <span className="text-xs sm:text-sm font-extrabold tracking-widest text-amber-500 uppercase">
                 OUR JOURNEY • OUR VALUES • OUR PASSION
               </span>
               <div className="mt-1">
                 <BlurRevealText
                   text="ABOUT TECNOMART"
-                  className="text-3xl sm:text-4xl lg:text-5xl font-black text-neutral-950 uppercase tracking-tight justify-center"
+                  className="text-2xl sm:text-4xl lg:text-5xl font-black text-neutral-950 uppercase tracking-tight justify-center"
                   delay={0.1}
                 />
               </div>
-              <p className="text-sm sm:text-base text-neutral-600 mt-3 leading-relaxed">
+              <p className="text-xs sm:text-base text-neutral-600 mt-2 sm:mt-3 leading-relaxed">
                 Hyderabad's trusted destination for genuine smartphones, high-performance custom PCs, certified refurbished tech, and surgical repairs since 2016.
               </p>
-              <div className="w-12 h-1 bg-amber-500 mx-auto mt-3 rounded-full" />
+              <div className="w-12 h-1 bg-amber-500 mx-auto mt-2.5 sm:mt-3 rounded-full" />
             </div>
 
             {/* Stats Row */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6 mb-10 sm:mb-16">
               {stats.map((s, idx) => (
-                <BlurRevealBox key={s.label} delay={idx * 0.08} yOffset={20}>
-                  <div className="p-6 rounded-3xl bg-neutral-50 border border-neutral-200 text-center hover:border-amber-400 hover:shadow-lg transition-all">
-                    <span className="text-3xl sm:text-4xl font-black text-neutral-950 block mb-1">
+                <BlurRevealBox key={s.label} delay={idx * 0.06} yOffset={20}>
+                  <div className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-neutral-50 border border-neutral-200 text-center hover:border-amber-400 hover:shadow-lg transition-all">
+                    <span className="text-2xl sm:text-4xl font-black text-neutral-950 block mb-1">
                       {s.number}
                     </span>
-                    <span className="text-xs sm:text-sm font-bold text-neutral-500">
+                    <span className="text-[11px] sm:text-sm font-bold text-neutral-500">
                       {s.label}
                     </span>
                   </div>
@@ -64,12 +64,12 @@ export default function AboutPage() {
             </div>
 
             {/* Story Grid */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-16">
-              <div className="lg:col-span-6 space-y-4 text-xs sm:text-sm text-neutral-600 leading-relaxed">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-center mb-12 sm:mb-16">
+              <div className="lg:col-span-6 space-y-3 sm:space-y-4 text-xs sm:text-sm text-neutral-600 leading-relaxed">
                 <span className="text-xs font-black tracking-widest text-amber-500 uppercase">
                   HOW WE STARTED
                 </span>
-                <h2 className="text-2xl sm:text-3xl font-black text-neutral-950 uppercase">
+                <h2 className="text-xl sm:text-3xl font-black text-neutral-950 uppercase">
                   From Passionate PC Enthusiasts to Hyderabad's Trusted Tech Store
                 </h2>
                 <p>
@@ -90,9 +90,9 @@ export default function AboutPage() {
                     alt="TecnoMart Hardware Workshop"
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-4 sm:p-6">
                     <span className="text-xs font-bold text-white">
-                      📍 Flagship Store & Service Hub — Jubilee Hills, Hyderabad
+                      📍 Flagship Store &amp; Service Hub — Jubilee Hills, Hyderabad
                     </span>
                   </div>
                 </div>
@@ -100,28 +100,28 @@ export default function AboutPage() {
             </div>
 
             {/* Core Values */}
-            <div className="p-8 sm:p-12 rounded-3xl bg-neutral-950 text-white mb-16">
-              <h3 className="text-xl sm:text-2xl font-black text-center uppercase tracking-tight text-white mb-8">
+            <div className="p-6 sm:p-12 rounded-3xl bg-neutral-950 text-white mb-12 sm:mb-16">
+              <h3 className="text-lg sm:text-2xl font-black text-center uppercase tracking-tight text-white mb-6 sm:mb-8">
                 Our 4 Pillar Guarantee
               </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-xs text-neutral-300">
-                <div className="space-y-2">
-                  <ShieldCheck className="w-6 h-6 text-amber-400" />
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 text-xs text-neutral-300">
+                <div className="space-y-1.5">
+                  <ShieldCheck className="w-5 h-5 text-amber-400" />
                   <h4 className="font-bold text-white text-sm">Authenticity Only</h4>
                   <p className="text-neutral-400 leading-relaxed">No clones, no duplicates. Sourced strictly through authorized distributors.</p>
                 </div>
-                <div className="space-y-2">
-                  <Award className="w-6 h-6 text-amber-400" />
+                <div className="space-y-1.5">
+                  <Award className="w-5 h-5 text-amber-400" />
                   <h4 className="font-bold text-white text-sm">Certified Engineers</h4>
                   <p className="text-neutral-400 leading-relaxed">IPC-certified micro-soldering and Apple/Windows hardware specialists.</p>
                 </div>
-                <div className="space-y-2">
-                  <HeartHandshake className="w-6 h-6 text-amber-400" />
+                <div className="space-y-1.5">
+                  <HeartHandshake className="w-5 h-5 text-amber-400" />
                   <h4 className="font-bold text-white text-sm">Honest Pricing</h4>
                   <p className="text-neutral-400 leading-relaxed">Zero hidden charges. Complete price transparency before touching any device.</p>
                 </div>
-                <div className="space-y-2">
-                  <Sparkles className="w-6 h-6 text-amber-400" />
+                <div className="space-y-1.5">
+                  <Sparkles className="w-5 h-5 text-amber-400" />
                   <h4 className="font-bold text-white text-sm">Same-Day Action</h4>
                   <p className="text-neutral-400 leading-relaxed">Fast screen replacements and PC assembly completed within hours.</p>
                 </div>
@@ -132,6 +132,7 @@ export default function AboutPage() {
         </main>
 
         <Footer />
+        <MobileBottomBar onOpenRepairModal={() => setIsRepairOpen(true)} cartCount={0} />
         <RepairModal isOpen={isRepairOpen} onClose={() => setIsRepairOpen(false)} />
       </div>
     </SmoothScrollProvider>

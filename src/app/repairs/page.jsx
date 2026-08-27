@@ -6,8 +6,9 @@ import Footer from '@/components/redesign/Footer';
 import RepairModal from '@/components/redesign/RepairModal';
 import SmoothScrollProvider from '@/components/redesign/SmoothScrollProvider';
 import ScrollProgress from '@/components/redesign/ScrollProgress';
+import MobileBottomBar from '@/components/redesign/MobileBottomBar';
 import { BlurRevealText, BlurRevealBox } from '@/components/redesign/BlurReveal';
-import { Wrench, ShieldCheck, Clock, Zap, CheckCircle2, ChevronRight } from 'lucide-react';
+import { Wrench, ShieldCheck, Clock, CheckCircle2, ChevronRight } from 'lucide-react';
 import { WhatsAppIcon } from '@/components/redesign/Icons';
 
 const REPAIR_SERVICES = [
@@ -63,7 +64,6 @@ const REPAIR_SERVICES = [
 
 export default function RepairsPage() {
   const [isRepairOpen, setIsRepairOpen] = useState(false);
-  const [selectedDevice, setSelectedDevice] = useState('iPhone');
 
   const handleWhatsAppBooking = (serviceName) => {
     const text = encodeURIComponent(
@@ -74,41 +74,41 @@ export default function RepairsPage() {
 
   return (
     <SmoothScrollProvider>
-      <div className="min-h-screen flex flex-col bg-white text-neutral-900 font-sans selection:bg-amber-500 selection:text-neutral-950">
+      <div className="min-h-screen flex flex-col bg-white text-neutral-900 font-sans selection:bg-amber-500 selection:text-neutral-950 pb-16 lg:pb-0">
         <ScrollProgress />
         <Header onOpenRepairModal={() => setIsRepairOpen(true)} cartCount={0} />
 
-        <main className="flex-1 py-10 sm:py-16">
-          <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
+        <main className="flex-1 py-8 sm:py-16">
+          <div className="max-w-[1380px] mx-auto px-3.5 sm:px-6 lg:px-8">
             
             {/* Header Banner */}
-            <div className="mb-10 text-center max-w-3xl mx-auto">
+            <div className="mb-8 sm:mb-10 text-center max-w-3xl mx-auto">
               <span className="text-xs sm:text-sm font-extrabold tracking-widest text-amber-500 uppercase">
                 HYDERABAD'S PREMIER TECH SERVICE HUB
               </span>
               <div className="mt-1">
                 <BlurRevealText
                   text="FAST. RELIABLE. EXPERT REPAIRS."
-                  className="text-3xl sm:text-4xl lg:text-5xl font-black text-neutral-950 uppercase tracking-tight justify-center"
+                  className="text-2xl sm:text-4xl lg:text-5xl font-black text-neutral-950 uppercase tracking-tight justify-center"
                   delay={0.1}
                 />
               </div>
-              <p className="text-sm sm:text-base text-neutral-600 mt-2">
+              <p className="text-xs sm:text-base text-neutral-600 mt-2">
                 Certified hardware engineers, ESD-safe cleanroom laboratory, genuine parts, and transparent upfront pricing in Jubilee Hills.
               </p>
-              <div className="w-12 h-1 bg-amber-500 mx-auto mt-3 rounded-full" />
+              <div className="w-12 h-1 bg-amber-500 mx-auto mt-2.5 sm:mt-3 rounded-full" />
             </div>
 
             {/* Quick Action Booking Card */}
-            <div className="rounded-3xl bg-neutral-950 text-white p-8 sm:p-12 mb-14 border border-neutral-800 relative overflow-hidden shadow-2xl">
+            <div className="rounded-3xl bg-neutral-950 text-white p-6 sm:p-12 mb-10 sm:mb-14 border border-neutral-800 relative overflow-hidden shadow-2xl">
               <div className="absolute top-0 right-0 w-96 h-96 bg-amber-500/20 rounded-full blur-3xl pointer-events-none" />
               
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center relative z-10">
                 <div className="lg:col-span-8 space-y-3">
                   <span className="text-xs font-bold text-amber-400 uppercase tracking-widest">
                     FREE DIAGNOSIS • 45-MIN EXPRESS TURNAROUND
                   </span>
-                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white uppercase">
+                  <h2 className="text-xl sm:text-3xl lg:text-4xl font-black text-white uppercase">
                     Book A Repair Slot Or Free Pickup
                   </h2>
                   <p className="text-xs sm:text-sm text-neutral-300 max-w-xl">
@@ -119,7 +119,7 @@ export default function RepairsPage() {
                 <div className="lg:col-span-4 flex flex-col gap-3">
                   <button
                     onClick={() => setIsRepairOpen(true)}
-                    className="w-full h-12 bg-amber-500 hover:bg-amber-600 text-neutral-950 font-black text-xs sm:text-sm uppercase tracking-wider rounded-xl shadow-lg flex items-center justify-center gap-2 transition-all cursor-pointer"
+                    className="w-full min-h-[48px] bg-amber-500 hover:bg-amber-600 active:bg-amber-600 text-neutral-950 font-black text-xs sm:text-sm uppercase tracking-wider rounded-xl shadow-lg flex items-center justify-center gap-2 transition-all active:scale-98 cursor-pointer"
                   >
                     <Wrench className="w-4 h-4" />
                     <span>Book Repair Slot</span>
@@ -128,7 +128,7 @@ export default function RepairsPage() {
                     href="https://wa.me/919010667726?text=Hi%20TecnoMart!%20I%20want%20to%20get%20a%20repair%20quote%20for%20my%20device."
                     target="_blank"
                     rel="noreferrer"
-                    className="w-full h-12 bg-white/10 hover:bg-white/20 text-white font-bold text-xs sm:text-sm uppercase tracking-wider rounded-xl border border-white/20 flex items-center justify-center gap-2 transition-all"
+                    className="w-full min-h-[48px] bg-white/10 hover:bg-white/20 active:bg-white/20 text-white font-bold text-xs sm:text-sm uppercase tracking-wider rounded-xl border border-white/20 flex items-center justify-center gap-2 transition-all active:scale-98"
                   >
                     <WhatsAppIcon className="w-4 h-4 fill-current" />
                     <span>Get Instant Quote</span>
@@ -138,10 +138,10 @@ export default function RepairsPage() {
             </div>
 
             {/* Repair Services Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-16">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8 mb-12 sm:mb-16">
               {REPAIR_SERVICES.map((srv, idx) => (
-                <BlurRevealBox key={srv.title} delay={idx * 0.08} yOffset={25}>
-                  <div className="group h-full bg-white rounded-3xl p-6 sm:p-7 border border-neutral-200 hover:border-amber-400 shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col justify-between hover:-translate-y-1.5">
+                <BlurRevealBox key={srv.title} delay={idx * 0.06} yOffset={20}>
+                  <div className="group h-full bg-white rounded-3xl p-5 sm:p-7 border border-neutral-200 hover:border-amber-400 shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col justify-between">
                     <div>
                       {/* Top Row: Icon & Est Cost */}
                       <div className="flex items-center justify-between mb-4">
@@ -156,13 +156,13 @@ export default function RepairsPage() {
                       <h3 className="text-base sm:text-lg font-black text-neutral-950 group-hover:text-amber-600 transition-colors mb-2 leading-snug">
                         {srv.title}
                       </h3>
-                      <p className="text-xs text-neutral-600 font-medium leading-relaxed mb-5">
+                      <p className="text-xs text-neutral-600 font-medium leading-relaxed mb-4 sm:mb-5">
                         {srv.description}
                       </p>
                     </div>
 
-                    <div className="pt-4 border-t border-neutral-100">
-                      <div className="flex items-center justify-between text-[11px] font-bold text-neutral-500 mb-4">
+                    <div className="pt-3.5 border-t border-neutral-100">
+                      <div className="flex items-center justify-between text-[11px] font-bold text-neutral-500 mb-3.5">
                         <span className="flex items-center gap-1">
                           <Clock className="w-3.5 h-3.5 text-neutral-400" />
                           {srv.duration}
@@ -175,7 +175,7 @@ export default function RepairsPage() {
 
                       <button
                         onClick={() => handleWhatsAppBooking(srv.title)}
-                        className="w-full h-11 rounded-xl bg-neutral-100 hover:bg-amber-500 hover:text-neutral-950 text-neutral-800 text-xs font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+                        className="w-full min-h-[44px] rounded-xl bg-neutral-100 hover:bg-amber-500 active:bg-amber-500 hover:text-neutral-950 active:text-neutral-950 text-neutral-800 text-xs font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 active:scale-95 cursor-pointer"
                       >
                         <span>Book This Service</span>
                         <ChevronRight className="w-3.5 h-3.5 stroke-[3]" />
@@ -187,11 +187,11 @@ export default function RepairsPage() {
             </div>
 
             {/* Why TecnoMart Service Center */}
-            <div className="p-8 sm:p-10 rounded-3xl bg-neutral-50 border border-neutral-200">
-              <h3 className="text-xl font-black text-neutral-950 uppercase mb-6 text-center">
+            <div className="p-6 sm:p-10 rounded-3xl bg-neutral-50 border border-neutral-200">
+              <h3 className="text-lg sm:text-xl font-black text-neutral-950 uppercase mb-6 text-center">
                 Our Service Center Promise
               </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-xs text-neutral-700">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 text-xs text-neutral-700">
                 <div className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" />
                   <div>
@@ -227,6 +227,7 @@ export default function RepairsPage() {
         </main>
 
         <Footer />
+        <MobileBottomBar onOpenRepairModal={() => setIsRepairOpen(true)} cartCount={0} />
         <RepairModal isOpen={isRepairOpen} onClose={() => setIsRepairOpen(false)} />
       </div>
     </SmoothScrollProvider>

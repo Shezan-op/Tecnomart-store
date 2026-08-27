@@ -15,7 +15,7 @@ export default function HeroSection({ onOpenBudgetFinder, onOpenRepairModal }) {
   };
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-white via-neutral-50/60 to-white pt-8 pb-12 sm:pt-12 sm:pb-16 lg:pt-16 lg:pb-20 border-b border-neutral-100">
+    <section className="relative overflow-hidden bg-gradient-to-b from-white via-neutral-50/60 to-white pt-6 pb-10 sm:pt-12 sm:pb-16 lg:pt-16 lg:pb-20 border-b border-neutral-100">
       {/* Subtle Background Glows */}
       <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-amber-400/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute top-1/2 left-10 w-80 h-80 bg-neutral-200/40 rounded-full blur-2xl pointer-events-none" />
@@ -24,28 +24,28 @@ export default function HeroSection({ onOpenBudgetFinder, onOpenRepairModal }) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
           {/* Left Column: Hero Copy & Actions */}
-          <div className="lg:col-span-6 flex flex-col justify-center space-y-6 sm:space-y-7 z-10">
+          <div className="lg:col-span-6 flex flex-col justify-center space-y-5 sm:space-y-7 z-10">
             
             {/* Main Headline with Text Blur Reveal */}
             <div className="space-y-1 sm:space-y-1.5">
               <div>
                 <BlurRevealText
                   text="YOUR TECH."
-                  className="text-4xl sm:text-5xl md:text-6xl xl:text-[64px] font-black tracking-tight text-neutral-950 leading-[1.08] uppercase"
+                  className="text-3xl sm:text-5xl md:text-6xl xl:text-[64px] font-black tracking-tight text-neutral-950 leading-[1.08] uppercase"
                   delay={0.1}
                 />
               </div>
               <div>
                 <BlurRevealText
                   text="YOUR BUDGET."
-                  className="text-4xl sm:text-5xl md:text-6xl xl:text-[64px] font-black tracking-tight text-neutral-950 leading-[1.08] uppercase"
+                  className="text-3xl sm:text-5xl md:text-6xl xl:text-[64px] font-black tracking-tight text-neutral-950 leading-[1.08] uppercase"
                   delay={0.25}
                 />
               </div>
               <div>
                 <BlurRevealText
                   text="YOUR RIGHT CHOICE."
-                  className="text-4xl sm:text-5xl md:text-6xl xl:text-[64px] font-black tracking-tight text-amber-500 leading-[1.08] uppercase"
+                  className="text-3xl sm:text-5xl md:text-6xl xl:text-[64px] font-black tracking-tight text-amber-500 leading-[1.08] uppercase"
                   delay={0.4}
                 />
               </div>
@@ -53,19 +53,19 @@ export default function HeroSection({ onOpenBudgetFinder, onOpenRepairModal }) {
 
             {/* Subtitle with Smooth Entrance */}
             <BlurRevealBox delay={0.55} yOffset={20}>
-              <p className="text-base sm:text-lg text-neutral-600 font-normal leading-relaxed max-w-lg">
-                Mobiles, Laptops, Gaming PCs & Expert Repairs – <br className="hidden sm:inline" />
-                All under one roof.
+              <p className="text-sm sm:text-lg text-neutral-600 font-normal leading-relaxed max-w-lg">
+                Mobiles, Laptops, Gaming PCs &amp; Expert Repairs – <br className="hidden sm:inline" />
+                All under one roof in Jubilee Hills.
               </p>
             </BlurRevealBox>
 
-            {/* Dual CTAs with Spring Entrance */}
+            {/* Dual CTAs with Spring Entrance (Mobile Optimized Full-Width Stack) */}
             <BlurRevealBox delay={0.7} yOffset={20}>
-              <div className="flex flex-wrap items-center gap-3.5 sm:gap-4 pt-1">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 pt-1">
                 {/* Tell Us Your Budget Button */}
                 <button
                   onClick={scrollToBudget}
-                  className="inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-600 text-neutral-950 px-6 py-3.5 rounded-lg text-sm font-bold tracking-wide uppercase shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+                  className="w-full sm:w-auto min-h-[48px] inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-600 active:bg-amber-600 text-neutral-950 px-6 py-3.5 rounded-xl sm:rounded-lg text-xs sm:text-sm font-black tracking-wide uppercase shadow-sm hover:shadow-md transition-all active:scale-98 cursor-pointer"
                 >
                   <span>Tell Us Your Budget</span>
                   <ArrowRight className="w-4 h-4" />
@@ -74,7 +74,7 @@ export default function HeroSection({ onOpenBudgetFinder, onOpenRepairModal }) {
                 {/* Book a Repair Button */}
                 <button
                   onClick={onOpenRepairModal}
-                  className="inline-flex items-center justify-center gap-2 bg-white hover:bg-neutral-50 text-neutral-900 border border-neutral-800 hover:border-neutral-950 px-6 py-3.5 rounded-lg text-sm font-bold tracking-wide uppercase transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+                  className="w-full sm:w-auto min-h-[48px] inline-flex items-center justify-center gap-2 bg-white hover:bg-neutral-50 active:bg-neutral-100 text-neutral-900 border border-neutral-800 hover:border-neutral-950 px-6 py-3.5 rounded-xl sm:rounded-lg text-xs sm:text-sm font-bold tracking-wide uppercase transition-all active:scale-98 cursor-pointer"
                 >
                   <Wrench className="w-4 h-4 text-neutral-800" />
                   <span>Book a Repair</span>
@@ -84,7 +84,7 @@ export default function HeroSection({ onOpenBudgetFinder, onOpenRepairModal }) {
           </div>
 
           {/* Right Column: 3D Pedestal Showcase with Products */}
-          <div className="lg:col-span-6 relative flex items-center justify-center pt-6 lg:pt-0">
+          <div className="lg:col-span-6 relative flex items-center justify-center pt-4 lg:pt-0">
             <motion.div
               initial={{ opacity: 0, scale: 0.92, y: 30 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -122,7 +122,6 @@ export default function HeroSection({ onOpenBudgetFinder, onOpenRepairModal }) {
                     alt="Custom RGB Gaming PC Cabinet"
                     className="w-full h-auto object-contain rounded-xl"
                   />
-                  {/* Amber Internal Fan Glow Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-r from-amber-500/20 to-transparent pointer-events-none rounded-xl mix-blend-screen" />
                 </div>
               </motion.div>

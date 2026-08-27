@@ -6,8 +6,9 @@ import Footer from '@/components/redesign/Footer';
 import RepairModal from '@/components/redesign/RepairModal';
 import SmoothScrollProvider from '@/components/redesign/SmoothScrollProvider';
 import ScrollProgress from '@/components/redesign/ScrollProgress';
+import MobileBottomBar from '@/components/redesign/MobileBottomBar';
 import { BlurRevealText, BlurRevealBox } from '@/components/redesign/BlurReveal';
-import { Cpu, Zap, HardDrive, ShieldCheck, Check, Sparkles, ShoppingBag, RotateCcw } from 'lucide-react';
+import { Cpu, Zap, HardDrive, ShieldCheck, Check, Sparkles, ShoppingBag, RotateCcw, ChevronUp, ChevronDown } from 'lucide-react';
 import { WhatsAppIcon } from '@/components/redesign/Icons';
 
 const COMPONENT_OPTIONS = {
@@ -44,7 +45,7 @@ const COMPONENT_OPTIONS = {
   cooler: [
     { id: 'cl-1', name: 'Deepcool LS720 360mm ARGB Liquid Cooler', price: 9990, wattage: 25, brand: 'Deepcool' },
     { id: 'cl-2', name: 'NZXT Kraken 240 ARGB with LCD Display', price: 14990, wattage: 30, brand: 'NZXT' },
-    { id: 'cl-3', name: 'Deepcool AK620 High-Performance Dual Tower Air Cooler', price: 5490, wattage: 10, brand: 'Deepcool' },
+    { id: 'cl-3', name: 'Deepcool AK620 Dual Tower Air Cooler', price: 5490, wattage: 10, brand: 'Deepcool' },
   ],
   psu: [
     { id: 'psu-1', name: 'Corsair RM1000e 1000W 80+ Gold ATX 3.0 Modular', price: 14990, wattage: 0, brand: 'Corsair' },
@@ -61,7 +62,7 @@ const COMPONENT_OPTIONS = {
 export default function PCBuildsConfiguratorPage() {
   const [selected, setSelected] = useState({
     cpu: COMPONENT_OPTIONS.cpu[0],
-    gpu: COMPONENT_OPTIONS.gpu[2], // RTX 4070 Ti Super
+    gpu: COMPONENT_OPTIONS.gpu[2],
     motherboard: COMPONENT_OPTIONS.motherboard[0],
     ram: COMPONENT_OPTIONS.ram[0],
     storage: COMPONENT_OPTIONS.storage[1],
@@ -71,15 +72,14 @@ export default function PCBuildsConfiguratorPage() {
   });
 
   const [isRepairOpen, setIsRepairOpen] = useState(false);
-  const [cartCount, setCartCount] = useState(0);
+  const [mobileSummaryOpen, setMobileSummaryOpen] = useState(false);
 
   const totalPrice = useMemo(() => {
     return Object.values(selected).reduce((acc, curr) => acc + (curr ? curr.price : 0), 0);
   }, [selected]);
 
   const totalWattage = useMemo(() => {
-    const raw = Object.values(selected).reduce((acc, curr) => acc + (curr ? curr.wattage : 0), 50);
-    return raw;
+    return Object.values(selected).reduce((acc, curr) => acc + (curr ? curr.wattage : 0), 50);
   }, [selected]);
 
   const handleSelect = (category, item) => {
@@ -109,36 +109,36 @@ export default function PCBuildsConfiguratorPage() {
 
   return (
     <SmoothScrollProvider>
-      <div className="min-h-screen flex flex-col bg-white text-neutral-900 font-sans selection:bg-amber-500 selection:text-neutral-950">
+      <div className="min-h-screen flex flex-col bg-white text-neutral-900 font-sans selection:bg-amber-500 selection:text-neutral-950 pb-20 lg:pb-0">
         <ScrollProgress />
-        <Header onOpenRepairModal={() => setIsRepairOpen(true)} cartCount={cartCount} />
+        <Header onOpenRepairModal={() => setIsRepairOpen(true)} cartCount={0} />
 
-        <main className="flex-1 py-10 sm:py-16">
-          <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
+        <main className="flex-1 py-8 sm:py-16">
+          <div className="max-w-[1380px] mx-auto px-3.5 sm:px-6 lg:px-8">
             
             {/* Header */}
-            <div className="mb-10 text-center max-w-3xl mx-auto">
+            <div className="mb-8 sm:mb-10 text-center max-w-3xl mx-auto">
               <span className="text-xs sm:text-sm font-extrabold tracking-widest text-amber-500 uppercase">
-                INTERACTIVE PC BUILDER & CONFIGURATOR
+                INTERACTIVE PC BUILDER &amp; CONFIGURATOR
               </span>
               <div className="mt-1">
                 <BlurRevealText
                   text="BUILD YOUR DREAM PC"
-                  className="text-3xl sm:text-4xl lg:text-5xl font-black text-neutral-950 uppercase tracking-tight justify-center"
+                  className="text-2xl sm:text-4xl lg:text-5xl font-black text-neutral-950 uppercase tracking-tight justify-center"
                   delay={0.1}
                 />
               </div>
-              <p className="text-sm sm:text-base text-neutral-600 mt-2">
+              <p className="text-xs sm:text-base text-neutral-600 mt-2">
                 Select your components below. Real-time compatibility verification, wattage calculation, and instant quotation on WhatsApp.
               </p>
-              <div className="w-12 h-1 bg-amber-500 mx-auto mt-3 rounded-full" />
+              <div className="w-12 h-1 bg-amber-500 mx-auto mt-2.5 sm:mt-3 rounded-full" />
             </div>
 
             {/* Main Configurator Layout */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
               
               {/* Left Column: Component Pickers (Col 8) */}
-              <div className="lg:col-span-8 space-y-6">
+              <div className="lg:col-span-8 space-y-4 sm:space-y-6">
                 
                 {Object.entries(COMPONENT_OPTIONS).map(([category, options]) => {
                   const currentPick = selected[category];
@@ -155,17 +155,17 @@ export default function PCBuildsConfiguratorPage() {
 
                   return (
                     <BlurRevealBox key={category} yOffset={15}>
-                      <div className="bg-white rounded-2xl p-5 border border-neutral-200 shadow-xs">
-                        <div className="flex items-center justify-between mb-3.5 pb-2 border-b border-neutral-100">
-                          <h3 className="text-sm sm:text-base font-black text-neutral-900 uppercase">
+                      <div className="bg-white rounded-2xl p-4 sm:p-5 border border-neutral-200 shadow-xs">
+                        <div className="flex items-center justify-between mb-3 pb-2 border-b border-neutral-100">
+                          <h3 className="text-xs sm:text-base font-black text-neutral-900 uppercase">
                             {labels[category] || category}
                           </h3>
-                          <span className="text-xs font-bold text-amber-600">
+                          <span className="text-[11px] sm:text-xs font-bold text-amber-600">
                             Selected: ₹{currentPick ? currentPick.price.toLocaleString('en-IN') : 0}
                           </span>
                         </div>
 
-                        {/* Options List */}
+                        {/* Options List with Touch-Friendly Hit Targets */}
                         <div className="space-y-2">
                           {options.map((opt) => {
                             const isChosen = currentPick?.id === opt.id;
@@ -174,15 +174,15 @@ export default function PCBuildsConfiguratorPage() {
                               <div
                                 key={opt.id}
                                 onClick={() => handleSelect(category, opt)}
-                                className={`p-3.5 rounded-xl border flex items-center justify-between gap-3 cursor-pointer transition-all ${
+                                className={`p-3 sm:p-3.5 rounded-xl border flex items-center justify-between gap-2.5 sm:gap-3 cursor-pointer transition-all active:scale-99 min-h-[48px] ${
                                   isChosen
-                                    ? 'border-amber-500 bg-amber-50/40 shadow-xs'
-                                    : 'border-neutral-200 hover:border-neutral-300 bg-neutral-50/50 hover:bg-neutral-50'
+                                    ? 'border-amber-500 bg-amber-50/50 shadow-xs'
+                                    : 'border-neutral-200 hover:border-neutral-300 bg-neutral-50/50 active:bg-neutral-100'
                                 }`}
                               >
-                                <div className="flex items-center gap-3">
+                                <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
                                   <div
-                                    className={`w-5 h-5 rounded-full border flex items-center justify-center ${
+                                    className={`w-5 h-5 rounded-full border flex items-center justify-center flex-shrink-0 ${
                                       isChosen
                                         ? 'border-amber-500 bg-amber-500 text-neutral-950'
                                         : 'border-neutral-300'
@@ -190,19 +190,19 @@ export default function PCBuildsConfiguratorPage() {
                                   >
                                     {isChosen && <Check className="w-3 h-3 stroke-[3]" />}
                                   </div>
-                                  <div>
-                                    <p className="text-xs sm:text-sm font-bold text-neutral-900 leading-tight">
+                                  <div className="min-w-0">
+                                    <p className="text-xs sm:text-sm font-bold text-neutral-900 leading-tight truncate">
                                       {opt.name}
                                     </p>
                                     {opt.wattage > 0 && (
-                                      <span className="text-[11px] text-neutral-500 font-medium">
+                                      <span className="text-[10px] sm:text-[11px] text-neutral-500 font-medium">
                                         Estimated TDP: {opt.wattage}W
                                       </span>
                                     )}
                                   </div>
                                 </div>
 
-                                <div className="text-right flex-shrink-0">
+                                <div className="text-right flex-shrink-0 pl-1">
                                   <span className="text-xs sm:text-sm font-black text-neutral-950">
                                     ₹{opt.price.toLocaleString('en-IN')}
                                   </span>
@@ -218,8 +218,8 @@ export default function PCBuildsConfiguratorPage() {
 
               </div>
 
-              {/* Right Column: Sticky Summary Box (Col 4) */}
-              <div className="lg:col-span-4 sticky top-24 space-y-6">
+              {/* Right Column: Sticky Summary Box for Desktop (Col 4) */}
+              <div className="hidden lg:block lg:col-span-4 sticky top-24 space-y-6">
                 
                 <div className="bg-neutral-950 text-white rounded-3xl p-6 sm:p-7 border border-neutral-800 shadow-2xl space-y-5">
                   <div className="flex items-center justify-between pb-3 border-b border-neutral-800">
@@ -274,7 +274,7 @@ export default function PCBuildsConfiguratorPage() {
                     </button>
 
                     <p className="text-center text-[10px] text-neutral-400 font-medium leading-relaxed">
-                      Free professional assembly • 12-Hour stress test • Component boxes included • Doorstep delivery in Hyderabad.
+                      Free assembly • 12-Hour stress test • Original boxes • Doorstep delivery in Hyderabad.
                     </p>
                   </div>
                 </div>
@@ -296,6 +296,31 @@ export default function PCBuildsConfiguratorPage() {
 
           </div>
         </main>
+
+        {/* Mobile Floating Sticky Bar for Quick Price & Instant WhatsApp Order */}
+        <div
+          className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-neutral-950/95 backdrop-blur-xl border-t border-neutral-800 p-3.5 shadow-2xl"
+          style={{ paddingBottom: 'max(0.75rem, env(safe-area-inset-bottom))' }}
+        >
+          <div className="flex items-center justify-between gap-3 max-w-lg mx-auto">
+            <div>
+              <span className="text-[10px] text-neutral-400 font-bold uppercase block">
+                Total ({totalWattage}W)
+              </span>
+              <span className="text-lg font-black text-amber-400">
+                ₹{totalPrice.toLocaleString('en-IN')}
+              </span>
+            </div>
+
+            <button
+              onClick={handleOrderWhatsApp}
+              className="flex-1 max-w-[220px] min-h-[44px] bg-[#25D366] active:bg-[#20ba5a] text-white font-black text-xs uppercase tracking-wider rounded-xl shadow-lg flex items-center justify-center gap-1.5 transition-all cursor-pointer"
+            >
+              <WhatsAppIcon className="w-4 h-4 fill-current" />
+              <span>Order on WhatsApp</span>
+            </button>
+          </div>
+        </div>
 
         <Footer />
         <RepairModal isOpen={isRepairOpen} onClose={() => setIsRepairOpen(false)} />

@@ -6,6 +6,7 @@ import Footer from '@/components/redesign/Footer';
 import RepairModal from '@/components/redesign/RepairModal';
 import SmoothScrollProvider from '@/components/redesign/SmoothScrollProvider';
 import ScrollProgress from '@/components/redesign/ScrollProgress';
+import MobileBottomBar from '@/components/redesign/MobileBottomBar';
 import { BlurRevealText } from '@/components/redesign/BlurReveal';
 
 export default function PrivacyPolicyPage() {
@@ -13,31 +14,31 @@ export default function PrivacyPolicyPage() {
 
   return (
     <SmoothScrollProvider>
-      <div className="min-h-screen flex flex-col bg-white text-neutral-900 font-sans selection:bg-amber-500 selection:text-neutral-950">
+      <div className="min-h-screen flex flex-col bg-white text-neutral-900 font-sans selection:bg-amber-500 selection:text-neutral-950 pb-16 lg:pb-0">
         <ScrollProgress />
         <Header onOpenRepairModal={() => setIsRepairOpen(true)} cartCount={0} />
 
-        <main className="flex-1 py-12 sm:py-16">
+        <main className="flex-1 py-8 sm:py-16">
           <div className="max-w-[900px] mx-auto px-4 sm:px-6 lg:px-8">
             
-            <div className="mb-10 text-center">
+            <div className="mb-8 sm:mb-10 text-center">
               <span className="text-xs sm:text-sm font-extrabold tracking-widest text-amber-500 uppercase">
-                LEGAL & COMPLIANCE
+                LEGAL &amp; COMPLIANCE
               </span>
               <div className="mt-1">
                 <BlurRevealText
                   text="PRIVACY POLICY"
-                  className="text-3xl sm:text-4xl font-black text-neutral-950 uppercase tracking-tight justify-center"
+                  className="text-2xl sm:text-4xl font-black text-neutral-950 uppercase tracking-tight justify-center"
                   delay={0.1}
                 />
               </div>
               <p className="text-xs sm:text-sm text-neutral-500 mt-2">
                 Last updated: February 2025 • Tecno Mart Technologies Pvt Ltd
               </p>
-              <div className="w-12 h-1 bg-amber-500 mx-auto mt-3 rounded-full" />
+              <div className="w-12 h-1 bg-amber-500 mx-auto mt-2.5 sm:mt-3 rounded-full" />
             </div>
 
-            <div className="prose prose-neutral max-w-none text-xs sm:text-sm text-neutral-700 leading-relaxed space-y-6">
+            <div className="prose prose-neutral max-w-none text-xs sm:text-sm text-neutral-700 leading-relaxed space-y-5 sm:space-y-6 bg-neutral-50/60 p-5 sm:p-8 rounded-3xl border border-neutral-200">
               <section className="space-y-2">
                 <h2 className="text-base sm:text-lg font-black text-neutral-950 uppercase">1. Information We Collect</h2>
                 <p>
@@ -78,6 +79,7 @@ export default function PrivacyPolicyPage() {
         </main>
 
         <Footer />
+        <MobileBottomBar onOpenRepairModal={() => setIsRepairOpen(true)} cartCount={0} />
         <RepairModal isOpen={isRepairOpen} onClose={() => setIsRepairOpen(false)} />
       </div>
     </SmoothScrollProvider>

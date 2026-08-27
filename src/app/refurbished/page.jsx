@@ -6,9 +6,9 @@ import Footer from '@/components/redesign/Footer';
 import RepairModal from '@/components/redesign/RepairModal';
 import SmoothScrollProvider from '@/components/redesign/SmoothScrollProvider';
 import ScrollProgress from '@/components/redesign/ScrollProgress';
+import MobileBottomBar from '@/components/redesign/MobileBottomBar';
 import { BlurRevealText, BlurRevealBox } from '@/components/redesign/BlurReveal';
-import { CheckCircle2, ShieldCheck, BatteryCharging, Sparkles, ShoppingBag, Check } from 'lucide-react';
-import { RefurbishedArrowsIcon } from '@/components/redesign/Icons';
+import { CheckCircle2, ShieldCheck, Sparkles, ShoppingBag, Check } from 'lucide-react';
 
 const REFURBISHED_ITEMS = [
   {
@@ -98,58 +98,58 @@ export default function RefurbishedPage() {
 
   return (
     <SmoothScrollProvider>
-      <div className="min-h-screen flex flex-col bg-white text-neutral-900 font-sans selection:bg-amber-500 selection:text-neutral-950">
+      <div className="min-h-screen flex flex-col bg-white text-neutral-900 font-sans selection:bg-amber-500 selection:text-neutral-950 pb-16 lg:pb-0">
         <ScrollProgress />
         <Header onOpenRepairModal={() => setIsRepairOpen(true)} cartCount={cartCount} />
 
-        <main className="flex-1 py-10 sm:py-16">
-          <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
+        <main className="flex-1 py-8 sm:py-16">
+          <div className="max-w-[1380px] mx-auto px-3.5 sm:px-6 lg:px-8">
             
             {/* Header */}
-            <div className="mb-10 text-center max-w-3xl mx-auto">
+            <div className="mb-8 sm:mb-10 text-center max-w-3xl mx-auto">
               <span className="text-xs sm:text-sm font-extrabold tracking-widest text-amber-500 uppercase">
-                CERTIFIED PRE-OWNED & OPEN-BOX TECH
+                CERTIFIED PRE-OWNED &amp; OPEN-BOX TECH
               </span>
               <div className="mt-1">
                 <BlurRevealText
                   text="SMART TECH. SMARTER SAVINGS."
-                  className="text-3xl sm:text-4xl lg:text-5xl font-black text-neutral-950 uppercase tracking-tight justify-center"
+                  className="text-2xl sm:text-4xl lg:text-5xl font-black text-neutral-950 uppercase tracking-tight justify-center"
                   delay={0.1}
                 />
               </div>
-              <p className="text-sm sm:text-base text-neutral-600 mt-2">
+              <p className="text-xs sm:text-base text-neutral-600 mt-2">
                 Up to 60% off original retail prices. 40+ point quality certified, 100% genuine parts, with 1-Year TecnoMart Warranty.
               </p>
-              <div className="w-12 h-1 bg-amber-500 mx-auto mt-3 rounded-full" />
+              <div className="w-12 h-1 bg-amber-500 mx-auto mt-2.5 sm:mt-3 rounded-full" />
             </div>
 
             {/* Quality Standard Bar */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12 p-5 bg-gradient-to-r from-amber-500/10 via-amber-400/5 to-amber-500/10 rounded-2xl border border-amber-300/60 text-xs font-bold text-neutral-800 text-center">
-              <div className="flex items-center justify-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-amber-600" />
-                <span>40-Point Hardware & Battery Diagnostic Check</span>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-4 mb-8 sm:mb-12 p-4 sm:p-5 bg-gradient-to-r from-amber-500/10 via-amber-400/5 to-amber-500/10 rounded-2xl border border-amber-300/60 text-xs font-bold text-neutral-800">
+              <div className="flex items-center justify-start sm:justify-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-amber-600 flex-shrink-0" />
+                <span>40-Point Hardware &amp; Battery Diagnostic Check</span>
               </div>
-              <div className="flex items-center justify-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-amber-600" />
+              <div className="flex items-center justify-start sm:justify-center gap-2">
+                <ShieldCheck className="w-4 h-4 text-amber-600 flex-shrink-0" />
                 <span>1-Year Comprehensive Warranty Included</span>
               </div>
-              <div className="flex items-center justify-center gap-2">
-                <Sparkles className="w-4 h-4 text-amber-600" />
+              <div className="flex items-center justify-start sm:justify-center gap-2">
+                <Sparkles className="w-4 h-4 text-amber-600 flex-shrink-0" />
                 <span>7-Day Replacement Guarantee</span>
               </div>
             </div>
 
             {/* Product Cards Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8">
               {REFURBISHED_ITEMS.map((item, idx) => {
                 const isAdded = !!addedItems[item.id];
 
                 return (
-                  <BlurRevealBox key={item.id} delay={idx * 0.08} yOffset={25}>
-                    <div className="group h-full bg-white rounded-3xl p-6 border border-neutral-200 hover:border-amber-400 shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col justify-between hover:-translate-y-1.5">
+                  <BlurRevealBox key={item.id} delay={idx * 0.06} yOffset={20}>
+                    <div className="group h-full bg-white rounded-3xl p-5 sm:p-6 border border-neutral-200 hover:border-amber-400 shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col justify-between">
                       <div>
                         {/* Grade Badge */}
-                        <div className="flex items-center justify-between mb-4">
+                        <div className="flex items-center justify-between mb-3">
                           <span className="px-2.5 py-0.5 rounded text-[10px] font-black uppercase tracking-wider bg-emerald-100 text-emerald-800">
                             {item.grade}
                           </span>
@@ -159,7 +159,7 @@ export default function RefurbishedPage() {
                         </div>
 
                         {/* Image */}
-                        <div className="w-full aspect-[4/3] bg-neutral-50 rounded-2xl flex items-center justify-center p-4 mb-5 overflow-hidden group-hover:bg-amber-50/30 transition-colors">
+                        <div className="w-full aspect-[4/3] bg-neutral-50 rounded-2xl flex items-center justify-center p-3 mb-4 overflow-hidden group-hover:bg-amber-50/30 transition-colors">
                           <img
                             src={item.image}
                             alt={item.name}
@@ -167,7 +167,7 @@ export default function RefurbishedPage() {
                           />
                         </div>
 
-                        <h3 className="text-lg font-black text-neutral-950 group-hover:text-amber-600 transition-colors leading-snug mb-1">
+                        <h3 className="text-base sm:text-lg font-black text-neutral-950 group-hover:text-amber-600 transition-colors leading-snug mb-1">
                           {item.name}
                         </h3>
                         <p className="text-xs text-neutral-500 font-medium mb-3">
@@ -181,9 +181,9 @@ export default function RefurbishedPage() {
                       </div>
 
                       {/* Pricing & Buttons */}
-                      <div className="pt-4 border-t border-neutral-100">
+                      <div className="pt-3.5 border-t border-neutral-100">
                         <div className="flex items-baseline gap-2 mb-3">
-                          <span className="text-xl font-black text-neutral-950">
+                          <span className="text-lg sm:text-xl font-black text-neutral-950">
                             {item.price}
                           </span>
                           <span className="text-xs text-neutral-400 line-through">
@@ -194,7 +194,7 @@ export default function RefurbishedPage() {
                         <div className="grid grid-cols-2 gap-2">
                           <button
                             onClick={() => handleAddToCart(item)}
-                            className={`h-11 rounded-xl flex items-center justify-center gap-1.5 text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
+                            className={`min-h-[44px] rounded-xl flex items-center justify-center gap-1.5 text-xs font-bold uppercase tracking-wider transition-all active:scale-95 cursor-pointer ${
                               isAdded
                                 ? 'bg-emerald-500 text-white'
                                 : 'bg-neutral-100 hover:bg-neutral-200 text-neutral-900 border border-neutral-300'
@@ -206,7 +206,7 @@ export default function RefurbishedPage() {
 
                           <button
                             onClick={() => handleWhatsAppEnquiry(item)}
-                            className="h-11 rounded-xl bg-amber-500 hover:bg-amber-600 text-neutral-950 flex items-center justify-center text-xs font-black uppercase tracking-wider shadow-sm transition-all cursor-pointer"
+                            className="min-h-[44px] rounded-xl bg-amber-500 hover:bg-amber-600 text-neutral-950 flex items-center justify-center text-xs font-black uppercase tracking-wider shadow-sm transition-all active:scale-95 cursor-pointer"
                           >
                             <span>Inspect on WA</span>
                           </button>
@@ -223,6 +223,7 @@ export default function RefurbishedPage() {
         </main>
 
         <Footer />
+        <MobileBottomBar onOpenRepairModal={() => setIsRepairOpen(true)} cartCount={cartCount} />
         <RepairModal isOpen={isRepairOpen} onClose={() => setIsRepairOpen(false)} />
       </div>
     </SmoothScrollProvider>
